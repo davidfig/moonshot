@@ -2,10 +2,20 @@
   "name": "moonshot",
   "version": "0.1.0",
   "description": "Game Off 2020 - Shoot the Moon (like literally)",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "esbuild code/default.js --bundle --outfile=www/index.js"
   },
   "author": "David Figatner",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "pixi.js": "^5.3.3",
+    "yy-fps": "^1.1.0",
+    "yy-random": "^1.9.1"
+  },
+  "devDependencies": {
+    "chokidar": "^3.4.3",
+    "esbuild": "^0.8.2",
+    "express": "^4.17.1",
+    "intersects": "^2.7.2"
+  }
 }
