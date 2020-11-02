@@ -1,9 +1,15 @@
 # Shoot the Moon (like literally)
 
-## Description
-An open-source game prepared for [Github's Game Off 2020](https://itch.io/jam/game-off-2020).
+## Game Jam
+An open-source game coded for [Github's Game Off 2020](https://itch.io/jam/game-off-2020).
 
-## Install instructions
+## How to Play
+Destroy a moon by shooting a laser at the moon in the fewest possible shots. The laser destroys all neighboring blocks of the same color, and the moon's gravity collapses the remaining blocks toward the center. You have a limited number of shots for each moon.
+
+## Play Development Build
+https://yopeyopey.com/prototypes/moonshot/
+
+## Install Instructions
 1. `git clone git@github.com:davidfig/moonshot.git`
 2. `cd moonshot`
 3. `npm install`
