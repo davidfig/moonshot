@@ -1,0 +1,11 @@
+{
+  "name": "moonshot",
+  "version": "0.1.0",
+  "description": "Game Off 2020 - Shoot the Moon (like literally)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Figatner",
+  "license": "MIT"
+}
