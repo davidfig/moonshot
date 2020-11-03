@@ -12,6 +12,7 @@ class View {
         })
         this.stage = new PIXI.Container()
         this.resize()
+        window.addEventListener('contextmenu', e => e.preventDefault())
     }
 
     get width() {

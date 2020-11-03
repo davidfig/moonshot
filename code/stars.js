@@ -10,13 +10,18 @@ class Stars extends PIXI.Container {
     draw() {
         for (let i = 0; i < count; i++) {
             const star = this.addChild(new PIXI.Sprite(PIXI.Texture.WHITE))
-            const x = random.range(1, view.width) - 0.5
-            const y = random.range(1, view.height) - 0.5
-            star.position.set(x, y)
+            star.location = [random.get(1, true), random.get(1, true)]
+            star.position.set(star.location[0] * view.width, star.location[1] * view.height)
             star.width = star.height = 1
             star.alpha = star.alphaSave = random.range(0.2, 0.75, true)
             star.twinkle = random.range(0.01, 0.02)
             star.direction = random.sign()
+        }
+    }
+
+    resize() {
+        for (const star of this.children) {
+            star.position.set(star.location[0] * view.width, star.location[1] * view.height)
         }
     }
 

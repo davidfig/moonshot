@@ -1,0 +1,1 @@
+export const intro = 'The evil scientist Professor Moon-ate-my-mom has hired you to destroy the moons. You have a limited budget'

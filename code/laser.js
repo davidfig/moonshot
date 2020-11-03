@@ -4,13 +4,14 @@ import random from 'yy-random'
 import { view } from './view'
 import { moon } from './moon'
 
-const fireTime = 150
-const fadeTime = 300
+const fireTime = 200
+const fadeTime = 200
 
 class Laser extends PIXI.Container {
     constructor() {
         super()
         this.state = ''
+        this.firing = []
         this.angleOfLine = Infinity
     }
 
@@ -57,6 +58,26 @@ class Laser extends PIXI.Container {
         }
     }
 
+    fireNext() {
+        if (this.firing.length) {
+            const center = view.size / 2
+            this.target = moon.closestOnLine(
+                center + Math.cos(this.angleOfLine) * view.max,
+                center + Math.sin(this.angleOfLine) * view.max,
+                center, center,
+            )
+            if (!this.target) {
+                this.state = ''
+            } else {
+                this.state = 'fire'
+                this.time = Date.now()
+                this.aim = [this.target.x, this.target.y]
+                this.angleOfLine = this.firing.shift()
+                moon.target(this.target)
+            }
+        }
+    }
+
     update() {
         if (this.state === 'fire') {
             if (Date.now() >= this.time + fireTime) {
@@ -67,6 +88,7 @@ class Laser extends PIXI.Container {
             if (Date.now() >= this.time + fadeTime) {
                 this.state = ''
                 this.removeChildren()
+                this.fireNext()
             }
         }
         if (this.state !== '' && this.angleOfLine !== this.last) {
@@ -78,8 +100,12 @@ class Laser extends PIXI.Container {
                     center + Math.sin(this.angleOfLine) * view.max,
                     center, center,
                 )
-                this.target = p2
-                this.aim = [p2.x, p2.y]
+                if (!p2) {
+                    this.state = ''
+                } else {
+                    this.target = p2
+                    this.aim = [p2.x, p2.y]
+                }
             }
             let tint, alpha
             if (this.state === 'aim') {
@@ -102,8 +128,13 @@ class Laser extends PIXI.Container {
     }
 
     down(point) {
-        this.state = 'aim'
-        this.angleOfLine = Math.atan2(point.y - window.innerHeight / 2, point.x - window.innerWidth / 2)
+        const angle = Math.atan2(point.y - window.innerHeight / 2, point.x - window.innerWidth / 2)
+        if (this.state === '') {
+            this.state = 'aim'
+            this.angleOfLine = angle
+        } else {
+            // this.firing.push(angle)
+        }
     }
 
     move(point) {

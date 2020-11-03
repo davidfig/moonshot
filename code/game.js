@@ -1,5 +1,6 @@
 import * as PIXI from 'pixi.js'
 import FPS from 'yy-fps'
+import random from 'yy-random'
 
 import { file } from './file'
 import { view } from './view'
@@ -17,9 +18,10 @@ class Game {
         await sheet.init()
         view.init()
         this.prepareLevels()
-        this.create()
+        this.create(0)
         this.update()
         input.init()
+        window.addEventListener('resize', () => this.resize())
     }
 
     pause() {
@@ -46,9 +48,16 @@ class Game {
         }
     }
 
-    create() {
-        moon.draw()
+    resize() {
+        view.resize()
+        stars.resize()
+        moon.resize()
+    }
+
+    create(i) {
+        random.seedOld(this.levels[i].seed)
         stars.draw()
+        moon.draw()
         this.level = new PIXI.Container()
         this.level.addChild(stars)
         this.level.addChild(moon)

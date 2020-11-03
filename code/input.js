@@ -35,6 +35,7 @@ class Input {
     down(e) {
         const point = this.translateEvent(e)
         laser.down(point)
+        e.preventDefault()
     }
 
     move(e) {
