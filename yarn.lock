@@ -789,6 +789,11 @@
   "resolved" "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.2.tgz"
   "version" "1.0.2"
 
+"cuid@^2.1.8":
+  "integrity" "sha512-xiEMER6E7TlTPnDxrM4eRiC6TRgjNX9xzEZ5U/Se2YJKr7Mq4pJn/2XEHjl3STcSh96GmkHPcBXLES8M29wyyg=="
+  "resolved" "https://registry.npmjs.org/cuid/-/cuid-2.1.8.tgz"
+  "version" "2.1.8"
+
 "debug@^2.2.0", "debug@^2.3.3", "debug@^2.6.8", "debug@^2.6.9", "debug@2.6.9":
   "integrity" "sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA=="
   "resolved" "https://registry.npmjs.org/debug/-/debug-2.6.9.tgz"
@@ -894,6 +899,11 @@
   "integrity" "sha512-tvtQIeLVHjDkJYnzf2dgVMxfuSGJeM/7UCG17TT4EumTfNtF+0nebF/4zWOIkCreAbtNqhGEboB6BWrwqNaw4Q=="
   "resolved" "https://registry.npmjs.org/eventemitter3/-/eventemitter3-3.1.2.tgz"
   "version" "3.1.2"
+
+"eventemitter3@^4.0.0":
+  "integrity" "sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw=="
+  "resolved" "https://registry.npmjs.org/eventemitter3/-/eventemitter3-4.0.7.tgz"
+  "version" "4.0.7"
 
 "expand-brackets@^0.1.4":
   "integrity" "sha1-3wcoTjQqgHzXM6xa9yQR5YHRF3s="
@@ -1226,6 +1236,11 @@
   dependencies:
     "safer-buffer" ">= 2.1.2 < 3"
 
+"immediate@~3.0.5":
+  "integrity" "sha1-nbHb0Pr43m++D13V5Wu2BigN5ps="
+  "resolved" "https://registry.npmjs.org/immediate/-/immediate-3.0.6.tgz"
+  "version" "3.0.6"
+
 "inflight@^1.0.4":
   "integrity" "sha1-Sb1jMdfQLQwJvJEKEHW6gWW1bfk="
   "resolved" "https://registry.npmjs.org/inflight/-/inflight-1.0.6.tgz"
@@ -1495,6 +1510,20 @@
   "integrity" "sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw=="
   "resolved" "https://registry.npmjs.org/kind-of/-/kind-of-6.0.3.tgz"
   "version" "6.0.3"
+
+"lie@3.1.1":
+  "integrity" "sha1-mkNrLMd0bKWd56QfpGmz77dr2H4="
+  "resolved" "https://registry.npmjs.org/lie/-/lie-3.1.1.tgz"
+  "version" "3.1.1"
+  dependencies:
+    "immediate" "~3.0.5"
+
+"localforage@^1.9.0":
+  "integrity" "sha512-rR1oyNrKulpe+VM9cYmcFn6tsHuokyVHFaCM3+osEmxaHTbEk8oQu6eGDfS6DQLWi/N67XRmB8ECG37OES368g=="
+  "resolved" "https://registry.npmjs.org/localforage/-/localforage-1.9.0.tgz"
+  "version" "1.9.0"
+  dependencies:
+    "lie" "3.1.1"
 
 "lodash@^4.17.4":
   "integrity" "sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA=="
@@ -1800,7 +1829,7 @@
   "resolved" "https://registry.npmjs.org/picomatch/-/picomatch-2.2.2.tgz"
   "version" "2.2.2"
 
-"pixi.js@^5.3.3":
+"pixi.js@^5.3.3", "pixi.js@>=4.6.0", "pixi.js@>=4.8.7":
   "integrity" "sha512-uFQOXXyPMAVVayDebSFBS1AFfPT6QYNuz9Vu11yI2/k1DAef/rbYoJpSMM6SeB6dezDJPtIAaXXNxdaYzbe+kg=="
   "resolved" "https://registry.npmjs.org/pixi.js/-/pixi.js-5.3.3.tgz"
   "version" "5.3.3"
@@ -2312,6 +2341,13 @@
   "resolved" "https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz"
   "version" "1.0.2"
 
+"yy-color@^1.1.1":
+  "integrity" "sha512-xAnFzZ3IPOsoQwKfhEhsq7tfhpNXrXrjeUtoStdwBKgfKdhoJatqLNBvybPYt270pX3LqSdAr1x/M07hxjIHEw=="
+  "resolved" "https://registry.npmjs.org/yy-color/-/yy-color-1.1.2.tgz"
+  "version" "1.1.2"
+  dependencies:
+    "yy-random" "^1.0.1"
+
 "yy-counter@^2.1.0":
   "integrity" "sha1-bAI8Wl9IqWLPNPI0y7JvZNi9LC4="
   "resolved" "https://registry.npmjs.org/yy-counter/-/yy-counter-2.1.0.tgz"
@@ -2325,7 +2361,15 @@
     "tinycolor2" "^1.4.1"
     "yy-counter" "^2.1.0"
 
-"yy-random@^1.9.1":
+"yy-pixel@^2.5.0":
+  "integrity" "sha512-HwmkaoMn+YfWu9/9Y4FQ0hgIbSSm7KeWxJt8w5V8MpHZFqjRTw0kQQ7dQPIcvWPiQfkKctWFp9YIxZIhIFhluQ=="
+  "resolved" "https://registry.npmjs.org/yy-pixel/-/yy-pixel-2.5.0.tgz"
+  "version" "2.5.0"
+  dependencies:
+    "yy-color" "^1.1.1"
+    "yy-random" "^1.7.2"
+
+"yy-random@^1.0.1", "yy-random@^1.7.2", "yy-random@^1.9.1":
   "integrity" "sha512-uzz3Z+cxgy4aCq+09ebU04I4yJauydW2pAU8QUcfKSobQqephFx7YplDzkzwBUA0tGDbba4/k96cTuCHt64Amw=="
   "resolved" "https://registry.npmjs.org/yy-random/-/yy-random-1.9.1.tgz"
   "version" "1.9.1"
@@ -2334,3 +2378,10 @@
     "global" "^4.4.0"
     "markdown-api" "^1.1.3"
     "seedrandom" "^3.0.1"
+
+"yy-rendersheet@^5.0.5":
+  "integrity" "sha512-jBRbo1yJ7OKpf7NDt8+od5kv4ZmlWR8LtB+1R9/M+dVCXrHV7TZqhXMlw72CPHfXXtL/lw5LVoEpjJNav4ceUg=="
+  "resolved" "https://registry.npmjs.org/yy-rendersheet/-/yy-rendersheet-5.0.5.tgz"
+  "version" "5.0.5"
+  dependencies:
+    "eventemitter3" "^4.0.0"

@@ -1,7 +1,9 @@
 import * as PIXI from 'pixi.js'
 import FPS from 'yy-fps'
 
+import { file } from './file'
 import { view } from './view'
+import { sheet } from './sheet'
 import { input } from './input'
 import { moon } from './moon'
 import { laser } from './laser'
@@ -9,13 +11,30 @@ import { stars } from './stars'
 import { levels } from './levels'
 
 class Game {
-    start() {
+    async start() {
+        await file.init()
         this.fps = new FPS()
+        await sheet.init()
         view.init()
         this.prepareLevels()
         this.create()
         this.update()
         input.init()
+    }
+
+    pause() {
+        if (this.raf) {
+            this.paused = true
+            cancelAnimationFrame(this.raf)
+            this.raf = null
+        }
+    }
+
+    resume() {
+        this.paused = false
+        if (!this.raf) {
+            this.update()
+        }
     }
 
     prepareLevels() {
@@ -38,12 +57,14 @@ class Game {
     }
 
     update() {
-        stars.update()
-        moon.update()
-        laser.update()
-        view.update()
-        this.fps.frame()
-        requestAnimationFrame(() => this.update())
+        if (!this.paused) {
+            stars.update()
+            moon.update()
+            laser.update()
+            view.update()
+            this.fps.frame()
+            this.raf = requestAnimationFrame(() => this.update())
+        }
     }
 }
 

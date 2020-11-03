@@ -98,19 +98,14 @@ class Moon extends PIXI.Container {
     }
 
     hasBlock(x, y) {
+        for (const move of this.moving) {
+            if (move.x === x && move.y === y) {
+                return true
+            }
+        }
         for (const child of this.moon.children) {
             if (child.coordinate.x === x && child.coordinate.y === y) {
-                let conflict = false
-                for (const move of this.moving) {
-                    if (move.x === child.coordinate.x && move.y === child.coordinate.y) {
-                        conflict = true
-                        console.log('conflict!!!')
-                        break
-                    }
-                }
-                if (!conflict) {
-                    return true
-                }
+                return true
             }
         }
     }

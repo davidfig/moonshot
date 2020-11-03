@@ -9,9 +9,13 @@
   "author": "David Figatner",
   "license": "MIT",
   "dependencies": {
+    "cuid": "^2.1.8",
+    "localforage": "^1.9.0",
     "pixi.js": "^5.3.3",
     "yy-fps": "^1.1.0",
-    "yy-random": "^1.9.1"
+    "yy-pixel": "^2.5.0",
+    "yy-random": "^1.9.1",
+    "yy-rendersheet": "^5.0.5"
   },
   "devDependencies": {
     "chokidar": "^3.4.3",
