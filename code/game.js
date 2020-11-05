@@ -18,7 +18,7 @@ class Game {
         await sheet.init()
         view.init()
         this.prepareLevels()
-        this.create(0)
+        this.create(30)
         this.update()
         input.init()
         window.addEventListener('resize', () => this.resize())
@@ -52,12 +52,15 @@ class Game {
         view.resize()
         stars.resize()
         moon.resize()
+        if (this.paused) {
+            view.update()
+        }
     }
 
     create(i) {
         random.seedOld(this.levels[i].seed)
         stars.draw()
-        moon.draw()
+        moon.draw(this.levels[i])
         this.level = new PIXI.Container()
         this.level.addChild(stars)
         this.level.addChild(moon)

@@ -3,14 +3,15 @@
   "version": "0.1.0",
   "description": "Game Off 2020 - Shoot the Moon (like literally)",
   "scripts": {
-    "test": "esbuild code/default.js --bundle --outfile=www/index.js",
-    "upload": "wsl.exe rsync -rvW --delete -e ssh www/* yopey@206.189.75.22:/home/yopey/prototypes/moonshot"
+    "run": "node generate",
+    "deploy": "wsl.exe rsync -rvW --delete -e ssh www/* yopey@206.189.75.22:/home/yopey/prototypes/moonshot"
   },
   "author": "David Figatner",
   "license": "MIT",
   "dependencies": {
     "cuid": "^2.1.8",
     "localforage": "^1.9.0",
+    "pixi-ease": "^3.0.6",
     "pixi.js": "^5.3.3",
     "yy-fps": "^1.1.0",
     "yy-pixel": "^2.5.0",

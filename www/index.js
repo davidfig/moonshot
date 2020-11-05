@@ -2258,7 +2258,7 @@
       return ex && typeof ex === "object" && "default" in ex ? ex["default"] : ex;
     }
     var settings2 = require_settings();
-    var eventemitter3 = _interopDefault(require_eventemitter3());
+    var eventemitter32 = _interopDefault(require_eventemitter3());
     var earcut = _interopDefault(require_earcut());
     var _url = require_url();
     var _url__default = _interopDefault(_url);
@@ -2713,7 +2713,7 @@
         return settings2.isMobile;
       }
     });
-    exports.EventEmitter = eventemitter3;
+    exports.EventEmitter = eventemitter32;
     exports.earcut = earcut;
     exports.url = _url__default;
     exports.BaseTextureCache = BaseTextureCache;
@@ -2908,19 +2908,19 @@
       return Rectangle2;
     }();
     var Circle = function() {
-      function Circle2(x, y, radius2) {
+      function Circle2(x, y, radius) {
         if (x === void 0) {
           x = 0;
         }
         if (y === void 0) {
           y = 0;
         }
-        if (radius2 === void 0) {
-          radius2 = 0;
+        if (radius === void 0) {
+          radius = 0;
         }
         this.x = x;
         this.y = y;
-        this.radius = radius2;
+        this.radius = radius;
         this.type = exports.SHAPES.CIRC;
       }
       Circle2.prototype.clone = function() {
@@ -3023,7 +3023,7 @@
       return Polygon2;
     }();
     var RoundedRectangle = function() {
-      function RoundedRectangle2(x, y, width, height, radius2) {
+      function RoundedRectangle2(x, y, width, height, radius) {
         if (x === void 0) {
           x = 0;
         }
@@ -3036,14 +3036,14 @@
         if (height === void 0) {
           height = 0;
         }
-        if (radius2 === void 0) {
-          radius2 = 20;
+        if (radius === void 0) {
+          radius = 20;
         }
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
-        this.radius = radius2;
+        this.radius = radius;
         this.type = exports.SHAPES.RREC;
       }
       RoundedRectangle2.prototype.clone = function() {
@@ -14495,15 +14495,15 @@
         var y = rrectData.y;
         var width = rrectData.width;
         var height = rrectData.height;
-        var radius2 = Math.max(0, Math.min(rrectData.radius, Math.min(width, height) / 2));
+        var radius = Math.max(0, Math.min(rrectData.radius, Math.min(width, height) / 2));
         points.length = 0;
-        if (!radius2) {
+        if (!radius) {
           points.push(x, y, x + width, y, x + width, y + height, x, y + height);
         } else {
-          quadraticBezierCurve(x, y + radius2, x, y, x + radius2, y, points);
-          quadraticBezierCurve(x + width - radius2, y, x + width, y, x + width, y + radius2, points);
-          quadraticBezierCurve(x + width, y + height - radius2, x + width, y + height, x + width - radius2, y + height, points);
-          quadraticBezierCurve(x + radius2, y + height, x, y + height, x, y + height - radius2, points);
+          quadraticBezierCurve(x, y + radius, x, y, x + radius, y, points);
+          quadraticBezierCurve(x + width - radius, y, x + width, y, x + width, y + radius, points);
+          quadraticBezierCurve(x + width, y + height - radius, x + width, y + height, x + width - radius, y + height, points);
+          quadraticBezierCurve(x + radius, y + height, x, y + height, x, y + height - radius, points);
         }
       },
       triangulate: function(graphicsData, graphicsGeometry) {
@@ -14557,8 +14557,8 @@
       var startAngle = angle0;
       var angleDiff = angle1 - angle0;
       var absAngleDiff = Math.abs(angleDiff);
-      var radius2 = Math.sqrt(cx2p0x * cx2p0x + cy2p0y * cy2p0y);
-      var segCount = (15 * absAngleDiff * Math.sqrt(radius2) / Math.PI >> 0) + 1;
+      var radius = Math.sqrt(cx2p0x * cx2p0x + cy2p0y * cy2p0y);
+      var segCount = (15 * absAngleDiff * Math.sqrt(radius) / Math.PI >> 0) + 1;
       var angleInc = angleDiff / segCount;
       startAngle += angleInc;
       if (clockwise) {
@@ -14566,7 +14566,7 @@
         verts.push(sx, sy);
         for (var i = 1, angle = startAngle; i < segCount; i++, angle += angleInc) {
           verts.push(cx, cy);
-          verts.push(cx + Math.sin(angle) * radius2, cy + Math.cos(angle) * radius2);
+          verts.push(cx + Math.sin(angle) * radius, cy + Math.cos(angle) * radius);
         }
         verts.push(cx, cy);
         verts.push(ex, ey);
@@ -14574,7 +14574,7 @@
         verts.push(sx, sy);
         verts.push(cx, cy);
         for (var i = 1, angle = startAngle; i < segCount; i++, angle += angleInc) {
-          verts.push(cx + Math.sin(angle) * radius2, cy + Math.cos(angle) * radius2);
+          verts.push(cx + Math.sin(angle) * radius, cy + Math.cos(angle) * radius);
           verts.push(cx, cy);
         }
         verts.push(ex, ey);
@@ -14780,18 +14780,18 @@
     }
     var Star = function(_super) {
       __extends(Star2, _super);
-      function Star2(x, y, points, radius2, innerRadius, rotation) {
+      function Star2(x, y, points, radius, innerRadius, rotation) {
         if (rotation === void 0) {
           rotation = 0;
         }
         var _this = this;
-        innerRadius = innerRadius || radius2 / 2;
+        innerRadius = innerRadius || radius / 2;
         var startAngle = -1 * Math.PI / 2 + rotation;
         var len = points * 2;
         var delta = math.PI_2 / len;
         var polygon = [];
         for (var i = 0; i < len; i++) {
-          var r = i % 2 ? innerRadius : radius2;
+          var r = i % 2 ? innerRadius : radius;
           var angle = i * delta + startAngle;
           polygon.push(x + r * Math.cos(angle), y + r * Math.sin(angle));
         }
@@ -14803,7 +14803,7 @@
     var ArcUtils = function() {
       function ArcUtils2() {
       }
-      ArcUtils2.curveTo = function(x1, y1, x2, y2, radius2, points) {
+      ArcUtils2.curveTo = function(x1, y1, x2, y2, radius, points) {
         var fromX = points[points.length - 2];
         var fromY = points[points.length - 1];
         var a1 = fromY - y1;
@@ -14811,7 +14811,7 @@
         var a2 = y2 - y1;
         var b2 = x2 - x1;
         var mm = Math.abs(a1 * b2 - b1 * a2);
-        if (mm < 1e-8 || radius2 === 0) {
+        if (mm < 1e-8 || radius === 0) {
           if (points[points.length - 2] !== x1 || points[points.length - 1] !== y1) {
             points.push(x1, y1);
           }
@@ -14820,8 +14820,8 @@
         var dd = a1 * a1 + b1 * b1;
         var cc = a2 * a2 + b2 * b2;
         var tt = a1 * a2 + b1 * b2;
-        var k1 = radius2 * Math.sqrt(dd) / mm;
-        var k2 = radius2 * Math.sqrt(cc) / mm;
+        var k1 = radius * Math.sqrt(dd) / mm;
+        var k2 = radius * Math.sqrt(cc) / mm;
         var j1 = k1 * tt / dd;
         var j2 = k2 * tt / cc;
         var cx = k1 * b2 + k2 * b1;
@@ -14835,15 +14835,15 @@
         return {
           cx: cx + x1,
           cy: cy + y1,
-          radius: radius2,
+          radius,
           startAngle,
           endAngle,
           anticlockwise: b1 * a2 > b2 * a1
         };
       };
-      ArcUtils2.arc = function(_startX, _startY, cx, cy, radius2, startAngle, endAngle, _anticlockwise, points) {
+      ArcUtils2.arc = function(_startX, _startY, cx, cy, radius, startAngle, endAngle, _anticlockwise, points) {
         var sweep = endAngle - startAngle;
-        var n = GRAPHICS_CURVES._segmentsCount(Math.abs(sweep) * radius2, Math.ceil(Math.abs(sweep) / math.PI_2) * 40);
+        var n = GRAPHICS_CURVES._segmentsCount(Math.abs(sweep) * radius, Math.ceil(Math.abs(sweep) / math.PI_2) * 40);
         var theta = sweep / (n * 2);
         var theta2 = theta * 2;
         var cTheta = Math.cos(theta);
@@ -14855,7 +14855,7 @@
           var angle = theta + startAngle + theta2 * real;
           var c = Math.cos(angle);
           var s = -Math.sin(angle);
-          points.push((cTheta * c + sTheta * s) * radius2 + cx, (cTheta * -s + sTheta * c) * radius2 + cy);
+          points.push((cTheta * c + sTheta * s) * radius + cx, (cTheta * -s + sTheta * c) * radius + cy);
         }
       };
       return ArcUtils2;
@@ -15324,7 +15324,7 @@
           DRAW_CALL_POOL.push(this.drawCalls[i]);
         }
         this.drawCalls.length = 0;
-        var colors2 = this.colors;
+        var colors = this.colors;
         var textureIds = this.textureIds;
         var currentGroup = DRAW_CALL_POOL.pop();
         if (!currentGroup) {
@@ -15384,7 +15384,7 @@
           currentGroup.size += data.size;
           index2 += data.size;
           textureId = nextTexture._batchLocation;
-          this.addColors(colors2, style.color, style.alpha, data.attribSize);
+          this.addColors(colors, style.color, style.alpha, data.attribSize);
           this.addTextureIds(textureIds, textureId, data.attribSize);
         }
         core.BaseTexture._globalBatch = TICK;
@@ -15393,7 +15393,7 @@
       GraphicsGeometry2.prototype.packAttributes = function() {
         var verts = this.points;
         var uvs = this.uvs;
-        var colors2 = this.colors;
+        var colors = this.colors;
         var textureIds = this.textureIds;
         var glPoints = new ArrayBuffer(verts.length * 3 * 4);
         var f32 = new Float32Array(glPoints);
@@ -15404,7 +15404,7 @@
           f32[p++] = verts[i * 2 + 1];
           f32[p++] = uvs[i * 2];
           f32[p++] = uvs[i * 2 + 1];
-          u32[p++] = colors2[i];
+          u32[p++] = colors[i];
           f32[p++] = textureIds[i];
         }
         this._buffer.update(glPoints);
@@ -15491,11 +15491,11 @@
           points[i * 2 + 1] = matrix.b * x + matrix.d * y + matrix.ty;
         }
       };
-      GraphicsGeometry2.prototype.addColors = function(colors2, color, alpha, size2) {
+      GraphicsGeometry2.prototype.addColors = function(colors, color, alpha, size2) {
         var rgb = (color >> 16) + (color & 65280) + ((color & 255) << 16);
         var rgba = utils.premultiplyTint(rgb, alpha);
         while (size2-- > 0) {
-          colors2.push(rgba);
+          colors.push(rgba);
         }
       };
       GraphicsGeometry2.prototype.addTextureIds = function(textureIds, id, size2) {
@@ -15784,17 +15784,17 @@
         BezierUtils.curveTo(cpX, cpY, cpX2, cpY2, toX, toY, this.currentPath.points);
         return this;
       };
-      Graphics2.prototype.arcTo = function(x1, y1, x2, y2, radius2) {
+      Graphics2.prototype.arcTo = function(x1, y1, x2, y2, radius) {
         this._initCurve(x1, y1);
         var points = this.currentPath.points;
-        var result = ArcUtils.curveTo(x1, y1, x2, y2, radius2, points);
+        var result = ArcUtils.curveTo(x1, y1, x2, y2, radius, points);
         if (result) {
           var cx = result.cx, cy = result.cy, radius_1 = result.radius, startAngle = result.startAngle, endAngle = result.endAngle, anticlockwise = result.anticlockwise;
           this.arc(cx, cy, radius_1, startAngle, endAngle, anticlockwise);
         }
         return this;
       };
-      Graphics2.prototype.arc = function(cx, cy, radius2, startAngle, endAngle, anticlockwise) {
+      Graphics2.prototype.arc = function(cx, cy, radius, startAngle, endAngle, anticlockwise) {
         if (anticlockwise === void 0) {
           anticlockwise = false;
         }
@@ -15810,8 +15810,8 @@
         if (sweep === 0) {
           return this;
         }
-        var startX = cx + Math.cos(startAngle) * radius2;
-        var startY = cy + Math.sin(startAngle) * radius2;
+        var startX = cx + Math.cos(startAngle) * radius;
+        var startY = cy + Math.sin(startAngle) * radius;
         var eps = this._geometry.closePointEps;
         var points = this.currentPath ? this.currentPath.points : null;
         if (points) {
@@ -15826,7 +15826,7 @@
           this.moveTo(startX, startY);
           points = this.currentPath.points;
         }
-        ArcUtils.arc(startX, startY, cx, cy, radius2, startAngle, endAngle, anticlockwise, points);
+        ArcUtils.arc(startX, startY, cx, cy, radius, startAngle, endAngle, anticlockwise, points);
         return this;
       };
       Graphics2.prototype.beginFill = function(color, alpha) {
@@ -15876,11 +15876,11 @@
       Graphics2.prototype.drawRect = function(x, y, width, height) {
         return this.drawShape(new math.Rectangle(x, y, width, height));
       };
-      Graphics2.prototype.drawRoundedRect = function(x, y, width, height, radius2) {
-        return this.drawShape(new math.RoundedRectangle(x, y, width, height, radius2));
+      Graphics2.prototype.drawRoundedRect = function(x, y, width, height, radius) {
+        return this.drawShape(new math.RoundedRectangle(x, y, width, height, radius));
       };
-      Graphics2.prototype.drawCircle = function(x, y, radius2) {
-        return this.drawShape(new math.Circle(x, y, radius2));
+      Graphics2.prototype.drawCircle = function(x, y, radius) {
+        return this.drawShape(new math.Circle(x, y, radius));
       };
       Graphics2.prototype.drawEllipse = function(x, y, width, height) {
         return this.drawShape(new math.Ellipse(x, y, width, height));
@@ -15915,11 +15915,11 @@
         }
         return this;
       };
-      Graphics2.prototype.drawStar = function(x, y, points, radius2, innerRadius, rotation) {
+      Graphics2.prototype.drawStar = function(x, y, points, radius, innerRadius, rotation) {
         if (rotation === void 0) {
           rotation = 0;
         }
-        return this.drawPolygon(new Star(x, y, points, radius2, innerRadius, rotation));
+        return this.drawPolygon(new Star(x, y, points, radius, innerRadius, rotation));
       };
       Graphics2.prototype.clear = function() {
         this._geometry.clear();
@@ -25457,14 +25457,14 @@ void main() {
         }
       }, {
         key: "circle",
-        value: function circle(x, y, radius2, float) {
+        value: function circle(x, y, radius, float) {
           var t = this.angle();
           var u = this.get(1, true) + this.get(1, true);
           var r = u > 1 ? 2 - u : u;
           if (float) {
-            return [x + r * Math.cos(t) * radius2, y + r * Math.sin(t) * radius2];
+            return [x + r * Math.cos(t) * radius, y + r * Math.sin(t) * radius];
           } else {
-            return [Math.round(x + r * Math.cos(t) * radius2), Math.round(y + r * Math.sin(t) * radius2)];
+            return [Math.round(x + r * Math.cos(t) * radius), Math.round(y + r * Math.sin(t) * radius)];
           }
         }
       }, {
@@ -29561,8 +29561,819 @@ void main() {
   const PIXI2 = __toModule(require_pixi());
   const intersects = __toModule(require_intersects());
   const yy_random = __toModule(require_yy_random());
-  const radius = 9;
-  const colors = 3;
+
+  // node_modules/pixi-ease/dist/ease.es.js
+  var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
+  function createCommonjsModule(fn, module) {
+    return module = {exports: {}}, fn(module, module.exports), module.exports;
+  }
+  var penner = createCommonjsModule(function(module, exports) {
+    (function() {
+      var penner2, umd;
+      umd = function(factory) {
+        {
+          return module.exports = factory;
+        }
+      };
+      penner2 = {
+        linear: function(t, b, c, d) {
+          return c * t / d + b;
+        },
+        easeInQuad: function(t, b, c, d) {
+          return c * (t /= d) * t + b;
+        },
+        easeOutQuad: function(t, b, c, d) {
+          return -c * (t /= d) * (t - 2) + b;
+        },
+        easeInOutQuad: function(t, b, c, d) {
+          if ((t /= d / 2) < 1) {
+            return c / 2 * t * t + b;
+          } else {
+            return -c / 2 * (--t * (t - 2) - 1) + b;
+          }
+        },
+        easeInCubic: function(t, b, c, d) {
+          return c * (t /= d) * t * t + b;
+        },
+        easeOutCubic: function(t, b, c, d) {
+          return c * ((t = t / d - 1) * t * t + 1) + b;
+        },
+        easeInOutCubic: function(t, b, c, d) {
+          if ((t /= d / 2) < 1) {
+            return c / 2 * t * t * t + b;
+          } else {
+            return c / 2 * ((t -= 2) * t * t + 2) + b;
+          }
+        },
+        easeInQuart: function(t, b, c, d) {
+          return c * (t /= d) * t * t * t + b;
+        },
+        easeOutQuart: function(t, b, c, d) {
+          return -c * ((t = t / d - 1) * t * t * t - 1) + b;
+        },
+        easeInOutQuart: function(t, b, c, d) {
+          if ((t /= d / 2) < 1) {
+            return c / 2 * t * t * t * t + b;
+          } else {
+            return -c / 2 * ((t -= 2) * t * t * t - 2) + b;
+          }
+        },
+        easeInQuint: function(t, b, c, d) {
+          return c * (t /= d) * t * t * t * t + b;
+        },
+        easeOutQuint: function(t, b, c, d) {
+          return c * ((t = t / d - 1) * t * t * t * t + 1) + b;
+        },
+        easeInOutQuint: function(t, b, c, d) {
+          if ((t /= d / 2) < 1) {
+            return c / 2 * t * t * t * t * t + b;
+          } else {
+            return c / 2 * ((t -= 2) * t * t * t * t + 2) + b;
+          }
+        },
+        easeInSine: function(t, b, c, d) {
+          return -c * Math.cos(t / d * (Math.PI / 2)) + c + b;
+        },
+        easeOutSine: function(t, b, c, d) {
+          return c * Math.sin(t / d * (Math.PI / 2)) + b;
+        },
+        easeInOutSine: function(t, b, c, d) {
+          return -c / 2 * (Math.cos(Math.PI * t / d) - 1) + b;
+        },
+        easeInExpo: function(t, b, c, d) {
+          if (t === 0) {
+            return b;
+          } else {
+            return c * Math.pow(2, 10 * (t / d - 1)) + b;
+          }
+        },
+        easeOutExpo: function(t, b, c, d) {
+          if (t === d) {
+            return b + c;
+          } else {
+            return c * (-Math.pow(2, -10 * t / d) + 1) + b;
+          }
+        },
+        easeInOutExpo: function(t, b, c, d) {
+          if ((t /= d / 2) < 1) {
+            return c / 2 * Math.pow(2, 10 * (t - 1)) + b;
+          } else {
+            return c / 2 * (-Math.pow(2, -10 * --t) + 2) + b;
+          }
+        },
+        easeInCirc: function(t, b, c, d) {
+          return -c * (Math.sqrt(1 - (t /= d) * t) - 1) + b;
+        },
+        easeOutCirc: function(t, b, c, d) {
+          return c * Math.sqrt(1 - (t = t / d - 1) * t) + b;
+        },
+        easeInOutCirc: function(t, b, c, d) {
+          if ((t /= d / 2) < 1) {
+            return -c / 2 * (Math.sqrt(1 - t * t) - 1) + b;
+          } else {
+            return c / 2 * (Math.sqrt(1 - (t -= 2) * t) + 1) + b;
+          }
+        },
+        easeInElastic: function(t, b, c, d) {
+          var a, p, s;
+          s = 1.70158;
+          p = 0;
+          a = c;
+          if (t === 0)
+            ;
+          else if ((t /= d) === 1)
+            ;
+          if (!p) {
+            p = d * 0.3;
+          }
+          if (a < Math.abs(c)) {
+            a = c;
+            s = p / 4;
+          } else {
+            s = p / (2 * Math.PI) * Math.asin(c / a);
+          }
+          return -(a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p)) + b;
+        },
+        easeOutElastic: function(t, b, c, d) {
+          var a, p, s;
+          s = 1.70158;
+          p = 0;
+          a = c;
+          if (t === 0)
+            ;
+          else if ((t /= d) === 1)
+            ;
+          if (!p) {
+            p = d * 0.3;
+          }
+          if (a < Math.abs(c)) {
+            a = c;
+            s = p / 4;
+          } else {
+            s = p / (2 * Math.PI) * Math.asin(c / a);
+          }
+          return a * Math.pow(2, -10 * t) * Math.sin((t * d - s) * (2 * Math.PI) / p) + c + b;
+        },
+        easeInOutElastic: function(t, b, c, d) {
+          var a, p, s;
+          s = 1.70158;
+          p = 0;
+          a = c;
+          if (t === 0)
+            ;
+          else if ((t /= d / 2) === 2)
+            ;
+          if (!p) {
+            p = d * (0.3 * 1.5);
+          }
+          if (a < Math.abs(c)) {
+            a = c;
+            s = p / 4;
+          } else {
+            s = p / (2 * Math.PI) * Math.asin(c / a);
+          }
+          if (t < 1) {
+            return -0.5 * (a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p)) + b;
+          } else {
+            return a * Math.pow(2, -10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p) * 0.5 + c + b;
+          }
+        },
+        easeInBack: function(t, b, c, d, s) {
+          if (s === void 0) {
+            s = 1.70158;
+          }
+          return c * (t /= d) * t * ((s + 1) * t - s) + b;
+        },
+        easeOutBack: function(t, b, c, d, s) {
+          if (s === void 0) {
+            s = 1.70158;
+          }
+          return c * ((t = t / d - 1) * t * ((s + 1) * t + s) + 1) + b;
+        },
+        easeInOutBack: function(t, b, c, d, s) {
+          if (s === void 0) {
+            s = 1.70158;
+          }
+          if ((t /= d / 2) < 1) {
+            return c / 2 * (t * t * (((s *= 1.525) + 1) * t - s)) + b;
+          } else {
+            return c / 2 * ((t -= 2) * t * (((s *= 1.525) + 1) * t + s) + 2) + b;
+          }
+        },
+        easeInBounce: function(t, b, c, d) {
+          var v;
+          v = penner2.easeOutBounce(d - t, 0, c, d);
+          return c - v + b;
+        },
+        easeOutBounce: function(t, b, c, d) {
+          if ((t /= d) < 1 / 2.75) {
+            return c * (7.5625 * t * t) + b;
+          } else if (t < 2 / 2.75) {
+            return c * (7.5625 * (t -= 1.5 / 2.75) * t + 0.75) + b;
+          } else if (t < 2.5 / 2.75) {
+            return c * (7.5625 * (t -= 2.25 / 2.75) * t + 0.9375) + b;
+          } else {
+            return c * (7.5625 * (t -= 2.625 / 2.75) * t + 0.984375) + b;
+          }
+        },
+        easeInOutBounce: function(t, b, c, d) {
+          var v;
+          if (t < d / 2) {
+            v = penner2.easeInBounce(t * 2, 0, c, d);
+            return v * 0.5 + b;
+          } else {
+            v = penner2.easeOutBounce(t * 2 - d, 0, c, d);
+            return v * 0.5 + c * 0.5 + b;
+          }
+        }
+      };
+      umd(penner2);
+    }).call(commonjsGlobal);
+  });
+  var eventemitter3 = createCommonjsModule(function(module) {
+    var has = Object.prototype.hasOwnProperty, prefix = "~";
+    function Events() {
+    }
+    if (Object.create) {
+      Events.prototype = Object.create(null);
+      if (!new Events().__proto__)
+        prefix = false;
+    }
+    function EE(fn, context, once) {
+      this.fn = fn;
+      this.context = context;
+      this.once = once || false;
+    }
+    function addListener(emitter, event, fn, context, once) {
+      if (typeof fn !== "function") {
+        throw new TypeError("The listener must be a function");
+      }
+      var listener = new EE(fn, context || emitter, once), evt = prefix ? prefix + event : event;
+      if (!emitter._events[evt])
+        emitter._events[evt] = listener, emitter._eventsCount++;
+      else if (!emitter._events[evt].fn)
+        emitter._events[evt].push(listener);
+      else
+        emitter._events[evt] = [emitter._events[evt], listener];
+      return emitter;
+    }
+    function clearEvent(emitter, evt) {
+      if (--emitter._eventsCount === 0)
+        emitter._events = new Events();
+      else
+        delete emitter._events[evt];
+    }
+    function EventEmitter() {
+      this._events = new Events();
+      this._eventsCount = 0;
+    }
+    EventEmitter.prototype.eventNames = function eventNames() {
+      var names = [], events, name3;
+      if (this._eventsCount === 0)
+        return names;
+      for (name3 in events = this._events) {
+        if (has.call(events, name3))
+          names.push(prefix ? name3.slice(1) : name3);
+      }
+      if (Object.getOwnPropertySymbols) {
+        return names.concat(Object.getOwnPropertySymbols(events));
+      }
+      return names;
+    };
+    EventEmitter.prototype.listeners = function listeners(event) {
+      var evt = prefix ? prefix + event : event, handlers = this._events[evt];
+      if (!handlers)
+        return [];
+      if (handlers.fn)
+        return [handlers.fn];
+      for (var i = 0, l = handlers.length, ee = new Array(l); i < l; i++) {
+        ee[i] = handlers[i].fn;
+      }
+      return ee;
+    };
+    EventEmitter.prototype.listenerCount = function listenerCount(event) {
+      var evt = prefix ? prefix + event : event, listeners = this._events[evt];
+      if (!listeners)
+        return 0;
+      if (listeners.fn)
+        return 1;
+      return listeners.length;
+    };
+    EventEmitter.prototype.emit = function emit(event, a1, a2, a3, a4, a5) {
+      var evt = prefix ? prefix + event : event;
+      if (!this._events[evt])
+        return false;
+      var listeners = this._events[evt], len = arguments.length, args, i;
+      if (listeners.fn) {
+        if (listeners.once)
+          this.removeListener(event, listeners.fn, void 0, true);
+        switch (len) {
+          case 1:
+            return listeners.fn.call(listeners.context), true;
+          case 2:
+            return listeners.fn.call(listeners.context, a1), true;
+          case 3:
+            return listeners.fn.call(listeners.context, a1, a2), true;
+          case 4:
+            return listeners.fn.call(listeners.context, a1, a2, a3), true;
+          case 5:
+            return listeners.fn.call(listeners.context, a1, a2, a3, a4), true;
+          case 6:
+            return listeners.fn.call(listeners.context, a1, a2, a3, a4, a5), true;
+        }
+        for (i = 1, args = new Array(len - 1); i < len; i++) {
+          args[i - 1] = arguments[i];
+        }
+        listeners.fn.apply(listeners.context, args);
+      } else {
+        var length = listeners.length, j;
+        for (i = 0; i < length; i++) {
+          if (listeners[i].once)
+            this.removeListener(event, listeners[i].fn, void 0, true);
+          switch (len) {
+            case 1:
+              listeners[i].fn.call(listeners[i].context);
+              break;
+            case 2:
+              listeners[i].fn.call(listeners[i].context, a1);
+              break;
+            case 3:
+              listeners[i].fn.call(listeners[i].context, a1, a2);
+              break;
+            case 4:
+              listeners[i].fn.call(listeners[i].context, a1, a2, a3);
+              break;
+            default:
+              if (!args)
+                for (j = 1, args = new Array(len - 1); j < len; j++) {
+                  args[j - 1] = arguments[j];
+                }
+              listeners[i].fn.apply(listeners[i].context, args);
+          }
+        }
+      }
+      return true;
+    };
+    EventEmitter.prototype.on = function on(event, fn, context) {
+      return addListener(this, event, fn, context, false);
+    };
+    EventEmitter.prototype.once = function once(event, fn, context) {
+      return addListener(this, event, fn, context, true);
+    };
+    EventEmitter.prototype.removeListener = function removeListener(event, fn, context, once) {
+      var evt = prefix ? prefix + event : event;
+      if (!this._events[evt])
+        return this;
+      if (!fn) {
+        clearEvent(this, evt);
+        return this;
+      }
+      var listeners = this._events[evt];
+      if (listeners.fn) {
+        if (listeners.fn === fn && (!once || listeners.once) && (!context || listeners.context === context)) {
+          clearEvent(this, evt);
+        }
+      } else {
+        for (var i = 0, events = [], length = listeners.length; i < length; i++) {
+          if (listeners[i].fn !== fn || once && !listeners[i].once || context && listeners[i].context !== context) {
+            events.push(listeners[i]);
+          }
+        }
+        if (events.length)
+          this._events[evt] = events.length === 1 ? events[0] : events;
+        else
+          clearEvent(this, evt);
+      }
+      return this;
+    };
+    EventEmitter.prototype.removeAllListeners = function removeAllListeners(event) {
+      var evt;
+      if (event) {
+        evt = prefix ? prefix + event : event;
+        if (this._events[evt])
+          clearEvent(this, evt);
+      } else {
+        this._events = new Events();
+        this._eventsCount = 0;
+      }
+      return this;
+    };
+    EventEmitter.prototype.off = EventEmitter.prototype.removeListener;
+    EventEmitter.prototype.addListener = EventEmitter.prototype.on;
+    EventEmitter.prefixed = prefix;
+    EventEmitter.EventEmitter = EventEmitter;
+    {
+      module.exports = EventEmitter;
+    }
+  });
+  class Easing extends eventemitter3 {
+    constructor(element, params, options) {
+      super();
+      this.elements = Array.isArray(element) ? element : [element];
+      this.eases = [];
+      this.options = options || {};
+      this.time = 0;
+      for (let param in params) {
+        for (let element2 of this.elements) {
+          this.addParam(element2, param, params[param]);
+        }
+      }
+    }
+    addParam(element, entry, param) {
+      let start, to, delta, update, name3 = entry;
+      switch (entry) {
+        case "scaleX":
+        case "skewX":
+          name3 = entry.substr(0, entry.length - 1);
+          start = element[name3].x;
+          to = param;
+          delta = param - start;
+          update = (ease2) => this.updateCoord(ease2, name3, "x");
+          break;
+        case "scaleY":
+        case "skewY":
+          name3 = entry.substr(0, entry.length - 1);
+          start = element[name3].y;
+          to = param;
+          delta = param - start;
+          update = (ease2) => this.updateCoord(ease2, name3, "y");
+          break;
+        case "tint":
+        case "blend":
+          const colors = Array.isArray(param) ? param : [element.tint, param];
+          start = 0;
+          to = colors.length;
+          delta = to;
+          update = entry === "tint" ? (ease2) => this.updateTint(ease2, colors) : (ease2) => this.updateBlend(ease2, colors);
+          break;
+        case "shake":
+          start = {x: element.x, y: element.y};
+          to = param;
+          update = (ease2) => this.updateShake(ease2);
+          break;
+        case "position":
+          start = {x: element.x, y: element.y};
+          to = {x: param.x, y: param.y};
+          delta = {x: to.x - start.x, y: to.y - start.y};
+          update = (ease2) => this.updatePosition(ease2);
+          break;
+        case "skew":
+        case "scale":
+          start = element[entry].x;
+          to = param;
+          delta = param - start;
+          update = (ease2) => this.updatePoint(ease2, entry);
+          break;
+        case "face":
+          start = element.rotation;
+          to = Easing.shortestAngle(start, Math.atan2(param.y - element.y, param.x - element.x));
+          delta = to - start;
+          update = (ease2) => this.updateOne(ease2, "rotation");
+          break;
+        default:
+          start = element[entry];
+          to = param;
+          delta = param - start;
+          update = (ease2) => this.updateOne(ease2, entry);
+      }
+      this.eases.push({element, entry, update, start, to, delta});
+    }
+    static shortestAngle(start, finish) {
+      function mod(a, n) {
+        return (a % n + n) % n;
+      }
+      const PI_2 = Math.PI * 2;
+      let diff = Math.abs(start - finish) % PI_2;
+      diff = diff > Math.PI ? PI_2 - diff : diff;
+      const simple = finish - start;
+      const sign = mod(simple + Math.PI, PI_2) - Math.PI > 0 ? 1 : -1;
+      return diff * sign;
+    }
+    remove(element, params) {
+      if (arguments.length === 0) {
+        this.eases = [];
+      } else {
+        if (typeof params === "string") {
+          params = [params];
+        }
+        for (let i = 0; i < this.eases.length; i++) {
+          const ease2 = this.eases[i];
+          if ((!element || ease2.element === element) && (!params || params.indexOf(ease2.entry) !== -1)) {
+            this.eases.splice(i, 1);
+            i--;
+          }
+        }
+      }
+      if (this.eases.length === 0) {
+        return true;
+      }
+    }
+    updateOne(ease2, entry) {
+      ease2.element[entry] = this.options.ease(this.time, ease2.start, ease2.delta, this.options.duration);
+    }
+    updatePoint(ease2, entry) {
+      ease2.element[entry].x = ease2.element[entry].y = this.options.ease(this.time, ease2.start, ease2.delta, this.options.duration);
+    }
+    updatePosition(ease2) {
+      ease2.element.x = this.options.ease(this.time, ease2.start.x, ease2.delta.x, this.options.duration);
+      ease2.element.y = this.options.ease(this.time, ease2.start.y, ease2.delta.y, this.options.duration);
+    }
+    updateCoord(ease2, name3, coord) {
+      ease2.element[name3][coord] = this.options.ease(this.time, ease2.start, ease2.delta, this.options.duration);
+    }
+    updateTint(ease2, colors) {
+      let index = Math.floor(this.options.ease(this.time, ease2.start, ease2.delta, this.options.duration));
+      if (index === colors.length) {
+        index = colors.length - 1;
+      }
+      ease2.element.tint = colors[index];
+    }
+    updateBlend(ease2, colors) {
+      const calc = this.options.ease(this.time, ease2.start, ease2.delta, this.options.duration);
+      let index = Math.floor(calc);
+      if (index === colors.length) {
+        index = colors.length - 1;
+      }
+      let next = index + 1;
+      if (next === colors.length) {
+        next = this.options.reverse ? index - 1 : this.options.repeat ? 0 : index;
+      }
+      const percent = calc - index;
+      const color1 = colors[index];
+      const color2 = colors[next];
+      const r1 = color1 >> 16;
+      const g1 = color1 >> 8 & 255;
+      const b1 = color1 & 255;
+      const r2 = color2 >> 16;
+      const g2 = color2 >> 8 & 255;
+      const b2 = color2 & 255;
+      const percent1 = 1 - percent;
+      const r = percent1 * r1 + percent * r2;
+      const g = percent1 * g1 + percent * g2;
+      const b = percent1 * b1 + percent * b2;
+      ease2.element.tint = r << 16 | g << 8 | b;
+    }
+    updateShake(ease2) {
+      function random5(n) {
+        return Math.floor(Math.random() * n) - Math.floor(n / 2);
+      }
+      ease2.element.x = ease2.start.x + random5(ease2.to);
+      ease2.element.y = ease2.start.y + random5(ease2.to);
+    }
+    complete(ease2) {
+      if (ease2.entry === "shake") {
+        ease2.element.x = ease2.start.x;
+        ease2.element.y = ease2.start.y;
+      }
+    }
+    reverse(ease2) {
+      if (ease2.entry === "position") {
+        const swapX = ease2.to.x;
+        const swapY = ease2.to.y;
+        ease2.to.x = ease2.start.x;
+        ease2.to.y = ease2.start.y;
+        ease2.start.x = swapX;
+        ease2.start.y = swapY;
+        ease2.delta.x = -ease2.delta.x;
+        ease2.delta.y = -ease2.delta.y;
+      } else {
+        const swap = ease2.to;
+        ease2.to = ease2.start;
+        ease2.start = swap;
+        ease2.delta = -ease2.delta;
+      }
+    }
+    repeat(ease2) {
+      switch (ease2.entry) {
+        case "skewX":
+          ease2.element.skew.x = ease2.start;
+          break;
+        case "skewY":
+          ease2.element.skew.y = ease2.start;
+          break;
+        case "skew":
+          ease2.element.skew.x = ease2.start;
+          ease2.element.skew.y = ease2.start;
+          break;
+        case "scaleX":
+          ease2.element.scale.x = ease2.start;
+          break;
+        case "scaleY":
+          ease2.element.scale.y = ease2.start;
+          break;
+        case "scale":
+          ease2.element.scale.x = ease2.start;
+          ease2.element.scale.y = ease2.start;
+          break;
+        case "position":
+          ease2.element.x = ease2.start.x;
+          ease2.element.y = ease2.start.y;
+          break;
+        default:
+          ease2.element[ease2.entry] = ease2.start;
+      }
+    }
+    update(elapsed) {
+      if (this.eases.length === 0) {
+        return true;
+      }
+      if (this.options.wait) {
+        this.options.wait -= elapsed;
+        if (this.options.wait > 0) {
+          this.emit("wait", this);
+          return;
+        } else {
+          elapsed = -this.options.wait;
+          this.options.wait = 0;
+          this.emit("wait-end", this);
+        }
+      }
+      this.time += elapsed;
+      let leftover = 0;
+      if (this.time >= this.options.duration) {
+        leftover = this.time - this.options.duration;
+        this.time = this.options.duration;
+      }
+      for (let i = 0; i < this.eases.length; i++) {
+        const ease2 = this.eases[i];
+        if (ease2.element._destroyed) {
+          this.eases.splice(i, 1);
+          i--;
+        } else {
+          ease2.update(ease2);
+        }
+      }
+      this.emit("each", this);
+      if (this.time >= this.options.duration) {
+        if (this.options.reverse) {
+          this.eases.forEach((ease2) => this.reverse(ease2));
+          this.time = leftover;
+          if (leftover) {
+            this.eases.forEach((ease2) => ease2.update(ease2));
+          }
+          this.emit("reverse", this);
+          if (!this.options.repeat) {
+            this.options.reverse = false;
+          } else if (this.options.repeat !== true) {
+            this.options.repeat--;
+          }
+        } else if (this.options.repeat) {
+          this.eases.forEach((ease2) => this.repeat(ease2));
+          this.time = leftover;
+          if (leftover) {
+            this.eases.forEach((ease2) => ease2.update(ease2));
+          }
+          if (this.options.repeat !== true) {
+            this.options.repeat--;
+          }
+          this.emit("repeat", this);
+        } else {
+          this.eases.forEach((ease2) => this.complete(ease2));
+          this.emit("complete", this);
+          return true;
+        }
+      }
+    }
+    get count() {
+      return this.eases.length;
+    }
+  }
+  const easeOptions = {
+    duration: 1e3,
+    ease: penner.easeInOutSine,
+    maxFrame: 1e3 / 60,
+    ticker: null,
+    useRAF: true
+  };
+  class Ease extends eventemitter3 {
+    constructor(options) {
+      super();
+      this.options = Object.assign({}, easeOptions, options);
+      this.easings = [];
+      this.empty = true;
+      if (this.options.ticker) {
+        this.options.ticker.add(this.update, this);
+      }
+    }
+    destroy() {
+      this.removeAll();
+      if (this.options.useTicker) {
+        this.ticker.remove(this.update, this);
+      } else if (this.options.useRAF) {
+        cancelAnimationFrame(this.handleRAF);
+        this.handleRAF = null;
+      }
+    }
+    add(element, params, options) {
+      options = options || {};
+      options.duration = typeof options.duration !== "undefined" ? options.duration : this.options.duration;
+      options.ease = options.ease || this.options.ease;
+      if (typeof options.ease === "string") {
+        options.ease = penner[options.ease];
+      }
+      const easing = new Easing(element, params, options);
+      this.easings.push(easing);
+      if (this.empty && this.options.useRAF) {
+        this.handleRAF = requestAnimationFrame(() => this.update());
+        this.lastTime = Date.now();
+      }
+      this.empty = false;
+      return easing;
+    }
+    target(element, target, speed, options) {
+      const duration = Math.sqrt(Math.pow(element.x - target.x, 2) + Math.pow(element.y - target.y, 2)) / speed;
+      options = options || {};
+      options.duration = duration;
+      return this.add(element, {x: target.x, y: target.y}, options);
+    }
+    face(element, target, speed, options) {
+      const shortestAngle = Easing.shortestAngle(element.rotation, Math.atan2(target.y - element.y, target.x - element.x));
+      const duration = Math.abs(shortestAngle - element.rotation) / speed;
+      options = options || {};
+      options.duration = duration;
+      return this.add(element, {rotation: shortestAngle}, options);
+    }
+    removeEase(element, param) {
+      for (let i = 0; i < this.easings.length; i++) {
+        if (this.easings[i].remove(element, param)) {
+          this.easings.splice(i, 1);
+          i--;
+        }
+      }
+      if (this.easings.length === 0) {
+        this.empty = true;
+        if (this.options.useRAF && this.handleRAF) {
+          cancelAnimationFrame(this.handleRAF);
+          this.handleRAF = null;
+        }
+      }
+    }
+    removeAll() {
+      this.easings = [];
+      this.empty = true;
+      if (this.options.useRAF && this.handleRAF) {
+        cancelAnimationFrame(this.handleRAF);
+        this.handleRAF = null;
+      }
+    }
+    update(elapsed) {
+      if (this.options.useTicker) {
+        elapsed = this.ticker.elapsedMS;
+      } else if (this.options.useRAF) {
+        const now = Date.now();
+        elapsed = now - this.lastTime;
+        this.lastTime = now;
+      }
+      elapsed = Math.min(elapsed, this.options.maxFrame);
+      if (!this.empty) {
+        const list = this.easings.slice(0);
+        for (let easing of list) {
+          if (easing.update(elapsed)) {
+            this.easings.splice(this.easings.indexOf(easing), 1);
+          }
+        }
+        this.emit("each", this);
+        if (this.easings.length === 0) {
+          this.empty = true;
+          this.emit("complete", this);
+        }
+      }
+      if (this.options.useRAF && this.easings.length) {
+        this.handleRAF = requestAnimationFrame(() => this.update());
+      } else {
+        this.handleRAF = null;
+      }
+    }
+    get count() {
+      return this.easings.length;
+    }
+    countRunning() {
+      let count2 = 0;
+      for (let entry of this.easings) {
+        count2 += entry.count;
+      }
+      return count2;
+    }
+    set duration(duration) {
+      this.options.duration = duration;
+    }
+    get duration() {
+      return this.options.duration;
+    }
+    set ease(ease2) {
+      this.options.ease = ease2;
+    }
+    get ease() {
+      return this.options.ease;
+    }
+  }
+  Ease.id = 0;
+  let ease = new Ease();
+  Ease.ease = ease;
+
+  // code/moon.js
+  const framesForSpread = 3;
+  const detachColorChangeTime = 500;
   const shakeTime = 250;
   const shakeDistance = 1;
   const explosionSpeed = [0.1, 0.3];
@@ -29581,62 +30392,77 @@ void main() {
       point.position.set(x, y);
       return point;
     }
-    draw() {
+    draw(data) {
       this.moon.removeChildren();
       this.colors = [];
-      for (let i = 0; i < colors; i++) {
+      this.radius = data.radius;
+      for (let i = 0; i < data.colors; i++) {
         this.colors.push(yy_random.default.color());
       }
-      const radiusSquared = radius * radius;
-      const center = radius;
+      const radiusSquared = this.radius * this.radius;
+      const center = this.radius;
       this.middleX = view.width / 2 - center;
       this.middleY = view.height / 2 - center;
-      for (let y = 0; y <= radius * 2; y++) {
-        for (let x = 0; x <= radius * 2; x++) {
+      for (let y = 0; y <= this.radius * 2; y++) {
+        for (let x = 0; x <= this.radius * 2; x++) {
           const dx = x - center;
           const dy = y - center;
           const distanceSquared = dx * dx + dy * dy;
           if (distanceSquared <= radiusSquared) {
-            const box = this.box(x + this.middleX, y + this.middleY, yy_random.default.pick(this.colors));
-            box.coordinate = {x, y};
+            const color = yy_random.default.get(this.colors.length);
+            const box = this.box(x + this.middleX, y + this.middleY, this.colors[color]);
+            box.data = {x, y, color};
           }
         }
       }
     }
     resize() {
-      const center = radius;
-      this.middleX = view.width / 2 - center;
-      this.middleY = view.height / 2 - center;
+      this.middleX = view.width / 2 - this.radius;
+      this.middleY = view.height / 2 - this.radius;
       for (const child of this.moon.children) {
-        child.position.set(child.coordinate.x + this.middleX, child.coordinate.y + this.middleY);
+        child.position.set(child.data.x + this.middleX, child.data.y + this.middleY);
       }
     }
     detach(block) {
       this.leaving.addChild(block);
-      const angle = Math.atan2(block.y - view.size / 2, block.x - view.size / 2) + yy_random.default.middle(0, 0.25, true);
+      const angle = Math.atan2(block.y - view.height / 2, block.x - view.width / 2) + yy_random.default.middle(0, 0.25, true);
       const speed = yy_random.default.range(...explosionSpeed, true);
       block.velocity = [Math.cos(angle) * speed, Math.sin(angle) * speed];
+      block.tint = 16711680;
     }
-    findNeighbor(tint) {
-      for (const child of this.moon.children) {
-        if (child.tint === tint) {
-          for (const detach of this.list) {
-            if (Math.abs(child.x - detach.x) <= 1 && Math.abs(child.y - detach.y) <= 1) {
-              this.list.push(child);
-              this.detach(child);
-              return true;
-            }
-          }
+    inList(compare) {
+      for (const entry of this.list) {
+        if (compare === entry.block) {
+          return true;
         }
       }
     }
+    findNeighbor(color, level2) {
+      let found;
+      do {
+        const list = [];
+        found = false;
+        for (const block of this.moon.children) {
+          if (!this.inList(block) && block.data.color === color) {
+            for (const detach of this.list) {
+              if (Math.abs(block.x - detach.block.x) <= 1 && Math.abs(block.y - detach.block.y) <= 1) {
+                list.push({block, level: level2});
+                found = true;
+              }
+            }
+          }
+        }
+        this.list.push(...list);
+        level2++;
+      } while (found);
+      this.maxSpreadLevel = level2;
+    }
     target(block) {
-      this.detach(block);
-      this.list = [block];
-      while (this.findNeighbor(block.tint)) {
-      }
-      this.shaking = Date.now();
-      this.compress(1);
+      this.list = [{block, level: 0}];
+      this.findNeighbor(block.data.color, 1);
+      this.level = 0;
+      this.spreadFrames = 0;
+      this.spreading = true;
     }
     hasBlock(x, y) {
       for (const move of this.moving) {
@@ -29645,21 +30471,21 @@ void main() {
         }
       }
       for (const child of this.moon.children) {
-        if (child.coordinate.x === x && child.coordinate.y === y) {
+        if (child.data.x === x && child.data.y === y) {
           return true;
         }
       }
     }
     isCenter(block) {
-      return Math.abs(block.coordinate.x - radius) < 1 && Math.abs(block.coordinate.y - radius) < 1;
+      return Math.abs(block.data.x - this.radius) < 1 && Math.abs(block.data.y - this.radius) < 1;
     }
     compress(i) {
       this.moving = [];
       for (const block of this.moon.children) {
         if (!this.isCenter(block)) {
-          const angle = Math.atan2(radius - block.coordinate.y, radius - block.coordinate.x);
-          const x = Math.round(block.coordinate.x + Math.cos(angle));
-          const y = Math.round(block.coordinate.y + Math.sin(angle));
+          const angle = Math.atan2(this.radius - block.data.y, this.radius - block.data.x);
+          const x = Math.round(block.data.x + Math.cos(angle));
+          const y = Math.round(block.data.y + Math.sin(angle));
           if (!this.hasBlock(x, y)) {
             this.moving.push({child: block, x, y});
           }
@@ -29667,8 +30493,8 @@ void main() {
       }
       if (this.moving.length) {
         for (const move of this.moving) {
-          move.child.coordinate.x = move.x;
-          move.child.coordinate.y = move.y;
+          move.child.data.x = move.x;
+          move.child.data.y = move.y;
           move.child.x = move.x + this.middleX;
           move.child.y = move.y + this.middleY;
         }
@@ -29676,6 +30502,27 @@ void main() {
       }
     }
     update() {
+      if (this.spreading === true) {
+        this.spreadFrames++;
+        if (this.spreadFrames === framesForSpread) {
+          this.spreadFrames = 0;
+          for (const entry of this.list) {
+            if (entry.level === this.level) {
+              entry.block.tint = 16711680;
+            }
+          }
+          this.level++;
+          if (this.level === this.maxSpreadLevel) {
+            for (const entry of this.list) {
+              this.detach(entry.block);
+              ease.add(entry.block, {blend: this.colors[entry.block.data.color]}, {duration: detachColorChangeTime, ease: "easeInOutSine"});
+            }
+            this.spreading = false;
+            this.shaking = Date.now();
+            this.compress(1);
+          }
+        }
+      }
       for (const child of this.leaving.children) {
         child.position.set(child.x + child.velocity[0], child.y + child.velocity[1]);
         if (child.x - 0.5 > view.width || child.x + 0.5 < 0 || child.y - 0.5 > view.height || child.y + 0.5 < 0) {
@@ -29690,6 +30537,17 @@ void main() {
           this.moon.position.set(yy_random.default.middle(0, shakeDistance, true), yy_random.default.middle(0, shakeDistance, true));
         }
       }
+    }
+    closestTarget(point) {
+      let dist = Infinity, target;
+      for (const block of this.moon.children) {
+        const d = Math.pow(block.x - point.x, 2) + Math.pow(block.y - point.y, 2);
+        if (d < dist) {
+          target = block;
+          dist = d;
+        }
+      }
+      return target;
     }
     closestOnLine(x0, y0, x1, y1) {
       const list = [];
@@ -29720,6 +30578,7 @@ void main() {
       this.state = "";
       this.firing = [];
       this.angleOfLine = Infinity;
+      this.count = 0;
     }
     box(x, y, tint, alpha = 1) {
       const point = this.addChild(new PIXI3.Sprite(PIXI3.Texture.WHITE));
@@ -29762,21 +30621,6 @@ void main() {
         this.box(...key.split("-"), tint, alpha);
       }
     }
-    fireNext() {
-      if (this.firing.length) {
-        const center = view.size / 2;
-        this.target = moon.closestOnLine(center + Math.cos(this.angleOfLine) * view.max, center + Math.sin(this.angleOfLine) * view.max, center, center);
-        if (!this.target) {
-          this.state = "";
-        } else {
-          this.state = "fire";
-          this.time = Date.now();
-          this.aim = [this.target.x, this.target.y];
-          this.angleOfLine = this.firing.shift();
-          moon.target(this.target);
-        }
-      }
-    }
     update() {
       if (this.state === "fire") {
         if (Date.now() >= this.time + fireTime) {
@@ -29787,14 +30631,13 @@ void main() {
         if (Date.now() >= this.time + fadeTime) {
           this.state = "";
           this.removeChildren();
-          this.fireNext();
         }
       }
       if (this.state !== "" && this.angleOfLine !== this.last) {
         this.removeChildren();
         const center = view.size / 2;
         if (this.state === "aim") {
-          const p2 = moon.closestOnLine(center + Math.cos(this.angleOfLine) * view.max, center + Math.sin(this.angleOfLine) * view.max, center, center);
+          const p2 = moon.closestTarget(this.point);
           if (!p2) {
             this.state = "";
           } else {
@@ -29813,19 +30656,21 @@ void main() {
           tint = 16711680;
           alpha = 1 - (Date.now() - this.time) / fadeTime;
         }
-        this.line(Math.round(center + Math.cos(this.angleOfLine) * view.max), Math.round(center + Math.sin(this.angleOfLine) * view.max), ...this.aim, tint, alpha);
+        this.line(...this.aim, Math.round(center + Math.cos(this.angleOfLine) * view.max), Math.round(center + Math.sin(this.angleOfLine) * view.max), tint, alpha);
       }
     }
     down(point) {
       const angle = Math.atan2(point.y - window.innerHeight / 2, point.x - window.innerWidth / 2);
       if (this.state === "") {
         this.state = "aim";
+        this.point = moon.moon.toLocal(point);
         this.angleOfLine = angle;
       } else {
       }
     }
     move(point) {
       if (this.state === "aim") {
+        this.point = moon.moon.toLocal(point);
         this.angleOfLine = Math.atan2(point.y - window.innerHeight / 2, point.x - window.innerWidth / 2);
       }
     }
@@ -29834,6 +30679,8 @@ void main() {
         this.state = "fire";
         this.time = Date.now();
         moon.target(this.target);
+        this.count++;
+        console.log(this.count);
       }
     }
   }
@@ -29936,7 +30783,10 @@ void main() {
 
   // code/levels.js
   const levels = [
-    {count: 10, colors: 2, radius: 4}
+    {count: 10, colors: 3, radius: 4},
+    {count: 10, colors: 3, radius: 5},
+    {count: 10, colors: 3, radius: 6},
+    {count: 10, colors: 3, radius: 7}
   ];
 
   // code/game.js
@@ -29947,7 +30797,7 @@ void main() {
       await sheet.init();
       view.init();
       this.prepareLevels();
-      this.create(0);
+      this.create(30);
       this.update();
       input.init();
       window.addEventListener("resize", () => this.resize());
@@ -29977,11 +30827,14 @@ void main() {
       view.resize();
       stars.resize();
       moon.resize();
+      if (this.paused) {
+        view.update();
+      }
     }
     create(i) {
       yy_random4.default.seedOld(this.levels[i].seed);
       stars.draw();
-      moon.draw();
+      moon.draw(this.levels[i]);
       this.level = new PIXI5.Container();
       this.level.addChild(stars);
       this.level.addChild(moon);

@@ -25,7 +25,7 @@ function serve() {
     const app = express()
     app.use(express.static('www'))
     app.listen(port)
-    console.log('Shoot the Moon (like literally) - debug server running...')
+    console.log(`Shoot the Moon (like literally) - debug server running at http://localhost:${port}...`)
 }
 
 function start() {
