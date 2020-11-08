@@ -1,8 +1,9 @@
 import * as PIXI from 'pixi.js'
 import random from 'yy-random'
 
-import { view } from './view'
+import { view } from '../view'
 import { moon } from './moon'
+import { meter } from './meter'
 
 const fireTime = 200
 const fadeTime = 200
@@ -11,9 +12,7 @@ class Laser extends PIXI.Container {
     constructor() {
         super()
         this.state = ''
-        this.firing = []
         this.angleOfLine = Infinity
-        this.count = 0
     }
 
     box(x, y, tint, alpha=1) {
@@ -71,7 +70,7 @@ class Laser extends PIXI.Container {
                 this.removeChildren()
             }
         }
-        if (this.state !== '' && this.angleOfLine !== this.last) {
+        if (this.state !== '') {
             this.removeChildren()
             const center = view.size / 2
             if (this.state === 'aim') {
@@ -80,7 +79,8 @@ class Laser extends PIXI.Container {
                     this.state = ''
                 } else {
                     this.target = p2
-                    this.aim = [p2.x, p2.y]
+                    const local = this.toLocal(p2.position, moon)
+                    this.aim = [local.x, local.y]
                 }
             }
             let tint, alpha
@@ -104,13 +104,13 @@ class Laser extends PIXI.Container {
     }
 
     down(point) {
-        const angle = Math.atan2(point.y - window.innerHeight / 2, point.x - window.innerWidth / 2)
-        if (this.state === '') {
-            this.state = 'aim'
-            this.point = moon.moon.toLocal(point)
-            this.angleOfLine = angle
-        } else {
-            // this.firing.push(angle)
+        if (meter.canFire()) {
+            const angle = Math.atan2(point.y - window.innerHeight / 2, point.x - window.innerWidth / 2)
+            if (this.state === '') {
+                this.state = 'aim'
+                this.point = moon.moon.toLocal(point)
+                this.angleOfLine = angle
+            }
         }
     }
 
@@ -123,11 +123,14 @@ class Laser extends PIXI.Container {
 
     up() {
         if (this.state === 'aim') {
-            this.state = 'fire'
-            this.time = Date.now()
-            moon.target(this.target)
-            this.count++
-            console.log(this.count)
+            if (!this.target) {
+                this.state = ''
+            } else {
+                this.state = 'fire'
+                this.time = Date.now()
+                moon.target(this.target)
+                meter.fire()
+            }
         }
     }
 }

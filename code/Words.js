@@ -1,6 +1,4 @@
-/* Copyright (c) 2020 YOPEY YOPEY LLC */
-
-import { Container } from 'pixi.js'
+import * as PIXI from 'pixi.js'
 
 import { sheet } from './sheet'
 
@@ -8,7 +6,7 @@ const COLOR = 0xffffff
 const BACKGROUND = 0
 const BUTTON = 4
 
-export class Words extends Container {
+export class Words extends PIXI.Container {
     /**
      * @param {string} words
      * @param {number} [color]
@@ -23,8 +21,10 @@ export class Words extends Container {
             this.background.position.set(-BUTTON, -BUTTON)
             this.background.tint = background === true ? BACKGROUND : background
         }
-        this.words = this.addChild(new Container())
-        this.change(words)
+        this.words = this.addChild(new PIXI.Container())
+        if (words) {
+            this.change(words)
+        }
     }
 
     wrap(max) {
@@ -160,6 +160,9 @@ export class Words extends Container {
         return sprite
     }
 
+    get tint() {
+        return this.color
+    }
     set tint(value) {
         if (this.color !== value) {
             for (let letter of this.words.children) {

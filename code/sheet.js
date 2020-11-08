@@ -1,10 +1,13 @@
 import RenderSheet from 'yy-rendersheet'
+
 import letters from '../images/letters.json'
+import ui from '../images/ui.json'
 
 class Sheet extends RenderSheet {
     constructor() {
         super({ extrude: true, scaleMode: true })
         this.letters()
+        this.addData('arrow', ui.imageData[0][2])
     }
 
     async init() {

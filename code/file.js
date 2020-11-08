@@ -13,18 +13,15 @@ class File {
                 localforage.clear()
                 this.erase()
                 resolve()
-            } else if (settings.level !== false) {
-                this.temporary(settings.level)
             } else {
                 localforage.getItem('data', (err, saved) => {
                     if (saved) {
                         try {
                             this.data = JSON.parse(Encrypt.decrypt(saved, settings.encrypt))
-                            if (this.data.storageVersion !== settings.storageVersion) {
+                            if (!this.data.shoot) {
+                                this.erase()
+                            } else if (this.data.storageVersion !== settings.storageVersion) {
                                 this.upgradeStorage()
-                            }
-                            if (settings.noSave) {
-                                this.data.temporary = true
                             }
                             resolve()
                         } catch (e) {
@@ -44,27 +41,23 @@ class File {
     async erase() {
         this.data = {
             version: settings.storageVersion,
-            level: 0,
             sound: 1,
             user: cuid(),
+            shoot: {
+                level: 0,
+            }
         }
         await this.save()
     }
 
-    temporary(level) {
-        this.data = {
-            level,
-            sound: 1,
-            temporary: true,
-        }
+    get shoot() {
+        return this.data.shoot
     }
 
     async save() {
-        if (!this.data.temporary) {
-            return new Promise(resolve => {
-                localforage.setItem('data', Encrypt.encrypt(JSON.stringify(this.data), settings.encrypt), resolve)
-            })
-        }
+        return new Promise(resolve => {
+            localforage.setItem('data', Encrypt.encrypt(JSON.stringify(this.data), settings.encrypt), resolve)
+        })
     }
 
     upgradeStorage() {}

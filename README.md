@@ -13,7 +13,7 @@ https://yopeyopey.com/prototypes/moonshot/
 1. `git clone git@github.com:davidfig/moonshot.git`
 2. `cd moonshot`
 3. `npm install`
-4. `node generate`
+4. `npm run serve`
 5. open browser to http://localhost:8888/
 
 ## License

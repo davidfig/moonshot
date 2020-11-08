@@ -1,4 +1,4 @@
-import { laser } from './laser'
+import { state } from './state'
 
 class Input {
     init() {
@@ -34,18 +34,18 @@ class Input {
 
     down(e) {
         const point = this.translateEvent(e)
-        laser.down(point)
+        state.down(point)
         e.preventDefault()
     }
 
     move(e) {
         const point = this.translateEvent(e)
-        laser.move(point)
+        state.move(point)
     }
 
     up(e) {
         const point = this.translateEvent(e)
-        laser.up(point)
+        state.up(point)
     }
 
     keyDown(e) {
