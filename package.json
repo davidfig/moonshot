@@ -1,6 +1,6 @@
 {
     "name": "moonshot",
-    "version": "0.1.5",
+    "version": "0.1.9",
     "description": "Game Off 2020 - Shoot the Moon (like literally)",
     "scripts": {
         "serve": "node generate",
@@ -14,6 +14,7 @@
         "fs-extra": "^9.0.1",
         "localforage": "^1.9.0",
         "pixi-ease": "^3.0.6",
+        "pixi-sound": "^3.0.5",
         "pixi.js": "^5.3.3",
         "yy-fps": "^1.1.0",
         "yy-pixel": "^2.5.0",
@@ -22,7 +23,7 @@
     },
     "devDependencies": {
         "chokidar": "^3.4.3",
-        "esbuild": "^0.8.2",
+        "esbuild": "^0.8.5",
         "express": "^4.17.1",
         "intersects": "^2.7.2",
         "json-bump": "^1.0.2"

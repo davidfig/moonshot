@@ -7,6 +7,7 @@ import { meter } from './meter'
 import { stars } from './stars'
 import { back } from './back'
 import { file } from '../file'
+import { sounds } from '../sounds'
 
 import levels from './shoot.json'
 
@@ -50,6 +51,7 @@ class Shoot extends PIXI.Container {
         ease.removeEase(this.top)
         ease.add(this.top, { y: -4 }, { duration: topUpTime, ease: 'easeInSine' })
         stars.warpOut()
+        sounds.play('warp')
     }
 
     down(point) {

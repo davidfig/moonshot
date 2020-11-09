@@ -24,7 +24,7 @@
   "resolved" "https://registry.npmjs.org/@pixi/constants/-/constants-5.3.3.tgz"
   "version" "5.3.3"
 
-"@pixi/core@5.3.3":
+"@pixi/core@^5.0.2", "@pixi/core@5.3.3":
   "integrity" "sha512-taw50LnzV+TQVMx5HQA2ZJgF9wuhZ6DeoXHW2KkevYB0ekKYnEO2VMMiRDMcmchtyvHclJebzjeHZLGqDtKDgw=="
   "resolved" "https://registry.npmjs.org/@pixi/core/-/core-5.3.3.tgz"
   "version" "5.3.3"
@@ -121,7 +121,7 @@
     "@pixi/ticker" "5.3.3"
     "@pixi/utils" "5.3.3"
 
-"@pixi/loaders@5.3.3":
+"@pixi/loaders@^5.0.2", "@pixi/loaders@5.3.3":
   "integrity" "sha512-wj0DzniApfDoZA/buMmO/CgCB7Q7SsESForHh7wSd7UC8rrCmz5prUTEICmJGhdHpBuVB7KDPtwaaLtr9Q/kQg=="
   "resolved" "https://registry.npmjs.org/@pixi/loaders/-/loaders-5.3.3.tgz"
   "version" "5.3.3"
@@ -296,14 +296,14 @@
     "@pixi/sprite" "5.3.3"
     "@pixi/utils" "5.3.3"
 
-"@pixi/ticker@5.3.3":
+"@pixi/ticker@^5.0.1", "@pixi/ticker@5.3.3":
   "integrity" "sha512-p5F/dwJGwfZWUg5cCPqOnEx5iYGW+huQlZZtrTKKd1KoVehFsrzHeRBOEp4d584jsOmBf7fjJaUTyzsFn0YtOQ=="
   "resolved" "https://registry.npmjs.org/@pixi/ticker/-/ticker-5.3.3.tgz"
   "version" "5.3.3"
   dependencies:
     "@pixi/settings" "5.3.3"
 
-"@pixi/utils@5.3.3":
+"@pixi/utils@^5.0.1", "@pixi/utils@5.3.3":
   "integrity" "sha512-GDP2h1Mph9Uei4zmJjzDK6GZ5S9O2A09VySVfWyKgWwP3SQ/Ss0bGYm4sE6+u1NMSz1WCrLgu66H82XuXs2Cbg=="
   "resolved" "https://registry.npmjs.org/@pixi/utils/-/utils-5.3.3.tgz"
   "version" "5.3.3"
@@ -875,10 +875,10 @@
   "resolved" "https://registry.npmjs.org/es6-promise-polyfill/-/es6-promise-polyfill-1.2.0.tgz"
   "version" "1.2.0"
 
-"esbuild@^0.8.2":
-  "integrity" "sha512-kR3+OtVSx8cRDmz4PcfQU4FsXnfhiBfJzAV3nX4oK84pH5y7HaGKiTKBl4e7lKzFSiHo05Lzpo2r2B89u5Vspg=="
-  "resolved" "https://registry.npmjs.org/esbuild/-/esbuild-0.8.2.tgz"
-  "version" "0.8.2"
+"esbuild@^0.8.5":
+  "integrity" "sha512-195Lq3Hp3V8rvccV4ede8PxmGvKuh4BrGQHxVfcYmpyg1ni078QN4iO1VNYCl55v0qYsWz6n96y3ZtMpuEtDRQ=="
+  "resolved" "https://registry.npmjs.org/esbuild/-/esbuild-0.8.5.tgz"
+  "version" "0.8.5"
 
 "escape-html@~1.0.3":
   "integrity" "sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg="
@@ -1873,6 +1873,11 @@
   dependencies:
     "eventemitter3" "^4.0.0"
     "penner" "^0.1.3"
+
+"pixi-sound@^3.0.5":
+  "integrity" "sha512-I3qDfaDI3xSwMuH8ZbhIyoZiRv0jEDxR60D2rBZTTvlK5owxo5Sx4vDaQlrIyETilTU0xvBtiwh7fPGKBOsCTw=="
+  "resolved" "https://registry.npmjs.org/pixi-sound/-/pixi-sound-3.0.5.tgz"
+  "version" "3.0.5"
 
 "pixi.js@^5.3.3", "pixi.js@>=4.6.0", "pixi.js@>=4.8.7":
   "integrity" "sha512-uFQOXXyPMAVVayDebSFBS1AFfPT6QYNuz9Vu11yI2/k1DAef/rbYoJpSMM6SeB6dezDJPtIAaXXNxdaYzbe+kg=="

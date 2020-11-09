@@ -5,11 +5,12 @@ import random from 'yy-random'
 import { ease } from './ease'
 import { stars } from './stars'
 import { view } from '../view'
+import { sounds } from '../sounds'
 import { shoot } from './shoot'
 
 const approachTime = 2000
 const framesForSpread = 3
-const resetTime = 1000
+const resetTime = 826
 const detachColorChangeTime = 500
 const shakeTime = 250
 const shakeDistance = 1
@@ -63,6 +64,7 @@ class Moon extends PIXI.Container {
         this.scale.set(0)
         this.approaching = ease.add(this, { scale: this.getScale() }, { duration: approachTime, ease: 'easeOutSine' })
         this.approaching.on('complete', () => this.approaching = null)
+        sounds.play('approach')
     }
 
     draw(level) {
@@ -204,6 +206,7 @@ class Moon extends PIXI.Container {
                 this.spreading = false
                 this.shaking = Date.now()
                 this.compress(1)
+                sounds.play('separate')
             }
         }
     }

@@ -68,6 +68,14 @@ class File {
         return this.data.shoot.max
     }
 
+    get sound() {
+        return this.data.sound
+    }
+    set sound(value) {
+        this.data.sound = value
+        this.save()
+    }
+
     async save() {
         return new Promise(resolve => {
             localforage.setItem('data', Encrypt.encrypt(JSON.stringify(this.data), settings.encrypt), resolve)

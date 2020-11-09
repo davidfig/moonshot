@@ -4,16 +4,22 @@ import random from 'yy-random'
 
 import { view } from '../view'
 import { Words } from '../Words'
+import { sounds } from '../sounds'
 import { moon } from './moon'
+import { back } from './back'
 
 const shakeTime = 250
 const shakeDistance = 1
 const helpFadeTime = 5000
 
 class Meter extends PIXI.Container {
-    init(total) {
+    constructor() {
+        super()
         this.meter = this.addChild(new PIXI.Graphics())
-        this.current = total
+    }
+
+    init(total) {
+        this.current = 0
         this.total = total
         this.helpCount = 0
         this.draw()
@@ -53,6 +59,12 @@ class Meter extends PIXI.Container {
             moon.reset()
             meter.reset()
             this.update(0)
+            sounds.play('whoosh')
+            if (this.help) {
+                ease.removeEase(this.help)
+                this.removeChild(this.help)
+                this.help = null
+            }
             return true
         }
     }
@@ -61,6 +73,7 @@ class Meter extends PIXI.Container {
         const canFire = this.current !== this.total
         if (!canFire) {
             this.shaking = Date.now()
+            sounds.play('buzzer')
             this.showHelp()
             return false
         }
@@ -71,10 +84,9 @@ class Meter extends PIXI.Container {
         if (!this.help) {
             this.helpCount++
             if (this.helpCount > 1) {
-                this.help = this.addChild(new Words('^ press here to reset'))
-                this.help.width = this.meter.width * 0.9
-                this.help.scale.y = this.help.scale.x
-                this.help.position.set(view.width - this.total * 2 - 1.5, 4.5)
+                this.help = this.addChild(new Words('reset ^'))
+                this.help.scale.y = this.help.scale.x = back.getScale()
+                this.help.position.set(view.width - this.meter.width / 2 - this.help.width, 4.5)
                 const easing = ease.add(this.help, { alpha: 0 }, { duration: helpFadeTime, ease: 'easeInOutSine' })
                 easing.on('complete', () => {
                     this.removeChild(this.help)

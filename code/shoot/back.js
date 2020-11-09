@@ -4,6 +4,7 @@ import { sheet } from '../sheet'
 import { file } from '../file'
 import { Words } from '../Words'
 import { state } from '../state'
+import { sounds } from '../sounds'
 
 class Back extends PIXI.Container {
     constructor() {
@@ -16,6 +17,10 @@ class Back extends PIXI.Container {
         this.position.set(1, 1)
     }
 
+    getScale() {
+        return this.level.scale.x
+    }
+
     change() {
         this.level.change(`level ${file.shoot.level + 1}`)
         this.level.height = this.arrow.height
@@ -26,6 +31,7 @@ class Back extends PIXI.Container {
     down(local) {
         if (local.x <= this.width + 1 && local.y < this.height + 1) {
             state.change('menu')
+            sounds.play('beep')
             return true
         }
     }

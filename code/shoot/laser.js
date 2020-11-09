@@ -2,6 +2,7 @@ import * as PIXI from 'pixi.js'
 import random from 'yy-random'
 
 import { view } from '../view'
+import { sounds } from '../sounds'
 import { moon } from './moon'
 import { meter } from './meter'
 
@@ -139,6 +140,7 @@ class Laser extends PIXI.Container {
                 this.time = Date.now()
                 moon.target(this.target)
                 meter.fire()
+                sounds.play('laser')
             }
         }
     }

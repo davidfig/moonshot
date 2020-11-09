@@ -5,17 +5,21 @@ import { state } from './state'
 import { view } from './view'
 import { sheet } from './sheet'
 import { input } from './input'
+import { sounds } from './sounds'
+// import { icon } from './icon'
 import * as settings from './settings'
 
 class Game {
     async start() {
+        sounds.load()
         await file.init()
+        await sheet.init()
+        view.init()
+        // icon.init()
+        state.init()
         if (!settings.release) {
             this.fps = new FPS()
         }
-        await sheet.init()
-        view.init()
-        state.init()
         this.update()
         input.init()
         window.addEventListener('resize', () => this.resize())
@@ -25,12 +29,14 @@ class Game {
         if (this.raf) {
             this.paused = true
             cancelAnimationFrame(this.raf)
+            sounds.pause()
             this.raf = null
         }
     }
 
     resume() {
         this.paused = false
+        sounds.resume()
         if (!this.raf) {
             this.update()
         }

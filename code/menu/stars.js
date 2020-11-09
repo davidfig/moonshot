@@ -38,7 +38,7 @@ class Stars extends PIXI.Container {
     }
 
     resize() {
-        for (const star of this.children) {
+        for (const star of this.stars.children) {
             star.position.set(0.5 + star.location[0] * (view.width - 1), 0.5 + star.location[1] * (view.height - 1))
         }
     }

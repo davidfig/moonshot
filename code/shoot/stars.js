@@ -53,7 +53,7 @@ class Stars extends PIXI.Container {
     }
 
     resize() {
-        for (const star of this.children) {
+        for (const star of this.stars.children) {
             star.position.set(star.location[0] * view.width, star.location[1] * view.height)
         }
         this.flash.width = view.width + 1

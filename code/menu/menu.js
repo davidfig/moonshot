@@ -6,9 +6,10 @@ import { stars } from './stars'
 import { title } from './title'
 import { file } from '../file'
 import { state } from '../state'
+import { sounds } from '../sounds'
 
 const framesToAdvance = 1000 / 60 * 0.5
-const padding = 8
+const padding = 6
 const disabled = 0x555555
 
 class Menu extends PIXI.Container {
@@ -31,6 +32,7 @@ class Menu extends PIXI.Container {
         let y = 0, longest = 0
         this.menu.removeChildren()
         this.shoot()
+        this.sound()
         for (const item of this.menu.children) {
             longest = Math.max(longest, item.width)
         }
@@ -48,10 +50,10 @@ class Menu extends PIXI.Container {
         } else {
             const max = 34
             this.level = this.menu.addChild(new PIXI.Container())
-            this.back = this.level.addChild(new Words('<'))
-            this.number = this.level.addChild(new Words(`level ${file.shootLevel + 1}`))
+            this.back = this.level.addChild(new Words('<', { shadow: true }))
+            this.number = this.level.addChild(new Words(`level ${file.shootLevel + 1}`, { shadow: true }))
             this.number.x = 5 + max / 2 - this.number.width / 2
-            this.next = this.level.addChild(new Words('>'))
+            this.next = this.level.addChild(new Words('>', { shadow: true }))
             this.next.x = max + 7
             this.play = null
             if (file.shootLevel === 0) {
@@ -63,13 +65,17 @@ class Menu extends PIXI.Container {
         }
     }
 
+    sound() {
+        this.soundMenu = this.menu.addChild(new Words(file.sound ? 'sounds on' : 'sounds off', { shadow: true }))
+    }
+
     reset() {}
     move() {}
 
     down(point) {
         if (this.back.containsPoint(point)) {
             if (this.back.tint === disabled) {
-                console.log('left disabled')
+                sounds.play('buzzer')
             } else {
                 this.changeLevel(-1)
                 this.holding = 'back'
@@ -77,18 +83,25 @@ class Menu extends PIXI.Container {
             }
         } else if (this.next.containsPoint(point)) {
             if (this.next.tint === disabled) {
-                console.log('right disabled')
+                sounds.play('buzzer')
             } else {
                 this.changeLevel(1)
                 this.holding = 'next'
                 this.holdingFrames = -framesToAdvance * 2
             }
+        } else if (this.soundMenu.containsPoint(point)) {
+            file.sound = !file.sound
+            if (file.sound) {
+                sounds.play('beep')
+            }
+            this.draw()
         }
     }
 
     up(point) {
         if ((this.play && this.play.containsPoint(point)) || (this.number && this.number.containsPoint(point))) {
             state.change('shoot')
+            sounds.play('beep')
         }
         this.holding = ''
     }
@@ -96,6 +109,7 @@ class Menu extends PIXI.Container {
     changeLevel(delta) {
         file.shootLevel += delta
         this.draw()
+        sounds.play('beep')
     }
 
     resize() {

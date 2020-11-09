@@ -24,6 +24,12 @@ async function html() {
     '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">' +
     '<meta name="apple-mobile-web-app-capable" content="yes">' +
     '<meta name="apple-mobile-web-app-title" content="Shoot the Moon">' +
+    '<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">' +
+    '<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">' +
+    '<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">' +
+    '<link rel="manifest" href="site.webmanifest">' +
+    '<meta name="msapplication-TileColor" content="#9f00a7">' +
+    '<meta name="theme-color" content="#ffffff"></meta>' +
     '<title>Shoot the Moon</title>' +
     `<script src="index.${packageJson.version}.js"></script>` +
     '</head><body><canvas class="view"></canvas></body></html>'
@@ -56,11 +62,27 @@ function serve() {
     console.log(`Shoot the Moon (like literally) - debug server running at http://localhost:${port}...`)
 }
 
+const files = [
+    'android-chrome-192x192.png',
+    'android-chrome-512x512.png',
+    'apple-touch-icon.png',
+    'browserconfig.xml',
+    'favicon.ico',
+    'favicon-16x16.png',
+    'favicon-32x32.png',
+    'index.css',
+    'mstile-150x150.png',
+    'site.webmanifest',
+]
+
 async function start() {
     if (process.argv[2] === '--production') {
         console.log('Building Shoot the Moon (like literally) for production...')
         await fs.emptyDir('public')
-        await fs.copy('www/index.css', 'public/index.css')
+        for (const file of files) {
+            await fs.copy(`www/${file}`, `public/${file}`)
+        }
+        await fs.copy('www/sounds', 'public/sounds/')
         build()
     } else {
         watch()
