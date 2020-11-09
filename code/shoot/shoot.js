@@ -6,7 +6,6 @@ import { laser } from './laser'
 import { meter } from './meter'
 import { stars } from './stars'
 import { back } from './back'
-import { state } from '../state'
 import { file } from '../file'
 
 import levels from './shoot.json'

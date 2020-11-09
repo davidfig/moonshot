@@ -18,14 +18,14 @@ export class Words extends PIXI.Container {
     constructor(words, options={}) {
         super()
         this.color = (typeof options.color === 'undefined') ? COLOR : options.color
-        this.background = this.addChild(new PIXI.Sprite(PIXI.Sprite.WHITE))
-        this.background.anchor.set(0)
+        this.background = this.addChild(new PIXI.Sprite(PIXI.Texture.WHITE))
         if (options.background) {
             this.background.alpha = options.backgroundAlpha || 0.25
             this.background.tint = options.background === true ? BACKGROUND : options.background
         } else {
             this.background.alpha = 0
         }
+        this.padding = options.padding || 0
         if (options.shadow) {
             this.shadow = this.addChild(new PIXI.Container())
             this.shadow.position.set(shadow)
@@ -121,8 +121,9 @@ export class Words extends PIXI.Container {
         if (this.text !== text) {
             this.write(text)
             if (this.background) {
-                this.background.width = this.words.width
-                this.background.height = this.words.height
+                this.background.width = this.words.width + this.padding * 2
+                this.background.height = this.words.height + this.padding * 2
+                this.background.position.set(-this.padding)
             }
         }
     }

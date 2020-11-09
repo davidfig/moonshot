@@ -4087,7 +4087,7 @@
     function canUploadSameBuffer() {
       return !isMobile.apple.device;
     }
-    var settings5 = {
+    var settings6 = {
       MIPMAP_TEXTURES: 1,
       ANISOTROPIC_LEVEL: 0,
       RESOLUTION: 1,
@@ -4118,7 +4118,7 @@
       ROUND_PIXELS: false
     };
     exports.isMobile = isMobile;
-    exports.settings = settings5;
+    exports.settings = settings6;
   });
 
   // node_modules/eventemitter3/index.js
@@ -5750,14 +5750,14 @@
     function _interopDefault(ex) {
       return ex && typeof ex === "object" && "default" in ex ? ex["default"] : ex;
     }
-    var settings5 = require_settings();
+    var settings6 = require_settings();
     var eventemitter32 = _interopDefault(require_eventemitter3());
     var earcut = _interopDefault(require_earcut());
     var _url = require_url();
     var _url__default = _interopDefault(_url);
     var constants = require_constants();
-    settings5.settings.RETINA_PREFIX = /@([0-9\.]+)x/;
-    settings5.settings.FAIL_IF_MAJOR_PERFORMANCE_CAVEAT = true;
+    settings6.settings.RETINA_PREFIX = /@([0-9\.]+)x/;
+    settings6.settings.FAIL_IF_MAJOR_PERFORMANCE_CAVEAT = true;
     var saidHello = false;
     var VERSION = "5.3.3";
     function skipHello() {
@@ -5793,7 +5793,7 @@
         supported = function supported2() {
           var contextOptions = {
             stencil: true,
-            failIfMajorPerformanceCaveat: settings5.settings.FAIL_IF_MAJOR_PERFORMANCE_CAVEAT
+            failIfMajorPerformanceCaveat: settings6.settings.FAIL_IF_MAJOR_PERFORMANCE_CAVEAT
           };
           try {
             if (!window.WebGLRenderingContext) {
@@ -6070,7 +6070,7 @@
       function CanvasRenderTarget2(width, height, resolution) {
         this.canvas = document.createElement("canvas");
         this.context = this.canvas.getContext("2d");
-        this.resolution = resolution || settings5.settings.RESOLUTION;
+        this.resolution = resolution || settings6.settings.RESOLUTION;
         this.resize(width, height);
       }
       CanvasRenderTarget2.prototype.clear = function() {
@@ -6194,7 +6194,7 @@
       return "";
     }
     function getResolutionOfUrl(url, defaultValue) {
-      var resolution = settings5.settings.RETINA_PREFIX.exec(url);
+      var resolution = settings6.settings.RETINA_PREFIX.exec(url);
       if (resolution) {
         return parseFloat(resolution[1]);
       }
@@ -6203,7 +6203,7 @@
     Object.defineProperty(exports, "isMobile", {
       enumerable: true,
       get: function() {
-        return settings5.isMobile;
+        return settings6.isMobile;
       }
     });
     exports.EventEmitter = eventemitter32;
@@ -7156,10 +7156,10 @@
      */
     "use strict";
     Object.defineProperty(exports, "__esModule", {value: true});
-    var settings5 = require_settings();
+    var settings6 = require_settings();
     var math = require_math();
     var utils = require_utils();
-    settings5.settings.SORTABLE_CHILDREN = false;
+    settings6.settings.SORTABLE_CHILDREN = false;
     var Bounds = function() {
       function Bounds2() {
         this.minX = Infinity;
@@ -7794,18 +7794,18 @@
       }
       return a.zIndex - b.zIndex;
     }
-    var Container11 = function(_super) {
-      __extends(Container12, _super);
-      function Container12() {
+    var Container12 = function(_super) {
+      __extends(Container13, _super);
+      function Container13() {
         var _this = _super.call(this) || this;
         _this.children = [];
-        _this.sortableChildren = settings5.settings.SORTABLE_CHILDREN;
+        _this.sortableChildren = settings6.settings.SORTABLE_CHILDREN;
         _this.sortDirty = false;
         return _this;
       }
-      Container12.prototype.onChildrenChange = function(_length) {
+      Container13.prototype.onChildrenChange = function(_length) {
       };
-      Container12.prototype.addChild = function() {
+      Container13.prototype.addChild = function() {
         var arguments$1 = arguments;
         var children = [];
         for (var _i = 0; _i < arguments.length; _i++) {
@@ -7831,7 +7831,7 @@
         }
         return children[0];
       };
-      Container12.prototype.addChildAt = function(child, index) {
+      Container13.prototype.addChildAt = function(child, index) {
         if (index < 0 || index > this.children.length) {
           throw new Error(child + "addChildAt: The index " + index + " supplied is out of bounds " + this.children.length);
         }
@@ -7848,7 +7848,7 @@
         this.emit("childAdded", child, this, index);
         return child;
       };
-      Container12.prototype.swapChildren = function(child, child2) {
+      Container13.prototype.swapChildren = function(child, child2) {
         if (child === child2) {
           return;
         }
@@ -7858,14 +7858,14 @@
         this.children[index2] = child;
         this.onChildrenChange(index1 < index2 ? index1 : index2);
       };
-      Container12.prototype.getChildIndex = function(child) {
+      Container13.prototype.getChildIndex = function(child) {
         var index = this.children.indexOf(child);
         if (index === -1) {
           throw new Error("The supplied DisplayObject must be a child of the caller");
         }
         return index;
       };
-      Container12.prototype.setChildIndex = function(child, index) {
+      Container13.prototype.setChildIndex = function(child, index) {
         if (index < 0 || index >= this.children.length) {
           throw new Error("The index " + index + " supplied is out of bounds " + this.children.length);
         }
@@ -7874,13 +7874,13 @@
         this.children.splice(index, 0, child);
         this.onChildrenChange(index);
       };
-      Container12.prototype.getChildAt = function(index) {
+      Container13.prototype.getChildAt = function(index) {
         if (index < 0 || index >= this.children.length) {
           throw new Error("getChildAt: Index (" + index + ") does not exist.");
         }
         return this.children[index];
       };
-      Container12.prototype.removeChild = function() {
+      Container13.prototype.removeChild = function() {
         var arguments$1 = arguments;
         var children = [];
         for (var _i = 0; _i < arguments.length; _i++) {
@@ -7906,7 +7906,7 @@
         }
         return children[0];
       };
-      Container12.prototype.removeChildAt = function(index) {
+      Container13.prototype.removeChildAt = function(index) {
         var child = this.getChildAt(index);
         child.parent = null;
         child.transform._parentID = -1;
@@ -7917,7 +7917,7 @@
         this.emit("childRemoved", child, this, index);
         return child;
       };
-      Container12.prototype.removeChildren = function(beginIndex, endIndex) {
+      Container13.prototype.removeChildren = function(beginIndex, endIndex) {
         if (beginIndex === void 0) {
           beginIndex = 0;
         }
@@ -7948,7 +7948,7 @@
         }
         throw new RangeError("removeChildren: numeric values are outside the acceptable range.");
       };
-      Container12.prototype.sortChildren = function() {
+      Container13.prototype.sortChildren = function() {
         var sortRequired = false;
         for (var i = 0, j = this.children.length; i < j; ++i) {
           var child = this.children[i];
@@ -7962,7 +7962,7 @@
         }
         this.sortDirty = false;
       };
-      Container12.prototype.updateTransform = function() {
+      Container13.prototype.updateTransform = function() {
         if (this.sortableChildren && this.sortDirty) {
           this.sortChildren();
         }
@@ -7976,7 +7976,7 @@
           }
         }
       };
-      Container12.prototype.calculateBounds = function() {
+      Container13.prototype.calculateBounds = function() {
         this._bounds.clear();
         this._calculateBounds();
         for (var i = 0; i < this.children.length; i++) {
@@ -7997,7 +7997,7 @@
         }
         this._bounds.updateID = this._boundsID;
       };
-      Container12.prototype.getLocalBounds = function(rect, skipChildrenUpdate) {
+      Container13.prototype.getLocalBounds = function(rect, skipChildrenUpdate) {
         if (skipChildrenUpdate === void 0) {
           skipChildrenUpdate = false;
         }
@@ -8012,9 +8012,9 @@
         }
         return result;
       };
-      Container12.prototype._calculateBounds = function() {
+      Container13.prototype._calculateBounds = function() {
       };
-      Container12.prototype.render = function(renderer) {
+      Container13.prototype.render = function(renderer) {
         if (!this.visible || this.worldAlpha <= 0 || !this.renderable) {
           return;
         }
@@ -8027,7 +8027,7 @@
           }
         }
       };
-      Container12.prototype.renderAdvanced = function(renderer) {
+      Container13.prototype.renderAdvanced = function(renderer) {
         renderer.batch.flush();
         var filters = this.filters;
         var mask = this._mask;
@@ -8060,9 +8060,9 @@
           renderer.filter.pop();
         }
       };
-      Container12.prototype._render = function(_renderer) {
+      Container13.prototype._render = function(_renderer) {
       };
-      Container12.prototype.destroy = function(options) {
+      Container13.prototype.destroy = function(options) {
         _super.prototype.destroy.call(this);
         this.sortDirty = false;
         var destroyChildren = typeof options === "boolean" ? options : options && options.children;
@@ -8073,7 +8073,7 @@
           }
         }
       };
-      Object.defineProperty(Container12.prototype, "width", {
+      Object.defineProperty(Container13.prototype, "width", {
         get: function() {
           return this.scale.x * this.getLocalBounds().width;
         },
@@ -8089,7 +8089,7 @@
         enumerable: false,
         configurable: true
       });
-      Object.defineProperty(Container12.prototype, "height", {
+      Object.defineProperty(Container13.prototype, "height", {
         get: function() {
           return this.scale.y * this.getLocalBounds().height;
         },
@@ -8105,11 +8105,11 @@
         enumerable: false,
         configurable: true
       });
-      return Container12;
+      return Container13;
     }(DisplayObject);
-    Container11.prototype.containerUpdateTransform = Container11.prototype.updateTransform;
+    Container12.prototype.containerUpdateTransform = Container12.prototype.updateTransform;
     exports.Bounds = Bounds;
-    exports.Container = Container11;
+    exports.Container = Container12;
     exports.DisplayObject = DisplayObject;
     exports.TemporaryDisplayObject = TemporaryDisplayObject;
   });
@@ -8440,8 +8440,8 @@
      */
     "use strict";
     Object.defineProperty(exports, "__esModule", {value: true});
-    var settings5 = require_settings();
-    settings5.settings.TARGET_FPMS = 0.06;
+    var settings6 = require_settings();
+    settings6.settings.TARGET_FPMS = 0.06;
     (function(UPDATE_PRIORITY) {
       UPDATE_PRIORITY[UPDATE_PRIORITY["INTERACTION"] = 50] = "INTERACTION";
       UPDATE_PRIORITY[UPDATE_PRIORITY["HIGH"] = 25] = "HIGH";
@@ -8528,8 +8528,8 @@
         this._minElapsedMS = 0;
         this.autoStart = false;
         this.deltaTime = 1;
-        this.deltaMS = 1 / settings5.settings.TARGET_FPMS;
-        this.elapsedMS = 1 / settings5.settings.TARGET_FPMS;
+        this.deltaMS = 1 / settings6.settings.TARGET_FPMS;
+        this.elapsedMS = 1 / settings6.settings.TARGET_FPMS;
         this.lastTime = -1;
         this.speed = 1;
         this.started = false;
@@ -8669,7 +8669,7 @@
             this._lastFrame = currentTime - delta % this._minElapsedMS;
           }
           this.deltaMS = elapsedMS;
-          this.deltaTime = this.deltaMS * settings5.settings.TARGET_FPMS;
+          this.deltaTime = this.deltaMS * settings6.settings.TARGET_FPMS;
           var head = this._head;
           var listener = head.next;
           while (listener) {
@@ -8696,7 +8696,7 @@
         },
         set: function(fps) {
           var minFPS = Math.min(this.maxFPS, fps);
-          var minFPMS = Math.min(Math.max(0, minFPS) / 1e3, settings5.settings.TARGET_FPMS);
+          var minFPMS = Math.min(Math.max(0, minFPS) / 1e3, settings6.settings.TARGET_FPMS);
           this._maxElapsedMS = 1 / minFPMS;
         },
         enumerable: false,
@@ -9873,14 +9873,14 @@
      */
     "use strict";
     Object.defineProperty(exports, "__esModule", {value: true});
-    var settings5 = require_settings();
+    var settings6 = require_settings();
     var constants = require_constants();
     var utils = require_utils();
     var runner = require_runner();
     var ticker = require_ticker();
     var math = require_math();
-    settings5.settings.PREFER_ENV = utils.isMobile.any ? constants.ENV.WEBGL : constants.ENV.WEBGL2;
-    settings5.settings.STRICT_TEXTURE_CACHE = false;
+    settings6.settings.PREFER_ENV = utils.isMobile.any ? constants.ENV.WEBGL : constants.ENV.WEBGL2;
+    settings6.settings.STRICT_TEXTURE_CACHE = false;
     var INSTALLED = [];
     function autoDetectResource(source, options) {
       if (!source) {
@@ -10076,11 +10076,11 @@
         }
         _this.width = width || 0;
         _this.height = height || 0;
-        _this.resolution = resolution || settings5.settings.RESOLUTION;
-        _this.mipmap = mipmap !== void 0 ? mipmap : settings5.settings.MIPMAP_TEXTURES;
-        _this.anisotropicLevel = anisotropicLevel !== void 0 ? anisotropicLevel : settings5.settings.ANISOTROPIC_LEVEL;
-        _this.wrapMode = wrapMode || settings5.settings.WRAP_MODE;
-        _this.scaleMode = scaleMode !== void 0 ? scaleMode : settings5.settings.SCALE_MODE;
+        _this.resolution = resolution || settings6.settings.RESOLUTION;
+        _this.mipmap = mipmap !== void 0 ? mipmap : settings6.settings.MIPMAP_TEXTURES;
+        _this.anisotropicLevel = anisotropicLevel !== void 0 ? anisotropicLevel : settings6.settings.ANISOTROPIC_LEVEL;
+        _this.wrapMode = wrapMode || settings6.settings.WRAP_MODE;
+        _this.scaleMode = scaleMode !== void 0 ? scaleMode : settings6.settings.SCALE_MODE;
         _this.format = format || constants.FORMATS.RGBA;
         _this.type = type || constants.TYPES.UNSIGNED_BYTE;
         _this.target = target || constants.TARGETS.TEXTURE_2D;
@@ -10221,7 +10221,7 @@
       };
       BaseTexture2.from = function(source, options, strict) {
         if (strict === void 0) {
-          strict = settings5.settings.STRICT_TEXTURE_CACHE;
+          strict = settings6.settings.STRICT_TEXTURE_CACHE;
         }
         var isFrame = typeof source === "string";
         var cacheId = null;
@@ -10576,7 +10576,7 @@
         _this.url = source.src;
         _this._process = null;
         _this.preserveBitmap = false;
-        _this.createBitmap = (options.createBitmap !== void 0 ? options.createBitmap : settings5.settings.CREATE_IMAGE_BITMAP) && !!window.createImageBitmap;
+        _this.createBitmap = (options.createBitmap !== void 0 ? options.createBitmap : settings6.settings.CREATE_IMAGE_BITMAP) && !!window.createImageBitmap;
         _this.alphaMode = typeof options.alphaMode === "number" ? options.alphaMode : null;
         if (options.premultiplyAlpha !== void 0) {
           _this.premultiplyAlpha = options.premultiplyAlpha;
@@ -11220,16 +11220,16 @@
       return TextureUvs2;
     }();
     var DEFAULT_UVS = new TextureUvs();
-    var Texture5 = function(_super) {
-      __extends(Texture6, _super);
-      function Texture6(baseTexture, frame, orig, trim, rotate, anchor) {
+    var Texture6 = function(_super) {
+      __extends(Texture7, _super);
+      function Texture7(baseTexture, frame, orig, trim, rotate, anchor) {
         var _this = _super.call(this) || this;
         _this.noFrame = false;
         if (!frame) {
           _this.noFrame = true;
           frame = new math.Rectangle(0, 0, 1, 1);
         }
-        if (baseTexture instanceof Texture6) {
+        if (baseTexture instanceof Texture7) {
           baseTexture = baseTexture.baseTexture;
         }
         _this.baseTexture = baseTexture;
@@ -11262,12 +11262,12 @@
         }
         return _this;
       }
-      Texture6.prototype.update = function() {
+      Texture7.prototype.update = function() {
         if (this.baseTexture.resource) {
           this.baseTexture.resource.update();
         }
       };
-      Texture6.prototype.onBaseTextureUpdated = function(baseTexture) {
+      Texture7.prototype.onBaseTextureUpdated = function(baseTexture) {
         if (this.noFrame) {
           if (!this.baseTexture.valid) {
             return;
@@ -11281,12 +11281,12 @@
         }
         this.emit("update", this);
       };
-      Texture6.prototype.destroy = function(destroyBase) {
+      Texture7.prototype.destroy = function(destroyBase) {
         if (this.baseTexture) {
           if (destroyBase) {
             var resource = this.baseTexture;
             if (resource && resource.url && utils.TextureCache[resource.url]) {
-              Texture6.removeFromCache(resource.url);
+              Texture7.removeFromCache(resource.url);
             }
             this.baseTexture.destroy();
           }
@@ -11299,25 +11299,25 @@
         this.trim = null;
         this.orig = null;
         this.valid = false;
-        Texture6.removeFromCache(this);
+        Texture7.removeFromCache(this);
         this.textureCacheIds = null;
       };
-      Texture6.prototype.clone = function() {
-        return new Texture6(this.baseTexture, this.frame.clone(), this.orig.clone(), this.trim && this.trim.clone(), this.rotate, this.defaultAnchor);
+      Texture7.prototype.clone = function() {
+        return new Texture7(this.baseTexture, this.frame.clone(), this.orig.clone(), this.trim && this.trim.clone(), this.rotate, this.defaultAnchor);
       };
-      Texture6.prototype.updateUvs = function() {
+      Texture7.prototype.updateUvs = function() {
         if (this._uvs === DEFAULT_UVS) {
           this._uvs = new TextureUvs();
         }
         this._uvs.set(this._frame, this.baseTexture, this.rotate);
         this._updateID++;
       };
-      Texture6.from = function(source, options, strict) {
+      Texture7.from = function(source, options, strict) {
         if (options === void 0) {
           options = {};
         }
         if (strict === void 0) {
-          strict = settings5.settings.STRICT_TEXTURE_CACHE;
+          strict = settings6.settings.STRICT_TEXTURE_CACHE;
         }
         var isFrame = typeof source === "string";
         var cacheId = null;
@@ -11337,16 +11337,16 @@
           if (!options.resolution) {
             options.resolution = utils.getResolutionOfUrl(source);
           }
-          texture = new Texture6(new BaseTexture(source, options));
+          texture = new Texture7(new BaseTexture(source, options));
           texture.baseTexture.cacheId = cacheId;
           BaseTexture.addToCache(texture.baseTexture, cacheId);
-          Texture6.addToCache(texture, cacheId);
+          Texture7.addToCache(texture, cacheId);
         }
         return texture;
       };
-      Texture6.fromURL = function(url, options) {
+      Texture7.fromURL = function(url, options) {
         var resourceOptions = Object.assign({autoLoad: false}, options === null || options === void 0 ? void 0 : options.resourceOptions);
-        var texture = Texture6.from(url, Object.assign({resourceOptions}, options), false);
+        var texture = Texture7.from(url, Object.assign({resourceOptions}, options), false);
         var resource = texture.baseTexture.resource;
         if (texture.baseTexture.valid) {
           return Promise.resolve(texture);
@@ -11355,29 +11355,29 @@
           return Promise.resolve(texture);
         });
       };
-      Texture6.fromBuffer = function(buffer, width, height, options) {
-        return new Texture6(BaseTexture.fromBuffer(buffer, width, height, options));
+      Texture7.fromBuffer = function(buffer, width, height, options) {
+        return new Texture7(BaseTexture.fromBuffer(buffer, width, height, options));
       };
-      Texture6.fromLoader = function(source, imageUrl, name5) {
+      Texture7.fromLoader = function(source, imageUrl, name5) {
         var resource = new ImageResource(source);
         resource.url = imageUrl;
         var baseTexture = new BaseTexture(resource, {
-          scaleMode: settings5.settings.SCALE_MODE,
+          scaleMode: settings6.settings.SCALE_MODE,
           resolution: utils.getResolutionOfUrl(imageUrl)
         });
-        var texture = new Texture6(baseTexture);
+        var texture = new Texture7(baseTexture);
         if (!name5) {
           name5 = imageUrl;
         }
         BaseTexture.addToCache(texture.baseTexture, name5);
-        Texture6.addToCache(texture, name5);
+        Texture7.addToCache(texture, name5);
         if (name5 !== imageUrl) {
           BaseTexture.addToCache(texture.baseTexture, imageUrl);
-          Texture6.addToCache(texture, imageUrl);
+          Texture7.addToCache(texture, imageUrl);
         }
         return texture;
       };
-      Texture6.addToCache = function(texture, id) {
+      Texture7.addToCache = function(texture, id) {
         if (id) {
           if (texture.textureCacheIds.indexOf(id) === -1) {
             texture.textureCacheIds.push(id);
@@ -11388,7 +11388,7 @@
           utils.TextureCache[id] = texture;
         }
       };
-      Texture6.removeFromCache = function(texture) {
+      Texture7.removeFromCache = function(texture) {
         if (typeof texture === "string") {
           var textureFromCache = utils.TextureCache[texture];
           if (textureFromCache) {
@@ -11410,14 +11410,14 @@
         }
         return null;
       };
-      Object.defineProperty(Texture6.prototype, "resolution", {
+      Object.defineProperty(Texture7.prototype, "resolution", {
         get: function() {
           return this.baseTexture.resolution;
         },
         enumerable: false,
         configurable: true
       });
-      Object.defineProperty(Texture6.prototype, "frame", {
+      Object.defineProperty(Texture7.prototype, "frame", {
         get: function() {
           return this._frame;
         },
@@ -11444,7 +11444,7 @@
         enumerable: false,
         configurable: true
       });
-      Object.defineProperty(Texture6.prototype, "rotate", {
+      Object.defineProperty(Texture7.prototype, "rotate", {
         get: function() {
           return this._rotate;
         },
@@ -11457,24 +11457,24 @@
         enumerable: false,
         configurable: true
       });
-      Object.defineProperty(Texture6.prototype, "width", {
+      Object.defineProperty(Texture7.prototype, "width", {
         get: function() {
           return this.orig.width;
         },
         enumerable: false,
         configurable: true
       });
-      Object.defineProperty(Texture6.prototype, "height", {
+      Object.defineProperty(Texture7.prototype, "height", {
         get: function() {
           return this.orig.height;
         },
         enumerable: false,
         configurable: true
       });
-      Texture6.prototype.castToBaseTexture = function() {
+      Texture7.prototype.castToBaseTexture = function() {
         return this.baseTexture;
       };
-      return Texture6;
+      return Texture7;
     }(utils.EventEmitter);
     function createWhiteTexture() {
       var canvas = document.createElement("canvas");
@@ -11483,7 +11483,7 @@
       var context2 = canvas.getContext("2d");
       context2.fillStyle = "white";
       context2.fillRect(0, 0, 16, 16);
-      return new Texture5(new BaseTexture(new CanvasResource(canvas)));
+      return new Texture6(new BaseTexture(new CanvasResource(canvas)));
     }
     function removeAllHandlers(tex) {
       tex.destroy = function _emptyDestroy() {
@@ -11495,12 +11495,12 @@
       tex.emit = function _emptyEmit() {
       };
     }
-    Texture5.EMPTY = new Texture5(new BaseTexture());
-    removeAllHandlers(Texture5.EMPTY);
-    removeAllHandlers(Texture5.EMPTY.baseTexture);
-    Texture5.WHITE = createWhiteTexture();
-    removeAllHandlers(Texture5.WHITE);
-    removeAllHandlers(Texture5.WHITE.baseTexture);
+    Texture6.EMPTY = new Texture6(new BaseTexture());
+    removeAllHandlers(Texture6.EMPTY);
+    removeAllHandlers(Texture6.EMPTY.baseTexture);
+    Texture6.WHITE = createWhiteTexture();
+    removeAllHandlers(Texture6.WHITE);
+    removeAllHandlers(Texture6.WHITE.baseTexture);
     var RenderTexture = function(_super) {
       __extends(RenderTexture2, _super);
       function RenderTexture2(baseRenderTexture, frame) {
@@ -11570,7 +11570,7 @@
         return new RenderTexture2(new BaseRenderTexture(options));
       };
       return RenderTexture2;
-    }(Texture5);
+    }(Texture6);
     var RenderTexturePool = function() {
       function RenderTexturePool2(textureOptions) {
         this.texturePool = {};
@@ -12118,7 +12118,7 @@
       FilterSystem2.prototype.push = function(target, filters) {
         var renderer = this.renderer;
         var filterStack = this.defaultFilterStack;
-        var state9 = this.statePool.pop() || new FilterState();
+        var state8 = this.statePool.pop() || new FilterState();
         var resolution = filters[0].resolution;
         var padding3 = filters[0].padding;
         var autoFit = filters[0].autoFit;
@@ -12133,83 +12133,83 @@
         if (filterStack.length === 1) {
           this.defaultFilterStack[0].renderTexture = renderer.renderTexture.current;
         }
-        filterStack.push(state9);
-        state9.resolution = resolution;
-        state9.legacy = legacy;
-        state9.target = target;
-        state9.sourceFrame.copyFrom(target.filterArea || target.getBounds(true));
-        state9.sourceFrame.pad(padding3);
+        filterStack.push(state8);
+        state8.resolution = resolution;
+        state8.legacy = legacy;
+        state8.target = target;
+        state8.sourceFrame.copyFrom(target.filterArea || target.getBounds(true));
+        state8.sourceFrame.pad(padding3);
         if (autoFit) {
-          state9.sourceFrame.fit(this.renderer.renderTexture.sourceFrame);
+          state8.sourceFrame.fit(this.renderer.renderTexture.sourceFrame);
         }
-        state9.sourceFrame.ceil(resolution);
-        state9.renderTexture = this.getOptimalFilterTexture(state9.sourceFrame.width, state9.sourceFrame.height, resolution);
-        state9.filters = filters;
-        state9.destinationFrame.width = state9.renderTexture.width;
-        state9.destinationFrame.height = state9.renderTexture.height;
+        state8.sourceFrame.ceil(resolution);
+        state8.renderTexture = this.getOptimalFilterTexture(state8.sourceFrame.width, state8.sourceFrame.height, resolution);
+        state8.filters = filters;
+        state8.destinationFrame.width = state8.renderTexture.width;
+        state8.destinationFrame.height = state8.renderTexture.height;
         var destinationFrame = this.tempRect;
-        destinationFrame.width = state9.sourceFrame.width;
-        destinationFrame.height = state9.sourceFrame.height;
-        state9.renderTexture.filterFrame = state9.sourceFrame;
-        renderer.renderTexture.bind(state9.renderTexture, state9.sourceFrame, destinationFrame);
+        destinationFrame.width = state8.sourceFrame.width;
+        destinationFrame.height = state8.sourceFrame.height;
+        state8.renderTexture.filterFrame = state8.sourceFrame;
+        renderer.renderTexture.bind(state8.renderTexture, state8.sourceFrame, destinationFrame);
         renderer.renderTexture.clear();
       };
       FilterSystem2.prototype.pop = function() {
         var filterStack = this.defaultFilterStack;
-        var state9 = filterStack.pop();
-        var filters = state9.filters;
-        this.activeState = state9;
+        var state8 = filterStack.pop();
+        var filters = state8.filters;
+        this.activeState = state8;
         var globalUniforms = this.globalUniforms.uniforms;
-        globalUniforms.outputFrame = state9.sourceFrame;
-        globalUniforms.resolution = state9.resolution;
+        globalUniforms.outputFrame = state8.sourceFrame;
+        globalUniforms.resolution = state8.resolution;
         var inputSize = globalUniforms.inputSize;
         var inputPixel = globalUniforms.inputPixel;
         var inputClamp = globalUniforms.inputClamp;
-        inputSize[0] = state9.destinationFrame.width;
-        inputSize[1] = state9.destinationFrame.height;
+        inputSize[0] = state8.destinationFrame.width;
+        inputSize[1] = state8.destinationFrame.height;
         inputSize[2] = 1 / inputSize[0];
         inputSize[3] = 1 / inputSize[1];
-        inputPixel[0] = inputSize[0] * state9.resolution;
-        inputPixel[1] = inputSize[1] * state9.resolution;
+        inputPixel[0] = inputSize[0] * state8.resolution;
+        inputPixel[1] = inputSize[1] * state8.resolution;
         inputPixel[2] = 1 / inputPixel[0];
         inputPixel[3] = 1 / inputPixel[1];
         inputClamp[0] = 0.5 * inputPixel[2];
         inputClamp[1] = 0.5 * inputPixel[3];
-        inputClamp[2] = state9.sourceFrame.width * inputSize[2] - 0.5 * inputPixel[2];
-        inputClamp[3] = state9.sourceFrame.height * inputSize[3] - 0.5 * inputPixel[3];
-        if (state9.legacy) {
+        inputClamp[2] = state8.sourceFrame.width * inputSize[2] - 0.5 * inputPixel[2];
+        inputClamp[3] = state8.sourceFrame.height * inputSize[3] - 0.5 * inputPixel[3];
+        if (state8.legacy) {
           var filterArea = globalUniforms.filterArea;
-          filterArea[0] = state9.destinationFrame.width;
-          filterArea[1] = state9.destinationFrame.height;
-          filterArea[2] = state9.sourceFrame.x;
-          filterArea[3] = state9.sourceFrame.y;
+          filterArea[0] = state8.destinationFrame.width;
+          filterArea[1] = state8.destinationFrame.height;
+          filterArea[2] = state8.sourceFrame.x;
+          filterArea[3] = state8.sourceFrame.y;
           globalUniforms.filterClamp = globalUniforms.inputClamp;
         }
         this.globalUniforms.update();
         var lastState = filterStack[filterStack.length - 1];
-        if (state9.renderTexture.framebuffer.multisample > 1) {
+        if (state8.renderTexture.framebuffer.multisample > 1) {
           this.renderer.framebuffer.blit();
         }
         if (filters.length === 1) {
-          filters[0].apply(this, state9.renderTexture, lastState.renderTexture, constants.CLEAR_MODES.BLEND, state9);
-          this.returnFilterTexture(state9.renderTexture);
+          filters[0].apply(this, state8.renderTexture, lastState.renderTexture, constants.CLEAR_MODES.BLEND, state8);
+          this.returnFilterTexture(state8.renderTexture);
         } else {
-          var flip = state9.renderTexture;
-          var flop = this.getOptimalFilterTexture(flip.width, flip.height, state9.resolution);
+          var flip = state8.renderTexture;
+          var flop = this.getOptimalFilterTexture(flip.width, flip.height, state8.resolution);
           flop.filterFrame = flip.filterFrame;
           var i = 0;
           for (i = 0; i < filters.length - 1; ++i) {
-            filters[i].apply(this, flip, flop, constants.CLEAR_MODES.CLEAR, state9);
+            filters[i].apply(this, flip, flop, constants.CLEAR_MODES.CLEAR, state8);
             var t = flip;
             flip = flop;
             flop = t;
           }
-          filters[i].apply(this, flip, lastState.renderTexture, constants.CLEAR_MODES.BLEND, state9);
+          filters[i].apply(this, flip, lastState.renderTexture, constants.CLEAR_MODES.BLEND, state8);
           this.returnFilterTexture(flip);
           this.returnFilterTexture(flop);
         }
-        state9.clear();
-        this.statePool.push(state9);
+        state8.clear();
+        this.statePool.push(state8);
       };
       FilterSystem2.prototype.bindAndClear = function(filterTexture, clearMode) {
         if (clearMode === void 0) {
@@ -12407,7 +12407,7 @@
       };
       ContextSystem2.prototype.createContext = function(canvas, options) {
         var gl;
-        if (settings5.settings.PREFER_ENV >= constants.ENV.WEBGL2) {
+        if (settings6.settings.PREFER_ENV >= constants.ENV.WEBGL2) {
           gl = canvas.getContext("webgl2", options);
         }
         if (gl) {
@@ -12513,7 +12513,7 @@
         if (this.renderer.context.webGLVersion === 1) {
           var nativeDrawBuffersExtension_1 = this.renderer.context.extensions.drawBuffers;
           var nativeDepthTextureExtension = this.renderer.context.extensions.depthTexture;
-          if (settings5.settings.PREFER_ENV === constants.ENV.WEBGL_LEGACY) {
+          if (settings6.settings.PREFER_ENV === constants.ENV.WEBGL_LEGACY) {
             nativeDrawBuffersExtension_1 = null;
             nativeDepthTextureExtension = null;
           }
@@ -12807,7 +12807,7 @@
         this.CONTEXT_UID = this.renderer.CONTEXT_UID;
         if (!gl.createVertexArray) {
           var nativeVaoExtension_1 = this.renderer.context.extensions.vertexArrayObject;
-          if (settings5.settings.PREFER_ENV === constants.ENV.WEBGL_LEGACY) {
+          if (settings6.settings.PREFER_ENV === constants.ENV.WEBGL_LEGACY) {
             nativeVaoExtension_1 = null;
           }
           if (nativeVaoExtension_1) {
@@ -13251,7 +13251,7 @@
       if (context === unknownContext || context && context.isContextLost()) {
         var canvas = document.createElement("canvas");
         var gl = void 0;
-        if (settings5.settings.PREFER_ENV >= constants.ENV.WEBGL2) {
+        if (settings6.settings.PREFER_ENV >= constants.ENV.WEBGL2) {
           gl = canvas.getContext("webgl2", {});
         }
         if (!gl) {
@@ -13550,8 +13550,8 @@
           }
           this.vertexSrc = "#define SHADER_NAME " + name5 + "\n" + this.vertexSrc;
           this.fragmentSrc = "#define SHADER_NAME " + name5 + "\n" + this.fragmentSrc;
-          this.vertexSrc = setPrecision(this.vertexSrc, settings5.settings.PRECISION_VERTEX, constants.PRECISION.HIGH);
-          this.fragmentSrc = setPrecision(this.fragmentSrc, settings5.settings.PRECISION_FRAGMENT, getMaxFragmentPrecision());
+          this.vertexSrc = setPrecision(this.vertexSrc, settings6.settings.PRECISION_VERTEX, constants.PRECISION.HIGH);
+          this.fragmentSrc = setPrecision(this.fragmentSrc, settings6.settings.PRECISION_FRAGMENT, getMaxFragmentPrecision());
         }
         this.extractData(this.vertexSrc, this.fragmentSrc);
         this.glPrograms = {};
@@ -13777,10 +13777,10 @@
         configurable: true
       });
       State3.for2d = function() {
-        var state9 = new State3();
-        state9.depthTest = false;
-        state9.blend = true;
-        return state9;
+        var state8 = new State3();
+        state8.depthTest = false;
+        state8.blend = true;
+        return state8;
       };
       return State3;
     }();
@@ -13793,7 +13793,7 @@
         var program = Program.from(vertexSrc || Filter2.defaultVertexSrc, fragmentSrc || Filter2.defaultFragmentSrc);
         _this = _super.call(this, program, uniforms) || this;
         _this.padding = 0;
-        _this.resolution = settings5.settings.FILTER_RESOLUTION;
+        _this.resolution = settings6.settings.FILTER_RESOLUTION;
         _this.enabled = true;
         _this.autoFit = true;
         _this.legacy = !!_this.program.attributeData.aTextureCoord;
@@ -14506,33 +14506,33 @@
         this.set(this.defaultState);
         this.reset();
       };
-      StateSystem2.prototype.set = function(state9) {
-        state9 = state9 || this.defaultState;
-        if (this.stateId !== state9.data) {
-          var diff = this.stateId ^ state9.data;
+      StateSystem2.prototype.set = function(state8) {
+        state8 = state8 || this.defaultState;
+        if (this.stateId !== state8.data) {
+          var diff = this.stateId ^ state8.data;
           var i = 0;
           while (diff) {
             if (diff & 1) {
-              this.map[i].call(this, !!(state9.data & 1 << i));
+              this.map[i].call(this, !!(state8.data & 1 << i));
             }
             diff = diff >> 1;
             i++;
           }
-          this.stateId = state9.data;
+          this.stateId = state8.data;
         }
         for (var i = 0; i < this.checks.length; i++) {
-          this.checks[i](this, state9);
+          this.checks[i](this, state8);
         }
       };
-      StateSystem2.prototype.forceState = function(state9) {
-        state9 = state9 || this.defaultState;
+      StateSystem2.prototype.forceState = function(state8) {
+        state8 = state8 || this.defaultState;
         for (var i = 0; i < this.map.length; i++) {
-          this.map[i].call(this, !!(state9.data & 1 << i));
+          this.map[i].call(this, !!(state8.data & 1 << i));
         }
         for (var i = 0; i < this.checks.length; i++) {
-          this.checks[i](this, state9);
+          this.checks[i](this, state8);
         }
-        this.stateId = state9.data;
+        this.stateId = state8.data;
       };
       StateSystem2.prototype.setBlend = function(value) {
         this.updateCheck(StateSystem2.checkBlendMode, value);
@@ -14589,11 +14589,11 @@
           this.checks.splice(index2, 1);
         }
       };
-      StateSystem2.checkBlendMode = function(system, state9) {
-        system.setBlendMode(state9.blendMode);
+      StateSystem2.checkBlendMode = function(system, state8) {
+        system.setBlendMode(state8.blendMode);
       };
-      StateSystem2.checkPolygonOffset = function(system, state9) {
-        system.setPolygonOffset(1, state9.polygonOffset);
+      StateSystem2.checkPolygonOffset = function(system, state8) {
+        system.setPolygonOffset(1, state8.polygonOffset);
       };
       return StateSystem2;
     }(System);
@@ -14603,9 +14603,9 @@
         var _this = _super.call(this, renderer) || this;
         _this.count = 0;
         _this.checkCount = 0;
-        _this.maxIdle = settings5.settings.GC_MAX_IDLE;
-        _this.checkCountMax = settings5.settings.GC_MAX_CHECK_COUNT;
-        _this.mode = settings5.settings.GC_MODE;
+        _this.maxIdle = settings6.settings.GC_MAX_IDLE;
+        _this.checkCountMax = settings6.settings.GC_MAX_CHECK_COUNT;
+        _this.mode = settings6.settings.GC_MODE;
         return _this;
       }
       TextureGCSystem2.prototype.postrender = function() {
@@ -14904,16 +14904,16 @@
           type = constants.RENDERER_TYPE.UNKNOWN;
         }
         var _this = _super.call(this) || this;
-        options = Object.assign({}, settings5.settings.RENDER_OPTIONS, options);
+        options = Object.assign({}, settings6.settings.RENDER_OPTIONS, options);
         if (options.roundPixels) {
-          settings5.settings.ROUND_PIXELS = options.roundPixels;
+          settings6.settings.ROUND_PIXELS = options.roundPixels;
           utils.deprecation("5.0.0", "Renderer roundPixels option is deprecated, please use PIXI.settings.ROUND_PIXELS", 2);
         }
         _this.options = options;
         _this.type = type;
         _this.screen = new math.Rectangle(0, 0, options.width, options.height);
         _this.view = options.view || document.createElement("canvas");
-        _this.resolution = options.resolution || settings5.settings.RESOLUTION;
+        _this.resolution = options.resolution || settings6.settings.RESOLUTION;
         _this.transparent = options.transparent;
         _this.autoDensity = options.autoDensity || options.autoResize || false;
         _this.preserveDrawingBuffer = options.preserveDrawingBuffer;
@@ -15247,7 +15247,7 @@
         _this.geometryClass = null;
         _this.vertexSize = null;
         _this.state = State2.for2d();
-        _this.size = settings5.settings.SPRITE_BATCH_SIZE * 4;
+        _this.size = settings6.settings.SPRITE_BATCH_SIZE * 4;
         _this._vertexCount = 0;
         _this._indexCount = 0;
         _this._bufferedElements = [];
@@ -15272,10 +15272,10 @@
       }
       AbstractBatchRenderer2.prototype.contextChange = function() {
         var gl = this.renderer.gl;
-        if (settings5.settings.PREFER_ENV === constants.ENV.WEBGL_LEGACY) {
+        if (settings6.settings.PREFER_ENV === constants.ENV.WEBGL_LEGACY) {
           this.MAX_TEXTURES = 1;
         } else {
-          this.MAX_TEXTURES = Math.min(gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS), settings5.settings.SPRITE_MAX_TEXTURES);
+          this.MAX_TEXTURES = Math.min(gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS), settings6.settings.SPRITE_MAX_TEXTURES);
           this.MAX_TEXTURES = checkMaxIfStatementsInShader(this.MAX_TEXTURES, gl);
         }
         this._shader = this.shaderGenerator.generateShader(this.MAX_TEXTURES);
@@ -15396,7 +15396,7 @@
       };
       AbstractBatchRenderer2.prototype.updateGeometry = function() {
         var _a = this, packedGeometries = _a._packedGeometries, attributeBuffer = _a._attributeBuffer, indexBuffer = _a._indexBuffer;
-        if (!settings5.settings.CAN_UPLOAD_SAME_BUFFER) {
+        if (!settings6.settings.CAN_UPLOAD_SAME_BUFFER) {
           if (this._packedGeometryPoolSize <= this._flushId) {
             this._packedGeometryPoolSize++;
             packedGeometries[this._flushId] = new this.geometryClass();
@@ -15447,7 +15447,7 @@
       AbstractBatchRenderer2.prototype.start = function() {
         this.renderer.state.set(this.state);
         this.renderer.shader.bind(this._shader);
-        if (settings5.settings.CAN_UPLOAD_SAME_BUFFER) {
+        if (settings6.settings.CAN_UPLOAD_SAME_BUFFER) {
           this.renderer.geometry.bind(this._packedGeometries[this._flushId]);
         }
       };
@@ -15663,7 +15663,7 @@
     exports.SpriteMaskFilter = SpriteMaskFilter;
     exports.State = State2;
     exports.System = System;
-    exports.Texture = Texture5;
+    exports.Texture = Texture6;
     exports.TextureMatrix = TextureMatrix;
     exports.TextureUvs = TextureUvs;
     exports.UniformGroup = UniformGroup;
@@ -19651,7 +19651,7 @@
     var core = require_core();
     var display = require_display();
     var math = require_math();
-    var settings5 = require_settings();
+    var settings6 = require_settings();
     var utils = require_utils();
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -19712,7 +19712,7 @@
         _this.indices = indices;
         _this.pluginName = "batch";
         _this.isSprite = true;
-        _this._roundPixels = settings5.settings.ROUND_PIXELS;
+        _this._roundPixels = settings6.settings.ROUND_PIXELS;
         return _this;
       }
       Sprite7.prototype._onTextureUpdate = function() {
@@ -19775,7 +19775,7 @@
         vertexData[6] = a * w1 + c * h0 + tx;
         vertexData[7] = d * h0 + b * w1 + ty;
         if (this._roundPixels) {
-          var resolution = settings5.settings.RESOLUTION;
+          var resolution = settings6.settings.RESOLUTION;
           for (var i = 0; i < vertexData.length; ++i) {
             vertexData[i] = Math.round((vertexData[i] * resolution | 0) / resolution);
           }
@@ -19976,7 +19976,7 @@
     Object.defineProperty(exports, "__esModule", {value: true});
     var sprite = require_sprite();
     var core = require_core();
-    var settings5 = require_settings();
+    var settings6 = require_settings();
     var math = require_math();
     var utils = require_utils();
     /*! *****************************************************************************
@@ -20868,7 +20868,7 @@
         _this._ownCanvas = ownCanvas;
         _this.canvas = canvas2;
         _this.context = _this.canvas.getContext("2d");
-        _this._resolution = settings5.settings.RESOLUTION;
+        _this._resolution = settings6.settings.RESOLUTION;
         _this._autoResolution = true;
         _this._text = null;
         _this._style = null;
@@ -21189,13 +21189,13 @@
      */
     "use strict";
     Object.defineProperty(exports, "__esModule", {value: true});
-    var settings5 = require_settings();
+    var settings6 = require_settings();
     var core = require_core();
     var graphics = require_graphics();
     var ticker = require_ticker();
     var display = require_display();
     var text = require_text();
-    settings5.settings.UPLOADS_PER_FRAME = 4;
+    settings6.settings.UPLOADS_PER_FRAME = 4;
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
     Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -21320,7 +21320,7 @@
     var BasePrepare = function() {
       function BasePrepare2(renderer) {
         var _this = this;
-        this.limiter = new CountLimiter(settings5.settings.UPLOADS_PER_FRAME);
+        this.limiter = new CountLimiter(settings6.settings.UPLOADS_PER_FRAME);
         this.renderer = renderer;
         this.uploadHookHelper = null;
         this.queue = [];
@@ -21950,7 +21950,7 @@
     var math = require_math();
     var constants = require_constants();
     var display = require_display();
-    var settings5 = require_settings();
+    var settings6 = require_settings();
     var utils = require_utils();
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -22013,7 +22013,7 @@
     var tempPolygon = new math.Polygon();
     var Mesh = function(_super) {
       __extends(Mesh2, _super);
-      function Mesh2(geometry, shader, state9, drawMode) {
+      function Mesh2(geometry, shader, state8, drawMode) {
         if (drawMode === void 0) {
           drawMode = constants.DRAW_MODES.TRIANGLES;
         }
@@ -22021,7 +22021,7 @@
         _this.geometry = geometry;
         geometry.refCount++;
         _this.shader = shader;
-        _this.state = state9 || core.State.for2d();
+        _this.state = state8 || core.State.for2d();
         _this.drawMode = drawMode;
         _this.start = 0;
         _this.size = 0;
@@ -22032,7 +22032,7 @@
         _this._transformID = -1;
         _this.tint = 16777215;
         _this.blendMode = constants.BLEND_MODES.NORMAL;
-        _this._roundPixels = settings5.settings.ROUND_PIXELS;
+        _this._roundPixels = settings6.settings.ROUND_PIXELS;
         _this.batchUvs = null;
         return _this;
       }
@@ -22165,7 +22165,7 @@
           vertexData[i * 2 + 1] = b * x + d * y + ty;
         }
         if (this._roundPixels) {
-          var resolution = settings5.settings.RESOLUTION;
+          var resolution = settings6.settings.RESOLUTION;
           for (var i = 0; i < vertexData.length; ++i) {
             vertexData[i] = Math.round((vertexData[i] * resolution | 0) / resolution);
           }
@@ -22351,7 +22351,7 @@
     "use strict";
     Object.defineProperty(exports, "__esModule", {value: true});
     var math = require_math();
-    var settings5 = require_settings();
+    var settings6 = require_settings();
     var mesh = require_mesh();
     var utils = require_utils();
     var core = require_core();
@@ -22888,7 +22888,7 @@
         _this._anchor = new math.ObservablePoint(function() {
           _this.dirty = true;
         }, _this, 0, 0);
-        _this.roundPixels = settings5.settings.ROUND_PIXELS;
+        _this.roundPixels = settings6.settings.ROUND_PIXELS;
         _this.dirty = true;
         return _this;
       }
@@ -23460,7 +23460,7 @@
     "use strict";
     Object.defineProperty(exports, "__esModule", {value: true});
     var core = require_core();
-    var settings5 = require_settings();
+    var settings6 = require_settings();
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
     Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -23718,7 +23718,7 @@
           quality = 4;
         }
         if (resolution === void 0) {
-          resolution = settings5.settings.RESOLUTION;
+          resolution = settings6.settings.RESOLUTION;
         }
         if (kernelSize === void 0) {
           kernelSize = 5;
@@ -23807,7 +23807,7 @@
           quality = 4;
         }
         if (resolution === void 0) {
-          resolution = settings5.settings.RESOLUTION;
+          resolution = settings6.settings.RESOLUTION;
         }
         if (kernelSize === void 0) {
           kernelSize = 5;
@@ -24950,7 +24950,7 @@ void main() {
     var display = require_display();
     var math = require_math();
     var utils = require_utils();
-    var settings5 = require_settings();
+    var settings6 = require_settings();
     var _tempMatrix = new math.Matrix();
     display.DisplayObject.prototype._cacheAsBitmap = false;
     display.DisplayObject.prototype._cacheData = null;
@@ -25037,7 +25037,7 @@ void main() {
         var padding3 = this.filters[0].padding;
         bounds.pad(padding3);
       }
-      bounds.ceil(settings5.settings.RESOLUTION);
+      bounds.ceil(settings6.settings.RESOLUTION);
       var cachedRenderTexture = renderer.renderTexture.current;
       var cachedSourceFrame = renderer.renderTexture.sourceFrame.clone();
       var cachedProjectionTransform = renderer.projection.transform;
@@ -25091,7 +25091,7 @@ void main() {
       this.alpha = 1;
       var cachedRenderTarget = renderer.context;
       var cachedProjectionTransform = renderer._projTransform;
-      bounds.ceil(settings5.settings.RESOLUTION);
+      bounds.ceil(settings6.settings.RESOLUTION);
       var renderTexture = core.RenderTexture.create({width: bounds.width, height: bounds.height});
       var textureCacheId = "cacheAsBitmap_" + utils.uid();
       this._cacheData.textureCacheId = textureCacheId;
@@ -26006,7 +26006,7 @@ void main() {
     var sprite = require_sprite();
     var spriteAnimated = require_sprite_animated();
     var text = require_text();
-    var settings5 = require_settings();
+    var settings6 = require_settings();
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
     Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -26864,11 +26864,11 @@ void main() {
         }
       });
     });
-    Object.keys(settings5).forEach(function(key) {
+    Object.keys(settings6).forEach(function(key) {
       Object.defineProperty(exports, key, {
         enumerable: true,
         get: function() {
-          return settings5[key];
+          return settings6[key];
         }
       });
     });
@@ -27628,7 +27628,7 @@ void main() {
         return t;
       }
       function impl(seed, opts) {
-        var xg = new Alea(seed), state9 = opts && opts.state, prng = xg.next;
+        var xg = new Alea(seed), state8 = opts && opts.state, prng = xg.next;
         prng.int32 = function() {
           return xg.next() * 4294967296 | 0;
         };
@@ -27636,9 +27636,9 @@ void main() {
           return prng() + (prng() * 2097152 | 0) * 11102230246251565e-32;
         };
         prng.quick = prng;
-        if (state9) {
-          if (typeof state9 == "object")
-            copy(state9, xg);
+        if (state8) {
+          if (typeof state8 == "object")
+            copy(state8, xg);
           prng.state = function() {
             return copy(xg, {});
           };
@@ -27709,7 +27709,7 @@ void main() {
         return t;
       }
       function impl(seed, opts) {
-        var xg = new XorGen(seed), state9 = opts && opts.state, prng = function() {
+        var xg = new XorGen(seed), state8 = opts && opts.state, prng = function() {
           return (xg.next() >>> 0) / 4294967296;
         };
         prng.double = function() {
@@ -27720,9 +27720,9 @@ void main() {
         };
         prng.int32 = xg.next;
         prng.quick = prng;
-        if (state9) {
-          if (typeof state9 == "object")
-            copy(state9, xg);
+        if (state8) {
+          if (typeof state8 == "object")
+            copy(state8, xg);
           prng.state = function() {
             return copy(xg, {});
           };
@@ -27782,7 +27782,7 @@ void main() {
         return t;
       }
       function impl(seed, opts) {
-        var xg = new XorGen(seed), state9 = opts && opts.state, prng = function() {
+        var xg = new XorGen(seed), state8 = opts && opts.state, prng = function() {
           return (xg.next() >>> 0) / 4294967296;
         };
         prng.double = function() {
@@ -27793,9 +27793,9 @@ void main() {
         };
         prng.int32 = xg.next;
         prng.quick = prng;
-        if (state9) {
-          if (typeof state9 == "object")
-            copy(state9, xg);
+        if (state8) {
+          if (typeof state8 == "object")
+            copy(state8, xg);
           prng.state = function() {
             return copy(xg, {});
           };
@@ -27871,7 +27871,7 @@ void main() {
       function impl(seed, opts) {
         if (seed == null)
           seed = +new Date();
-        var xg = new XorGen(seed), state9 = opts && opts.state, prng = function() {
+        var xg = new XorGen(seed), state8 = opts && opts.state, prng = function() {
           return (xg.next() >>> 0) / 4294967296;
         };
         prng.double = function() {
@@ -27882,9 +27882,9 @@ void main() {
         };
         prng.int32 = xg.next;
         prng.quick = prng;
-        if (state9) {
-          if (state9.x)
-            copy(state9, xg);
+        if (state8) {
+          if (state8.x)
+            copy(state8, xg);
           prng.state = function() {
             return copy(xg, {});
           };
@@ -27975,7 +27975,7 @@ void main() {
       function impl(seed, opts) {
         if (seed == null)
           seed = +new Date();
-        var xg = new XorGen(seed), state9 = opts && opts.state, prng = function() {
+        var xg = new XorGen(seed), state8 = opts && opts.state, prng = function() {
           return (xg.next() >>> 0) / 4294967296;
         };
         prng.double = function() {
@@ -27986,9 +27986,9 @@ void main() {
         };
         prng.int32 = xg.next;
         prng.quick = prng;
-        if (state9) {
-          if (state9.X)
-            copy(state9, xg);
+        if (state8) {
+          if (state8.X)
+            copy(state8, xg);
           prng.state = function() {
             return copy(xg, {});
           };
@@ -28047,7 +28047,7 @@ void main() {
       }
       ;
       function impl(seed, opts) {
-        var xg = new XorGen(seed), state9 = opts && opts.state, prng = function() {
+        var xg = new XorGen(seed), state8 = opts && opts.state, prng = function() {
           return (xg.next() >>> 0) / 4294967296;
         };
         prng.double = function() {
@@ -28058,9 +28058,9 @@ void main() {
         };
         prng.int32 = xg.next;
         prng.quick = prng;
-        if (state9) {
-          if (typeof state9 == "object")
-            copy(state9, xg);
+        if (state8) {
+          if (typeof state8 == "object")
+            copy(state8, xg);
           prng.state = function() {
             return copy(xg, {});
           };
@@ -28114,10 +28114,10 @@ void main() {
         };
         prng.double = prng;
         mixkey(tostring(arc4.S), pool);
-        return (options.pass || callback || function(prng2, seed2, is_math_call, state9) {
-          if (state9) {
-            if (state9.S) {
-              copy(state9, arc4);
+        return (options.pass || callback || function(prng2, seed2, is_math_call, state8) {
+          if (state8) {
+            if (state8.S) {
+              copy(state8, arc4);
             }
             prng2.state = function() {
               return copy(arc4, {});
@@ -28281,8 +28281,8 @@ void main() {
         }
       }, {
         key: "restore",
-        value: function restore(state9) {
-          this.generator = seedrandom[this.options.PRNG || "alea"]("", {state: state9});
+        value: function restore(state8) {
+          this.generator = seedrandom[this.options.PRNG || "alea"]("", {state: state8});
         }
       }, {
         key: "seedOld",
@@ -29136,7 +29136,7 @@ void main() {
         }
       }, {
         key: "debug",
-        value: function debug2() {
+        value: function debug() {
           for (var i = 0; i < this.canvases.length; i++) {
             var canvas = this.canvases[i];
             console.log("yy-rendersheet: Sheet #" + (i + 1) + " | size: " + canvas.width + "x" + canvas.height + " | resolution: " + this.resolution);
@@ -29424,9 +29424,9 @@ void main() {
   const storageVersion = 2;
   const shadow = 0.25;
   const shadowTint = 8947848;
-  const debug = true;
-  const clearStorage = false;
-  const state = false;
+  const release = false;
+  const clearStorage = release ? false : false;
+  const state = release ? false : "shoot";
 
   // code/file.js
   class File {
@@ -30379,7 +30379,7 @@ void main() {
       this.stage = new PIXI.Container();
       this.resize();
       window.addEventListener("contextmenu", (e) => e.preventDefault());
-      if (debug) {
+      if (!release) {
         const div = document.createElement("div");
         div.innerHTML = `v${package_default.version}`;
         div.className = "version";
@@ -30834,22 +30834,259 @@ void main() {
   const moon2 = new Moon();
 
   // code/shoot/laser.js
-  const PIXI5 = __toModule(require_pixi());
+  const PIXI6 = __toModule(require_pixi());
   const yy_random4 = __toModule(require_yy_random());
 
   // code/shoot/meter.js
-  const PIXI4 = __toModule(require_pixi());
+  const PIXI5 = __toModule(require_pixi());
   const yy_random3 = __toModule(require_yy_random());
+
+  // code/Words.js
+  const PIXI4 = __toModule(require_pixi());
+
+  // code/sheet.js
+  const yy_rendersheet = __toModule(require_rendersheet());
+
+  // images/letters.json
+  var name3 = "letters";
+  var imageData = [[3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAG0lEQVQYV2P8////fwYoYARxGBkZITR+GZgyAMaHH/LJK4oWAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAI0lEQVQImU2LsQ0AIAyAwP9/xqU2shAGrGI4AKoANGw8+z8X0vcX8XIs9sgAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGklEQVQImWP8////fwYYQOYwMSABFA4jsjIA6TYL+9+Rc68AAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAH0lEQVQImWP4DwUMDAwMDDDG/////zMxIAEUDgOyHgCRXBftcP5X+QAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGUlEQVQImWP8////fwYYQOYwoQggyzAicwDIMRPxd8oTcQAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGElEQVQImWP8////fwYYQOYwoQhgyMAAAJ5oD/YXflG0AAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAHUlEQVQImWP8////fwYYQOYwIQvCOQwMDAyMyMoAWtMP932EezkAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAJElEQVQImU3JsQ3AMADDMDr//6xOKcJNkCqoOh67Bw5s2x/XB2UkDACNFerLAAAAAElFTkSuQmCC"], [1, 5, "iVBORw0KGgoAAAANSUhEUgAAAAEAAAAFCAYAAACEhIafAAAABmJLR0QA/wD/AP+gvaeTAAAAFElEQVQImWP4////fyYGBgYGNAIAWiMEBdMyGR4AAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAHklEQVQImWNggIL/////Z2JAAqic/////4dxGJE5AGHlC/wJe3lbAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAIElEQVQImWP4////fwYGBob/////Z2JABv+hAM7BqgwAgWwX7Z66EbwAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGElEQVQImWP4////fwYoYGJAArg5jMh6ACQjCABZW0PIAAAAAElFTkSuQmCC"], [4, 5, "iVBORw0KGgoAAAANSUhEUgAAAAQAAAAFCAYAAABirU3bAAAABmJLR0QA/wD/AP+gvaeTAAAAIklEQVQImWWLsQ0AAAiD0P9/xsXBVEYCqLKo1hUATZLLKwYzJxPyQgyKQwAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAIklEQVQImWXHsQnAMAAEMX323/lcGQJWJ1VQtRv4/LzZNjiYrwwADLGe2gAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAIUlEQVQImWP8////fwYoYGJgYGBgZGRkhHNQZGCAEVkPACUaCAWZ46a3AAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAI0lEQVQImWXKsQkAAAjEwMT9d34bBcFrE5OEUQCqAN7C21YD6gYL/52aiy0AAAAASUVORK5CYII="], [4, 5, "iVBORw0KGgoAAAANSUhEUgAAAAQAAAAFCAYAAABirU3bAAAABmJLR0QA/wD/AP+gvaeTAAAAHklEQVQImWP4DwUMMADjwGgmBjSAIcCIrJyBgYEBAJayE/INQZOmAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAJElEQVQImU3HsQ0AMAzDMDr//+wuaVEugtK21kCSgK43t+NzAKkuE/a8U+IiAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGUlEQVQImWP8////fwYYQOYwosggq0CRAQC4GhPwLpk9OQAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAF0lEQVQImWP8////fwZkABNgQhbEzQEAr30IAEqwRWAAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAIklEQVQImWP4////fwYGBob/////Z2JAArg5jDA9DAwMDAD9SQv8qckYqQAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAIElEQVQImWP4////fwYGBob/////Z2JAAigcBpgSDBkAIQ0L+wdBiOsAAAAASUVORK5CYII="], [4, 5, "iVBORw0KGgoAAAANSUhEUgAAAAQAAAAFCAYAAABirU3bAAAABmJLR0QA/wD/AP+gvaeTAAAAI0lEQVQImWXMsQ0AAAiEQHT/nbGxMC/1BVTZVJuorgB4gnwMaBcT8pYeJ0cAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAHklEQVQImWP4////fwYGBob/////Z2JABzBZBpzKAO/vE/G2vl48AAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAH0lEQVQImWP4////fwYGBob/////Z2JABzBZFBkUDgBUvwv70WnKRwAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGUlEQVQImWP8////fwZ0ABfEZDAwMDAicwCoAxPvggOa/wAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAG0lEQVQImWP8////fwZ08P////+MKDLIHBQZALgaE/C/6qVuAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAG0lEQVQImWP8////fwZ08P////+MMAamDLIoAIhKE/BVFy3yAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAIElEQVQImWP4////fwYGBob/////Z2JAAowwGRSAoQwAomQP9hwG8WsAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGUlEQVQImWP8////fwYYQOYwosggq0CRAQC4GhPwLpk9OQAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAH0lEQVQImWP8////fwYYQOYwInOYGBgYGBgZGRkxZAB62g/6EzS3fwAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGUlEQVQImWP8////fwZ08P////9MyAK4OQCfjQgAxZ/wMAAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAH0lEQVQImY3JMQEAIAAEIc7+nd/FALLStnkOVEF/cwG2rwwEcOgJqwAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAI0lEQVQImU3JsQ0AMAyAMMj/P5OlquIRrOIZAFUA7/mq5oYFyiYL//UonTwAAAAASUVORK5CYII="], [1, 5, "iVBORw0KGgoAAAANSUhEUgAAAAEAAAAFCAYAAACEhIafAAAABmJLR0QA/wD/AP+gvaeTAAAAEElEQVQImWNgwAL+////HwAKDwP9fsXqCQAAAABJRU5ErkJggg=="], [1, 5, "iVBORw0KGgoAAAANSUhEUgAAAAEAAAAFCAYAAACEhIafAAAABmJLR0QA/wD/AP+gvaeTAAAAGklEQVQImWP4////fyYGBgYGJgY4+P///38AY/sH/a5daKsAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAFklEQVQImWP8////fwZ0ABfEKosiAwA6ZA/yoyYIZgAAAABJRU5ErkJggg=="], [2, 6, "iVBORw0KGgoAAAANSUhEUgAAAAIAAAAGCAYAAADpJ08yAAAABmJLR0QA/wD/AP+gvaeTAAAAF0lEQVQImWNgIAwY/////x/O+////38ASAAH+l09qFMAAAAASUVORK5CYII="], [3, 7, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAHCAYAAADNufepAAAAKElEQVQYV2NkYGBg+P///39GEAAxQAIgAOaABOEcuAyMAVaBogfZNAApHhv4PqEERQAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAIElEQVQYV2P8////fwYGBgZGEAAxQAJwDkgALAtjYHAAsOMIBiCexWEAAAAASUVORK5CYII="], [2, 5, "iVBORw0KGgoAAAANSUhEUgAAAAIAAAAFCAYAAABvsz2cAAAAGUlEQVQYV2NkYGBg+P///39GMAECmAyYGgDJ7xP+xJ9KkAAAAABJRU5ErkJggg=="], [2, 5, "iVBORw0KGgoAAAANSUhEUgAAAAIAAAAFCAYAAABvsz2cAAAAGUlEQVQYV2P8////f0YQYGBgYABzMBkwNQC5rRP6ukBVFgAAAABJRU5ErkJggg=="], [1, 5, "iVBORw0KGgoAAAANSUhEUgAAAAEAAAAFCAYAAACEhIafAAAAE0lEQVQYV2NgAIH/////BzMQLABjtQf5CzjkjgAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAH0lEQVQYV2NkQAKMMPb/////gzlgBgjAGCBBuDIQBwCGTQwCneWwGwAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAGUlEQVQYV2NkQAKMKJz/////hwmgyiArAwCScgQClmhadwAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAADklEQVQYV2NkQAKMZHAAAQQABocu+/gAAAAASUVORK5CYII="], [5, 5, "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKElEQVQYV2NkgIL/////Z2RkZARxwQRIACYJkmCEqUChcWqHGQEzEwDOvRwCnLh94AAAAABJRU5ErkJggg=="], [5, 5, "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAJklEQVQYV2NkgIL/////Z2RkZARxwQQIoAjCOCg0TBVMB8gIrNoBzr0cAnhPiwMAAAAASUVORK5CYII="], [5, 5, "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKUlEQVQYV2NkgIL/////Z2RkZARxwQRMAEYzIquAK0BXBeaDCJi5MBoALlMj+g+iseoAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHklEQVQYV2NkgIL/////ZwSxQQwQzQhjgDkoMsh6AHioE/JYt3NFAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAIUlEQVQYV2P8////f0ZGRkYGBgYGRhAHzAABGAe7DEwPANowFAI0d6fpAAAAAElFTkSuQmCC"]];
+  var animations = {idle: [[0, 0]]};
+  var letters_default = {name: name3, imageData, animations};
+
+  // images/ui.json
+  var name4 = "ui";
+  var imageData2 = [[11, 11, "iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAYAAACprHcmAAAAR0lEQVQoU2NkwAL+////n5GRkRFdCkMApBCkiKBimEKCipEVYnMa2AAQQYxCsGJiFZJuMsx9xNiAEnREhwa6DQTDGVkDNsUAFNcr+F2BbxsAAAAASUVORK5CYII="]];
+  var animations2 = {idle: [[0, 0]]};
+  var ui_default = {name: name4, imageData: imageData2, animations: animations2};
+
+  // code/sheet.js
+  class Sheet extends yy_rendersheet.default {
+    constructor() {
+      super({extrude: true, scaleMode: true});
+      this.letters();
+      this.addData("arrow", ui_default.imageData[0][2]);
+    }
+    async init() {
+      await this.asyncRender();
+    }
+    letters() {
+      for (let i = 0; i < letters_default.imageData.length; i++) {
+        this.addData(`letters-${i}`, letters_default.imageData[i][2]);
+      }
+    }
+  }
+  const sheet = new Sheet();
+
+  // code/Words.js
+  const COLOR = 16777215;
+  const BACKGROUND = 0;
+  class Words extends PIXI4.Container {
+    constructor(words, options = {}) {
+      super();
+      this.color = typeof options.color === "undefined" ? COLOR : options.color;
+      this.background = this.addChild(new PIXI4.Sprite(PIXI4.Texture.WHITE));
+      if (options.background) {
+        this.background.alpha = options.backgroundAlpha || 0.25;
+        this.background.tint = options.background === true ? BACKGROUND : options.background;
+      } else {
+        this.background.alpha = 0;
+      }
+      this.padding = options.padding || 0;
+      if (options.shadow) {
+        this.shadow = this.addChild(new PIXI4.Container());
+        this.shadow.position.set(shadow);
+      }
+      this.words = this.addChild(new PIXI4.Container());
+      if (words) {
+        this.change(words);
+      }
+    }
+    containsPoint(point) {
+      return this.background.containsPoint(point);
+    }
+    wrap(max) {
+      let x = 0, y = 0, actual = 0;
+      const letters2 = this.words.children;
+      for (let i = 0; i < this.text.length; i++) {
+        const letter = this.text[i];
+        if (letter === "#") {
+          x = 0;
+          y += 7;
+        } else if (letter === " ") {
+          if (x !== 0) {
+            x += 3;
+            if (x >= max) {
+              x = 0;
+              y += 7;
+            }
+          }
+        } else {
+          if (x + letters2[actual].width > max) {
+            while (x > 0) {
+              i--;
+              if (this.text[i] === " ") {
+                break;
+              } else {
+                x -= letters2[actual].width;
+                actual--;
+              }
+            }
+            x = 0;
+            y += 7;
+          } else {
+            let adjustY = 0;
+            if (letter === "$") {
+              adjustY = -1;
+            } else if (letter === "@") {
+              adjustY = 0.5;
+            }
+            letters2[actual].position.set(x, y + adjustY);
+            x += letters2[actual].width + 1;
+            actual++;
+          }
+        }
+      }
+    }
+    write(words) {
+      this.words.removeChildren();
+      if (this.shadow) {
+        this.shadow.removeChildren();
+      }
+      words = words + "";
+      this.text = words;
+      let x = 0, y = 0;
+      for (let letter of words) {
+        if (letter === "#") {
+          y += 7;
+          x = 0;
+        } else if (letter === " ") {
+          x += 3;
+        } else {
+          const sprite = this.words.addChild(this.getLetter(letter));
+          let adjustY = 0;
+          if (letter === "$") {
+            adjustY = -1;
+          } else if (letter === "@") {
+            adjustY = 0.5;
+          }
+          sprite.position.set(x, y + adjustY);
+          if (this.shadow) {
+            const shadow2 = this.shadow.addChild(this.getLetter(letter));
+            shadow2.tint = shadowTint;
+            shadow2.position.set(x, y + adjustY);
+          }
+          x += (sprite.n === -1 ? sheet.textures["asteroid-1"].width : sheet.textures["letters-" + sprite.n].width) + 1;
+        }
+      }
+    }
+    change(text) {
+      if (this.text !== text) {
+        this.write(text);
+        if (this.background) {
+          this.background.width = this.words.width + this.padding * 2;
+          this.background.height = this.words.height + this.padding * 2;
+          this.background.position.set(-this.padding);
+        }
+      }
+    }
+    getLetter(letter) {
+      letter = letter.toUpperCase();
+      const code = letter.charCodeAt();
+      let n;
+      if (code >= 65 && code <= 90) {
+        n = code - 65;
+      } else if (code == 48) {
+        n = 14;
+      } else if (code === 49) {
+        n = 8;
+      } else if (code >= 50 && code <= 57) {
+        n = 26 + code - 50;
+      } else if (letter === ".") {
+        n = 34;
+      } else if (letter === "!") {
+        n = 35;
+      } else if (letter === "?") {
+        n = 36;
+      } else if (letter === ",") {
+        n = 37;
+      } else if (letter === "$") {
+        n = 38;
+      } else if (letter === "'") {
+        n = 39;
+      } else if (letter === "(") {
+        n = 40;
+      } else if (letter === ")") {
+        n = 41;
+      } else if (letter === ":") {
+        n = 42;
+      } else if (letter === "/") {
+        n = 43;
+      } else if (letter === "-") {
+        n = 44;
+      } else if (letter === "^") {
+        n = 46;
+      } else if (letter === "_") {
+        n = 47;
+      } else if (letter === "@") {
+        n = -1;
+      } else if (letter === "|") {
+        n = 48;
+      } else if (letter === "<") {
+        n = 49;
+      } else if (letter === ">") {
+        n = 50;
+      } else {
+        console.warn("Unknown letter in words.js: " + letter);
+        n = 35;
+      }
+      const sprite = n === -1 ? sheet.get("asteroid-1") : sheet.get("letters-" + n);
+      sprite.n = n;
+      sprite.letter = letter;
+      sprite.anchor.set(0);
+      sprite.tint = this.color;
+      return sprite;
+    }
+    get tint() {
+      return this.color;
+    }
+    set tint(value) {
+      if (this.color !== value) {
+        for (let letter of this.words.children) {
+          letter.tint = value;
+        }
+        this.color = value;
+      }
+    }
+    getContainsPointIndex(point) {
+      for (let i = 0; i < this.words.children.length; i++) {
+        if (this.words.children[i].containsPoint(point)) {
+          return i;
+        }
+      }
+    }
+    getFirstLetter() {
+      return this.words.children[0];
+    }
+    getLastLetter() {
+      return this.words.children[this.words.children.length - 1];
+    }
+  }
+
+  // code/shoot/meter.js
   const shakeTime2 = 250;
   const shakeDistance2 = 1;
-  class Meter extends PIXI4.Graphics {
+  const helpFadeTime = 5e3;
+  class Meter extends PIXI5.Container {
     init(total) {
-      this.current = 0;
+      this.meter = this.addChild(new PIXI5.Graphics());
+      this.current = total;
       this.total = total;
+      this.helpCount = 0;
       this.draw();
     }
     reset() {
       this.current = 0;
+      this.helpCount = 0;
       this.draw();
     }
     fire() {
@@ -30858,10 +31095,10 @@ void main() {
     }
     draw() {
       const width = this.total * 2 + 1;
-      this.clear().beginFill(11184810).drawRect(view.width - width - 1, 1, width, 3).endFill();
+      this.meter.clear().beginFill(11184810).drawRect(view.width - width - 1, 1, width, 3).endFill();
       let x = view.width - width;
       for (let i = 0; i < this.total; i++) {
-        this.beginFill(i < this.current ? 16711680 : 8947848).drawRect(x, 2, 1, 1).endFill();
+        this.meter.beginFill(i < this.current ? 16711680 : 8947848).drawRect(x, 2, 1, 1).endFill();
         x += 2;
       }
       this.left = view.width - width - 1;
@@ -30878,17 +31115,34 @@ void main() {
       const canFire = this.current !== this.total;
       if (!canFire) {
         this.shaking = Date.now();
+        this.showHelp();
         return false;
       }
       return true;
+    }
+    showHelp() {
+      if (!this.help) {
+        this.helpCount++;
+        if (this.helpCount > 1) {
+          this.help = this.addChild(new Words("^ press here to reset"));
+          this.help.width = this.meter.width * 0.9;
+          this.help.scale.y = this.help.scale.x;
+          this.help.position.set(view.width - this.total * 2 - 1.5, 4.5);
+          const easing = ease.add(this.help, {alpha: 0}, {duration: helpFadeTime, ease: "easeInOutSine"});
+          easing.on("complete", () => {
+            this.removeChild(this.help);
+            this.help = null;
+          });
+        }
+      }
     }
     update() {
       if (this.shaking) {
         if (Date.now() > this.shaking + shakeTime2) {
           this.shaking = null;
-          this.position.set(0);
+          this.meter.position.set(0);
         } else {
-          this.position.set(yy_random3.default.middle(0, shakeDistance2, true), yy_random3.default.middle(0, shakeDistance2, true));
+          this.meter.position.set(yy_random3.default.middle(0, shakeDistance2, true), yy_random3.default.middle(0, shakeDistance2, true));
         }
       }
     }
@@ -30898,7 +31152,7 @@ void main() {
   // code/shoot/laser.js
   const fireTime = 200;
   const fadeTime = 200;
-  class Laser extends PIXI5.Container {
+  class Laser extends PIXI6.Container {
     constructor() {
       super();
       this.state = "";
@@ -30910,7 +31164,7 @@ void main() {
       this.isDown = false;
     }
     box(x, y, tint, alpha = 1) {
-      const point = this.addChild(new PIXI5.Sprite(PIXI5.Texture.WHITE));
+      const point = this.addChild(new PIXI6.Sprite(PIXI6.Texture.WHITE));
       point.tint = tint;
       point.alpha = alpha;
       point.anchor.set(0.5);
@@ -31021,240 +31275,10 @@ void main() {
       }
     }
   }
-  const laser2 = new Laser();
+  const laser = new Laser();
 
   // code/shoot/back.js
   const PIXI7 = __toModule(require_pixi());
-
-  // code/sheet.js
-  const yy_rendersheet = __toModule(require_rendersheet());
-
-  // images/letters.json
-  var name3 = "letters";
-  var imageData = [[3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAG0lEQVQYV2P8////fwYoYARxGBkZITR+GZgyAMaHH/LJK4oWAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAI0lEQVQImU2LsQ0AIAyAwP9/xqU2shAGrGI4AKoANGw8+z8X0vcX8XIs9sgAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGklEQVQImWP8////fwYYQOYwMSABFA4jsjIA6TYL+9+Rc68AAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAH0lEQVQImWP4DwUMDAwMDDDG/////zMxIAEUDgOyHgCRXBftcP5X+QAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGUlEQVQImWP8////fwYYQOYwoQggyzAicwDIMRPxd8oTcQAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGElEQVQImWP8////fwYYQOYwoQhgyMAAAJ5oD/YXflG0AAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAHUlEQVQImWP8////fwYYQOYwIQvCOQwMDAyMyMoAWtMP932EezkAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAJElEQVQImU3JsQ3AMADDMDr//6xOKcJNkCqoOh67Bw5s2x/XB2UkDACNFerLAAAAAElFTkSuQmCC"], [1, 5, "iVBORw0KGgoAAAANSUhEUgAAAAEAAAAFCAYAAACEhIafAAAABmJLR0QA/wD/AP+gvaeTAAAAFElEQVQImWP4////fyYGBgYGNAIAWiMEBdMyGR4AAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAHklEQVQImWNggIL/////Z2JAAqic/////4dxGJE5AGHlC/wJe3lbAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAIElEQVQImWP4////fwYGBob/////Z2JABv+hAM7BqgwAgWwX7Z66EbwAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGElEQVQImWP4////fwYoYGJAArg5jMh6ACQjCABZW0PIAAAAAElFTkSuQmCC"], [4, 5, "iVBORw0KGgoAAAANSUhEUgAAAAQAAAAFCAYAAABirU3bAAAABmJLR0QA/wD/AP+gvaeTAAAAIklEQVQImWWLsQ0AAAiD0P9/xsXBVEYCqLKo1hUATZLLKwYzJxPyQgyKQwAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAIklEQVQImWXHsQnAMAAEMX323/lcGQJWJ1VQtRv4/LzZNjiYrwwADLGe2gAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAIUlEQVQImWP8////fwYoYGJgYGBgZGRkhHNQZGCAEVkPACUaCAWZ46a3AAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAI0lEQVQImWXKsQkAAAjEwMT9d34bBcFrE5OEUQCqAN7C21YD6gYL/52aiy0AAAAASUVORK5CYII="], [4, 5, "iVBORw0KGgoAAAANSUhEUgAAAAQAAAAFCAYAAABirU3bAAAABmJLR0QA/wD/AP+gvaeTAAAAHklEQVQImWP4DwUMMADjwGgmBjSAIcCIrJyBgYEBAJayE/INQZOmAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAJElEQVQImU3HsQ0AMAzDMDr//+wuaVEugtK21kCSgK43t+NzAKkuE/a8U+IiAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGUlEQVQImWP8////fwYYQOYwosggq0CRAQC4GhPwLpk9OQAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAF0lEQVQImWP8////fwZkABNgQhbEzQEAr30IAEqwRWAAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAIklEQVQImWP4////fwYGBob/////Z2JAArg5jDA9DAwMDAD9SQv8qckYqQAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAIElEQVQImWP4////fwYGBob/////Z2JAAigcBpgSDBkAIQ0L+wdBiOsAAAAASUVORK5CYII="], [4, 5, "iVBORw0KGgoAAAANSUhEUgAAAAQAAAAFCAYAAABirU3bAAAABmJLR0QA/wD/AP+gvaeTAAAAI0lEQVQImWXMsQ0AAAiEQHT/nbGxMC/1BVTZVJuorgB4gnwMaBcT8pYeJ0cAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAHklEQVQImWP4////fwYGBob/////Z2JABzBZBpzKAO/vE/G2vl48AAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAH0lEQVQImWP4////fwYGBob/////Z2JABzBZFBkUDgBUvwv70WnKRwAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGUlEQVQImWP8////fwZ0ABfEZDAwMDAicwCoAxPvggOa/wAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAG0lEQVQImWP8////fwZ08P////+MKDLIHBQZALgaE/C/6qVuAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAG0lEQVQImWP8////fwZ08P////+MMAamDLIoAIhKE/BVFy3yAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAIElEQVQImWP4////fwYGBob/////Z2JAAowwGRSAoQwAomQP9hwG8WsAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGUlEQVQImWP8////fwYYQOYwosggq0CRAQC4GhPwLpk9OQAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAH0lEQVQImWP8////fwYYQOYwInOYGBgYGBgZGRkxZAB62g/6EzS3fwAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGUlEQVQImWP8////fwZ08P////9MyAK4OQCfjQgAxZ/wMAAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAH0lEQVQImY3JMQEAIAAEIc7+nd/FALLStnkOVEF/cwG2rwwEcOgJqwAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAI0lEQVQImU3JsQ0AMAyAMMj/P5OlquIRrOIZAFUA7/mq5oYFyiYL//UonTwAAAAASUVORK5CYII="], [1, 5, "iVBORw0KGgoAAAANSUhEUgAAAAEAAAAFCAYAAACEhIafAAAABmJLR0QA/wD/AP+gvaeTAAAAEElEQVQImWNgwAL+////HwAKDwP9fsXqCQAAAABJRU5ErkJggg=="], [1, 5, "iVBORw0KGgoAAAANSUhEUgAAAAEAAAAFCAYAAACEhIafAAAABmJLR0QA/wD/AP+gvaeTAAAAGklEQVQImWP4////fyYGBgYGJgY4+P///38AY/sH/a5daKsAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAFklEQVQImWP8////fwZ0ABfEKosiAwA6ZA/yoyYIZgAAAABJRU5ErkJggg=="], [2, 6, "iVBORw0KGgoAAAANSUhEUgAAAAIAAAAGCAYAAADpJ08yAAAABmJLR0QA/wD/AP+gvaeTAAAAF0lEQVQImWNgIAwY/////x/O+////38ASAAH+l09qFMAAAAASUVORK5CYII="], [3, 7, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAHCAYAAADNufepAAAAKElEQVQYV2NkYGBg+P///39GEAAxQAIgAOaABOEcuAyMAVaBogfZNAApHhv4PqEERQAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAIElEQVQYV2P8////fwYGBgZGEAAxQAJwDkgALAtjYHAAsOMIBiCexWEAAAAASUVORK5CYII="], [2, 5, "iVBORw0KGgoAAAANSUhEUgAAAAIAAAAFCAYAAABvsz2cAAAAGUlEQVQYV2NkYGBg+P///39GMAECmAyYGgDJ7xP+xJ9KkAAAAABJRU5ErkJggg=="], [2, 5, "iVBORw0KGgoAAAANSUhEUgAAAAIAAAAFCAYAAABvsz2cAAAAGUlEQVQYV2P8////f0YQYGBgYABzMBkwNQC5rRP6ukBVFgAAAABJRU5ErkJggg=="], [1, 5, "iVBORw0KGgoAAAANSUhEUgAAAAEAAAAFCAYAAACEhIafAAAAE0lEQVQYV2NgAIH/////BzMQLABjtQf5CzjkjgAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAH0lEQVQYV2NkQAKMMPb/////gzlgBgjAGCBBuDIQBwCGTQwCneWwGwAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAGUlEQVQYV2NkQAKMKJz/////hwmgyiArAwCScgQClmhadwAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAADklEQVQYV2NkQAKMZHAAAQQABocu+/gAAAAASUVORK5CYII="], [5, 5, "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKElEQVQYV2NkgIL/////Z2RkZARxwQRIACYJkmCEqUChcWqHGQEzEwDOvRwCnLh94AAAAABJRU5ErkJggg=="], [5, 5, "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAJklEQVQYV2NkgIL/////Z2RkZARxwQQIoAjCOCg0TBVMB8gIrNoBzr0cAnhPiwMAAAAASUVORK5CYII="], [5, 5, "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKUlEQVQYV2NkgIL/////Z2RkZARxwQRMAEYzIquAK0BXBeaDCJi5MBoALlMj+g+iseoAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHklEQVQYV2NkgIL/////ZwSxQQwQzQhjgDkoMsh6AHioE/JYt3NFAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAIUlEQVQYV2P8////f0ZGRkYGBgYGRhAHzAABGAe7DEwPANowFAI0d6fpAAAAAElFTkSuQmCC"]];
-  var animations = {idle: [[0, 0]]};
-  var letters_default = {name: name3, imageData, animations};
-
-  // images/ui.json
-  var name4 = "ui";
-  var imageData2 = [[11, 11, "iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAYAAACprHcmAAAAR0lEQVQoU2NkwAL+////n5GRkRFdCkMApBCkiKBimEKCipEVYnMa2AAQQYxCsGJiFZJuMsx9xNiAEnREhwa6DQTDGVkDNsUAFNcr+F2BbxsAAAAASUVORK5CYII="]];
-  var animations2 = {idle: [[0, 0]]};
-  var ui_default = {name: name4, imageData: imageData2, animations: animations2};
-
-  // code/sheet.js
-  class Sheet extends yy_rendersheet.default {
-    constructor() {
-      super({extrude: true, scaleMode: true});
-      this.letters();
-      this.addData("arrow", ui_default.imageData[0][2]);
-    }
-    async init() {
-      await this.asyncRender();
-    }
-    letters() {
-      for (let i = 0; i < letters_default.imageData.length; i++) {
-        this.addData(`letters-${i}`, letters_default.imageData[i][2]);
-      }
-    }
-  }
-  const sheet = new Sheet();
-
-  // code/Words.js
-  const PIXI6 = __toModule(require_pixi());
-  const COLOR = 16777215;
-  const BACKGROUND = 0;
-  class Words extends PIXI6.Container {
-    constructor(words, options = {}) {
-      super();
-      this.color = typeof options.color === "undefined" ? COLOR : options.color;
-      this.background = this.addChild(new PIXI6.Sprite(PIXI6.Sprite.WHITE));
-      this.background.anchor.set(0);
-      if (options.background) {
-        this.background.alpha = options.backgroundAlpha || 0.25;
-        this.background.tint = options.background === true ? BACKGROUND : options.background;
-      } else {
-        this.background.alpha = 0;
-      }
-      if (options.shadow) {
-        this.shadow = this.addChild(new PIXI6.Container());
-        this.shadow.position.set(shadow);
-      }
-      this.words = this.addChild(new PIXI6.Container());
-      if (words) {
-        this.change(words);
-      }
-    }
-    containsPoint(point) {
-      return this.background.containsPoint(point);
-    }
-    wrap(max) {
-      let x = 0, y = 0, actual = 0;
-      const letters2 = this.words.children;
-      for (let i = 0; i < this.text.length; i++) {
-        const letter = this.text[i];
-        if (letter === "#") {
-          x = 0;
-          y += 7;
-        } else if (letter === " ") {
-          if (x !== 0) {
-            x += 3;
-            if (x >= max) {
-              x = 0;
-              y += 7;
-            }
-          }
-        } else {
-          if (x + letters2[actual].width > max) {
-            while (x > 0) {
-              i--;
-              if (this.text[i] === " ") {
-                break;
-              } else {
-                x -= letters2[actual].width;
-                actual--;
-              }
-            }
-            x = 0;
-            y += 7;
-          } else {
-            let adjustY = 0;
-            if (letter === "$") {
-              adjustY = -1;
-            } else if (letter === "@") {
-              adjustY = 0.5;
-            }
-            letters2[actual].position.set(x, y + adjustY);
-            x += letters2[actual].width + 1;
-            actual++;
-          }
-        }
-      }
-    }
-    write(words) {
-      this.words.removeChildren();
-      if (this.shadow) {
-        this.shadow.removeChildren();
-      }
-      words = words + "";
-      this.text = words;
-      let x = 0, y = 0;
-      for (let letter of words) {
-        if (letter === "#") {
-          y += 7;
-          x = 0;
-        } else if (letter === " ") {
-          x += 3;
-        } else {
-          const sprite = this.words.addChild(this.getLetter(letter));
-          let adjustY = 0;
-          if (letter === "$") {
-            adjustY = -1;
-          } else if (letter === "@") {
-            adjustY = 0.5;
-          }
-          sprite.position.set(x, y + adjustY);
-          if (this.shadow) {
-            const shadow2 = this.shadow.addChild(this.getLetter(letter));
-            shadow2.tint = shadowTint;
-            shadow2.position.set(x, y + adjustY);
-          }
-          x += (sprite.n === -1 ? sheet.textures["asteroid-1"].width : sheet.textures["letters-" + sprite.n].width) + 1;
-        }
-      }
-    }
-    change(text) {
-      if (this.text !== text) {
-        this.write(text);
-        if (this.background) {
-          this.background.width = this.words.width;
-          this.background.height = this.words.height;
-        }
-      }
-    }
-    getLetter(letter) {
-      letter = letter.toUpperCase();
-      const code = letter.charCodeAt();
-      let n;
-      if (code >= 65 && code <= 90) {
-        n = code - 65;
-      } else if (code == 48) {
-        n = 14;
-      } else if (code === 49) {
-        n = 8;
-      } else if (code >= 50 && code <= 57) {
-        n = 26 + code - 50;
-      } else if (letter === ".") {
-        n = 34;
-      } else if (letter === "!") {
-        n = 35;
-      } else if (letter === "?") {
-        n = 36;
-      } else if (letter === ",") {
-        n = 37;
-      } else if (letter === "$") {
-        n = 38;
-      } else if (letter === "'") {
-        n = 39;
-      } else if (letter === "(") {
-        n = 40;
-      } else if (letter === ")") {
-        n = 41;
-      } else if (letter === ":") {
-        n = 42;
-      } else if (letter === "/") {
-        n = 43;
-      } else if (letter === "-") {
-        n = 44;
-      } else if (letter === "^") {
-        n = 46;
-      } else if (letter === "_") {
-        n = 47;
-      } else if (letter === "@") {
-        n = -1;
-      } else if (letter === "|") {
-        n = 48;
-      } else if (letter === "<") {
-        n = 49;
-      } else if (letter === ">") {
-        n = 50;
-      } else {
-        console.warn("Unknown letter in words.js: " + letter);
-        n = 35;
-      }
-      const sprite = n === -1 ? sheet.get("asteroid-1") : sheet.get("letters-" + n);
-      sprite.n = n;
-      sprite.letter = letter;
-      sprite.anchor.set(0);
-      sprite.tint = this.color;
-      return sprite;
-    }
-    get tint() {
-      return this.color;
-    }
-    set tint(value) {
-      if (this.color !== value) {
-        for (let letter of this.words.children) {
-          letter.tint = value;
-        }
-        this.color = value;
-      }
-    }
-    getContainsPointIndex(point) {
-      for (let i = 0; i < this.words.children.length; i++) {
-        if (this.words.children[i].containsPoint(point)) {
-          return i;
-        }
-      }
-    }
-    getFirstLetter() {
-      return this.words.children[0];
-    }
-    getLastLetter() {
-      return this.words.children[this.words.children.length - 1];
-    }
-  }
-
-  // code/shoot/back.js
   class Back extends PIXI7.Container {
     constructor() {
       super();
@@ -31292,7 +31316,7 @@ void main() {
     init() {
       this.addChild(stars);
       this.addChild(moon2);
-      this.addChild(laser2);
+      this.addChild(laser);
       this.top = this.addChild(new PIXI8.Container());
       this.top.addChild(meter);
       this.top.addChild(back);
@@ -31302,7 +31326,7 @@ void main() {
       const level = shoot_default[file.shoot.level];
       stars.draw(level.seed);
       moon2.draw(level);
-      laser2.reset();
+      laser.reset();
       back.change();
       meter.init(level.minimum);
       this.top.y = -4;
@@ -31326,17 +31350,17 @@ void main() {
       this.isDown = true;
       const local = this.toLocal(point);
       if (!back.down(local) && !meter.down(local)) {
-        laser2.down(point);
+        laser.down(point);
       }
     }
     move(point) {
       if (this.isDown) {
-        laser2.move(point);
+        laser.move(point);
       }
     }
     up(point) {
       if (this.isDown) {
-        laser2.up(point);
+        laser.up(point);
         this.isDown = false;
       }
     }
@@ -31344,11 +31368,11 @@ void main() {
       ease2.update(frameTime);
       stars.update();
       moon2.update();
-      laser2.update();
+      laser.update();
       meter.update();
     }
     reset() {
-      laser2.reset();
+      laser.reset();
     }
     resize() {
       stars.resize();
@@ -31461,6 +31485,7 @@ void main() {
   const title = new Title();
 
   // code/menu/menu.js
+  const framesToAdvance = 1e3 / 60 * 0.5;
   const padding2 = 8;
   const disabled = 5592405;
   class Menu extends PIXI11.Container {
@@ -31499,7 +31524,7 @@ void main() {
         this.level = this.menu.addChild(new PIXI11.Container());
         this.back = this.level.addChild(new Words("<"));
         this.number = this.level.addChild(new Words(`level ${file.shootLevel + 1}`));
-        this.number.x = 6 + max / 2 - this.number.width / 2;
+        this.number.x = 5 + max / 2 - this.number.width / 2;
         this.next = this.level.addChild(new Words(">"));
         this.next.x = max + 7;
         this.play = null;
@@ -31516,29 +31541,33 @@ void main() {
     move() {
     }
     down(point) {
-    }
-    up(point) {
-      if (this.play) {
-        if (this.play.containsPoint(point)) {
-          state3.change("shoot");
-        }
-      } else if (this.back.containsPoint(point)) {
+      if (this.back.containsPoint(point)) {
         if (this.back.tint === disabled) {
           console.log("left disabled");
         } else {
-          file.shootLevel--;
-          this.draw();
+          this.changeLevel(-1);
+          this.holding = "back";
+          this.holdingFrames = -framesToAdvance * 2;
         }
       } else if (this.next.containsPoint(point)) {
         if (this.next.tint === disabled) {
           console.log("right disabled");
         } else {
-          file.shootLevel++;
-          this.draw();
+          this.changeLevel(1);
+          this.holding = "next";
+          this.holdingFrames = -framesToAdvance * 2;
         }
-      } else if (this.level.containsPoint(point)) {
+      }
+    }
+    up(point) {
+      if (this.play && this.play.containsPoint(point) || this.number && this.number.containsPoint(point)) {
         state3.change("shoot");
       }
+      this.holding = "";
+    }
+    changeLevel(delta) {
+      file.shootLevel += delta;
+      this.draw();
     }
     resize() {
       stars4.resize();
@@ -31548,6 +31577,26 @@ void main() {
     }
     update() {
       stars4.update();
+      if (this.holding) {
+        this.holdingFrames++;
+        if (this.holdingFrames > framesToAdvance) {
+          this.cancelUp = true;
+          this.holdingFrames = 0;
+          if (this.holding === "next") {
+            if (this.next.tint === disabled) {
+              this.holding = "";
+            } else {
+              this.changeLevel(1);
+            }
+          } else if (this.holding === "back") {
+            if (this.back.tint === disabled) {
+              this.holding = "";
+            } else {
+              this.changeLevel(-1);
+            }
+          }
+        }
+      }
     }
   }
   const menu = new Menu();
@@ -31564,13 +31613,13 @@ void main() {
       }
       this.state = state || "menu";
     }
-    set state(state9) {
-      if (state9 !== this._state) {
+    set state(state8) {
+      if (state8 !== this._state) {
         if (this._state) {
           view.stage.removeChild(this.states[this.state]);
           this.states[this.state].reset();
         }
-        this._state = state9;
+        this._state = state8;
         view.stage.addChild(this.states[this.state]);
         this.states[this.state].change();
       }
@@ -31589,8 +31638,8 @@ void main() {
         this.states[key].resize();
       }
     }
-    change(state9) {
-      this.state = state9;
+    change(state8) {
+      this.state = state8;
     }
     down(point) {
       this.states[this.state].down(point);
@@ -31664,7 +31713,9 @@ void main() {
   class Game {
     async start() {
       await file.init();
-      this.fps = new yy_fps.default();
+      if (!release) {
+        this.fps = new yy_fps.default();
+      }
       await sheet.init();
       view.init();
       state3.init();
@@ -31696,7 +31747,9 @@ void main() {
       if (!this.paused) {
         state3.update();
         view.update();
-        this.fps.frame();
+        if (this.fps) {
+          this.fps.frame();
+        }
         this.raf = requestAnimationFrame(() => this.update());
       }
     }

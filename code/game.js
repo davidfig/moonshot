@@ -5,11 +5,14 @@ import { state } from './state'
 import { view } from './view'
 import { sheet } from './sheet'
 import { input } from './input'
+import * as settings from './settings'
 
 class Game {
     async start() {
         await file.init()
-        this.fps = new FPS()
+        if (!settings.release) {
+            this.fps = new FPS()
+        }
         await sheet.init()
         view.init()
         state.init()
@@ -45,7 +48,9 @@ class Game {
         if (!this.paused) {
             state.update()
             view.update()
-            this.fps.frame()
+            if (this.fps) {
+                this.fps.frame()
+            }
             this.raf = requestAnimationFrame(() => this.update())
         }
     }

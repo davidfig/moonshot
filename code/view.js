@@ -16,7 +16,7 @@ class View {
         this.stage = new PIXI.Container()
         this.resize()
         window.addEventListener('contextmenu', e => e.preventDefault())
-        if (settings.debug) {
+        if (!settings.release) {
             const div = document.createElement('div')
             div.innerHTML = `v${packageJson.version}`
             div.className = 'version'

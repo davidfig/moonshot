@@ -7,6 +7,7 @@ import { title } from './title'
 import { file } from '../file'
 import { state } from '../state'
 
+const framesToAdvance = 1000 / 60 * 0.5
 const padding = 8
 const disabled = 0x555555
 
@@ -49,7 +50,7 @@ class Menu extends PIXI.Container {
             this.level = this.menu.addChild(new PIXI.Container())
             this.back = this.level.addChild(new Words('<'))
             this.number = this.level.addChild(new Words(`level ${file.shootLevel + 1}`))
-            this.number.x = 6 + max / 2 - this.number.width / 2
+            this.number.x = 5 + max / 2 - this.number.width / 2
             this.next = this.level.addChild(new Words('>'))
             this.next.x = max + 7
             this.play = null
@@ -66,31 +67,35 @@ class Menu extends PIXI.Container {
     move() {}
 
     down(point) {
-        // if ()
-    }
-
-    up(point) {
-        if (this.play) {
-            if (this.play.containsPoint(point)) {
-                state.change('shoot')
-            }
-        } else if (this.back.containsPoint(point)) {
+        if (this.back.containsPoint(point)) {
             if (this.back.tint === disabled) {
                 console.log('left disabled')
             } else {
-                file.shootLevel--
-                this.draw()
+                this.changeLevel(-1)
+                this.holding = 'back'
+                this.holdingFrames = -framesToAdvance * 2
             }
         } else if (this.next.containsPoint(point)) {
             if (this.next.tint === disabled) {
                 console.log('right disabled')
             } else {
-                file.shootLevel++
-                this.draw()
+                this.changeLevel(1)
+                this.holding = 'next'
+                this.holdingFrames = -framesToAdvance * 2
             }
-        } else if (this.level.containsPoint(point)) {
+        }
+    }
+
+    up(point) {
+        if ((this.play && this.play.containsPoint(point)) || (this.number && this.number.containsPoint(point))) {
             state.change('shoot')
         }
+        this.holding = ''
+    }
+
+    changeLevel(delta) {
+        file.shootLevel += delta
+        this.draw()
     }
 
     resize() {
@@ -103,6 +108,26 @@ class Menu extends PIXI.Container {
 
     update() {
         stars.update()
+        if (this.holding) {
+            this.holdingFrames++
+            if (this.holdingFrames > framesToAdvance) {
+                this.cancelUp = true
+                this.holdingFrames = 0
+                if (this.holding === 'next') {
+                    if (this.next.tint === disabled) {
+                        this.holding = ''
+                    } else {
+                        this.changeLevel(1)
+                    }
+                } else if (this.holding === 'back') {
+                    if (this.back.tint === disabled) {
+                        this.holding = ''
+                    } else {
+                        this.changeLevel(-1)
+                    }
+                }
+            }
+        }
     }
 }
 
