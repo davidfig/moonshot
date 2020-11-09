@@ -18,9 +18,7 @@ class File {
                     if (saved) {
                         try {
                             this.data = JSON.parse(Encrypt.decrypt(saved, settings.encrypt))
-                            if (!this.data.shoot) {
-                                this.erase()
-                            } else if (this.data.storageVersion !== settings.storageVersion) {
+                            if (this.data.version !== settings.storageVersion) {
                                 this.upgradeStorage()
                             }
                             resolve()
@@ -45,6 +43,7 @@ class File {
             user: cuid(),
             shoot: {
                 level: 0,
+                max: 0,
             }
         }
         await this.save()
@@ -54,13 +53,30 @@ class File {
         return this.data.shoot
     }
 
+    get shootLevel() {
+        return this.data.shoot.level
+    }
+    set shootLevel(value) {
+        if (value !== this.data.shoot.level) {
+            this.data.shoot.level = value
+            this.data.shoot.max = Math.max(this.data.shoot.level, this.data.shoot.max)
+            this.save()
+        }
+    }
+
+    get shootMax() {
+        return this.data.shoot.max
+    }
+
     async save() {
         return new Promise(resolve => {
             localforage.setItem('data', Encrypt.encrypt(JSON.stringify(this.data), settings.encrypt), resolve)
         })
     }
 
-    upgradeStorage() {}
+    upgradeStorage() {
+        this.erase()
+    }
 }
 
 export const file = new File()

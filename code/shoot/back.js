@@ -3,6 +3,7 @@ import * as PIXI from 'pixi.js'
 import { sheet } from '../sheet'
 import { file } from '../file'
 import { Words } from '../Words'
+import { state } from '../state'
 
 class Back extends PIXI.Container {
     constructor() {
@@ -24,6 +25,7 @@ class Back extends PIXI.Container {
 
     down(local) {
         if (local.x <= this.width + 1 && local.y < this.height + 1) {
+            state.change('menu')
             return true
         }
     }

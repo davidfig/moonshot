@@ -1,30 +1,43 @@
 import * as PIXI from 'pixi.js'
 
 import { sheet } from './sheet'
+import { shadow, shadowTint } from './settings'
 
 const COLOR = 0xffffff
 const BACKGROUND = 0
-const BUTTON = 4
 
 export class Words extends PIXI.Container {
     /**
      * @param {string} words
-     * @param {number} [color]
+     * @param {object} [options]
+     * @param {number} [options.color]
+     * @param {bool} [options.shadow]
+     * @param {(bool|number)} [options.background]
+     * @param {number} [options.backgroundAlpha]
      */
-    constructor(words, color, background, backgroundAlpha) {
+    constructor(words, options={}) {
         super()
-        this.color = (color === null || typeof color === 'undefined') ? COLOR : color
-        if (background) {
-            this.background = this.addChild(sheet.get('dot-0'))
-            this.background.anchor.set(0)
-            this.background.alpha = backgroundAlpha || 0.25
-            this.background.position.set(-BUTTON, -BUTTON)
-            this.background.tint = background === true ? BACKGROUND : background
+        this.color = (typeof options.color === 'undefined') ? COLOR : options.color
+        this.background = this.addChild(new PIXI.Sprite(PIXI.Sprite.WHITE))
+        this.background.anchor.set(0)
+        if (options.background) {
+            this.background.alpha = options.backgroundAlpha || 0.25
+            this.background.tint = options.background === true ? BACKGROUND : options.background
+        } else {
+            this.background.alpha = 0
+        }
+        if (options.shadow) {
+            this.shadow = this.addChild(new PIXI.Container())
+            this.shadow.position.set(shadow)
         }
         this.words = this.addChild(new PIXI.Container())
         if (words) {
             this.change(words)
         }
+    }
+
+    containsPoint(point) {
+        return this.background.containsPoint(point)
     }
 
     wrap(max) {
@@ -73,6 +86,9 @@ export class Words extends PIXI.Container {
 
     write(words) {
         this.words.removeChildren()
+        if (this.shadow) {
+            this.shadow.removeChildren()
+        }
         words = words + ''
         this.text = words
         let x = 0, y = 0
@@ -91,6 +107,11 @@ export class Words extends PIXI.Container {
                     adjustY = 0.5
                 }
                 sprite.position.set(x, y + adjustY)
+                if (this.shadow) {
+                    const shadow = this.shadow.addChild(this.getLetter(letter))
+                    shadow.tint = shadowTint
+                    shadow.position.set(x, y + adjustY)
+                }
                 x += (sprite.n === -1 ? sheet.textures['asteroid-1'].width : sheet.textures['letters-' + sprite.n].width) + 1
             }
         }
@@ -100,8 +121,8 @@ export class Words extends PIXI.Container {
         if (this.text !== text) {
             this.write(text)
             if (this.background) {
-                this.background.width = this.words.width + BUTTON * 2
-                this.background.height = this.words.height + BUTTON * 2
+                this.background.width = this.words.width
+                this.background.height = this.words.height
             }
         }
     }
@@ -148,6 +169,10 @@ export class Words extends PIXI.Container {
             n = -1
         } else if (letter === '|') {
             n = 48
+        } else if (letter === '<') {
+            n = 49
+        } else if (letter === '>') {
+            n = 50
         } else {
             console.warn('Unknown letter in words.js: ' + letter)
             n = 35
@@ -170,5 +195,20 @@ export class Words extends PIXI.Container {
             }
             this.color = value
         }
+    }
+
+    getContainsPointIndex(point) {
+        for (let i = 0; i < this.words.children.length; i++) {
+            if (this.words.children[i].containsPoint(point)) {
+                return i
+            }
+        }
+    }
+
+    getFirstLetter() {
+        return this.words.children[0]
+    }
+    getLastLetter() {
+        return this.words.children[this.words.children.length - 1]
     }
 }

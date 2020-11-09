@@ -279,6 +279,10 @@ class Moon extends PIXI.Container {
         }
         return p
     }
+
+    canFire() {
+        return this.moon.children.length
+    }
 }
 
 export const moon = new Moon()

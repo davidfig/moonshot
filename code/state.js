@@ -2,6 +2,7 @@ import { file } from './file'
 import { shoot }  from './shoot/shoot'
 import { menu } from './menu/menu'
 import { view } from './view'
+import * as settings from './settings'
 
 class State {
     init() {
@@ -12,13 +13,14 @@ class State {
         for (const key in this.states) {
             this.states[key].init()
         }
-        this.state = 'shoot'
+        this.state = settings.state || 'menu'
     }
 
     set state(state) {
         if (state !== this._state) {
             if (this._state) {
                 view.stage.removeChild(this.states[this.state])
+                this.states[this.state].reset()
             }
             this._state = state
             view.stage.addChild(this.states[this.state])
@@ -31,7 +33,7 @@ class State {
 
     next() {
         if (this.state === 'shoot') {
-            file.shoot.level++
+            file.shootLevel++
             this.states[this.state].change(true)
         }
     }

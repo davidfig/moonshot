@@ -22,7 +22,6 @@ class Stars extends PIXI.Container {
     }
 
     draw() {
-        console.log(view.width)
         random.reset()
         for (let i = 0; i < count; i++) {
             const star = this.stars.addChild(new PIXI.Sprite(PIXI.Texture.WHITE))

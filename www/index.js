@@ -965,27 +965,27 @@
       }
       static findParent(side) {
         const styles = [];
-        let name4 = "yy-counter-";
+        let name5 = "yy-counter-";
         if (side.indexOf("left") !== -1) {
-          name4 += "left-";
+          name5 += "left-";
           styles["left"] = 0;
         } else {
-          name4 += "right-";
+          name5 += "right-";
           styles["right"] = 0;
         }
         if (side.indexOf("top") !== -1) {
-          name4 += "top";
+          name5 += "top";
           styles["top"] = 0;
         } else {
-          name4 += "bottom";
+          name5 += "bottom";
           styles["bottom"] = 0;
         }
-        const test = document.getElementById(name4);
+        const test = document.getElementById(name5);
         if (test) {
           return test;
         }
         const container = document.createElement("div");
-        container.id = name4;
+        container.id = name5;
         container.style.overflow = "hidden";
         container.style.position = "fixed";
         container.style.zIndex = 1e4;
@@ -3495,12 +3495,12 @@
       return c - 1;
     }
     function cuid3() {
-      var letter = "c", timestamp = new Date().getTime().toString(base), counter = pad(safeCounter().toString(base), blockSize), print = fingerprint(), random6 = randomBlock() + randomBlock();
-      return letter + timestamp + counter + print + random6;
+      var letter = "c", timestamp = new Date().getTime().toString(base), counter = pad(safeCounter().toString(base), blockSize), print = fingerprint(), random7 = randomBlock() + randomBlock();
+      return letter + timestamp + counter + print + random7;
     }
     cuid3.slug = function slug() {
-      var date = new Date().getTime().toString(36), counter = safeCounter().toString(36).slice(-4), print = fingerprint().slice(0, 1) + fingerprint().slice(-1), random6 = randomBlock().slice(-2);
-      return date.slice(-2) + counter + print + random6;
+      var date = new Date().getTime().toString(36), counter = safeCounter().toString(36).slice(-4), print = fingerprint().slice(0, 1) + fingerprint().slice(-1), random7 = randomBlock().slice(-2);
+      return date.slice(-2) + counter + print + random7;
     };
     cuid3.isCuid = function isCuid(stringToCheck) {
       if (typeof stringToCheck !== "string")
@@ -4087,7 +4087,7 @@
     function canUploadSameBuffer() {
       return !isMobile.apple.device;
     }
-    var settings2 = {
+    var settings5 = {
       MIPMAP_TEXTURES: 1,
       ANISOTROPIC_LEVEL: 0,
       RESOLUTION: 1,
@@ -4118,7 +4118,7 @@
       ROUND_PIXELS: false
     };
     exports.isMobile = isMobile;
-    exports.settings = settings2;
+    exports.settings = settings5;
   });
 
   // node_modules/eventemitter3/index.js
@@ -4162,12 +4162,12 @@
       this._eventsCount = 0;
     }
     EventEmitter.prototype.eventNames = function eventNames() {
-      var names = [], events, name4;
+      var names = [], events, name5;
       if (this._eventsCount === 0)
         return names;
-      for (name4 in events = this._events) {
-        if (has.call(events, name4))
-          names.push(prefix ? name4.slice(1) : name4);
+      for (name5 in events = this._events) {
+        if (has.call(events, name5))
+          names.push(prefix ? name5.slice(1) : name5);
       }
       if (Object.getOwnPropertySymbols) {
         return names.concat(Object.getOwnPropertySymbols(events));
@@ -5063,7 +5063,7 @@
           return "";
       }
     };
-    module.exports = function(obj, sep, eq, name4) {
+    module.exports = function(obj, sep, eq, name5) {
       sep = sep || "&";
       eq = eq || "=";
       if (obj === null) {
@@ -5081,9 +5081,9 @@
           }
         }).join(sep);
       }
-      if (!name4)
+      if (!name5)
         return "";
-      return encodeURIComponent(stringifyPrimitive(name4)) + eq + encodeURIComponent(stringifyPrimitive(obj));
+      return encodeURIComponent(stringifyPrimitive(name5)) + eq + encodeURIComponent(stringifyPrimitive(obj));
     };
   });
 
@@ -5750,14 +5750,14 @@
     function _interopDefault(ex) {
       return ex && typeof ex === "object" && "default" in ex ? ex["default"] : ex;
     }
-    var settings2 = require_settings();
+    var settings5 = require_settings();
     var eventemitter32 = _interopDefault(require_eventemitter3());
     var earcut = _interopDefault(require_earcut());
     var _url = require_url();
     var _url__default = _interopDefault(_url);
     var constants = require_constants();
-    settings2.settings.RETINA_PREFIX = /@([0-9\.]+)x/;
-    settings2.settings.FAIL_IF_MAJOR_PERFORMANCE_CAVEAT = true;
+    settings5.settings.RETINA_PREFIX = /@([0-9\.]+)x/;
+    settings5.settings.FAIL_IF_MAJOR_PERFORMANCE_CAVEAT = true;
     var saidHello = false;
     var VERSION = "5.3.3";
     function skipHello() {
@@ -5793,7 +5793,7 @@
         supported = function supported2() {
           var contextOptions = {
             stencil: true,
-            failIfMajorPerformanceCaveat: settings2.settings.FAIL_IF_MAJOR_PERFORMANCE_CAVEAT
+            failIfMajorPerformanceCaveat: settings5.settings.FAIL_IF_MAJOR_PERFORMANCE_CAVEAT
           };
           try {
             if (!window.WebGLRenderingContext) {
@@ -6022,7 +6022,7 @@
       return ++nextUid;
     }
     var warnings = {};
-    function deprecation(version, message, ignoreDepth) {
+    function deprecation(version2, message, ignoreDepth) {
       if (ignoreDepth === void 0) {
         ignoreDepth = 3;
       }
@@ -6031,15 +6031,15 @@
       }
       var stack = new Error().stack;
       if (typeof stack === "undefined") {
-        console.warn("PixiJS Deprecation Warning: ", message + "\nDeprecated since v" + version);
+        console.warn("PixiJS Deprecation Warning: ", message + "\nDeprecated since v" + version2);
       } else {
         stack = stack.split("\n").splice(ignoreDepth).join("\n");
         if (console.groupCollapsed) {
-          console.groupCollapsed("%cPixiJS Deprecation Warning: %c%s", "color:#614108;background:#fffbe6", "font-weight:normal;color:#614108;background:#fffbe6", message + "\nDeprecated since v" + version);
+          console.groupCollapsed("%cPixiJS Deprecation Warning: %c%s", "color:#614108;background:#fffbe6", "font-weight:normal;color:#614108;background:#fffbe6", message + "\nDeprecated since v" + version2);
           console.warn(stack);
           console.groupEnd();
         } else {
-          console.warn("PixiJS Deprecation Warning: ", message + "\nDeprecated since v" + version);
+          console.warn("PixiJS Deprecation Warning: ", message + "\nDeprecated since v" + version2);
           console.warn(stack);
         }
       }
@@ -6070,7 +6070,7 @@
       function CanvasRenderTarget2(width, height, resolution) {
         this.canvas = document.createElement("canvas");
         this.context = this.canvas.getContext("2d");
-        this.resolution = resolution || settings2.settings.RESOLUTION;
+        this.resolution = resolution || settings5.settings.RESOLUTION;
         this.resize(width, height);
       }
       CanvasRenderTarget2.prototype.clear = function() {
@@ -6194,7 +6194,7 @@
       return "";
     }
     function getResolutionOfUrl(url, defaultValue) {
-      var resolution = settings2.settings.RETINA_PREFIX.exec(url);
+      var resolution = settings5.settings.RETINA_PREFIX.exec(url);
       if (resolution) {
         return parseFloat(resolution[1]);
       }
@@ -6203,7 +6203,7 @@
     Object.defineProperty(exports, "isMobile", {
       enumerable: true,
       get: function() {
-        return settings2.isMobile;
+        return settings5.isMobile;
       }
     });
     exports.EventEmitter = eventemitter32;
@@ -6401,19 +6401,19 @@
       return Rectangle2;
     }();
     var Circle = function() {
-      function Circle2(x, y, radius) {
+      function Circle2(x, y, radius2) {
         if (x === void 0) {
           x = 0;
         }
         if (y === void 0) {
           y = 0;
         }
-        if (radius === void 0) {
-          radius = 0;
+        if (radius2 === void 0) {
+          radius2 = 0;
         }
         this.x = x;
         this.y = y;
-        this.radius = radius;
+        this.radius = radius2;
         this.type = exports.SHAPES.CIRC;
       }
       Circle2.prototype.clone = function() {
@@ -6516,7 +6516,7 @@
       return Polygon2;
     }();
     var RoundedRectangle = function() {
-      function RoundedRectangle2(x, y, width, height, radius) {
+      function RoundedRectangle2(x, y, width, height, radius2) {
         if (x === void 0) {
           x = 0;
         }
@@ -6529,14 +6529,14 @@
         if (height === void 0) {
           height = 0;
         }
-        if (radius === void 0) {
-          radius = 20;
+        if (radius2 === void 0) {
+          radius2 = 20;
         }
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
-        this.radius = radius;
+        this.radius = radius2;
         this.type = exports.SHAPES.RREC;
       }
       RoundedRectangle2.prototype.clone = function() {
@@ -7156,10 +7156,10 @@
      */
     "use strict";
     Object.defineProperty(exports, "__esModule", {value: true});
-    var settings2 = require_settings();
+    var settings5 = require_settings();
     var math = require_math();
     var utils = require_utils();
-    settings2.settings.SORTABLE_CHILDREN = false;
+    settings5.settings.SORTABLE_CHILDREN = false;
     var Bounds = function() {
       function Bounds2() {
         this.minX = Infinity;
@@ -7794,18 +7794,18 @@
       }
       return a.zIndex - b.zIndex;
     }
-    var Container10 = function(_super) {
-      __extends(Container11, _super);
-      function Container11() {
+    var Container11 = function(_super) {
+      __extends(Container12, _super);
+      function Container12() {
         var _this = _super.call(this) || this;
         _this.children = [];
-        _this.sortableChildren = settings2.settings.SORTABLE_CHILDREN;
+        _this.sortableChildren = settings5.settings.SORTABLE_CHILDREN;
         _this.sortDirty = false;
         return _this;
       }
-      Container11.prototype.onChildrenChange = function(_length) {
+      Container12.prototype.onChildrenChange = function(_length) {
       };
-      Container11.prototype.addChild = function() {
+      Container12.prototype.addChild = function() {
         var arguments$1 = arguments;
         var children = [];
         for (var _i = 0; _i < arguments.length; _i++) {
@@ -7831,7 +7831,7 @@
         }
         return children[0];
       };
-      Container11.prototype.addChildAt = function(child, index) {
+      Container12.prototype.addChildAt = function(child, index) {
         if (index < 0 || index > this.children.length) {
           throw new Error(child + "addChildAt: The index " + index + " supplied is out of bounds " + this.children.length);
         }
@@ -7848,7 +7848,7 @@
         this.emit("childAdded", child, this, index);
         return child;
       };
-      Container11.prototype.swapChildren = function(child, child2) {
+      Container12.prototype.swapChildren = function(child, child2) {
         if (child === child2) {
           return;
         }
@@ -7858,14 +7858,14 @@
         this.children[index2] = child;
         this.onChildrenChange(index1 < index2 ? index1 : index2);
       };
-      Container11.prototype.getChildIndex = function(child) {
+      Container12.prototype.getChildIndex = function(child) {
         var index = this.children.indexOf(child);
         if (index === -1) {
           throw new Error("The supplied DisplayObject must be a child of the caller");
         }
         return index;
       };
-      Container11.prototype.setChildIndex = function(child, index) {
+      Container12.prototype.setChildIndex = function(child, index) {
         if (index < 0 || index >= this.children.length) {
           throw new Error("The index " + index + " supplied is out of bounds " + this.children.length);
         }
@@ -7874,13 +7874,13 @@
         this.children.splice(index, 0, child);
         this.onChildrenChange(index);
       };
-      Container11.prototype.getChildAt = function(index) {
+      Container12.prototype.getChildAt = function(index) {
         if (index < 0 || index >= this.children.length) {
           throw new Error("getChildAt: Index (" + index + ") does not exist.");
         }
         return this.children[index];
       };
-      Container11.prototype.removeChild = function() {
+      Container12.prototype.removeChild = function() {
         var arguments$1 = arguments;
         var children = [];
         for (var _i = 0; _i < arguments.length; _i++) {
@@ -7906,7 +7906,7 @@
         }
         return children[0];
       };
-      Container11.prototype.removeChildAt = function(index) {
+      Container12.prototype.removeChildAt = function(index) {
         var child = this.getChildAt(index);
         child.parent = null;
         child.transform._parentID = -1;
@@ -7917,7 +7917,7 @@
         this.emit("childRemoved", child, this, index);
         return child;
       };
-      Container11.prototype.removeChildren = function(beginIndex, endIndex) {
+      Container12.prototype.removeChildren = function(beginIndex, endIndex) {
         if (beginIndex === void 0) {
           beginIndex = 0;
         }
@@ -7948,7 +7948,7 @@
         }
         throw new RangeError("removeChildren: numeric values are outside the acceptable range.");
       };
-      Container11.prototype.sortChildren = function() {
+      Container12.prototype.sortChildren = function() {
         var sortRequired = false;
         for (var i = 0, j = this.children.length; i < j; ++i) {
           var child = this.children[i];
@@ -7962,7 +7962,7 @@
         }
         this.sortDirty = false;
       };
-      Container11.prototype.updateTransform = function() {
+      Container12.prototype.updateTransform = function() {
         if (this.sortableChildren && this.sortDirty) {
           this.sortChildren();
         }
@@ -7976,7 +7976,7 @@
           }
         }
       };
-      Container11.prototype.calculateBounds = function() {
+      Container12.prototype.calculateBounds = function() {
         this._bounds.clear();
         this._calculateBounds();
         for (var i = 0; i < this.children.length; i++) {
@@ -7997,7 +7997,7 @@
         }
         this._bounds.updateID = this._boundsID;
       };
-      Container11.prototype.getLocalBounds = function(rect, skipChildrenUpdate) {
+      Container12.prototype.getLocalBounds = function(rect, skipChildrenUpdate) {
         if (skipChildrenUpdate === void 0) {
           skipChildrenUpdate = false;
         }
@@ -8012,9 +8012,9 @@
         }
         return result;
       };
-      Container11.prototype._calculateBounds = function() {
+      Container12.prototype._calculateBounds = function() {
       };
-      Container11.prototype.render = function(renderer) {
+      Container12.prototype.render = function(renderer) {
         if (!this.visible || this.worldAlpha <= 0 || !this.renderable) {
           return;
         }
@@ -8027,7 +8027,7 @@
           }
         }
       };
-      Container11.prototype.renderAdvanced = function(renderer) {
+      Container12.prototype.renderAdvanced = function(renderer) {
         renderer.batch.flush();
         var filters = this.filters;
         var mask = this._mask;
@@ -8060,9 +8060,9 @@
           renderer.filter.pop();
         }
       };
-      Container11.prototype._render = function(_renderer) {
+      Container12.prototype._render = function(_renderer) {
       };
-      Container11.prototype.destroy = function(options) {
+      Container12.prototype.destroy = function(options) {
         _super.prototype.destroy.call(this);
         this.sortDirty = false;
         var destroyChildren = typeof options === "boolean" ? options : options && options.children;
@@ -8073,7 +8073,7 @@
           }
         }
       };
-      Object.defineProperty(Container11.prototype, "width", {
+      Object.defineProperty(Container12.prototype, "width", {
         get: function() {
           return this.scale.x * this.getLocalBounds().width;
         },
@@ -8089,7 +8089,7 @@
         enumerable: false,
         configurable: true
       });
-      Object.defineProperty(Container11.prototype, "height", {
+      Object.defineProperty(Container12.prototype, "height", {
         get: function() {
           return this.scale.y * this.getLocalBounds().height;
         },
@@ -8105,11 +8105,11 @@
         enumerable: false,
         configurable: true
       });
-      return Container11;
+      return Container12;
     }(DisplayObject);
-    Container10.prototype.containerUpdateTransform = Container10.prototype.updateTransform;
+    Container11.prototype.containerUpdateTransform = Container11.prototype.updateTransform;
     exports.Bounds = Bounds;
-    exports.Container = Container10;
+    exports.Container = Container11;
     exports.DisplayObject = DisplayObject;
     exports.TemporaryDisplayObject = TemporaryDisplayObject;
   });
@@ -8440,8 +8440,8 @@
      */
     "use strict";
     Object.defineProperty(exports, "__esModule", {value: true});
-    var settings2 = require_settings();
-    settings2.settings.TARGET_FPMS = 0.06;
+    var settings5 = require_settings();
+    settings5.settings.TARGET_FPMS = 0.06;
     (function(UPDATE_PRIORITY) {
       UPDATE_PRIORITY[UPDATE_PRIORITY["INTERACTION"] = 50] = "INTERACTION";
       UPDATE_PRIORITY[UPDATE_PRIORITY["HIGH"] = 25] = "HIGH";
@@ -8528,8 +8528,8 @@
         this._minElapsedMS = 0;
         this.autoStart = false;
         this.deltaTime = 1;
-        this.deltaMS = 1 / settings2.settings.TARGET_FPMS;
-        this.elapsedMS = 1 / settings2.settings.TARGET_FPMS;
+        this.deltaMS = 1 / settings5.settings.TARGET_FPMS;
+        this.elapsedMS = 1 / settings5.settings.TARGET_FPMS;
         this.lastTime = -1;
         this.speed = 1;
         this.started = false;
@@ -8669,7 +8669,7 @@
             this._lastFrame = currentTime - delta % this._minElapsedMS;
           }
           this.deltaMS = elapsedMS;
-          this.deltaTime = this.deltaMS * settings2.settings.TARGET_FPMS;
+          this.deltaTime = this.deltaMS * settings5.settings.TARGET_FPMS;
           var head = this._head;
           var listener = head.next;
           while (listener) {
@@ -8696,7 +8696,7 @@
         },
         set: function(fps) {
           var minFPS = Math.min(this.maxFPS, fps);
-          var minFPMS = Math.min(Math.max(0, minFPS) / 1e3, settings2.settings.TARGET_FPMS);
+          var minFPMS = Math.min(Math.max(0, minFPS) / 1e3, settings5.settings.TARGET_FPMS);
           this._maxElapsedMS = 1 / minFPMS;
         },
         enumerable: false,
@@ -9785,21 +9785,21 @@
     "use strict";
     Object.defineProperty(exports, "__esModule", {value: true});
     var Runner = function() {
-      function Runner2(name4) {
+      function Runner2(name5) {
         this.items = [];
-        this._name = name4;
+        this._name = name5;
         this._aliasCount = 0;
       }
       Runner2.prototype.emit = function(a0, a1, a2, a3, a4, a5, a6, a7) {
         if (arguments.length > 8) {
           throw new Error("max arguments reached");
         }
-        var _a = this, name4 = _a.name, items2 = _a.items;
+        var _a = this, name5 = _a.name, items = _a.items;
         this._aliasCount++;
-        for (var i = 0, len = items2.length; i < len; i++) {
-          items2[i][name4](a0, a1, a2, a3, a4, a5, a6, a7);
+        for (var i = 0, len = items.length; i < len; i++) {
+          items[i][name5](a0, a1, a2, a3, a4, a5, a6, a7);
         }
-        if (items2 === this.items) {
+        if (items === this.items) {
           this._aliasCount--;
         }
         return this;
@@ -9873,14 +9873,14 @@
      */
     "use strict";
     Object.defineProperty(exports, "__esModule", {value: true});
-    var settings2 = require_settings();
+    var settings5 = require_settings();
     var constants = require_constants();
     var utils = require_utils();
     var runner = require_runner();
     var ticker = require_ticker();
     var math = require_math();
-    settings2.settings.PREFER_ENV = utils.isMobile.any ? constants.ENV.WEBGL : constants.ENV.WEBGL2;
-    settings2.settings.STRICT_TEXTURE_CACHE = false;
+    settings5.settings.PREFER_ENV = utils.isMobile.any ? constants.ENV.WEBGL : constants.ENV.WEBGL2;
+    settings5.settings.STRICT_TEXTURE_CACHE = false;
     var INSTALLED = [];
     function autoDetectResource(source, options) {
       if (!source) {
@@ -10076,11 +10076,11 @@
         }
         _this.width = width || 0;
         _this.height = height || 0;
-        _this.resolution = resolution || settings2.settings.RESOLUTION;
-        _this.mipmap = mipmap !== void 0 ? mipmap : settings2.settings.MIPMAP_TEXTURES;
-        _this.anisotropicLevel = anisotropicLevel !== void 0 ? anisotropicLevel : settings2.settings.ANISOTROPIC_LEVEL;
-        _this.wrapMode = wrapMode || settings2.settings.WRAP_MODE;
-        _this.scaleMode = scaleMode !== void 0 ? scaleMode : settings2.settings.SCALE_MODE;
+        _this.resolution = resolution || settings5.settings.RESOLUTION;
+        _this.mipmap = mipmap !== void 0 ? mipmap : settings5.settings.MIPMAP_TEXTURES;
+        _this.anisotropicLevel = anisotropicLevel !== void 0 ? anisotropicLevel : settings5.settings.ANISOTROPIC_LEVEL;
+        _this.wrapMode = wrapMode || settings5.settings.WRAP_MODE;
+        _this.scaleMode = scaleMode !== void 0 ? scaleMode : settings5.settings.SCALE_MODE;
         _this.format = format || constants.FORMATS.RGBA;
         _this.type = type || constants.TYPES.UNSIGNED_BYTE;
         _this.target = target || constants.TARGETS.TEXTURE_2D;
@@ -10221,7 +10221,7 @@
       };
       BaseTexture2.from = function(source, options, strict) {
         if (strict === void 0) {
-          strict = settings2.settings.STRICT_TEXTURE_CACHE;
+          strict = settings5.settings.STRICT_TEXTURE_CACHE;
         }
         var isFrame = typeof source === "string";
         var cacheId = null;
@@ -10405,13 +10405,13 @@
         baseTexture.target = constants.TARGETS.TEXTURE_2D_ARRAY;
       };
       ArrayResource2.prototype.upload = function(renderer, texture, glTexture) {
-        var _a = this, length = _a.length, itemDirtyIds = _a.itemDirtyIds, items2 = _a.items;
+        var _a = this, length = _a.length, itemDirtyIds = _a.itemDirtyIds, items = _a.items;
         var gl = renderer.gl;
         if (glTexture.dirtyId < 0) {
           gl.texImage3D(gl.TEXTURE_2D_ARRAY, 0, texture.format, this._width, this._height, length, 0, texture.format, texture.type, null);
         }
         for (var i = 0; i < length; i++) {
-          var item = items2[i];
+          var item = items[i];
           if (itemDirtyIds[i] < item.dirtyId) {
             itemDirtyIds[i] = item.dirtyId;
             if (item.valid) {
@@ -10576,7 +10576,7 @@
         _this.url = source.src;
         _this._process = null;
         _this.preserveBitmap = false;
-        _this.createBitmap = (options.createBitmap !== void 0 ? options.createBitmap : settings2.settings.CREATE_IMAGE_BITMAP) && !!window.createImageBitmap;
+        _this.createBitmap = (options.createBitmap !== void 0 ? options.createBitmap : settings5.settings.CREATE_IMAGE_BITMAP) && !!window.createImageBitmap;
         _this.alphaMode = typeof options.alphaMode === "number" ? options.alphaMode : null;
         if (options.premultiplyAlpha !== void 0) {
           _this.premultiplyAlpha = options.premultiplyAlpha;
@@ -11317,7 +11317,7 @@
           options = {};
         }
         if (strict === void 0) {
-          strict = settings2.settings.STRICT_TEXTURE_CACHE;
+          strict = settings5.settings.STRICT_TEXTURE_CACHE;
         }
         var isFrame = typeof source === "string";
         var cacheId = null;
@@ -11358,20 +11358,20 @@
       Texture6.fromBuffer = function(buffer, width, height, options) {
         return new Texture6(BaseTexture.fromBuffer(buffer, width, height, options));
       };
-      Texture6.fromLoader = function(source, imageUrl, name4) {
+      Texture6.fromLoader = function(source, imageUrl, name5) {
         var resource = new ImageResource(source);
         resource.url = imageUrl;
         var baseTexture = new BaseTexture(resource, {
-          scaleMode: settings2.settings.SCALE_MODE,
+          scaleMode: settings5.settings.SCALE_MODE,
           resolution: utils.getResolutionOfUrl(imageUrl)
         });
         var texture = new Texture6(baseTexture);
-        if (!name4) {
-          name4 = imageUrl;
+        if (!name5) {
+          name5 = imageUrl;
         }
-        BaseTexture.addToCache(texture.baseTexture, name4);
-        Texture6.addToCache(texture, name4);
-        if (name4 !== imageUrl) {
+        BaseTexture.addToCache(texture.baseTexture, name5);
+        Texture6.addToCache(texture, name5);
+        if (name5 !== imageUrl) {
           BaseTexture.addToCache(texture.baseTexture, imageUrl);
           Texture6.addToCache(texture, imageUrl);
         }
@@ -12065,8 +12065,8 @@
       UniformGroup2.prototype.update = function() {
         this.dirtyId++;
       };
-      UniformGroup2.prototype.add = function(name4, uniforms, _static) {
-        this.uniforms[name4] = new UniformGroup2(uniforms, _static);
+      UniformGroup2.prototype.add = function(name5, uniforms, _static) {
+        this.uniforms[name5] = new UniformGroup2(uniforms, _static);
       };
       UniformGroup2.from = function(uniforms, _static) {
         return new UniformGroup2(uniforms, _static);
@@ -12118,98 +12118,98 @@
       FilterSystem2.prototype.push = function(target, filters) {
         var renderer = this.renderer;
         var filterStack = this.defaultFilterStack;
-        var state6 = this.statePool.pop() || new FilterState();
+        var state9 = this.statePool.pop() || new FilterState();
         var resolution = filters[0].resolution;
-        var padding2 = filters[0].padding;
+        var padding3 = filters[0].padding;
         var autoFit = filters[0].autoFit;
         var legacy = filters[0].legacy;
         for (var i = 1; i < filters.length; i++) {
           var filter = filters[i];
           resolution = Math.min(resolution, filter.resolution);
-          padding2 = this.useMaxPadding ? Math.max(padding2, filter.padding) : padding2 + filter.padding;
+          padding3 = this.useMaxPadding ? Math.max(padding3, filter.padding) : padding3 + filter.padding;
           autoFit = autoFit || filter.autoFit;
           legacy = legacy || filter.legacy;
         }
         if (filterStack.length === 1) {
           this.defaultFilterStack[0].renderTexture = renderer.renderTexture.current;
         }
-        filterStack.push(state6);
-        state6.resolution = resolution;
-        state6.legacy = legacy;
-        state6.target = target;
-        state6.sourceFrame.copyFrom(target.filterArea || target.getBounds(true));
-        state6.sourceFrame.pad(padding2);
+        filterStack.push(state9);
+        state9.resolution = resolution;
+        state9.legacy = legacy;
+        state9.target = target;
+        state9.sourceFrame.copyFrom(target.filterArea || target.getBounds(true));
+        state9.sourceFrame.pad(padding3);
         if (autoFit) {
-          state6.sourceFrame.fit(this.renderer.renderTexture.sourceFrame);
+          state9.sourceFrame.fit(this.renderer.renderTexture.sourceFrame);
         }
-        state6.sourceFrame.ceil(resolution);
-        state6.renderTexture = this.getOptimalFilterTexture(state6.sourceFrame.width, state6.sourceFrame.height, resolution);
-        state6.filters = filters;
-        state6.destinationFrame.width = state6.renderTexture.width;
-        state6.destinationFrame.height = state6.renderTexture.height;
+        state9.sourceFrame.ceil(resolution);
+        state9.renderTexture = this.getOptimalFilterTexture(state9.sourceFrame.width, state9.sourceFrame.height, resolution);
+        state9.filters = filters;
+        state9.destinationFrame.width = state9.renderTexture.width;
+        state9.destinationFrame.height = state9.renderTexture.height;
         var destinationFrame = this.tempRect;
-        destinationFrame.width = state6.sourceFrame.width;
-        destinationFrame.height = state6.sourceFrame.height;
-        state6.renderTexture.filterFrame = state6.sourceFrame;
-        renderer.renderTexture.bind(state6.renderTexture, state6.sourceFrame, destinationFrame);
+        destinationFrame.width = state9.sourceFrame.width;
+        destinationFrame.height = state9.sourceFrame.height;
+        state9.renderTexture.filterFrame = state9.sourceFrame;
+        renderer.renderTexture.bind(state9.renderTexture, state9.sourceFrame, destinationFrame);
         renderer.renderTexture.clear();
       };
       FilterSystem2.prototype.pop = function() {
         var filterStack = this.defaultFilterStack;
-        var state6 = filterStack.pop();
-        var filters = state6.filters;
-        this.activeState = state6;
+        var state9 = filterStack.pop();
+        var filters = state9.filters;
+        this.activeState = state9;
         var globalUniforms = this.globalUniforms.uniforms;
-        globalUniforms.outputFrame = state6.sourceFrame;
-        globalUniforms.resolution = state6.resolution;
+        globalUniforms.outputFrame = state9.sourceFrame;
+        globalUniforms.resolution = state9.resolution;
         var inputSize = globalUniforms.inputSize;
         var inputPixel = globalUniforms.inputPixel;
         var inputClamp = globalUniforms.inputClamp;
-        inputSize[0] = state6.destinationFrame.width;
-        inputSize[1] = state6.destinationFrame.height;
+        inputSize[0] = state9.destinationFrame.width;
+        inputSize[1] = state9.destinationFrame.height;
         inputSize[2] = 1 / inputSize[0];
         inputSize[3] = 1 / inputSize[1];
-        inputPixel[0] = inputSize[0] * state6.resolution;
-        inputPixel[1] = inputSize[1] * state6.resolution;
+        inputPixel[0] = inputSize[0] * state9.resolution;
+        inputPixel[1] = inputSize[1] * state9.resolution;
         inputPixel[2] = 1 / inputPixel[0];
         inputPixel[3] = 1 / inputPixel[1];
         inputClamp[0] = 0.5 * inputPixel[2];
         inputClamp[1] = 0.5 * inputPixel[3];
-        inputClamp[2] = state6.sourceFrame.width * inputSize[2] - 0.5 * inputPixel[2];
-        inputClamp[3] = state6.sourceFrame.height * inputSize[3] - 0.5 * inputPixel[3];
-        if (state6.legacy) {
+        inputClamp[2] = state9.sourceFrame.width * inputSize[2] - 0.5 * inputPixel[2];
+        inputClamp[3] = state9.sourceFrame.height * inputSize[3] - 0.5 * inputPixel[3];
+        if (state9.legacy) {
           var filterArea = globalUniforms.filterArea;
-          filterArea[0] = state6.destinationFrame.width;
-          filterArea[1] = state6.destinationFrame.height;
-          filterArea[2] = state6.sourceFrame.x;
-          filterArea[3] = state6.sourceFrame.y;
+          filterArea[0] = state9.destinationFrame.width;
+          filterArea[1] = state9.destinationFrame.height;
+          filterArea[2] = state9.sourceFrame.x;
+          filterArea[3] = state9.sourceFrame.y;
           globalUniforms.filterClamp = globalUniforms.inputClamp;
         }
         this.globalUniforms.update();
         var lastState = filterStack[filterStack.length - 1];
-        if (state6.renderTexture.framebuffer.multisample > 1) {
+        if (state9.renderTexture.framebuffer.multisample > 1) {
           this.renderer.framebuffer.blit();
         }
         if (filters.length === 1) {
-          filters[0].apply(this, state6.renderTexture, lastState.renderTexture, constants.CLEAR_MODES.BLEND, state6);
-          this.returnFilterTexture(state6.renderTexture);
+          filters[0].apply(this, state9.renderTexture, lastState.renderTexture, constants.CLEAR_MODES.BLEND, state9);
+          this.returnFilterTexture(state9.renderTexture);
         } else {
-          var flip = state6.renderTexture;
-          var flop = this.getOptimalFilterTexture(flip.width, flip.height, state6.resolution);
+          var flip = state9.renderTexture;
+          var flop = this.getOptimalFilterTexture(flip.width, flip.height, state9.resolution);
           flop.filterFrame = flip.filterFrame;
           var i = 0;
           for (i = 0; i < filters.length - 1; ++i) {
-            filters[i].apply(this, flip, flop, constants.CLEAR_MODES.CLEAR, state6);
+            filters[i].apply(this, flip, flop, constants.CLEAR_MODES.CLEAR, state9);
             var t = flip;
             flip = flop;
             flop = t;
           }
-          filters[i].apply(this, flip, lastState.renderTexture, constants.CLEAR_MODES.BLEND, state6);
+          filters[i].apply(this, flip, lastState.renderTexture, constants.CLEAR_MODES.BLEND, state9);
           this.returnFilterTexture(flip);
           this.returnFilterTexture(flop);
         }
-        state6.clear();
-        this.statePool.push(state6);
+        state9.clear();
+        this.statePool.push(state9);
       };
       FilterSystem2.prototype.bindAndClear = function(filterTexture, clearMode) {
         if (clearMode === void 0) {
@@ -12407,7 +12407,7 @@
       };
       ContextSystem2.prototype.createContext = function(canvas, options) {
         var gl;
-        if (settings2.settings.PREFER_ENV >= constants.ENV.WEBGL2) {
+        if (settings5.settings.PREFER_ENV >= constants.ENV.WEBGL2) {
           gl = canvas.getContext("webgl2", options);
         }
         if (gl) {
@@ -12453,9 +12453,9 @@
         this.renderer.runners.contextChange.emit(this.gl);
       };
       ContextSystem2.prototype.destroy = function() {
-        var view10 = this.renderer.view;
-        view10.removeEventListener("webglcontextlost", this.handleContextLost);
-        view10.removeEventListener("webglcontextrestored", this.handleContextRestored);
+        var view11 = this.renderer.view;
+        view11.removeEventListener("webglcontextlost", this.handleContextLost);
+        view11.removeEventListener("webglcontextrestored", this.handleContextRestored);
         this.gl.useProgram(null);
         if (this.extensions.loseContext) {
           this.extensions.loseContext.loseContext();
@@ -12513,7 +12513,7 @@
         if (this.renderer.context.webGLVersion === 1) {
           var nativeDrawBuffersExtension_1 = this.renderer.context.extensions.drawBuffers;
           var nativeDepthTextureExtension = this.renderer.context.extensions.depthTexture;
-          if (settings2.settings.PREFER_ENV === constants.ENV.WEBGL_LEGACY) {
+          if (settings5.settings.PREFER_ENV === constants.ENV.WEBGL_LEGACY) {
             nativeDrawBuffersExtension_1 = null;
             nativeDepthTextureExtension = null;
           }
@@ -12807,7 +12807,7 @@
         this.CONTEXT_UID = this.renderer.CONTEXT_UID;
         if (!gl.createVertexArray) {
           var nativeVaoExtension_1 = this.renderer.context.extensions.vertexArrayObject;
-          if (settings2.settings.PREFER_ENV === constants.ENV.WEBGL_LEGACY) {
+          if (settings5.settings.PREFER_ENV === constants.ENV.WEBGL_LEGACY) {
             nativeVaoExtension_1 = null;
           }
           if (nativeVaoExtension_1) {
@@ -13251,7 +13251,7 @@
       if (context === unknownContext || context && context.isContextLost()) {
         var canvas = document.createElement("canvas");
         var gl = void 0;
-        if (settings2.settings.PREFER_ENV >= constants.ENV.WEBGL2) {
+        if (settings5.settings.PREFER_ENV >= constants.ENV.WEBGL2) {
           gl = canvas.getContext("webgl2", {});
         }
         if (!gl) {
@@ -13356,56 +13356,56 @@
         test: function(data) {
           return data.type === "float" && data.size === 1;
         },
-        code: function(name4) {
-          return '\n            if(uv["' + name4 + '"] !== ud["' + name4 + '"].value)\n            {\n                ud["' + name4 + '"].value = uv["' + name4 + '"]\n                gl.uniform1f(ud["' + name4 + '"].location, uv["' + name4 + '"])\n            }\n            ';
+        code: function(name5) {
+          return '\n            if(uv["' + name5 + '"] !== ud["' + name5 + '"].value)\n            {\n                ud["' + name5 + '"].value = uv["' + name5 + '"]\n                gl.uniform1f(ud["' + name5 + '"].location, uv["' + name5 + '"])\n            }\n            ';
         }
       },
       {
         test: function(data) {
           return (data.type === "sampler2D" || data.type === "samplerCube" || data.type === "sampler2DArray") && data.size === 1 && !data.isArray;
         },
-        code: function(name4) {
-          return 't = syncData.textureCount++;\n\n            renderer.texture.bind(uv["' + name4 + '"], t);\n\n            if(ud["' + name4 + '"].value !== t)\n            {\n                ud["' + name4 + '"].value = t;\n                gl.uniform1i(ud["' + name4 + '"].location, t);\n; // eslint-disable-line max-len\n            }';
+        code: function(name5) {
+          return 't = syncData.textureCount++;\n\n            renderer.texture.bind(uv["' + name5 + '"], t);\n\n            if(ud["' + name5 + '"].value !== t)\n            {\n                ud["' + name5 + '"].value = t;\n                gl.uniform1i(ud["' + name5 + '"].location, t);\n; // eslint-disable-line max-len\n            }';
         }
       },
       {
         test: function(data, uniform) {
           return data.type === "mat3" && data.size === 1 && uniform.a !== void 0;
         },
-        code: function(name4) {
-          return '\n            gl.uniformMatrix3fv(ud["' + name4 + '"].location, false, uv["' + name4 + '"].toArray(true));\n            ';
+        code: function(name5) {
+          return '\n            gl.uniformMatrix3fv(ud["' + name5 + '"].location, false, uv["' + name5 + '"].toArray(true));\n            ';
         }
       },
       {
         test: function(data, uniform) {
           return data.type === "vec2" && data.size === 1 && uniform.x !== void 0;
         },
-        code: function(name4) {
-          return '\n                cv = ud["' + name4 + '"].value;\n                v = uv["' + name4 + '"];\n\n                if(cv[0] !== v.x || cv[1] !== v.y)\n                {\n                    cv[0] = v.x;\n                    cv[1] = v.y;\n                    gl.uniform2f(ud["' + name4 + '"].location, v.x, v.y);\n                }';
+        code: function(name5) {
+          return '\n                cv = ud["' + name5 + '"].value;\n                v = uv["' + name5 + '"];\n\n                if(cv[0] !== v.x || cv[1] !== v.y)\n                {\n                    cv[0] = v.x;\n                    cv[1] = v.y;\n                    gl.uniform2f(ud["' + name5 + '"].location, v.x, v.y);\n                }';
         }
       },
       {
         test: function(data) {
           return data.type === "vec2" && data.size === 1;
         },
-        code: function(name4) {
-          return '\n                cv = ud["' + name4 + '"].value;\n                v = uv["' + name4 + '"];\n\n                if(cv[0] !== v[0] || cv[1] !== v[1])\n                {\n                    cv[0] = v[0];\n                    cv[1] = v[1];\n                    gl.uniform2f(ud["' + name4 + '"].location, v[0], v[1]);\n                }\n            ';
+        code: function(name5) {
+          return '\n                cv = ud["' + name5 + '"].value;\n                v = uv["' + name5 + '"];\n\n                if(cv[0] !== v[0] || cv[1] !== v[1])\n                {\n                    cv[0] = v[0];\n                    cv[1] = v[1];\n                    gl.uniform2f(ud["' + name5 + '"].location, v[0], v[1]);\n                }\n            ';
         }
       },
       {
         test: function(data, uniform) {
           return data.type === "vec4" && data.size === 1 && uniform.width !== void 0;
         },
-        code: function(name4) {
-          return '\n                cv = ud["' + name4 + '"].value;\n                v = uv["' + name4 + '"];\n\n                if(cv[0] !== v.x || cv[1] !== v.y || cv[2] !== v.width || cv[3] !== v.height)\n                {\n                    cv[0] = v.x;\n                    cv[1] = v.y;\n                    cv[2] = v.width;\n                    cv[3] = v.height;\n                    gl.uniform4f(ud["' + name4 + '"].location, v.x, v.y, v.width, v.height)\n                }';
+        code: function(name5) {
+          return '\n                cv = ud["' + name5 + '"].value;\n                v = uv["' + name5 + '"];\n\n                if(cv[0] !== v.x || cv[1] !== v.y || cv[2] !== v.width || cv[3] !== v.height)\n                {\n                    cv[0] = v.x;\n                    cv[1] = v.y;\n                    cv[2] = v.width;\n                    cv[3] = v.height;\n                    gl.uniform4f(ud["' + name5 + '"].location, v.x, v.y, v.width, v.height)\n                }';
         }
       },
       {
         test: function(data) {
           return data.type === "vec4" && data.size === 1;
         },
-        code: function(name4) {
-          return '\n                cv = ud["' + name4 + '"].value;\n                v = uv["' + name4 + '"];\n\n                if(cv[0] !== v[0] || cv[1] !== v[1] || cv[2] !== v[2] || cv[3] !== v[3])\n                {\n                    cv[0] = v[0];\n                    cv[1] = v[1];\n                    cv[2] = v[2];\n                    cv[3] = v[3];\n\n                    gl.uniform4f(ud["' + name4 + '"].location, v[0], v[1], v[2], v[3])\n                }';
+        code: function(name5) {
+          return '\n                cv = ud["' + name5 + '"].value;\n                v = uv["' + name5 + '"];\n\n                if(cv[0] !== v[0] || cv[1] !== v[1] || cv[2] !== v[2] || cv[3] !== v[3])\n                {\n                    cv[0] = v[0];\n                    cv[1] = v[1];\n                    cv[2] = v[2];\n                    cv[3] = v[3];\n\n                    gl.uniform4f(ud["' + name5 + '"].location, v[0], v[1], v[2], v[3])\n                }';
         }
       }
     ];
@@ -13531,9 +13531,9 @@
     var UID$3 = 0;
     var nameCache = {};
     var Program = function() {
-      function Program2(vertexSrc, fragmentSrc, name4) {
-        if (name4 === void 0) {
-          name4 = "pixi-shader";
+      function Program2(vertexSrc, fragmentSrc, name5) {
+        if (name5 === void 0) {
+          name5 = "pixi-shader";
         }
         this.id = UID$3++;
         this.vertexSrc = vertexSrc || Program2.defaultVertexSrc;
@@ -13541,17 +13541,17 @@
         this.vertexSrc = this.vertexSrc.trim();
         this.fragmentSrc = this.fragmentSrc.trim();
         if (this.vertexSrc.substring(0, 8) !== "#version") {
-          name4 = name4.replace(/\s+/g, "-");
-          if (nameCache[name4]) {
-            nameCache[name4]++;
-            name4 += "-" + nameCache[name4];
+          name5 = name5.replace(/\s+/g, "-");
+          if (nameCache[name5]) {
+            nameCache[name5]++;
+            name5 += "-" + nameCache[name5];
           } else {
-            nameCache[name4] = 1;
+            nameCache[name5] = 1;
           }
-          this.vertexSrc = "#define SHADER_NAME " + name4 + "\n" + this.vertexSrc;
-          this.fragmentSrc = "#define SHADER_NAME " + name4 + "\n" + this.fragmentSrc;
-          this.vertexSrc = setPrecision(this.vertexSrc, settings2.settings.PRECISION_VERTEX, constants.PRECISION.HIGH);
-          this.fragmentSrc = setPrecision(this.fragmentSrc, settings2.settings.PRECISION_FRAGMENT, getMaxFragmentPrecision());
+          this.vertexSrc = "#define SHADER_NAME " + name5 + "\n" + this.vertexSrc;
+          this.fragmentSrc = "#define SHADER_NAME " + name5 + "\n" + this.fragmentSrc;
+          this.vertexSrc = setPrecision(this.vertexSrc, settings5.settings.PRECISION_VERTEX, constants.PRECISION.HIGH);
+          this.fragmentSrc = setPrecision(this.fragmentSrc, settings5.settings.PRECISION_FRAGMENT, getMaxFragmentPrecision());
         }
         this.extractData(this.vertexSrc, this.fragmentSrc);
         this.glPrograms = {};
@@ -13598,10 +13598,10 @@
         var totalUniforms = gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS);
         for (var i = 0; i < totalUniforms; i++) {
           var uniformData = gl.getActiveUniform(program, i);
-          var name4 = uniformData.name.replace(/\[.*?\]$/, "");
+          var name5 = uniformData.name.replace(/\[.*?\]$/, "");
           var isArray = uniformData.name.match(/\[.*?\]$/);
           var type = mapType(gl, uniformData.type);
-          uniforms[name4] = {
+          uniforms[name5] = {
             type,
             size: uniformData.size,
             isArray,
@@ -13624,11 +13624,11 @@
         enumerable: false,
         configurable: true
       });
-      Program2.from = function(vertexSrc, fragmentSrc, name4) {
+      Program2.from = function(vertexSrc, fragmentSrc, name5) {
         var key = vertexSrc + fragmentSrc;
         var program = utils.ProgramCache[key];
         if (!program) {
-          utils.ProgramCache[key] = program = new Program2(vertexSrc, fragmentSrc, name4);
+          utils.ProgramCache[key] = program = new Program2(vertexSrc, fragmentSrc, name5);
         }
         return program;
       };
@@ -13652,14 +13652,14 @@
           }
         }
       }
-      Shader2.prototype.checkUniformExists = function(name4, group) {
-        if (group.uniforms[name4]) {
+      Shader2.prototype.checkUniformExists = function(name5, group) {
+        if (group.uniforms[name5]) {
           return true;
         }
         for (var i in group.uniforms) {
           var uniform = group.uniforms[i];
           if (uniform.group) {
-            if (this.checkUniformExists(name4, uniform)) {
+            if (this.checkUniformExists(name5, uniform)) {
               return true;
             }
           }
@@ -13777,10 +13777,10 @@
         configurable: true
       });
       State3.for2d = function() {
-        var state6 = new State3();
-        state6.depthTest = false;
-        state6.blend = true;
-        return state6;
+        var state9 = new State3();
+        state9.depthTest = false;
+        state9.blend = true;
+        return state9;
       };
       return State3;
     }();
@@ -13793,7 +13793,7 @@
         var program = Program.from(vertexSrc || Filter2.defaultVertexSrc, fragmentSrc || Filter2.defaultFragmentSrc);
         _this = _super.call(this, program, uniforms) || this;
         _this.padding = 0;
-        _this.resolution = settings2.settings.FILTER_RESOLUTION;
+        _this.resolution = settings5.settings.FILTER_RESOLUTION;
         _this.enabled = true;
         _this.autoFit = true;
         _this.legacy = !!_this.program.attributeData.aTextureCoord;
@@ -14506,33 +14506,33 @@
         this.set(this.defaultState);
         this.reset();
       };
-      StateSystem2.prototype.set = function(state6) {
-        state6 = state6 || this.defaultState;
-        if (this.stateId !== state6.data) {
-          var diff = this.stateId ^ state6.data;
+      StateSystem2.prototype.set = function(state9) {
+        state9 = state9 || this.defaultState;
+        if (this.stateId !== state9.data) {
+          var diff = this.stateId ^ state9.data;
           var i = 0;
           while (diff) {
             if (diff & 1) {
-              this.map[i].call(this, !!(state6.data & 1 << i));
+              this.map[i].call(this, !!(state9.data & 1 << i));
             }
             diff = diff >> 1;
             i++;
           }
-          this.stateId = state6.data;
+          this.stateId = state9.data;
         }
         for (var i = 0; i < this.checks.length; i++) {
-          this.checks[i](this, state6);
+          this.checks[i](this, state9);
         }
       };
-      StateSystem2.prototype.forceState = function(state6) {
-        state6 = state6 || this.defaultState;
+      StateSystem2.prototype.forceState = function(state9) {
+        state9 = state9 || this.defaultState;
         for (var i = 0; i < this.map.length; i++) {
-          this.map[i].call(this, !!(state6.data & 1 << i));
+          this.map[i].call(this, !!(state9.data & 1 << i));
         }
         for (var i = 0; i < this.checks.length; i++) {
-          this.checks[i](this, state6);
+          this.checks[i](this, state9);
         }
-        this.stateId = state6.data;
+        this.stateId = state9.data;
       };
       StateSystem2.prototype.setBlend = function(value) {
         this.updateCheck(StateSystem2.checkBlendMode, value);
@@ -14589,11 +14589,11 @@
           this.checks.splice(index2, 1);
         }
       };
-      StateSystem2.checkBlendMode = function(system, state6) {
-        system.setBlendMode(state6.blendMode);
+      StateSystem2.checkBlendMode = function(system, state9) {
+        system.setBlendMode(state9.blendMode);
       };
-      StateSystem2.checkPolygonOffset = function(system, state6) {
-        system.setPolygonOffset(1, state6.polygonOffset);
+      StateSystem2.checkPolygonOffset = function(system, state9) {
+        system.setPolygonOffset(1, state9.polygonOffset);
       };
       return StateSystem2;
     }(System);
@@ -14603,9 +14603,9 @@
         var _this = _super.call(this, renderer) || this;
         _this.count = 0;
         _this.checkCount = 0;
-        _this.maxIdle = settings2.settings.GC_MAX_IDLE;
-        _this.checkCountMax = settings2.settings.GC_MAX_CHECK_COUNT;
-        _this.mode = settings2.settings.GC_MODE;
+        _this.maxIdle = settings5.settings.GC_MAX_IDLE;
+        _this.checkCountMax = settings5.settings.GC_MAX_CHECK_COUNT;
+        _this.mode = settings5.settings.GC_MODE;
         return _this;
       }
       TextureGCSystem2.prototype.postrender = function() {
@@ -14904,16 +14904,16 @@
           type = constants.RENDERER_TYPE.UNKNOWN;
         }
         var _this = _super.call(this) || this;
-        options = Object.assign({}, settings2.settings.RENDER_OPTIONS, options);
+        options = Object.assign({}, settings5.settings.RENDER_OPTIONS, options);
         if (options.roundPixels) {
-          settings2.settings.ROUND_PIXELS = options.roundPixels;
+          settings5.settings.ROUND_PIXELS = options.roundPixels;
           utils.deprecation("5.0.0", "Renderer roundPixels option is deprecated, please use PIXI.settings.ROUND_PIXELS", 2);
         }
         _this.options = options;
         _this.type = type;
         _this.screen = new math.Rectangle(0, 0, options.width, options.height);
         _this.view = options.view || document.createElement("canvas");
-        _this.resolution = options.resolution || settings2.settings.RESOLUTION;
+        _this.resolution = options.resolution || settings5.settings.RESOLUTION;
         _this.transparent = options.transparent;
         _this.autoDensity = options.autoDensity || options.autoResize || false;
         _this.preserveDrawingBuffer = options.preserveDrawingBuffer;
@@ -15052,15 +15052,15 @@
         }
         throw new Error('WebGL unsupported in this browser, use "pixi.js-legacy" for fallback canvas2d support.');
       };
-      Renderer3.prototype.addSystem = function(ClassRef, name4) {
-        if (!name4) {
-          name4 = ClassRef.name;
+      Renderer3.prototype.addSystem = function(ClassRef, name5) {
+        if (!name5) {
+          name5 = ClassRef.name;
         }
         var system = new ClassRef(this);
-        if (this[name4]) {
-          throw new Error('Whoops! The name "' + name4 + '" is already in use');
+        if (this[name5]) {
+          throw new Error('Whoops! The name "' + name5 + '" is already in use');
         }
-        this[name4] = system;
+        this[name5] = system;
         for (var i in this.runners) {
           this.runners[i].add(system);
         }
@@ -15247,7 +15247,7 @@
         _this.geometryClass = null;
         _this.vertexSize = null;
         _this.state = State2.for2d();
-        _this.size = settings2.settings.SPRITE_BATCH_SIZE * 4;
+        _this.size = settings5.settings.SPRITE_BATCH_SIZE * 4;
         _this._vertexCount = 0;
         _this._indexCount = 0;
         _this._bufferedElements = [];
@@ -15272,10 +15272,10 @@
       }
       AbstractBatchRenderer2.prototype.contextChange = function() {
         var gl = this.renderer.gl;
-        if (settings2.settings.PREFER_ENV === constants.ENV.WEBGL_LEGACY) {
+        if (settings5.settings.PREFER_ENV === constants.ENV.WEBGL_LEGACY) {
           this.MAX_TEXTURES = 1;
         } else {
-          this.MAX_TEXTURES = Math.min(gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS), settings2.settings.SPRITE_MAX_TEXTURES);
+          this.MAX_TEXTURES = Math.min(gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS), settings5.settings.SPRITE_MAX_TEXTURES);
           this.MAX_TEXTURES = checkMaxIfStatementsInShader(this.MAX_TEXTURES, gl);
         }
         this._shader = this.shaderGenerator.generateShader(this.MAX_TEXTURES);
@@ -15396,7 +15396,7 @@
       };
       AbstractBatchRenderer2.prototype.updateGeometry = function() {
         var _a = this, packedGeometries = _a._packedGeometries, attributeBuffer = _a._attributeBuffer, indexBuffer = _a._indexBuffer;
-        if (!settings2.settings.CAN_UPLOAD_SAME_BUFFER) {
+        if (!settings5.settings.CAN_UPLOAD_SAME_BUFFER) {
           if (this._packedGeometryPoolSize <= this._flushId) {
             this._packedGeometryPoolSize++;
             packedGeometries[this._flushId] = new this.geometryClass();
@@ -15447,7 +15447,7 @@
       AbstractBatchRenderer2.prototype.start = function() {
         this.renderer.state.set(this.state);
         this.renderer.shader.bind(this._shader);
-        if (settings2.settings.CAN_UPLOAD_SAME_BUFFER) {
+        if (settings5.settings.CAN_UPLOAD_SAME_BUFFER) {
           this.renderer.geometry.bind(this._packedGeometries[this._flushId]);
         }
       };
@@ -16364,14 +16364,14 @@
       Resource2.setExtensionXhrType = function setExtensionXhrType(extname, xhrType) {
         setExtMap(Resource2._xhrTypeMap, extname, xhrType);
       };
-      function Resource2(name4, url, options) {
-        if (typeof name4 !== "string" || typeof url !== "string") {
+      function Resource2(name5, url, options) {
+        if (typeof name5 !== "string" || typeof url !== "string") {
           throw new Error("Both name and url are required for constructing a resource.");
         }
         options = options || {};
         this._flags = 0;
         this._setFlag(Resource2.STATUS_FLAGS.DATA_URL, url.indexOf("data:") === 0);
-        this.name = name4;
+        this.name = name5;
         this.url = url;
         this.extension = this._getExtension();
         this.data = null;
@@ -16952,23 +16952,23 @@
         }
       }
       var _proto = Loader2.prototype;
-      _proto.add = function add(name4, url, options, cb) {
-        if (Array.isArray(name4)) {
-          for (var i = 0; i < name4.length; ++i) {
-            this.add(name4[i]);
+      _proto.add = function add(name5, url, options, cb) {
+        if (Array.isArray(name5)) {
+          for (var i = 0; i < name5.length; ++i) {
+            this.add(name5[i]);
           }
           return this;
         }
-        if (typeof name4 === "object") {
-          cb = url || name4.callback || name4.onComplete;
-          options = name4;
-          url = name4.url;
-          name4 = name4.name || name4.key || name4.url;
+        if (typeof name5 === "object") {
+          cb = url || name5.callback || name5.onComplete;
+          options = name5;
+          url = name5.url;
+          name5 = name5.name || name5.key || name5.url;
         }
         if (typeof url !== "string") {
           cb = options;
           options = url;
-          url = name4;
+          url = name5;
         }
         if (typeof url !== "string") {
           throw new Error("No url passed to add resource to loader.");
@@ -16980,13 +16980,13 @@
         if (this.loading && (!options || !options.parentResource)) {
           throw new Error("Cannot add resources while the loader is running.");
         }
-        if (this.resources[name4]) {
-          throw new Error('Resource named "' + name4 + '" already exists.');
+        if (this.resources[name5]) {
+          throw new Error('Resource named "' + name5 + '" already exists.');
         }
         url = this._prepareUrl(url);
-        this.resources[name4] = new Resource(name4, url, options);
+        this.resources[name5] = new Resource(name5, url, options);
         if (typeof cb === "function") {
-          this.resources[name4].onAfterMiddleware.once(cb);
+          this.resources[name5].onAfterMiddleware.once(cb);
         }
         if (this.loading) {
           var parent = options.parentResource;
@@ -16998,14 +16998,14 @@
           }
           var fullChunk = parent.progressChunk * (incompleteChildren.length + 1);
           var eachChunk = fullChunk / (incompleteChildren.length + 2);
-          parent.children.push(this.resources[name4]);
+          parent.children.push(this.resources[name5]);
           parent.progressChunk = eachChunk;
           for (var _i3 = 0; _i3 < incompleteChildren.length; ++_i3) {
             incompleteChildren[_i3].progressChunk = eachChunk;
           }
-          this.resources[name4].progressChunk = eachChunk;
+          this.resources[name5].progressChunk = eachChunk;
         }
-        this._queue.push(this.resources[name4]);
+        this._queue.push(this.resources[name5]);
         return this;
       };
       _proto.pre = function pre(fn) {
@@ -17988,15 +17988,15 @@
         var y = rrectData.y;
         var width = rrectData.width;
         var height = rrectData.height;
-        var radius = Math.max(0, Math.min(rrectData.radius, Math.min(width, height) / 2));
+        var radius2 = Math.max(0, Math.min(rrectData.radius, Math.min(width, height) / 2));
         points.length = 0;
-        if (!radius) {
+        if (!radius2) {
           points.push(x, y, x + width, y, x + width, y + height, x, y + height);
         } else {
-          quadraticBezierCurve(x, y + radius, x, y, x + radius, y, points);
-          quadraticBezierCurve(x + width - radius, y, x + width, y, x + width, y + radius, points);
-          quadraticBezierCurve(x + width, y + height - radius, x + width, y + height, x + width - radius, y + height, points);
-          quadraticBezierCurve(x + radius, y + height, x, y + height, x, y + height - radius, points);
+          quadraticBezierCurve(x, y + radius2, x, y, x + radius2, y, points);
+          quadraticBezierCurve(x + width - radius2, y, x + width, y, x + width, y + radius2, points);
+          quadraticBezierCurve(x + width, y + height - radius2, x + width, y + height, x + width - radius2, y + height, points);
+          quadraticBezierCurve(x + radius2, y + height, x, y + height, x, y + height - radius2, points);
         }
       },
       triangulate: function(graphicsData, graphicsGeometry) {
@@ -18050,8 +18050,8 @@
       var startAngle = angle0;
       var angleDiff = angle1 - angle0;
       var absAngleDiff = Math.abs(angleDiff);
-      var radius = Math.sqrt(cx2p0x * cx2p0x + cy2p0y * cy2p0y);
-      var segCount = (15 * absAngleDiff * Math.sqrt(radius) / Math.PI >> 0) + 1;
+      var radius2 = Math.sqrt(cx2p0x * cx2p0x + cy2p0y * cy2p0y);
+      var segCount = (15 * absAngleDiff * Math.sqrt(radius2) / Math.PI >> 0) + 1;
       var angleInc = angleDiff / segCount;
       startAngle += angleInc;
       if (clockwise) {
@@ -18059,7 +18059,7 @@
         verts.push(sx, sy);
         for (var i = 1, angle = startAngle; i < segCount; i++, angle += angleInc) {
           verts.push(cx, cy);
-          verts.push(cx + Math.sin(angle) * radius, cy + Math.cos(angle) * radius);
+          verts.push(cx + Math.sin(angle) * radius2, cy + Math.cos(angle) * radius2);
         }
         verts.push(cx, cy);
         verts.push(ex, ey);
@@ -18067,7 +18067,7 @@
         verts.push(sx, sy);
         verts.push(cx, cy);
         for (var i = 1, angle = startAngle; i < segCount; i++, angle += angleInc) {
-          verts.push(cx + Math.sin(angle) * radius, cy + Math.cos(angle) * radius);
+          verts.push(cx + Math.sin(angle) * radius2, cy + Math.cos(angle) * radius2);
           verts.push(cx, cy);
         }
         verts.push(ex, ey);
@@ -18273,18 +18273,18 @@
     }
     var Star = function(_super) {
       __extends(Star2, _super);
-      function Star2(x, y, points, radius, innerRadius, rotation) {
+      function Star2(x, y, points, radius2, innerRadius, rotation) {
         if (rotation === void 0) {
           rotation = 0;
         }
         var _this = this;
-        innerRadius = innerRadius || radius / 2;
+        innerRadius = innerRadius || radius2 / 2;
         var startAngle = -1 * Math.PI / 2 + rotation;
         var len = points * 2;
         var delta = math.PI_2 / len;
         var polygon = [];
         for (var i = 0; i < len; i++) {
-          var r = i % 2 ? innerRadius : radius;
+          var r = i % 2 ? innerRadius : radius2;
           var angle = i * delta + startAngle;
           polygon.push(x + r * Math.cos(angle), y + r * Math.sin(angle));
         }
@@ -18296,7 +18296,7 @@
     var ArcUtils = function() {
       function ArcUtils2() {
       }
-      ArcUtils2.curveTo = function(x1, y1, x2, y2, radius, points) {
+      ArcUtils2.curveTo = function(x1, y1, x2, y2, radius2, points) {
         var fromX = points[points.length - 2];
         var fromY = points[points.length - 1];
         var a1 = fromY - y1;
@@ -18304,7 +18304,7 @@
         var a2 = y2 - y1;
         var b2 = x2 - x1;
         var mm = Math.abs(a1 * b2 - b1 * a2);
-        if (mm < 1e-8 || radius === 0) {
+        if (mm < 1e-8 || radius2 === 0) {
           if (points[points.length - 2] !== x1 || points[points.length - 1] !== y1) {
             points.push(x1, y1);
           }
@@ -18313,8 +18313,8 @@
         var dd = a1 * a1 + b1 * b1;
         var cc = a2 * a2 + b2 * b2;
         var tt = a1 * a2 + b1 * b2;
-        var k1 = radius * Math.sqrt(dd) / mm;
-        var k2 = radius * Math.sqrt(cc) / mm;
+        var k1 = radius2 * Math.sqrt(dd) / mm;
+        var k2 = radius2 * Math.sqrt(cc) / mm;
         var j1 = k1 * tt / dd;
         var j2 = k2 * tt / cc;
         var cx = k1 * b2 + k2 * b1;
@@ -18328,15 +18328,15 @@
         return {
           cx: cx + x1,
           cy: cy + y1,
-          radius,
+          radius: radius2,
           startAngle,
           endAngle,
           anticlockwise: b1 * a2 > b2 * a1
         };
       };
-      ArcUtils2.arc = function(_startX, _startY, cx, cy, radius, startAngle, endAngle, _anticlockwise, points) {
+      ArcUtils2.arc = function(_startX, _startY, cx, cy, radius2, startAngle, endAngle, _anticlockwise, points) {
         var sweep = endAngle - startAngle;
-        var n = GRAPHICS_CURVES._segmentsCount(Math.abs(sweep) * radius, Math.ceil(Math.abs(sweep) / math.PI_2) * 40);
+        var n = GRAPHICS_CURVES._segmentsCount(Math.abs(sweep) * radius2, Math.ceil(Math.abs(sweep) / math.PI_2) * 40);
         var theta = sweep / (n * 2);
         var theta2 = theta * 2;
         var cTheta = Math.cos(theta);
@@ -18348,7 +18348,7 @@
           var angle = theta + startAngle + theta2 * real;
           var c = Math.cos(angle);
           var s = -Math.sin(angle);
-          points.push((cTheta * c + sTheta * s) * radius + cx, (cTheta * -s + sTheta * c) * radius + cy);
+          points.push((cTheta * c + sTheta * s) * radius2 + cx, (cTheta * -s + sTheta * c) * radius2 + cy);
         }
       };
       return ArcUtils2;
@@ -19082,9 +19082,9 @@
     }(FillStyle);
     var temp = new Float32Array(3);
     var DEFAULT_SHADERS = {};
-    var Graphics3 = function(_super) {
-      __extends(Graphics4, _super);
-      function Graphics4(geometry) {
+    var Graphics4 = function(_super) {
+      __extends(Graphics5, _super);
+      function Graphics5(geometry) {
         if (geometry === void 0) {
           geometry = null;
         }
@@ -19108,18 +19108,18 @@
         _this.blendMode = constants.BLEND_MODES.NORMAL;
         return _this;
       }
-      Object.defineProperty(Graphics4.prototype, "geometry", {
+      Object.defineProperty(Graphics5.prototype, "geometry", {
         get: function() {
           return this._geometry;
         },
         enumerable: false,
         configurable: true
       });
-      Graphics4.prototype.clone = function() {
+      Graphics5.prototype.clone = function() {
         this.finishPoly();
-        return new Graphics4(this._geometry);
+        return new Graphics5(this._geometry);
       };
-      Object.defineProperty(Graphics4.prototype, "blendMode", {
+      Object.defineProperty(Graphics5.prototype, "blendMode", {
         get: function() {
           return this.state.blendMode;
         },
@@ -19129,7 +19129,7 @@
         enumerable: false,
         configurable: true
       });
-      Object.defineProperty(Graphics4.prototype, "tint", {
+      Object.defineProperty(Graphics5.prototype, "tint", {
         get: function() {
           return this._tint;
         },
@@ -19139,21 +19139,21 @@
         enumerable: false,
         configurable: true
       });
-      Object.defineProperty(Graphics4.prototype, "fill", {
+      Object.defineProperty(Graphics5.prototype, "fill", {
         get: function() {
           return this._fillStyle;
         },
         enumerable: false,
         configurable: true
       });
-      Object.defineProperty(Graphics4.prototype, "line", {
+      Object.defineProperty(Graphics5.prototype, "line", {
         get: function() {
           return this._lineStyle;
         },
         enumerable: false,
         configurable: true
       });
-      Graphics4.prototype.lineStyle = function(options) {
+      Graphics5.prototype.lineStyle = function(options) {
         if (options === void 0) {
           options = null;
         }
@@ -19169,7 +19169,7 @@
         }
         return this.lineTextureStyle(options);
       };
-      Graphics4.prototype.lineTextureStyle = function(options) {
+      Graphics5.prototype.lineTextureStyle = function(options) {
         if (typeof options === "number") {
           utils.deprecation("v5.2.0", "Please use object-based options for Graphics#lineTextureStyle");
           var _a2 = arguments, width = _a2[0], texture = _a2[1], color = _a2[2], alpha = _a2[3], matrix = _a2[4], alignment = _a2[5], native = _a2[6];
@@ -19205,7 +19205,7 @@
         }
         return this;
       };
-      Graphics4.prototype.startPoly = function() {
+      Graphics5.prototype.startPoly = function() {
         if (this.currentPath) {
           var points = this.currentPath.points;
           var len = this.currentPath.points.length;
@@ -19220,7 +19220,7 @@
           this.currentPath.closeStroke = false;
         }
       };
-      Graphics4.prototype.finishPoly = function() {
+      Graphics5.prototype.finishPoly = function() {
         if (this.currentPath) {
           if (this.currentPath.points.length > 2) {
             this.drawShape(this.currentPath);
@@ -19230,13 +19230,13 @@
           }
         }
       };
-      Graphics4.prototype.moveTo = function(x, y) {
+      Graphics5.prototype.moveTo = function(x, y) {
         this.startPoly();
         this.currentPath.points[0] = x;
         this.currentPath.points[1] = y;
         return this;
       };
-      Graphics4.prototype.lineTo = function(x, y) {
+      Graphics5.prototype.lineTo = function(x, y) {
         if (!this.currentPath) {
           this.moveTo(0, 0);
         }
@@ -19248,7 +19248,7 @@
         }
         return this;
       };
-      Graphics4.prototype._initCurve = function(x, y) {
+      Graphics5.prototype._initCurve = function(x, y) {
         if (x === void 0) {
           x = 0;
         }
@@ -19263,7 +19263,7 @@
           this.moveTo(x, y);
         }
       };
-      Graphics4.prototype.quadraticCurveTo = function(cpX, cpY, toX, toY) {
+      Graphics5.prototype.quadraticCurveTo = function(cpX, cpY, toX, toY) {
         this._initCurve();
         var points = this.currentPath.points;
         if (points.length === 0) {
@@ -19272,22 +19272,22 @@
         QuadraticUtils.curveTo(cpX, cpY, toX, toY, points);
         return this;
       };
-      Graphics4.prototype.bezierCurveTo = function(cpX, cpY, cpX2, cpY2, toX, toY) {
+      Graphics5.prototype.bezierCurveTo = function(cpX, cpY, cpX2, cpY2, toX, toY) {
         this._initCurve();
         BezierUtils.curveTo(cpX, cpY, cpX2, cpY2, toX, toY, this.currentPath.points);
         return this;
       };
-      Graphics4.prototype.arcTo = function(x1, y1, x2, y2, radius) {
+      Graphics5.prototype.arcTo = function(x1, y1, x2, y2, radius2) {
         this._initCurve(x1, y1);
         var points = this.currentPath.points;
-        var result = ArcUtils.curveTo(x1, y1, x2, y2, radius, points);
+        var result = ArcUtils.curveTo(x1, y1, x2, y2, radius2, points);
         if (result) {
           var cx = result.cx, cy = result.cy, radius_1 = result.radius, startAngle = result.startAngle, endAngle = result.endAngle, anticlockwise = result.anticlockwise;
           this.arc(cx, cy, radius_1, startAngle, endAngle, anticlockwise);
         }
         return this;
       };
-      Graphics4.prototype.arc = function(cx, cy, radius, startAngle, endAngle, anticlockwise) {
+      Graphics5.prototype.arc = function(cx, cy, radius2, startAngle, endAngle, anticlockwise) {
         if (anticlockwise === void 0) {
           anticlockwise = false;
         }
@@ -19303,8 +19303,8 @@
         if (sweep === 0) {
           return this;
         }
-        var startX = cx + Math.cos(startAngle) * radius;
-        var startY = cy + Math.sin(startAngle) * radius;
+        var startX = cx + Math.cos(startAngle) * radius2;
+        var startY = cy + Math.sin(startAngle) * radius2;
         var eps = this._geometry.closePointEps;
         var points = this.currentPath ? this.currentPath.points : null;
         if (points) {
@@ -19319,10 +19319,10 @@
           this.moveTo(startX, startY);
           points = this.currentPath.points;
         }
-        ArcUtils.arc(startX, startY, cx, cy, radius, startAngle, endAngle, anticlockwise, points);
+        ArcUtils.arc(startX, startY, cx, cy, radius2, startAngle, endAngle, anticlockwise, points);
         return this;
       };
-      Graphics4.prototype.beginFill = function(color, alpha) {
+      Graphics5.prototype.beginFill = function(color, alpha) {
         if (color === void 0) {
           color = 0;
         }
@@ -19331,7 +19331,7 @@
         }
         return this.beginTextureFill({texture: core.Texture.WHITE, color, alpha});
       };
-      Graphics4.prototype.beginTextureFill = function(options) {
+      Graphics5.prototype.beginTextureFill = function(options) {
         if (options instanceof core.Texture) {
           utils.deprecation("v5.2.0", "Please use object-based options for Graphics#beginTextureFill");
           var _a2 = arguments, texture = _a2[0], color = _a2[1], alpha = _a2[2], matrix = _a2[3];
@@ -19361,24 +19361,24 @@
         }
         return this;
       };
-      Graphics4.prototype.endFill = function() {
+      Graphics5.prototype.endFill = function() {
         this.finishPoly();
         this._fillStyle.reset();
         return this;
       };
-      Graphics4.prototype.drawRect = function(x, y, width, height) {
+      Graphics5.prototype.drawRect = function(x, y, width, height) {
         return this.drawShape(new math.Rectangle(x, y, width, height));
       };
-      Graphics4.prototype.drawRoundedRect = function(x, y, width, height, radius) {
-        return this.drawShape(new math.RoundedRectangle(x, y, width, height, radius));
+      Graphics5.prototype.drawRoundedRect = function(x, y, width, height, radius2) {
+        return this.drawShape(new math.RoundedRectangle(x, y, width, height, radius2));
       };
-      Graphics4.prototype.drawCircle = function(x, y, radius) {
-        return this.drawShape(new math.Circle(x, y, radius));
+      Graphics5.prototype.drawCircle = function(x, y, radius2) {
+        return this.drawShape(new math.Circle(x, y, radius2));
       };
-      Graphics4.prototype.drawEllipse = function(x, y, width, height) {
+      Graphics5.prototype.drawEllipse = function(x, y, width, height) {
         return this.drawShape(new math.Ellipse(x, y, width, height));
       };
-      Graphics4.prototype.drawPolygon = function() {
+      Graphics5.prototype.drawPolygon = function() {
         var arguments$1 = arguments;
         var path = [];
         for (var _i = 0; _i < arguments.length; _i++) {
@@ -19400,7 +19400,7 @@
         this.drawShape(shape);
         return this;
       };
-      Graphics4.prototype.drawShape = function(shape) {
+      Graphics5.prototype.drawShape = function(shape) {
         if (!this._holeMode) {
           this._geometry.drawShape(shape, this._fillStyle.clone(), this._lineStyle.clone(), this._matrix);
         } else {
@@ -19408,13 +19408,13 @@
         }
         return this;
       };
-      Graphics4.prototype.drawStar = function(x, y, points, radius, innerRadius, rotation) {
+      Graphics5.prototype.drawStar = function(x, y, points, radius2, innerRadius, rotation) {
         if (rotation === void 0) {
           rotation = 0;
         }
-        return this.drawPolygon(new Star(x, y, points, radius, innerRadius, rotation));
+        return this.drawPolygon(new Star(x, y, points, radius2, innerRadius, rotation));
       };
-      Graphics4.prototype.clear = function() {
+      Graphics5.prototype.clear = function() {
         this._geometry.clear();
         this._lineStyle.reset();
         this._fillStyle.reset();
@@ -19424,11 +19424,11 @@
         this.currentPath = null;
         return this;
       };
-      Graphics4.prototype.isFastRect = function() {
+      Graphics5.prototype.isFastRect = function() {
         var data = this._geometry.graphicsData;
         return data.length === 1 && data[0].shape.type === math.SHAPES.RECT && !(data[0].lineStyle.visible && data[0].lineStyle.width);
       };
-      Graphics4.prototype._render = function(renderer) {
+      Graphics5.prototype._render = function(renderer) {
         this.finishPoly();
         var geometry = this._geometry;
         var hasuit32 = renderer.context.supports.uint32Indices;
@@ -19443,7 +19443,7 @@
           this._renderDirect(renderer);
         }
       };
-      Graphics4.prototype._populateBatches = function() {
+      Graphics5.prototype._populateBatches = function() {
         var geometry = this._geometry;
         var blendMode = this.blendMode;
         var len = geometry.batches.length;
@@ -19472,7 +19472,7 @@
           this.batches[i] = batch;
         }
       };
-      Graphics4.prototype._renderBatched = function(renderer) {
+      Graphics5.prototype._renderBatched = function(renderer) {
         if (!this.batches.length) {
           return;
         }
@@ -19485,7 +19485,7 @@
           renderer.plugins[this.pluginName].render(batch);
         }
       };
-      Graphics4.prototype._renderDirect = function(renderer) {
+      Graphics5.prototype._renderDirect = function(renderer) {
         var shader = this._resolveDirectShader(renderer);
         var geometry = this._geometry;
         var tint = this.tint;
@@ -19504,7 +19504,7 @@
           this._renderDrawCallDirect(renderer, geometry.drawCalls[i]);
         }
       };
-      Graphics4.prototype._renderDrawCallDirect = function(renderer, drawCall) {
+      Graphics5.prototype._renderDrawCallDirect = function(renderer, drawCall) {
         var texArray = drawCall.texArray, type = drawCall.type, size2 = drawCall.size, start = drawCall.start;
         var groupTextureCount = texArray.count;
         for (var j = 0; j < groupTextureCount; j++) {
@@ -19512,7 +19512,7 @@
         }
         renderer.geometry.draw(type, size2, start);
       };
-      Graphics4.prototype._resolveDirectShader = function(renderer) {
+      Graphics5.prototype._resolveDirectShader = function(renderer) {
         var shader = this.shader;
         var pluginName = this.pluginName;
         if (!shader) {
@@ -19533,7 +19533,7 @@
         }
         return shader;
       };
-      Graphics4.prototype._calculateBounds = function() {
+      Graphics5.prototype._calculateBounds = function() {
         this.finishPoly();
         var geometry = this._geometry;
         if (!geometry.graphicsData.length) {
@@ -19542,11 +19542,11 @@
         var _a2 = geometry.bounds, minX = _a2.minX, minY = _a2.minY, maxX = _a2.maxX, maxY = _a2.maxY;
         this._bounds.addFrame(this.transform, minX, minY, maxX, maxY);
       };
-      Graphics4.prototype.containsPoint = function(point) {
-        this.worldTransform.applyInverse(point, Graphics4._TEMP_POINT);
-        return this._geometry.containsPoint(Graphics4._TEMP_POINT);
+      Graphics5.prototype.containsPoint = function(point) {
+        this.worldTransform.applyInverse(point, Graphics5._TEMP_POINT);
+        return this._geometry.containsPoint(Graphics5._TEMP_POINT);
       };
-      Graphics4.prototype.calculateTints = function() {
+      Graphics5.prototype.calculateTints = function() {
         if (this.batchTint !== this.tint) {
           this.batchTint = this.tint;
           var tintRGB = utils.hex2rgb(this.tint, temp);
@@ -19561,7 +19561,7 @@
           }
         }
       };
-      Graphics4.prototype.calculateVertices = function() {
+      Graphics5.prototype.calculateVertices = function() {
         var wtID = this.transform._worldID;
         if (this._transformID === wtID) {
           return;
@@ -19584,28 +19584,28 @@
           vertexData[count3++] = d * y + b * x + ty;
         }
       };
-      Graphics4.prototype.closePath = function() {
+      Graphics5.prototype.closePath = function() {
         var currentPath = this.currentPath;
         if (currentPath) {
           currentPath.closeStroke = true;
         }
         return this;
       };
-      Graphics4.prototype.setMatrix = function(matrix) {
+      Graphics5.prototype.setMatrix = function(matrix) {
         this._matrix = matrix;
         return this;
       };
-      Graphics4.prototype.beginHole = function() {
+      Graphics5.prototype.beginHole = function() {
         this.finishPoly();
         this._holeMode = true;
         return this;
       };
-      Graphics4.prototype.endHole = function() {
+      Graphics5.prototype.endHole = function() {
         this.finishPoly();
         this._holeMode = false;
         return this;
       };
-      Graphics4.prototype.destroy = function(options) {
+      Graphics5.prototype.destroy = function(options) {
         _super.prototype.destroy.call(this, options);
         this._geometry.refCount--;
         if (this._geometry.refCount === 0) {
@@ -19624,12 +19624,12 @@
         this.batches = null;
         _super.prototype.destroy.call(this, options);
       };
-      Graphics4._TEMP_POINT = new math.Point();
-      return Graphics4;
+      Graphics5._TEMP_POINT = new math.Point();
+      return Graphics5;
     }(display.Container);
     exports.FillStyle = FillStyle;
     exports.GRAPHICS_CURVES = GRAPHICS_CURVES;
-    exports.Graphics = Graphics3;
+    exports.Graphics = Graphics4;
     exports.GraphicsData = GraphicsData;
     exports.GraphicsGeometry = GraphicsGeometry;
     exports.LineStyle = LineStyle;
@@ -19651,7 +19651,7 @@
     var core = require_core();
     var display = require_display();
     var math = require_math();
-    var settings2 = require_settings();
+    var settings5 = require_settings();
     var utils = require_utils();
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -19688,9 +19688,9 @@
     }
     var tempPoint = new math.Point();
     var indices = new Uint16Array([0, 1, 2, 0, 2, 3]);
-    var Sprite5 = function(_super) {
-      __extends(Sprite6, _super);
-      function Sprite6(texture) {
+    var Sprite6 = function(_super) {
+      __extends(Sprite7, _super);
+      function Sprite7(texture) {
         var _this = _super.call(this) || this;
         _this._anchor = new math.ObservablePoint(_this._onAnchorUpdate, _this, texture ? texture.defaultAnchor.x : 0, texture ? texture.defaultAnchor.y : 0);
         _this._texture = null;
@@ -19712,10 +19712,10 @@
         _this.indices = indices;
         _this.pluginName = "batch";
         _this.isSprite = true;
-        _this._roundPixels = settings2.settings.ROUND_PIXELS;
+        _this._roundPixels = settings5.settings.ROUND_PIXELS;
         return _this;
       }
-      Sprite6.prototype._onTextureUpdate = function() {
+      Sprite7.prototype._onTextureUpdate = function() {
         this._textureID = -1;
         this._textureTrimmedID = -1;
         this._cachedTint = 16777215;
@@ -19726,11 +19726,11 @@
           this.scale.y = utils.sign(this.scale.y) * this._height / this._texture.orig.height;
         }
       };
-      Sprite6.prototype._onAnchorUpdate = function() {
+      Sprite7.prototype._onAnchorUpdate = function() {
         this._transformID = -1;
         this._transformTrimmedID = -1;
       };
-      Sprite6.prototype.calculateVertices = function() {
+      Sprite7.prototype.calculateVertices = function() {
         var texture = this._texture;
         if (this._transformID === this.transform._worldID && this._textureID === texture._updateID) {
           return;
@@ -19775,13 +19775,13 @@
         vertexData[6] = a * w1 + c * h0 + tx;
         vertexData[7] = d * h0 + b * w1 + ty;
         if (this._roundPixels) {
-          var resolution = settings2.settings.RESOLUTION;
+          var resolution = settings5.settings.RESOLUTION;
           for (var i = 0; i < vertexData.length; ++i) {
             vertexData[i] = Math.round((vertexData[i] * resolution | 0) / resolution);
           }
         }
       };
-      Sprite6.prototype.calculateTrimmedVertices = function() {
+      Sprite7.prototype.calculateTrimmedVertices = function() {
         if (!this.vertexTrimmedData) {
           this.vertexTrimmedData = new Float32Array(8);
         } else if (this._transformTrimmedID === this.transform._worldID && this._textureTrimmedID === this._texture._updateID) {
@@ -19813,12 +19813,12 @@
         vertexData[6] = a * w1 + c * h0 + tx;
         vertexData[7] = d * h0 + b * w1 + ty;
       };
-      Sprite6.prototype._render = function(renderer) {
+      Sprite7.prototype._render = function(renderer) {
         this.calculateVertices();
         renderer.batch.setObjectRenderer(renderer.plugins[this.pluginName]);
         renderer.plugins[this.pluginName].render(this);
       };
-      Sprite6.prototype._calculateBounds = function() {
+      Sprite7.prototype._calculateBounds = function() {
         var trim = this._texture.trim;
         var orig = this._texture.orig;
         if (!trim || trim.width === orig.width && trim.height === orig.height) {
@@ -19829,7 +19829,7 @@
           this._bounds.addQuad(this.vertexTrimmedData);
         }
       };
-      Sprite6.prototype.getLocalBounds = function(rect) {
+      Sprite7.prototype.getLocalBounds = function(rect) {
         if (this.children.length === 0) {
           this._bounds.minX = this._texture.orig.width * -this._anchor._x;
           this._bounds.minY = this._texture.orig.height * -this._anchor._y;
@@ -19845,7 +19845,7 @@
         }
         return _super.prototype.getLocalBounds.call(this, rect);
       };
-      Sprite6.prototype.containsPoint = function(point) {
+      Sprite7.prototype.containsPoint = function(point) {
         this.worldTransform.applyInverse(point, tempPoint);
         var width = this._texture.orig.width;
         var height = this._texture.orig.height;
@@ -19859,7 +19859,7 @@
         }
         return false;
       };
-      Sprite6.prototype.destroy = function(options) {
+      Sprite7.prototype.destroy = function(options) {
         _super.prototype.destroy.call(this, options);
         this._texture.off("update", this._onTextureUpdate, this);
         this._anchor = null;
@@ -19870,11 +19870,11 @@
         }
         this._texture = null;
       };
-      Sprite6.from = function(source, options) {
+      Sprite7.from = function(source, options) {
         var texture = source instanceof core.Texture ? source : core.Texture.from(source, options);
-        return new Sprite6(texture);
+        return new Sprite7(texture);
       };
-      Object.defineProperty(Sprite6.prototype, "roundPixels", {
+      Object.defineProperty(Sprite7.prototype, "roundPixels", {
         get: function() {
           return this._roundPixels;
         },
@@ -19887,7 +19887,7 @@
         enumerable: false,
         configurable: true
       });
-      Object.defineProperty(Sprite6.prototype, "width", {
+      Object.defineProperty(Sprite7.prototype, "width", {
         get: function() {
           return Math.abs(this.scale.x) * this._texture.orig.width;
         },
@@ -19899,7 +19899,7 @@
         enumerable: false,
         configurable: true
       });
-      Object.defineProperty(Sprite6.prototype, "height", {
+      Object.defineProperty(Sprite7.prototype, "height", {
         get: function() {
           return Math.abs(this.scale.y) * this._texture.orig.height;
         },
@@ -19911,7 +19911,7 @@
         enumerable: false,
         configurable: true
       });
-      Object.defineProperty(Sprite6.prototype, "anchor", {
+      Object.defineProperty(Sprite7.prototype, "anchor", {
         get: function() {
           return this._anchor;
         },
@@ -19921,7 +19921,7 @@
         enumerable: false,
         configurable: true
       });
-      Object.defineProperty(Sprite6.prototype, "tint", {
+      Object.defineProperty(Sprite7.prototype, "tint", {
         get: function() {
           return this._tint;
         },
@@ -19932,7 +19932,7 @@
         enumerable: false,
         configurable: true
       });
-      Object.defineProperty(Sprite6.prototype, "texture", {
+      Object.defineProperty(Sprite7.prototype, "texture", {
         get: function() {
           return this._texture;
         },
@@ -19958,9 +19958,9 @@
         enumerable: false,
         configurable: true
       });
-      return Sprite6;
+      return Sprite7;
     }(display.Container);
-    exports.Sprite = Sprite5;
+    exports.Sprite = Sprite6;
   });
 
   // node_modules/@pixi/text/lib/text.js
@@ -19976,7 +19976,7 @@
     Object.defineProperty(exports, "__esModule", {value: true});
     var sprite = require_sprite();
     var core = require_core();
-    var settings2 = require_settings();
+    var settings5 = require_settings();
     var math = require_math();
     var utils = require_utils();
     /*! *****************************************************************************
@@ -20348,9 +20348,9 @@
         get: function() {
           return this._padding;
         },
-        set: function(padding2) {
-          if (this._padding !== padding2) {
-            this._padding = padding2;
+        set: function(padding3) {
+          if (this._padding !== padding3) {
+            this._padding = padding3;
             this.styleID++;
           }
         },
@@ -20868,7 +20868,7 @@
         _this._ownCanvas = ownCanvas;
         _this.canvas = canvas2;
         _this.context = _this.canvas.getContext("2d");
-        _this._resolution = settings2.settings.RESOLUTION;
+        _this._resolution = settings5.settings.RESOLUTION;
         _this._autoResolution = true;
         _this._text = null;
         _this._style = null;
@@ -20991,14 +20991,14 @@
         }
         var texture = this._texture;
         var style = this._style;
-        var padding2 = style.trim ? 0 : style.padding;
+        var padding3 = style.trim ? 0 : style.padding;
         var baseTexture = texture.baseTexture;
         texture.trim.width = texture._frame.width = Math.ceil(canvas2.width / this._resolution);
         texture.trim.height = texture._frame.height = Math.ceil(canvas2.height / this._resolution);
-        texture.trim.x = -padding2;
-        texture.trim.y = -padding2;
-        texture.orig.width = texture._frame.width - padding2 * 2;
-        texture.orig.height = texture._frame.height - padding2 * 2;
+        texture.trim.x = -padding3;
+        texture.trim.y = -padding3;
+        texture.orig.width = texture._frame.width - padding3 * 2;
+        texture.orig.height = texture._frame.height - padding3 * 2;
         this._onTextureUpdate();
         baseTexture.setRealSize(canvas2.width, canvas2.height, this._resolution);
         this._recursivePostUpdateTransform();
@@ -21030,9 +21030,9 @@
         }
         var gradient;
         var dropShadowCorrection = style.dropShadow ? style.dropShadowDistance : 0;
-        var padding2 = style.padding || 0;
-        var width = Math.ceil(this.canvas.width / this._resolution) - dropShadowCorrection - padding2 * 2;
-        var height = Math.ceil(this.canvas.height / this._resolution) - dropShadowCorrection - padding2 * 2;
+        var padding3 = style.padding || 0;
+        var width = Math.ceil(this.canvas.width / this._resolution) - dropShadowCorrection - padding3 * 2;
+        var height = Math.ceil(this.canvas.height / this._resolution) - dropShadowCorrection - padding3 * 2;
         var fill = fillStyle.slice();
         var fillGradientStops = style.fillGradientStops.slice();
         if (!fillGradientStops.length) {
@@ -21046,7 +21046,7 @@
         fill.push(fillStyle[fillStyle.length - 1]);
         fillGradientStops.push(1);
         if (style.fillGradientType === exports.TEXT_GRADIENT.LINEAR_VERTICAL) {
-          gradient = this.context.createLinearGradient(width / 2, padding2, width / 2, height + padding2);
+          gradient = this.context.createLinearGradient(width / 2, padding3, width / 2, height + padding3);
           var lastIterationStop = 0;
           var textHeight = metrics.fontProperties.fontSize + style.strokeThickness;
           var gradStopLineHeight = textHeight / height;
@@ -21067,7 +21067,7 @@
             }
           }
         } else {
-          gradient = this.context.createLinearGradient(padding2, height / 2, width + padding2, height / 2);
+          gradient = this.context.createLinearGradient(padding3, height / 2, width + padding3, height / 2);
           var totalIterations = fill.length + 1;
           var currentIteration = 1;
           for (var i = 0; i < fill.length; i++) {
@@ -21189,13 +21189,13 @@
      */
     "use strict";
     Object.defineProperty(exports, "__esModule", {value: true});
-    var settings2 = require_settings();
+    var settings5 = require_settings();
     var core = require_core();
     var graphics = require_graphics();
     var ticker = require_ticker();
     var display = require_display();
     var text = require_text();
-    settings2.settings.UPLOADS_PER_FRAME = 4;
+    settings5.settings.UPLOADS_PER_FRAME = 4;
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
     Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -21320,7 +21320,7 @@
     var BasePrepare = function() {
       function BasePrepare2(renderer) {
         var _this = this;
-        this.limiter = new CountLimiter(settings2.settings.UPLOADS_PER_FRAME);
+        this.limiter = new CountLimiter(settings5.settings.UPLOADS_PER_FRAME);
         this.renderer = renderer;
         this.uploadHookHelper = null;
         this.queue = [];
@@ -21950,7 +21950,7 @@
     var math = require_math();
     var constants = require_constants();
     var display = require_display();
-    var settings2 = require_settings();
+    var settings5 = require_settings();
     var utils = require_utils();
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -22013,7 +22013,7 @@
     var tempPolygon = new math.Polygon();
     var Mesh = function(_super) {
       __extends(Mesh2, _super);
-      function Mesh2(geometry, shader, state6, drawMode) {
+      function Mesh2(geometry, shader, state9, drawMode) {
         if (drawMode === void 0) {
           drawMode = constants.DRAW_MODES.TRIANGLES;
         }
@@ -22021,7 +22021,7 @@
         _this.geometry = geometry;
         geometry.refCount++;
         _this.shader = shader;
-        _this.state = state6 || core.State.for2d();
+        _this.state = state9 || core.State.for2d();
         _this.drawMode = drawMode;
         _this.start = 0;
         _this.size = 0;
@@ -22032,7 +22032,7 @@
         _this._transformID = -1;
         _this.tint = 16777215;
         _this.blendMode = constants.BLEND_MODES.NORMAL;
-        _this._roundPixels = settings2.settings.ROUND_PIXELS;
+        _this._roundPixels = settings5.settings.ROUND_PIXELS;
         _this.batchUvs = null;
         return _this;
       }
@@ -22165,7 +22165,7 @@
           vertexData[i * 2 + 1] = b * x + d * y + ty;
         }
         if (this._roundPixels) {
-          var resolution = settings2.settings.RESOLUTION;
+          var resolution = settings5.settings.RESOLUTION;
           for (var i = 0; i < vertexData.length; ++i) {
             vertexData[i] = Math.round((vertexData[i] * resolution | 0) / resolution);
           }
@@ -22351,7 +22351,7 @@
     "use strict";
     Object.defineProperty(exports, "__esModule", {value: true});
     var math = require_math();
-    var settings2 = require_settings();
+    var settings5 = require_settings();
     var mesh = require_mesh();
     var utils = require_utils();
     var core = require_core();
@@ -22408,7 +22408,7 @@
         return typeof data === "string" && data.indexOf("info face=") === 0;
       };
       TextFormat2.parse = function(txt) {
-        var items2 = txt.match(/^[a-z]+\s+.+$/gm);
+        var items = txt.match(/^[a-z]+\s+.+$/gm);
         var rawData = {
           info: [],
           common: [],
@@ -22417,9 +22417,9 @@
           chars: [],
           kerning: []
         };
-        for (var i in items2) {
-          var name4 = items2[i].match(/^[a-z]+/gm)[0];
-          var attributeList = items2[i].match(/[a-zA-Z]+=([^\s"']+|"([^"]*)")/gm);
+        for (var i in items) {
+          var name5 = items[i].match(/^[a-z]+/gm)[0];
+          var attributeList = items[i].match(/[a-zA-Z]+=([^\s"']+|"([^"]*)")/gm);
           var itemData = {};
           for (var i_1 in attributeList) {
             var split = attributeList[i_1].split("=");
@@ -22429,7 +22429,7 @@
             var value = isNaN(floatValue) ? strValue : floatValue;
             itemData[key] = value;
           }
-          rawData[name4].push(itemData);
+          rawData[name5].push(itemData);
         }
         var font = new BitmapFontData();
         rawData.info.forEach(function(info) {
@@ -22549,9 +22549,9 @@
       }
       var gradient;
       var dropShadowCorrection = style.dropShadow ? style.dropShadowDistance : 0;
-      var padding2 = style.padding || 0;
-      var width = Math.ceil(canvas.width / resolution) - dropShadowCorrection - padding2 * 2;
-      var height = Math.ceil(canvas.height / resolution) - dropShadowCorrection - padding2 * 2;
+      var padding3 = style.padding || 0;
+      var width = Math.ceil(canvas.width / resolution) - dropShadowCorrection - padding3 * 2;
+      var height = Math.ceil(canvas.height / resolution) - dropShadowCorrection - padding3 * 2;
       var fill = fillStyle.slice();
       var fillGradientStops = style.fillGradientStops.slice();
       if (!fillGradientStops.length) {
@@ -22565,7 +22565,7 @@
       fill.push(fillStyle[fillStyle.length - 1]);
       fillGradientStops.push(1);
       if (style.fillGradientType === text.TEXT_GRADIENT.LINEAR_VERTICAL) {
-        gradient = context.createLinearGradient(width / 2, padding2, width / 2, height + padding2);
+        gradient = context.createLinearGradient(width / 2, padding3, width / 2, height + padding3);
         var lastIterationStop = 0;
         var textHeight = metrics.fontProperties.fontSize + style.strokeThickness;
         var gradStopLineHeight = textHeight / height;
@@ -22586,7 +22586,7 @@
           }
         }
       } else {
-        gradient = context.createLinearGradient(padding2, height / 2, width + padding2, height / 2);
+        gradient = context.createLinearGradient(padding3, height / 2, width + padding3, height / 2);
         var totalIterations = fill.length + 1;
         var currentIteration = 1;
         for (var i = 0; i < fill.length; i++) {
@@ -22686,8 +22686,8 @@
         this.chars = {};
         this.pageTextures = pageTextures;
         for (var i = 0; i < data.page.length; i++) {
-          var _a = data.page[i], id = _a.id, file6 = _a.file;
-          pageTextures[id] = textures instanceof Array ? textures[i] : textures[file6];
+          var _a = data.page[i], id = _a.id, file7 = _a.file;
+          pageTextures[id] = textures instanceof Array ? textures[i] : textures[file7];
         }
         for (var i = 0; i < data.char.length; i++) {
           var _b = data.char[i], id = _b.id, page_1 = _b.page;
@@ -22749,19 +22749,19 @@
         BitmapFont2.available[font.font] = font;
         return font;
       };
-      BitmapFont2.uninstall = function(name4) {
-        var font = BitmapFont2.available[name4];
+      BitmapFont2.uninstall = function(name5) {
+        var font = BitmapFont2.available[name5];
         if (!font) {
-          throw new Error("No font found named '" + name4 + "'");
+          throw new Error("No font found named '" + name5 + "'");
         }
         font.destroy();
-        delete BitmapFont2.available[name4];
+        delete BitmapFont2.available[name5];
       };
-      BitmapFont2.from = function(name4, textStyle, options) {
-        if (!name4) {
+      BitmapFont2.from = function(name5, textStyle, options) {
+        if (!name5) {
           throw new Error("[BitmapFont] Property `name` is required.");
         }
-        var _a = Object.assign({}, BitmapFont2.defaultOptions, options), chars = _a.chars, padding2 = _a.padding, resolution = _a.resolution, textureWidth = _a.textureWidth, textureHeight = _a.textureHeight;
+        var _a = Object.assign({}, BitmapFont2.defaultOptions, options), chars = _a.chars, padding3 = _a.padding, resolution = _a.resolution, textureWidth = _a.textureWidth, textureHeight = _a.textureHeight;
         var charsList = resolveCharacters(chars);
         var style = textStyle instanceof text.TextStyle ? textStyle : new text.TextStyle(textStyle);
         var lineWidth = textureWidth;
@@ -22832,14 +22832,14 @@
             yoffset: 0,
             xadvance: Math.ceil(width - (style.dropShadow ? style.dropShadowDistance : 0) - (style.stroke ? style.strokeThickness : 0))
           });
-          positionX += (textureGlyphWidth + 2 * padding2) * resolution;
+          positionX += (textureGlyphWidth + 2 * padding3) * resolution;
           positionX = Math.ceil(positionX);
         }
         var font = new BitmapFont2(fontData, textures);
-        if (BitmapFont2.available[name4] !== void 0) {
-          BitmapFont2.uninstall(name4);
+        if (BitmapFont2.available[name5] !== void 0) {
+          BitmapFont2.uninstall(name5);
         }
-        BitmapFont2.available[name4] = font;
+        BitmapFont2.available[name5] = font;
         return font;
       };
       BitmapFont2.ALPHA = [["a", "z"], ["A", "Z"], " "];
@@ -22888,7 +22888,7 @@
         _this._anchor = new math.ObservablePoint(function() {
           _this.dirty = true;
         }, _this, 0, 0);
-        _this.roundPixels = settings2.settings.ROUND_PIXELS;
+        _this.roundPixels = settings5.settings.ROUND_PIXELS;
         _this.dirty = true;
         return _this;
       }
@@ -23318,8 +23318,8 @@
           var pageFile = data.page[i].file;
           var url = baseUrl + pageFile;
           var exists = false;
-          for (var name4 in this.resources) {
-            var bitmapResource = this.resources[name4];
+          for (var name5 in this.resources) {
+            var bitmapResource = this.resources[name5];
             if (bitmapResource.url === url) {
               bitmapResource.metadata.pageFile = pageFile;
               if (bitmapResource.texture) {
@@ -23460,7 +23460,7 @@
     "use strict";
     Object.defineProperty(exports, "__esModule", {value: true});
     var core = require_core();
-    var settings2 = require_settings();
+    var settings5 = require_settings();
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
     Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -23718,7 +23718,7 @@
           quality = 4;
         }
         if (resolution === void 0) {
-          resolution = settings2.settings.RESOLUTION;
+          resolution = settings5.settings.RESOLUTION;
         }
         if (kernelSize === void 0) {
           kernelSize = 5;
@@ -23807,7 +23807,7 @@
           quality = 4;
         }
         if (resolution === void 0) {
-          resolution = settings2.settings.RESOLUTION;
+          resolution = settings5.settings.RESOLUTION;
         }
         if (kernelSize === void 0) {
           kernelSize = 5;
@@ -24950,7 +24950,7 @@ void main() {
     var display = require_display();
     var math = require_math();
     var utils = require_utils();
-    var settings2 = require_settings();
+    var settings5 = require_settings();
     var _tempMatrix = new math.Matrix();
     display.DisplayObject.prototype._cacheAsBitmap = false;
     display.DisplayObject.prototype._cacheData = null;
@@ -25034,10 +25034,10 @@ void main() {
       renderer.batch.flush();
       var bounds = this.getLocalBounds(null, true).clone();
       if (this.filters) {
-        var padding2 = this.filters[0].padding;
-        bounds.pad(padding2);
+        var padding3 = this.filters[0].padding;
+        bounds.pad(padding3);
       }
-      bounds.ceil(settings2.settings.RESOLUTION);
+      bounds.ceil(settings5.settings.RESOLUTION);
       var cachedRenderTexture = renderer.renderTexture.current;
       var cachedSourceFrame = renderer.renderTexture.sourceFrame.clone();
       var cachedProjectionTransform = renderer.projection.transform;
@@ -25091,7 +25091,7 @@ void main() {
       this.alpha = 1;
       var cachedRenderTarget = renderer.context;
       var cachedProjectionTransform = renderer._projTransform;
-      bounds.ceil(settings2.settings.RESOLUTION);
+      bounds.ceil(settings5.settings.RESOLUTION);
       var renderTexture = core.RenderTexture.create({width: bounds.width, height: bounds.height});
       var textureCacheId = "cacheAsBitmap_" + utils.uid();
       this._cacheData.textureCacheId = textureCacheId;
@@ -25164,9 +25164,9 @@ void main() {
     "use strict";
     var display = require_display();
     display.DisplayObject.prototype.name = null;
-    display.Container.prototype.getChildByName = function getChildByName(name4, deep) {
+    display.Container.prototype.getChildByName = function getChildByName(name5, deep) {
       for (var i = 0, j = this.children.length; i < j; i++) {
-        if (this.children[i].name === name4) {
+        if (this.children[i].name === name5) {
           return this.children[i];
         }
       }
@@ -25176,7 +25176,7 @@ void main() {
           if (!child.getChildByName) {
             continue;
           }
-          var target = this.children[i].getChildByName(name4, true);
+          var target = this.children[i].getChildByName(name5, true);
           if (target) {
             return target;
           }
@@ -26006,7 +26006,7 @@ void main() {
     var sprite = require_sprite();
     var spriteAnimated = require_sprite_animated();
     var text = require_text();
-    var settings2 = require_settings();
+    var settings5 = require_settings();
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
     Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -26042,24 +26042,24 @@ void main() {
     }
     var v5 = "5.0.0";
     function useDeprecated() {
-      var PIXI11 = this;
-      Object.defineProperties(PIXI11, {
+      var PIXI12 = this;
+      Object.defineProperties(PIXI12, {
         SVG_SIZE: {
           get: function() {
             utils.deprecation(v5, "PIXI.utils.SVG_SIZE property has moved to PIXI.resources.SVGResource.SVG_SIZE");
-            return PIXI11.SVGResource.SVG_SIZE;
+            return PIXI12.SVGResource.SVG_SIZE;
           }
         },
         TransformStatic: {
           get: function() {
             utils.deprecation(v5, "PIXI.TransformStatic class has been removed, use PIXI.Transform");
-            return PIXI11.Transform;
+            return PIXI12.Transform;
           }
         },
         TransformBase: {
           get: function() {
             utils.deprecation(v5, "PIXI.TransformBase class has been removed, use PIXI.Transform");
-            return PIXI11.Transform;
+            return PIXI12.Transform;
           }
         },
         TRANSFORM_MODE: {
@@ -26071,138 +26071,138 @@ void main() {
         WebGLRenderer: {
           get: function() {
             utils.deprecation(v5, "PIXI.WebGLRenderer class has moved to PIXI.Renderer");
-            return PIXI11.Renderer;
+            return PIXI12.Renderer;
           }
         },
         CanvasRenderTarget: {
           get: function() {
             utils.deprecation(v5, "PIXI.CanvasRenderTarget class has moved to PIXI.utils.CanvasRenderTarget");
-            return PIXI11.utils.CanvasRenderTarget;
+            return PIXI12.utils.CanvasRenderTarget;
           }
         },
         loader: {
           get: function() {
             utils.deprecation(v5, "PIXI.loader instance has moved to PIXI.Loader.shared");
-            return PIXI11.Loader.shared;
+            return PIXI12.Loader.shared;
           }
         },
         FilterManager: {
           get: function() {
             utils.deprecation(v5, "PIXI.FilterManager class has moved to PIXI.systems.FilterSystem");
-            return PIXI11.systems.FilterSystem;
+            return PIXI12.systems.FilterSystem;
           }
         },
         CanvasTinter: {
           get: function() {
             utils.deprecation("5.2.0", "PIXI.CanvasTinter namespace has moved to PIXI.canvasUtils");
-            return PIXI11.canvasUtils;
+            return PIXI12.canvasUtils;
           }
         },
         GroupD8: {
           get: function() {
             utils.deprecation("5.2.0", "PIXI.GroupD8 namespace has moved to PIXI.groupD8");
-            return PIXI11.groupD8;
+            return PIXI12.groupD8;
           }
         }
       });
-      PIXI11.accessibility = {};
-      Object.defineProperties(PIXI11.accessibility, {
+      PIXI12.accessibility = {};
+      Object.defineProperties(PIXI12.accessibility, {
         AccessibilityManager: {
           get: function() {
             utils.deprecation("5.3.0", "PIXI.accessibility.AccessibilityManager moved to PIXI.AccessibilityManager");
-            return PIXI11.AccessibilityManager;
+            return PIXI12.AccessibilityManager;
           }
         }
       });
-      PIXI11.interaction = {};
-      Object.defineProperties(PIXI11.interaction, {
+      PIXI12.interaction = {};
+      Object.defineProperties(PIXI12.interaction, {
         InteractionManager: {
           get: function() {
             utils.deprecation("5.3.0", "PIXI.interaction.InteractionManager moved to PIXI.InteractionManager");
-            return PIXI11.InteractionManager;
+            return PIXI12.InteractionManager;
           }
         },
         InteractionData: {
           get: function() {
             utils.deprecation("5.3.0", "PIXI.interaction.InteractionData moved to PIXI.InteractionData");
-            return PIXI11.InteractionData;
+            return PIXI12.InteractionData;
           }
         },
         InteractionEvent: {
           get: function() {
             utils.deprecation("5.3.0", "PIXI.interaction.InteractionEvent moved to PIXI.InteractionEvent");
-            return PIXI11.InteractionEvent;
+            return PIXI12.InteractionEvent;
           }
         }
       });
-      PIXI11.prepare = {};
-      Object.defineProperties(PIXI11.prepare, {
+      PIXI12.prepare = {};
+      Object.defineProperties(PIXI12.prepare, {
         BasePrepare: {
           get: function() {
             utils.deprecation("5.2.1", "PIXI.prepare.BasePrepare moved to PIXI.BasePrepare");
-            return PIXI11.BasePrepare;
+            return PIXI12.BasePrepare;
           }
         },
         Prepare: {
           get: function() {
             utils.deprecation("5.2.1", "PIXI.prepare.Prepare moved to PIXI.Prepare");
-            return PIXI11.Prepare;
+            return PIXI12.Prepare;
           }
         },
         CanvasPrepare: {
           get: function() {
             utils.deprecation("5.2.1", "PIXI.prepare.CanvasPrepare moved to PIXI.CanvasPrepare");
-            return PIXI11.CanvasPrepare;
+            return PIXI12.CanvasPrepare;
           }
         }
       });
-      PIXI11.extract = {};
-      Object.defineProperties(PIXI11.extract, {
+      PIXI12.extract = {};
+      Object.defineProperties(PIXI12.extract, {
         Extract: {
           get: function() {
             utils.deprecation("5.2.1", "PIXI.extract.Extract moved to PIXI.Extract");
-            return PIXI11.Extract;
+            return PIXI12.Extract;
           }
         },
         CanvasExtract: {
           get: function() {
             utils.deprecation("5.2.1", "PIXI.extract.CanvasExtract moved to PIXI.CanvasExtract");
-            return PIXI11.CanvasExtract;
+            return PIXI12.CanvasExtract;
           }
         }
       });
-      PIXI11.extras = {};
-      Object.defineProperties(PIXI11.extras, {
+      PIXI12.extras = {};
+      Object.defineProperties(PIXI12.extras, {
         TilingSprite: {
           get: function() {
             utils.deprecation(v5, "PIXI.extras.TilingSprite class has moved to PIXI.TilingSprite");
-            return PIXI11.TilingSprite;
+            return PIXI12.TilingSprite;
           }
         },
         TilingSpriteRenderer: {
           get: function() {
             utils.deprecation(v5, "PIXI.extras.TilingSpriteRenderer class has moved to PIXI.TilingSpriteRenderer");
-            return PIXI11.TilingSpriteRenderer;
+            return PIXI12.TilingSpriteRenderer;
           }
         },
         AnimatedSprite: {
           get: function() {
             utils.deprecation(v5, "PIXI.extras.AnimatedSprite class has moved to PIXI.AnimatedSprite");
-            return PIXI11.AnimatedSprite;
+            return PIXI12.AnimatedSprite;
           }
         },
         BitmapText: {
           get: function() {
             utils.deprecation(v5, "PIXI.extras.BitmapText class has moved to PIXI.BitmapText");
-            return PIXI11.BitmapText;
+            return PIXI12.BitmapText;
           }
         }
       });
-      PIXI11.TilingSprite.fromFrame = function fromFrame(frameId, width, height) {
+      PIXI12.TilingSprite.fromFrame = function fromFrame(frameId, width, height) {
         utils.deprecation("5.3.0", "TilingSprite.fromFrame is deprecated, use TilingSprite.from");
-        return PIXI11.TilingSprite.from(frameId, {width, height});
+        return PIXI12.TilingSprite.from(frameId, {width, height});
       };
-      PIXI11.TilingSprite.fromImage = function fromImage(imageId, width, height, options) {
+      PIXI12.TilingSprite.fromImage = function fromImage(imageId, width, height, options) {
         if (options === void 0) {
           options = {};
         }
@@ -26217,109 +26217,109 @@ void main() {
         }
         options.width = width;
         options.height = height;
-        return PIXI11.TilingSprite.from(imageId, options);
+        return PIXI12.TilingSprite.from(imageId, options);
       };
-      Object.defineProperties(PIXI11.utils, {
+      Object.defineProperties(PIXI12.utils, {
         getSvgSize: {
           get: function() {
             utils.deprecation(v5, "PIXI.utils.getSvgSize function has moved to PIXI.resources.SVGResource.getSize");
-            return PIXI11.resources.SVGResource.getSize;
+            return PIXI12.resources.SVGResource.getSize;
           }
         }
       });
-      PIXI11.mesh = {};
-      Object.defineProperties(PIXI11.mesh, {
+      PIXI12.mesh = {};
+      Object.defineProperties(PIXI12.mesh, {
         Mesh: {
           get: function() {
             utils.deprecation(v5, "PIXI.mesh.Mesh class has moved to PIXI.SimpleMesh");
-            return PIXI11.SimpleMesh;
+            return PIXI12.SimpleMesh;
           }
         },
         NineSlicePlane: {
           get: function() {
             utils.deprecation(v5, "PIXI.mesh.NineSlicePlane class has moved to PIXI.NineSlicePlane");
-            return PIXI11.NineSlicePlane;
+            return PIXI12.NineSlicePlane;
           }
         },
         Plane: {
           get: function() {
             utils.deprecation(v5, "PIXI.mesh.Plane class has moved to PIXI.SimplePlane");
-            return PIXI11.SimplePlane;
+            return PIXI12.SimplePlane;
           }
         },
         Rope: {
           get: function() {
             utils.deprecation(v5, "PIXI.mesh.Rope class has moved to PIXI.SimpleRope");
-            return PIXI11.SimpleRope;
+            return PIXI12.SimpleRope;
           }
         },
         RawMesh: {
           get: function() {
             utils.deprecation(v5, "PIXI.mesh.RawMesh class has moved to PIXI.Mesh");
-            return PIXI11.Mesh;
+            return PIXI12.Mesh;
           }
         },
         CanvasMeshRenderer: {
           get: function() {
             utils.deprecation(v5, "PIXI.mesh.CanvasMeshRenderer class has moved to PIXI.CanvasMeshRenderer");
-            return PIXI11.CanvasMeshRenderer;
+            return PIXI12.CanvasMeshRenderer;
           }
         },
         MeshRenderer: {
           get: function() {
             utils.deprecation(v5, "PIXI.mesh.MeshRenderer class has moved to PIXI.MeshRenderer");
-            return PIXI11.MeshRenderer;
+            return PIXI12.MeshRenderer;
           }
         }
       });
-      PIXI11.particles = {};
-      Object.defineProperties(PIXI11.particles, {
+      PIXI12.particles = {};
+      Object.defineProperties(PIXI12.particles, {
         ParticleContainer: {
           get: function() {
             utils.deprecation(v5, "PIXI.particles.ParticleContainer class has moved to PIXI.ParticleContainer");
-            return PIXI11.ParticleContainer;
+            return PIXI12.ParticleContainer;
           }
         },
         ParticleRenderer: {
           get: function() {
             utils.deprecation(v5, "PIXI.particles.ParticleRenderer class has moved to PIXI.ParticleRenderer");
-            return PIXI11.ParticleRenderer;
+            return PIXI12.ParticleRenderer;
           }
         }
       });
-      PIXI11.ticker = {};
-      Object.defineProperties(PIXI11.ticker, {
+      PIXI12.ticker = {};
+      Object.defineProperties(PIXI12.ticker, {
         Ticker: {
           get: function() {
             utils.deprecation(v5, "PIXI.ticker.Ticker class has moved to PIXI.Ticker");
-            return PIXI11.Ticker;
+            return PIXI12.Ticker;
           }
         },
         shared: {
           get: function() {
             utils.deprecation(v5, "PIXI.ticker.shared instance has moved to PIXI.Ticker.shared");
-            return PIXI11.Ticker.shared;
+            return PIXI12.Ticker.shared;
           }
         }
       });
-      PIXI11.loaders = {};
-      Object.defineProperties(PIXI11.loaders, {
+      PIXI12.loaders = {};
+      Object.defineProperties(PIXI12.loaders, {
         Loader: {
           get: function() {
             utils.deprecation(v5, "PIXI.loaders.Loader class has moved to PIXI.Loader");
-            return PIXI11.Loader;
+            return PIXI12.Loader;
           }
         },
         Resource: {
           get: function() {
             utils.deprecation(v5, "PIXI.loaders.Resource class has moved to PIXI.LoaderResource");
-            return PIXI11.LoaderResource;
+            return PIXI12.LoaderResource;
           }
         },
         bitmapFontParser: {
           get: function() {
             utils.deprecation(v5, "PIXI.loaders.bitmapFontParser function has moved to PIXI.BitmapFontLoader.use");
-            return PIXI11.BitmapFontLoader.use;
+            return PIXI12.BitmapFontLoader.use;
           }
         },
         parseBitmapFontData: {
@@ -26330,24 +26330,24 @@ void main() {
         spritesheetParser: {
           get: function() {
             utils.deprecation(v5, "PIXI.loaders.spritesheetParser function has moved to PIXI.SpritesheetLoader.use");
-            return PIXI11.SpritesheetLoader.use;
+            return PIXI12.SpritesheetLoader.use;
           }
         },
         getResourcePath: {
           get: function() {
             utils.deprecation(v5, "PIXI.loaders.getResourcePath property has moved to PIXI.SpritesheetLoader.getResourcePath");
-            return PIXI11.SpritesheetLoader.getResourcePath;
+            return PIXI12.SpritesheetLoader.getResourcePath;
           }
         }
       });
-      PIXI11.Loader.addPixiMiddleware = function addPixiMiddleware(middleware) {
+      PIXI12.Loader.addPixiMiddleware = function addPixiMiddleware(middleware) {
         utils.deprecation(v5, "PIXI.loaders.Loader.addPixiMiddleware function is deprecated, use PIXI.loaders.Loader.registerPlugin");
-        return PIXI11.loaders.Loader.registerPlugin({use: middleware()});
+        return PIXI12.loaders.Loader.registerPlugin({use: middleware()});
       };
       var eventToSignal = function(event) {
         return "on" + event.charAt(0).toUpperCase() + event.slice(1);
       };
-      Object.assign(PIXI11.Loader.prototype, {
+      Object.assign(PIXI12.Loader.prototype, {
         on: function(event) {
           var signal = eventToSignal(event);
           utils.deprecation(v5, "PIXI.Loader#on is completely deprecated, use PIXI.Loader#" + signal + ".add");
@@ -26361,35 +26361,35 @@ void main() {
           utils.deprecation(v5, "PIXI.Loader#off is completely deprecated, use PIXI.Loader#" + signal + ".detach");
         }
       });
-      Object.defineProperty(PIXI11.extract, "WebGLExtract", {
+      Object.defineProperty(PIXI12.extract, "WebGLExtract", {
         get: function() {
           utils.deprecation(v5, "PIXI.extract.WebGLExtract method has moved to PIXI.Extract");
-          return PIXI11.Extract;
+          return PIXI12.Extract;
         }
       });
-      Object.defineProperty(PIXI11.prepare, "WebGLPrepare", {
+      Object.defineProperty(PIXI12.prepare, "WebGLPrepare", {
         get: function() {
           utils.deprecation(v5, "PIXI.prepare.WebGLPrepare class has moved to PIXI.Prepare");
-          return PIXI11.Prepare;
+          return PIXI12.Prepare;
         }
       });
-      PIXI11.Container.prototype._renderWebGL = function _renderWebGL(renderer) {
+      PIXI12.Container.prototype._renderWebGL = function _renderWebGL(renderer) {
         utils.deprecation(v5, "PIXI.Container._renderWebGL method has moved to PIXI.Container._render");
         this._render(renderer);
       };
-      PIXI11.Container.prototype.renderWebGL = function renderWebGL(renderer) {
+      PIXI12.Container.prototype.renderWebGL = function renderWebGL(renderer) {
         utils.deprecation(v5, "PIXI.Container.renderWebGL method has moved to PIXI.Container.render");
         this.render(renderer);
       };
-      PIXI11.DisplayObject.prototype.renderWebGL = function renderWebGL(renderer) {
+      PIXI12.DisplayObject.prototype.renderWebGL = function renderWebGL(renderer) {
         utils.deprecation(v5, "PIXI.DisplayObject.renderWebGL method has moved to PIXI.DisplayObject.render");
         this.render(renderer);
       };
-      PIXI11.Container.prototype.renderAdvancedWebGL = function renderAdvancedWebGL(renderer) {
+      PIXI12.Container.prototype.renderAdvancedWebGL = function renderAdvancedWebGL(renderer) {
         utils.deprecation(v5, "PIXI.Container.renderAdvancedWebGL method has moved to PIXI.Container.renderAdvanced");
         this.renderAdvanced(renderer);
       };
-      Object.defineProperties(PIXI11.settings, {
+      Object.defineProperties(PIXI12.settings, {
         TRANSFORM_MODE: {
           get: function() {
             utils.deprecation(v5, "PIXI.settings.TRANSFORM_MODE property has been removed");
@@ -26400,10 +26400,10 @@ void main() {
           }
         }
       });
-      var BaseTextureAny = PIXI11.BaseTexture;
+      var BaseTextureAny = PIXI12.BaseTexture;
       BaseTextureAny.prototype.loadSource = function loadSource(image) {
         utils.deprecation(v5, "PIXI.BaseTexture.loadSource method has been deprecated");
-        var resource = PIXI11.resources.autoDetectResource(image);
+        var resource = PIXI12.resources.autoDetectResource(image);
         resource.internal = true;
         this.setResource(resource);
         this.update();
@@ -26478,7 +26478,7 @@ void main() {
         var resourceOptions = {scale, crossorigin};
         return BaseTextureAny.from(canvas, {scaleMode, resourceOptions});
       };
-      Object.defineProperties(PIXI11.resources.ImageResource.prototype, {
+      Object.defineProperties(PIXI12.resources.ImageResource.prototype, {
         premultiplyAlpha: {
           get: function() {
             utils.deprecation("5.2.0", "PIXI.resources.ImageResource.premultiplyAlpha property has been changed to `alphaMode`, see `PIXI.ALPHA_MODES`");
@@ -26490,27 +26490,27 @@ void main() {
           }
         }
       });
-      PIXI11.Point.prototype.copy = function copy(p) {
+      PIXI12.Point.prototype.copy = function copy(p) {
         utils.deprecation(v5, "PIXI.Point.copy method has been replaced with PIXI.Point.copyFrom");
         return this.copyFrom(p);
       };
-      PIXI11.ObservablePoint.prototype.copy = function copy(p) {
+      PIXI12.ObservablePoint.prototype.copy = function copy(p) {
         utils.deprecation(v5, "PIXI.ObservablePoint.copy method has been replaced with PIXI.ObservablePoint.copyFrom");
         return this.copyFrom(p);
       };
-      PIXI11.Rectangle.prototype.copy = function copy(p) {
+      PIXI12.Rectangle.prototype.copy = function copy(p) {
         utils.deprecation(v5, "PIXI.Rectangle.copy method has been replaced with PIXI.Rectangle.copyFrom");
         return this.copyFrom(p);
       };
-      PIXI11.Matrix.prototype.copy = function copy(p) {
+      PIXI12.Matrix.prototype.copy = function copy(p) {
         utils.deprecation(v5, "PIXI.Matrix.copy method has been replaced with PIXI.Matrix.copyTo");
         return this.copyTo(p);
       };
-      PIXI11.systems.StateSystem.prototype.setState = function setState(s) {
+      PIXI12.systems.StateSystem.prototype.setState = function setState(s) {
         utils.deprecation("v5.1.0", "StateSystem.setState has been renamed to StateSystem.set");
         return this.set(s);
       };
-      Object.assign(PIXI11.systems.FilterSystem.prototype, {
+      Object.assign(PIXI12.systems.FilterSystem.prototype, {
         getRenderTarget: function(_clear, resolution) {
           utils.deprecation(v5, "PIXI.FilterManager.getRenderTarget method has been replaced with PIXI.systems.FilterSystem#getFilterTexture");
           return this.getFilterTexture(null, resolution);
@@ -26538,7 +26538,7 @@ void main() {
           return mappedMatrix;
         }
       });
-      Object.defineProperties(PIXI11.RenderTexture.prototype, {
+      Object.defineProperties(PIXI12.RenderTexture.prototype, {
         sourceFrame: {
           get: function() {
             utils.deprecation(v5, "PIXI.RenderTexture.sourceFrame property has been removed");
@@ -26561,7 +26561,7 @@ void main() {
           return _this;
         }
         return BlurXFilter2;
-      }(PIXI11.filters.BlurFilterPass);
+      }(PIXI12.filters.BlurFilterPass);
       var BlurYFilter = function(_super) {
         __extends(BlurYFilter2, _super);
         function BlurYFilter2(strength, quality, resolution, kernelSize) {
@@ -26571,12 +26571,12 @@ void main() {
           return _this;
         }
         return BlurYFilter2;
-      }(PIXI11.filters.BlurFilterPass);
-      Object.assign(PIXI11.filters, {
+      }(PIXI12.filters.BlurFilterPass);
+      Object.assign(PIXI12.filters, {
         BlurXFilter,
         BlurYFilter
       });
-      var SpriteAny = PIXI11.Sprite, TextureAny = PIXI11.Texture, GraphicsAny = PIXI11.Graphics;
+      var SpriteAny = PIXI12.Sprite, TextureAny = PIXI12.Texture, GraphicsAny = PIXI12.Graphics;
       if (!GraphicsAny.prototype.generateCanvasTexture) {
         GraphicsAny.prototype.generateCanvasTexture = function generateCanvasTexture() {
           utils.deprecation(v5, 'PIXI.Graphics.generateCanvasTexture method is only available in "pixi.js-legacy"');
@@ -26588,8 +26588,8 @@ void main() {
           return this.geometry.graphicsData;
         }
       });
-      function spriteFrom(name4, source, crossorigin, scaleMode) {
-        utils.deprecation(v5, "PIXI.Sprite." + name4 + " method is deprecated, use PIXI.Sprite.from");
+      function spriteFrom(name5, source, crossorigin, scaleMode) {
+        utils.deprecation(v5, "PIXI.Sprite." + name5 + " method is deprecated, use PIXI.Sprite.from");
         return SpriteAny.from(source, {
           resourceOptions: {
             scale: scaleMode,
@@ -26602,8 +26602,8 @@ void main() {
       SpriteAny.fromCanvas = spriteFrom.bind(null, "fromCanvas");
       SpriteAny.fromVideo = spriteFrom.bind(null, "fromVideo");
       SpriteAny.fromFrame = spriteFrom.bind(null, "fromFrame");
-      function textureFrom(name4, source, crossorigin, scaleMode) {
-        utils.deprecation(v5, "PIXI.Texture." + name4 + " method is deprecated, use PIXI.Texture.from");
+      function textureFrom(name5, source, crossorigin, scaleMode) {
+        utils.deprecation(v5, "PIXI.Texture." + name5 + " method is deprecated, use PIXI.Texture.from");
         return TextureAny.from(source, {
           resourceOptions: {
             scale: scaleMode,
@@ -26616,7 +26616,7 @@ void main() {
       TextureAny.fromCanvas = textureFrom.bind(null, "fromCanvas");
       TextureAny.fromVideo = textureFrom.bind(null, "fromVideo");
       TextureAny.fromFrame = textureFrom.bind(null, "fromFrame");
-      Object.defineProperty(PIXI11.AbstractRenderer.prototype, "autoResize", {
+      Object.defineProperty(PIXI12.AbstractRenderer.prototype, "autoResize", {
         get: function() {
           utils.deprecation(v5, "PIXI.AbstractRenderer.autoResize property is deprecated, use PIXI.AbstractRenderer.autoDensity");
           return this.autoDensity;
@@ -26626,13 +26626,13 @@ void main() {
           this.autoDensity = value;
         }
       });
-      Object.defineProperty(PIXI11.Renderer.prototype, "textureManager", {
+      Object.defineProperty(PIXI12.Renderer.prototype, "textureManager", {
         get: function() {
           utils.deprecation(v5, "PIXI.Renderer.textureManager property is deprecated, use PIXI.Renderer.texture");
           return this.texture;
         }
       });
-      PIXI11.utils.mixins = {
+      PIXI12.utils.mixins = {
         mixin: function() {
           utils.deprecation(v5, "PIXI.utils.mixins.mixin function is no longer available");
         },
@@ -26643,7 +26643,7 @@ void main() {
           utils.deprecation(v5, "PIXI.utils.mixins.performMixins function is no longer available");
         }
       };
-      Object.defineProperty(PIXI11.BitmapText.prototype, "font", {
+      Object.defineProperty(PIXI12.BitmapText.prototype, "font", {
         get: function() {
           utils.deprecation("5.3.0", "PIXI.BitmapText.font property is deprecated, use fontName, fontSize, tint or align properties");
           return {
@@ -26660,7 +26660,7 @@ void main() {
           }
           var style = {font: value};
           this._upgradeStyle(style);
-          style.fontSize = style.fontSize || PIXI11.BitmapFont.available[style.fontName].size;
+          style.fontSize = style.fontSize || PIXI12.BitmapFont.available[style.fontName].size;
           this._fontName = style.fontName;
           this._fontSize = style.fontSize;
           this.dirty = true;
@@ -26864,11 +26864,11 @@ void main() {
         }
       });
     });
-    Object.keys(settings2).forEach(function(key) {
+    Object.keys(settings5).forEach(function(key) {
       Object.defineProperty(exports, key, {
         enumerable: true,
         get: function() {
-          return settings2[key];
+          return settings5[key];
         }
       });
     });
@@ -27628,7 +27628,7 @@ void main() {
         return t;
       }
       function impl(seed, opts) {
-        var xg = new Alea(seed), state6 = opts && opts.state, prng = xg.next;
+        var xg = new Alea(seed), state9 = opts && opts.state, prng = xg.next;
         prng.int32 = function() {
           return xg.next() * 4294967296 | 0;
         };
@@ -27636,9 +27636,9 @@ void main() {
           return prng() + (prng() * 2097152 | 0) * 11102230246251565e-32;
         };
         prng.quick = prng;
-        if (state6) {
-          if (typeof state6 == "object")
-            copy(state6, xg);
+        if (state9) {
+          if (typeof state9 == "object")
+            copy(state9, xg);
           prng.state = function() {
             return copy(xg, {});
           };
@@ -27709,7 +27709,7 @@ void main() {
         return t;
       }
       function impl(seed, opts) {
-        var xg = new XorGen(seed), state6 = opts && opts.state, prng = function() {
+        var xg = new XorGen(seed), state9 = opts && opts.state, prng = function() {
           return (xg.next() >>> 0) / 4294967296;
         };
         prng.double = function() {
@@ -27720,9 +27720,9 @@ void main() {
         };
         prng.int32 = xg.next;
         prng.quick = prng;
-        if (state6) {
-          if (typeof state6 == "object")
-            copy(state6, xg);
+        if (state9) {
+          if (typeof state9 == "object")
+            copy(state9, xg);
           prng.state = function() {
             return copy(xg, {});
           };
@@ -27782,7 +27782,7 @@ void main() {
         return t;
       }
       function impl(seed, opts) {
-        var xg = new XorGen(seed), state6 = opts && opts.state, prng = function() {
+        var xg = new XorGen(seed), state9 = opts && opts.state, prng = function() {
           return (xg.next() >>> 0) / 4294967296;
         };
         prng.double = function() {
@@ -27793,9 +27793,9 @@ void main() {
         };
         prng.int32 = xg.next;
         prng.quick = prng;
-        if (state6) {
-          if (typeof state6 == "object")
-            copy(state6, xg);
+        if (state9) {
+          if (typeof state9 == "object")
+            copy(state9, xg);
           prng.state = function() {
             return copy(xg, {});
           };
@@ -27871,7 +27871,7 @@ void main() {
       function impl(seed, opts) {
         if (seed == null)
           seed = +new Date();
-        var xg = new XorGen(seed), state6 = opts && opts.state, prng = function() {
+        var xg = new XorGen(seed), state9 = opts && opts.state, prng = function() {
           return (xg.next() >>> 0) / 4294967296;
         };
         prng.double = function() {
@@ -27882,9 +27882,9 @@ void main() {
         };
         prng.int32 = xg.next;
         prng.quick = prng;
-        if (state6) {
-          if (state6.x)
-            copy(state6, xg);
+        if (state9) {
+          if (state9.x)
+            copy(state9, xg);
           prng.state = function() {
             return copy(xg, {});
           };
@@ -27975,7 +27975,7 @@ void main() {
       function impl(seed, opts) {
         if (seed == null)
           seed = +new Date();
-        var xg = new XorGen(seed), state6 = opts && opts.state, prng = function() {
+        var xg = new XorGen(seed), state9 = opts && opts.state, prng = function() {
           return (xg.next() >>> 0) / 4294967296;
         };
         prng.double = function() {
@@ -27986,9 +27986,9 @@ void main() {
         };
         prng.int32 = xg.next;
         prng.quick = prng;
-        if (state6) {
-          if (state6.X)
-            copy(state6, xg);
+        if (state9) {
+          if (state9.X)
+            copy(state9, xg);
           prng.state = function() {
             return copy(xg, {});
           };
@@ -28047,7 +28047,7 @@ void main() {
       }
       ;
       function impl(seed, opts) {
-        var xg = new XorGen(seed), state6 = opts && opts.state, prng = function() {
+        var xg = new XorGen(seed), state9 = opts && opts.state, prng = function() {
           return (xg.next() >>> 0) / 4294967296;
         };
         prng.double = function() {
@@ -28058,9 +28058,9 @@ void main() {
         };
         prng.int32 = xg.next;
         prng.quick = prng;
-        if (state6) {
-          if (typeof state6 == "object")
-            copy(state6, xg);
+        if (state9) {
+          if (typeof state9 == "object")
+            copy(state9, xg);
           prng.state = function() {
             return copy(xg, {});
           };
@@ -28114,10 +28114,10 @@ void main() {
         };
         prng.double = prng;
         mixkey(tostring(arc4.S), pool);
-        return (options.pass || callback || function(prng2, seed2, is_math_call, state6) {
-          if (state6) {
-            if (state6.S) {
-              copy(state6, arc4);
+        return (options.pass || callback || function(prng2, seed2, is_math_call, state9) {
+          if (state9) {
+            if (state9.S) {
+              copy(state9, arc4);
             }
             prng2.state = function() {
               return copy(arc4, {});
@@ -28281,8 +28281,8 @@ void main() {
         }
       }, {
         key: "restore",
-        value: function restore(state6) {
-          this.generator = seedrandom[this.options.PRNG || "alea"]("", {state: state6});
+        value: function restore(state9) {
+          this.generator = seedrandom[this.options.PRNG || "alea"]("", {state: state9});
         }
       }, {
         key: "seedOld",
@@ -28295,9 +28295,9 @@ void main() {
       }, {
         key: "separateSeed",
         value: function separateSeed(seed) {
-          var random6 = new Random2();
-          random6.seed(seed);
-          return random6;
+          var random7 = new Random2();
+          random7.seed(seed);
+          return random7;
         }
       }, {
         key: "reset",
@@ -28489,14 +28489,14 @@ void main() {
         }
       }, {
         key: "circle",
-        value: function circle(x, y, radius, float) {
+        value: function circle(x, y, radius2, float) {
           var t = this.angle();
           var u = this.get(1, true) + this.get(1, true);
           var r = u > 1 ? 2 - u : u;
           if (float) {
-            return [x + r * Math.cos(t) * radius, y + r * Math.sin(t) * radius];
+            return [x + r * Math.cos(t) * radius2, y + r * Math.sin(t) * radius2];
           } else {
-            return [Math.round(x + r * Math.cos(t) * radius), Math.round(y + r * Math.sin(t) * radius)];
+            return [Math.round(x + r * Math.cos(t) * radius2), Math.round(y + r * Math.sin(t) * radius2)];
           }
         }
       }, {
@@ -28551,12 +28551,12 @@ void main() {
       this._eventsCount = 0;
     }
     EventEmitter.prototype.eventNames = function eventNames() {
-      var names = [], events, name4;
+      var names = [], events, name5;
       if (this._eventsCount === 0)
         return names;
-      for (name4 in events = this._events) {
-        if (has.call(events, name4))
-          names.push(prefix ? name4.slice(1) : name4);
+      for (name5 in events = this._events) {
+        if (has.call(events, name5))
+          names.push(prefix ? name5.slice(1) : name5);
       }
       if (Object.getOwnPropertySymbols) {
         return names.concat(Object.getOwnPropertySymbols(events));
@@ -28993,7 +28993,7 @@ void main() {
       if (superClass)
         Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
     }
-    var PIXI11 = require_pixi();
+    var PIXI12 = require_pixi();
     var Events = require_eventemitter32();
     var GrowingPacker = require_growingpacker();
     var SimplePacker = require_simplepacker();
@@ -29012,7 +29012,7 @@ void main() {
         _this.maxSize = options.maxSize || 2048;
         _this.buffer = options.buffer || 5;
         _this.scale = options.scale || 1;
-        _this.scaleMode = options.scaleMode === true ? PIXI11.SCALE_MODES.NEAREST : options.scaleMode;
+        _this.scaleMode = options.scaleMode === true ? PIXI12.SCALE_MODES.NEAREST : options.scaleMode;
         _this.resolution = options.resolution || 1;
         _this.show = options.show;
         _this.extrude = options.extrude;
@@ -29032,14 +29032,14 @@ void main() {
         }
       }, {
         key: "add",
-        value: function add(name4, draw, measure, param) {
-          var object = this.textures[name4] = {name: name4, draw, measure, param, type: CANVAS, texture: new PIXI11.Texture(PIXI11.Texture.EMPTY)};
+        value: function add(name5, draw, measure, param) {
+          var object = this.textures[name5] = {name: name5, draw, measure, param, type: CANVAS, texture: new PIXI12.Texture(PIXI12.Texture.EMPTY)};
           return object;
         }
       }, {
         key: "addImage",
-        value: function addImage(name4, src) {
-          var object = this.textures[name4] = {name: name4, file: src, type: IMAGE, texture: new PIXI11.Texture(PIXI11.Texture.EMPTY)};
+        value: function addImage(name5, src) {
+          var object = this.textures[name5] = {name: name5, file: src, type: IMAGE, texture: new PIXI12.Texture(PIXI12.Texture.EMPTY)};
           object.image = new Image();
           object.image.onload = function() {
             return object.loaded = true;
@@ -29049,9 +29049,9 @@ void main() {
         }
       }, {
         key: "addData",
-        value: function addData(name4, data, header) {
+        value: function addData(name5, data, header) {
           header = typeof header !== "undefined" ? header : "data:image/png;base64,";
-          var object = this.textures[name4] = {name: name4, type: DATA, texture: new PIXI11.Texture(PIXI11.Texture.EMPTY)};
+          var object = this.textures[name5] = {name: name5, type: DATA, texture: new PIXI12.Texture(PIXI12.Texture.EMPTY)};
           object.image = new Image();
           object.image.src = header + data;
           if (object.image.complete) {
@@ -29084,7 +29084,7 @@ void main() {
             style.width = "auto";
             style.height = Math.round(percent * 100) + "%";
             style.zIndex = 1e3;
-            if (this.scaleMode === PIXI11.SCALE_MODES.NEAREST) {
+            if (this.scaleMode === PIXI12.SCALE_MODES.NEAREST) {
               style.imageRendering = "pixelated";
             }
             style.background = this.randomColor();
@@ -29098,26 +29098,26 @@ void main() {
         }
       }, {
         key: "exists",
-        value: function exists(name4) {
-          return this.textures[name4] ? true : false;
+        value: function exists(name5) {
+          return this.textures[name5] ? true : false;
         }
       }, {
         key: "getTexture",
-        value: function getTexture(name4) {
-          var texture = this.textures[name4];
+        value: function getTexture(name5) {
+          var texture = this.textures[name5];
           if (texture) {
             return texture.texture;
           } else {
-            console.warn("yy-rendersheet: texture " + name4 + " not found in spritesheet.");
+            console.warn("yy-rendersheet: texture " + name5 + " not found in spritesheet.");
             return null;
           }
         }
       }, {
         key: "getSprite",
-        value: function getSprite(name4) {
-          var texture = this.getTexture(name4);
+        value: function getSprite(name5) {
+          var texture = this.getTexture(name5);
           if (texture) {
-            var sprite = new PIXI11.Sprite(texture);
+            var sprite = new PIXI12.Sprite(texture);
             sprite.anchor.set(0.5);
             return sprite;
           } else {
@@ -29126,8 +29126,8 @@ void main() {
         }
       }, {
         key: "get",
-        value: function get(name4) {
-          return this.getSprite(name4);
+        value: function get(name5) {
+          return this.getSprite(name5);
         }
       }, {
         key: "entries",
@@ -29136,7 +29136,7 @@ void main() {
         }
       }, {
         key: "debug",
-        value: function debug() {
+        value: function debug2() {
           for (var i = 0; i < this.canvases.length; i++) {
             var canvas = this.canvases[i];
             console.log("yy-rendersheet: Sheet #" + (i + 1) + " | size: " + canvas.width + "x" + canvas.height + " | resolution: " + this.resolution);
@@ -29201,7 +29201,7 @@ void main() {
             for (var key in this.textures) {
               var current = this.textures[key];
               current.texture.baseTexture = this.baseTextures[current.canvas];
-              current.texture.frame = new PIXI11.Rectangle(current.x, current.y, current.width, current.height);
+              current.texture.frame = new PIXI12.Rectangle(current.x, current.y, current.width, current.height);
               current.texture.update();
             }
           }
@@ -29351,7 +29351,7 @@ void main() {
             this.baseTextures.pop().destroy();
           }
           for (var i = 0; i < this.canvases.length; i++) {
-            var from = PIXI11.BaseTexture.fromCanvas || PIXI11.BaseTexture.from;
+            var from = PIXI12.BaseTexture.fromCanvas || PIXI12.BaseTexture.from;
             var base = from(this.canvases[i]);
             base.scaleMode = this.scaleMode;
             this.baseTextures.push(base);
@@ -29388,8 +29388,8 @@ void main() {
         }
       }, {
         key: "changeDraw",
-        value: function changeDraw(name4, draw) {
-          var texture = this.textures[name4];
+        value: function changeDraw(name5, draw) {
+          var texture = this.textures[name5];
           if (texture.type !== CANVAS) {
             console.warn("yy-sheet.changeTextureDraw only works with type: CANVAS.");
             return;
@@ -29421,8 +29421,12 @@ void main() {
   // code/settings.js
   const name = "shoot_the_moon";
   const encrypt = "tjttQZKdeu";
-  const storageVersion = 1;
+  const storageVersion = 2;
+  const shadow = 0.25;
+  const shadowTint = 8947848;
+  const debug = true;
   const clearStorage = false;
+  const state = false;
 
   // code/file.js
   class File {
@@ -29438,9 +29442,7 @@ void main() {
             if (saved) {
               try {
                 this.data = JSON.parse(encrypt2.default.decrypt(saved, encrypt));
-                if (!this.data.shoot) {
-                  this.erase();
-                } else if (this.data.storageVersion !== storageVersion) {
+                if (this.data.version !== storageVersion) {
                   this.upgradeStorage();
                 }
                 resolve();
@@ -29463,7 +29465,8 @@ void main() {
         sound: 1,
         user: cuid.default(),
         shoot: {
-          level: 0
+          level: 0,
+          max: 0
         }
       };
       await this.save();
@@ -29471,12 +29474,26 @@ void main() {
     get shoot() {
       return this.data.shoot;
     }
+    get shootLevel() {
+      return this.data.shoot.level;
+    }
+    set shootLevel(value) {
+      if (value !== this.data.shoot.level) {
+        this.data.shoot.level = value;
+        this.data.shoot.max = Math.max(this.data.shoot.level, this.data.shoot.max);
+        this.save();
+      }
+    }
+    get shootMax() {
+      return this.data.shoot.max;
+    }
     async save() {
       return new Promise((resolve) => {
         localforage.default.setItem("data", encrypt2.default.encrypt(JSON.stringify(this.data), encrypt), resolve);
       });
     }
     upgradeStorage() {
+      this.erase();
     }
   }
   const file = new File();
@@ -29750,12 +29767,12 @@ void main() {
       this._eventsCount = 0;
     }
     EventEmitter.prototype.eventNames = function eventNames() {
-      var names = [], events, name4;
+      var names = [], events, name5;
       if (this._eventsCount === 0)
         return names;
-      for (name4 in events = this._events) {
-        if (has.call(events, name4))
-          names.push(prefix ? name4.slice(1) : name4);
+      for (name5 in events = this._events) {
+        if (has.call(events, name5))
+          names.push(prefix ? name5.slice(1) : name5);
       }
       if (Object.getOwnPropertySymbols) {
         return names.concat(Object.getOwnPropertySymbols(events));
@@ -29902,23 +29919,23 @@ void main() {
       }
     }
     addParam(element, entry, param) {
-      let start, to, delta, update, name4 = entry;
+      let start, to, delta, update, name5 = entry;
       switch (entry) {
         case "scaleX":
         case "skewX":
-          name4 = entry.substr(0, entry.length - 1);
-          start = element[name4].x;
+          name5 = entry.substr(0, entry.length - 1);
+          start = element[name5].x;
           to = param;
           delta = param - start;
-          update = (ease5) => this.updateCoord(ease5, name4, "x");
+          update = (ease5) => this.updateCoord(ease5, name5, "x");
           break;
         case "scaleY":
         case "skewY":
-          name4 = entry.substr(0, entry.length - 1);
-          start = element[name4].y;
+          name5 = entry.substr(0, entry.length - 1);
+          start = element[name5].y;
           to = param;
           delta = param - start;
-          update = (ease5) => this.updateCoord(ease5, name4, "y");
+          update = (ease5) => this.updateCoord(ease5, name5, "y");
           break;
         case "tint":
         case "blend":
@@ -30000,8 +30017,8 @@ void main() {
       ease5.element.x = this.options.ease(this.time, ease5.start.x, ease5.delta.x, this.options.duration);
       ease5.element.y = this.options.ease(this.time, ease5.start.y, ease5.delta.y, this.options.duration);
     }
-    updateCoord(ease5, name4, coord) {
-      ease5.element[name4][coord] = this.options.ease(this.time, ease5.start, ease5.delta, this.options.duration);
+    updateCoord(ease5, name5, coord) {
+      ease5.element[name5][coord] = this.options.ease(this.time, ease5.start, ease5.delta, this.options.duration);
     }
     updateTint(ease5, colors) {
       let index = Math.floor(this.options.ease(this.time, ease5.start, ease5.delta, this.options.duration));
@@ -30036,11 +30053,11 @@ void main() {
       ease5.element.tint = r << 16 | g << 8 | b;
     }
     updateShake(ease5) {
-      function random6(n) {
+      function random7(n) {
         return Math.floor(Math.random() * n) - Math.floor(n / 2);
       }
-      ease5.element.x = ease5.start.x + random6(ease5.to);
-      ease5.element.y = ease5.start.y + random6(ease5.to);
+      ease5.element.x = ease5.start.x + random7(ease5.to);
+      ease5.element.y = ease5.start.y + random7(ease5.to);
     }
     complete(ease5) {
       if (ease5.entry === "shake") {
@@ -30308,6 +30325,48 @@ void main() {
 
   // code/view.js
   const PIXI = __toModule(require_pixi());
+
+  // package.json
+  var name2 = "moonshot";
+  var version = "0.1.5";
+  var description = "Game Off 2020 - Shoot the Moon (like literally)";
+  var scripts = {
+    serve: "node generate",
+    build: "node generate --production",
+    deploy: "node generate/version && npm run build && wsl.exe rsync -rvW --delete -e ssh public/* yopey@206.189.75.22:/home/yopey/prototypes/moonshot"
+  };
+  var author = "David Figatner";
+  var license = "MIT";
+  var dependencies = {
+    cuid: "^2.1.8",
+    "fs-extra": "^9.0.1",
+    localforage: "^1.9.0",
+    "pixi-ease": "^3.0.6",
+    "pixi.js": "^5.3.3",
+    "yy-fps": "^1.1.0",
+    "yy-pixel": "^2.5.0",
+    "yy-random": "^1.9.1",
+    "yy-rendersheet": "^5.0.5"
+  };
+  var devDependencies = {
+    chokidar: "^3.4.3",
+    esbuild: "^0.8.2",
+    express: "^4.17.1",
+    intersects: "^2.7.2",
+    "json-bump": "^1.0.2"
+  };
+  var package_default = {
+    name: name2,
+    version,
+    description,
+    scripts,
+    author,
+    license,
+    dependencies,
+    devDependencies
+  };
+
+  // code/view.js
   const size = 50;
   class View {
     init() {
@@ -30320,6 +30379,12 @@ void main() {
       this.stage = new PIXI.Container();
       this.resize();
       window.addEventListener("contextmenu", (e) => e.preventDefault());
+      if (debug) {
+        const div = document.createElement("div");
+        div.innerHTML = `v${package_default.version}`;
+        div.className = "version";
+        document.body.appendChild(div);
+      }
     }
     get width() {
       return Math.floor(window.innerWidth / this.stage.scale.x);
@@ -30473,7 +30538,7 @@ void main() {
         this.flash.alpha = percent - 1;
       } else {
         this.warping.clear();
-        state2.next();
+        state3.next();
       }
     }
     warpInUpdate() {
@@ -30762,6 +30827,9 @@ void main() {
       }
       return p;
     }
+    canFire() {
+      return this.moon.children.length;
+    }
   }
   const moon2 = new Moon();
 
@@ -30835,6 +30903,11 @@ void main() {
       super();
       this.state = "";
       this.angleOfLine = Infinity;
+    }
+    reset() {
+      this.removeChildren();
+      this.state = "";
+      this.isDown = false;
     }
     box(x, y, tint, alpha = 1) {
       const point = this.addChild(new PIXI5.Sprite(PIXI5.Texture.WHITE));
@@ -30912,12 +30985,15 @@ void main() {
         } else if (this.state === "fade") {
           tint = 16711680;
           alpha = 1 - (Date.now() - this.time) / fadeTime;
+        } else {
+          return;
         }
         this.line(...this.aim, Math.round(center + Math.cos(this.angleOfLine) * view.max), Math.round(center + Math.sin(this.angleOfLine) * view.max), tint, alpha);
       }
     }
     down(point) {
-      if (meter.canFire()) {
+      if (meter.canFire() && moon2.canFire()) {
+        this.isDown = true;
         const angle = Math.atan2(point.y - window.innerHeight / 2, point.x - window.innerWidth / 2);
         if (this.state === "") {
           this.state = "aim";
@@ -30927,13 +31003,13 @@ void main() {
       }
     }
     move(point) {
-      if (this.state === "aim") {
+      if (this.isDown && this.state === "aim") {
         this.point = moon2.moon.toLocal(point);
         this.angleOfLine = Math.atan2(point.y - window.innerHeight / 2, point.x - window.innerWidth / 2);
       }
     }
     up() {
-      if (this.state === "aim") {
+      if (this.isDown && this.state === "aim") {
         if (!this.target) {
           this.state = "";
         } else {
@@ -30954,16 +31030,16 @@ void main() {
   const yy_rendersheet = __toModule(require_rendersheet());
 
   // images/letters.json
-  var name2 = "letters";
-  var imageData = [[3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAG0lEQVQYV2P8////fwYoYARxGBkZITR+GZgyAMaHH/LJK4oWAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAI0lEQVQImU2LsQ0AIAyAwP9/xqU2shAGrGI4AKoANGw8+z8X0vcX8XIs9sgAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGklEQVQImWP8////fwYYQOYwMSABFA4jsjIA6TYL+9+Rc68AAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAH0lEQVQImWP4DwUMDAwMDDDG/////zMxIAEUDgOyHgCRXBftcP5X+QAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGUlEQVQImWP8////fwYYQOYwoQggyzAicwDIMRPxd8oTcQAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGElEQVQImWP8////fwYYQOYwoQhgyMAAAJ5oD/YXflG0AAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAHUlEQVQImWP8////fwYYQOYwIQvCOQwMDAyMyMoAWtMP932EezkAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAJElEQVQImU3JsQ3AMADDMDr//6xOKcJNkCqoOh67Bw5s2x/XB2UkDACNFerLAAAAAElFTkSuQmCC"], [1, 5, "iVBORw0KGgoAAAANSUhEUgAAAAEAAAAFCAYAAACEhIafAAAABmJLR0QA/wD/AP+gvaeTAAAAFElEQVQImWP4////fyYGBgYGNAIAWiMEBdMyGR4AAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAHklEQVQImWNggIL/////Z2JAAqic/////4dxGJE5AGHlC/wJe3lbAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAIElEQVQImWP4////fwYGBob/////Z2JABv+hAM7BqgwAgWwX7Z66EbwAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGElEQVQImWP4////fwYoYGJAArg5jMh6ACQjCABZW0PIAAAAAElFTkSuQmCC"], [4, 5, "iVBORw0KGgoAAAANSUhEUgAAAAQAAAAFCAYAAABirU3bAAAABmJLR0QA/wD/AP+gvaeTAAAAIklEQVQImWWLsQ0AAAiD0P9/xsXBVEYCqLKo1hUATZLLKwYzJxPyQgyKQwAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAIklEQVQImWXHsQnAMAAEMX323/lcGQJWJ1VQtRv4/LzZNjiYrwwADLGe2gAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAIUlEQVQImWP8////fwYoYGJgYGBgZGRkhHNQZGCAEVkPACUaCAWZ46a3AAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAI0lEQVQImWXKsQkAAAjEwMT9d34bBcFrE5OEUQCqAN7C21YD6gYL/52aiy0AAAAASUVORK5CYII="], [4, 5, "iVBORw0KGgoAAAANSUhEUgAAAAQAAAAFCAYAAABirU3bAAAABmJLR0QA/wD/AP+gvaeTAAAAHklEQVQImWP4DwUMMADjwGgmBjSAIcCIrJyBgYEBAJayE/INQZOmAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAJElEQVQImU3HsQ0AMAzDMDr//+wuaVEugtK21kCSgK43t+NzAKkuE/a8U+IiAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGUlEQVQImWP8////fwYYQOYwosggq0CRAQC4GhPwLpk9OQAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAF0lEQVQImWP8////fwZkABNgQhbEzQEAr30IAEqwRWAAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAIklEQVQImWP4////fwYGBob/////Z2JAArg5jDA9DAwMDAD9SQv8qckYqQAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAIElEQVQImWP4////fwYGBob/////Z2JAAigcBpgSDBkAIQ0L+wdBiOsAAAAASUVORK5CYII="], [4, 5, "iVBORw0KGgoAAAANSUhEUgAAAAQAAAAFCAYAAABirU3bAAAABmJLR0QA/wD/AP+gvaeTAAAAI0lEQVQImWXMsQ0AAAiEQHT/nbGxMC/1BVTZVJuorgB4gnwMaBcT8pYeJ0cAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAHklEQVQImWP4////fwYGBob/////Z2JABzBZBpzKAO/vE/G2vl48AAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAH0lEQVQImWP4////fwYGBob/////Z2JABzBZFBkUDgBUvwv70WnKRwAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGUlEQVQImWP8////fwZ0ABfEZDAwMDAicwCoAxPvggOa/wAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAG0lEQVQImWP8////fwZ08P////+MKDLIHBQZALgaE/C/6qVuAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAG0lEQVQImWP8////fwZ08P////+MMAamDLIoAIhKE/BVFy3yAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAIElEQVQImWP4////fwYGBob/////Z2JAAowwGRSAoQwAomQP9hwG8WsAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGUlEQVQImWP8////fwYYQOYwosggq0CRAQC4GhPwLpk9OQAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAH0lEQVQImWP8////fwYYQOYwInOYGBgYGBgZGRkxZAB62g/6EzS3fwAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGUlEQVQImWP8////fwZ08P////9MyAK4OQCfjQgAxZ/wMAAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAH0lEQVQImY3JMQEAIAAEIc7+nd/FALLStnkOVEF/cwG2rwwEcOgJqwAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAI0lEQVQImU3JsQ0AMAyAMMj/P5OlquIRrOIZAFUA7/mq5oYFyiYL//UonTwAAAAASUVORK5CYII="], [1, 5, "iVBORw0KGgoAAAANSUhEUgAAAAEAAAAFCAYAAACEhIafAAAABmJLR0QA/wD/AP+gvaeTAAAAEElEQVQImWNgwAL+////HwAKDwP9fsXqCQAAAABJRU5ErkJggg=="], [1, 5, "iVBORw0KGgoAAAANSUhEUgAAAAEAAAAFCAYAAACEhIafAAAABmJLR0QA/wD/AP+gvaeTAAAAGklEQVQImWP4////fyYGBgYGJgY4+P///38AY/sH/a5daKsAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAFklEQVQImWP8////fwZ0ABfEKosiAwA6ZA/yoyYIZgAAAABJRU5ErkJggg=="], [2, 6, "iVBORw0KGgoAAAANSUhEUgAAAAIAAAAGCAYAAADpJ08yAAAABmJLR0QA/wD/AP+gvaeTAAAAF0lEQVQImWNgIAwY/////x/O+////38ASAAH+l09qFMAAAAASUVORK5CYII="], [3, 7, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAHCAYAAADNufepAAAAKElEQVQYV2NkYGBg+P///39GEAAxQAIgAOaABOEcuAyMAVaBogfZNAApHhv4PqEERQAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAIElEQVQYV2P8////fwYGBgZGEAAxQAJwDkgALAtjYHAAsOMIBiCexWEAAAAASUVORK5CYII="], [2, 5, "iVBORw0KGgoAAAANSUhEUgAAAAIAAAAFCAYAAABvsz2cAAAAGUlEQVQYV2NkYGBg+P///39GMAECmAyYGgDJ7xP+xJ9KkAAAAABJRU5ErkJggg=="], [2, 5, "iVBORw0KGgoAAAANSUhEUgAAAAIAAAAFCAYAAABvsz2cAAAAGUlEQVQYV2P8////f0YQYGBgYABzMBkwNQC5rRP6ukBVFgAAAABJRU5ErkJggg=="], [1, 5, "iVBORw0KGgoAAAANSUhEUgAAAAEAAAAFCAYAAACEhIafAAAAE0lEQVQYV2NgAIH/////BzMQLABjtQf5CzjkjgAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAH0lEQVQYV2NkQAKMMPb/////gzlgBgjAGCBBuDIQBwCGTQwCneWwGwAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAGUlEQVQYV2NkQAKMKJz/////hwmgyiArAwCScgQClmhadwAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAADklEQVQYV2NkQAKMZHAAAQQABocu+/gAAAAASUVORK5CYII="], [5, 5, "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKElEQVQYV2NkgIL/////Z2RkZARxwQRIACYJkmCEqUChcWqHGQEzEwDOvRwCnLh94AAAAABJRU5ErkJggg=="], [5, 5, "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAJklEQVQYV2NkgIL/////Z2RkZARxwQQIoAjCOCg0TBVMB8gIrNoBzr0cAnhPiwMAAAAASUVORK5CYII="], [5, 5, "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKUlEQVQYV2NkgIL/////Z2RkZARxwQRMAEYzIquAK0BXBeaDCJi5MBoALlMj+g+iseoAAAAASUVORK5CYII="]];
+  var name3 = "letters";
+  var imageData = [[3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAG0lEQVQYV2P8////fwYoYARxGBkZITR+GZgyAMaHH/LJK4oWAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAI0lEQVQImU2LsQ0AIAyAwP9/xqU2shAGrGI4AKoANGw8+z8X0vcX8XIs9sgAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGklEQVQImWP8////fwYYQOYwMSABFA4jsjIA6TYL+9+Rc68AAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAH0lEQVQImWP4DwUMDAwMDDDG/////zMxIAEUDgOyHgCRXBftcP5X+QAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGUlEQVQImWP8////fwYYQOYwoQggyzAicwDIMRPxd8oTcQAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGElEQVQImWP8////fwYYQOYwoQhgyMAAAJ5oD/YXflG0AAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAHUlEQVQImWP8////fwYYQOYwIQvCOQwMDAyMyMoAWtMP932EezkAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAJElEQVQImU3JsQ3AMADDMDr//6xOKcJNkCqoOh67Bw5s2x/XB2UkDACNFerLAAAAAElFTkSuQmCC"], [1, 5, "iVBORw0KGgoAAAANSUhEUgAAAAEAAAAFCAYAAACEhIafAAAABmJLR0QA/wD/AP+gvaeTAAAAFElEQVQImWP4////fyYGBgYGNAIAWiMEBdMyGR4AAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAHklEQVQImWNggIL/////Z2JAAqic/////4dxGJE5AGHlC/wJe3lbAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAIElEQVQImWP4////fwYGBob/////Z2JABv+hAM7BqgwAgWwX7Z66EbwAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGElEQVQImWP4////fwYoYGJAArg5jMh6ACQjCABZW0PIAAAAAElFTkSuQmCC"], [4, 5, "iVBORw0KGgoAAAANSUhEUgAAAAQAAAAFCAYAAABirU3bAAAABmJLR0QA/wD/AP+gvaeTAAAAIklEQVQImWWLsQ0AAAiD0P9/xsXBVEYCqLKo1hUATZLLKwYzJxPyQgyKQwAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAIklEQVQImWXHsQnAMAAEMX323/lcGQJWJ1VQtRv4/LzZNjiYrwwADLGe2gAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAIUlEQVQImWP8////fwYoYGJgYGBgZGRkhHNQZGCAEVkPACUaCAWZ46a3AAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAI0lEQVQImWXKsQkAAAjEwMT9d34bBcFrE5OEUQCqAN7C21YD6gYL/52aiy0AAAAASUVORK5CYII="], [4, 5, "iVBORw0KGgoAAAANSUhEUgAAAAQAAAAFCAYAAABirU3bAAAABmJLR0QA/wD/AP+gvaeTAAAAHklEQVQImWP4DwUMMADjwGgmBjSAIcCIrJyBgYEBAJayE/INQZOmAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAJElEQVQImU3HsQ0AMAzDMDr//+wuaVEugtK21kCSgK43t+NzAKkuE/a8U+IiAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGUlEQVQImWP8////fwYYQOYwosggq0CRAQC4GhPwLpk9OQAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAF0lEQVQImWP8////fwZkABNgQhbEzQEAr30IAEqwRWAAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAIklEQVQImWP4////fwYGBob/////Z2JAArg5jDA9DAwMDAD9SQv8qckYqQAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAIElEQVQImWP4////fwYGBob/////Z2JAAigcBpgSDBkAIQ0L+wdBiOsAAAAASUVORK5CYII="], [4, 5, "iVBORw0KGgoAAAANSUhEUgAAAAQAAAAFCAYAAABirU3bAAAABmJLR0QA/wD/AP+gvaeTAAAAI0lEQVQImWXMsQ0AAAiEQHT/nbGxMC/1BVTZVJuorgB4gnwMaBcT8pYeJ0cAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAHklEQVQImWP4////fwYGBob/////Z2JABzBZBpzKAO/vE/G2vl48AAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAH0lEQVQImWP4////fwYGBob/////Z2JABzBZFBkUDgBUvwv70WnKRwAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGUlEQVQImWP8////fwZ0ABfEZDAwMDAicwCoAxPvggOa/wAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAG0lEQVQImWP8////fwZ08P////+MKDLIHBQZALgaE/C/6qVuAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAG0lEQVQImWP8////fwZ08P////+MMAamDLIoAIhKE/BVFy3yAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAIElEQVQImWP4////fwYGBob/////Z2JAAowwGRSAoQwAomQP9hwG8WsAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGUlEQVQImWP8////fwYYQOYwosggq0CRAQC4GhPwLpk9OQAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAH0lEQVQImWP8////fwYYQOYwInOYGBgYGBgZGRkxZAB62g/6EzS3fwAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAGUlEQVQImWP8////fwZ08P////9MyAK4OQCfjQgAxZ/wMAAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAH0lEQVQImY3JMQEAIAAEIc7+nd/FALLStnkOVEF/cwG2rwwEcOgJqwAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAI0lEQVQImU3JsQ0AMAyAMMj/P5OlquIRrOIZAFUA7/mq5oYFyiYL//UonTwAAAAASUVORK5CYII="], [1, 5, "iVBORw0KGgoAAAANSUhEUgAAAAEAAAAFCAYAAACEhIafAAAABmJLR0QA/wD/AP+gvaeTAAAAEElEQVQImWNgwAL+////HwAKDwP9fsXqCQAAAABJRU5ErkJggg=="], [1, 5, "iVBORw0KGgoAAAANSUhEUgAAAAEAAAAFCAYAAACEhIafAAAABmJLR0QA/wD/AP+gvaeTAAAAGklEQVQImWP4////fyYGBgYGJgY4+P///38AY/sH/a5daKsAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAABmJLR0QA/wD/AP+gvaeTAAAAFklEQVQImWP8////fwZ0ABfEKosiAwA6ZA/yoyYIZgAAAABJRU5ErkJggg=="], [2, 6, "iVBORw0KGgoAAAANSUhEUgAAAAIAAAAGCAYAAADpJ08yAAAABmJLR0QA/wD/AP+gvaeTAAAAF0lEQVQImWNgIAwY/////x/O+////38ASAAH+l09qFMAAAAASUVORK5CYII="], [3, 7, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAHCAYAAADNufepAAAAKElEQVQYV2NkYGBg+P///39GEAAxQAIgAOaABOEcuAyMAVaBogfZNAApHhv4PqEERQAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAIElEQVQYV2P8////fwYGBgZGEAAxQAJwDkgALAtjYHAAsOMIBiCexWEAAAAASUVORK5CYII="], [2, 5, "iVBORw0KGgoAAAANSUhEUgAAAAIAAAAFCAYAAABvsz2cAAAAGUlEQVQYV2NkYGBg+P///39GMAECmAyYGgDJ7xP+xJ9KkAAAAABJRU5ErkJggg=="], [2, 5, "iVBORw0KGgoAAAANSUhEUgAAAAIAAAAFCAYAAABvsz2cAAAAGUlEQVQYV2P8////f0YQYGBgYABzMBkwNQC5rRP6ukBVFgAAAABJRU5ErkJggg=="], [1, 5, "iVBORw0KGgoAAAANSUhEUgAAAAEAAAAFCAYAAACEhIafAAAAE0lEQVQYV2NgAIH/////BzMQLABjtQf5CzjkjgAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAH0lEQVQYV2NkQAKMMPb/////gzlgBgjAGCBBuDIQBwCGTQwCneWwGwAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAGUlEQVQYV2NkQAKMKJz/////hwmgyiArAwCScgQClmhadwAAAABJRU5ErkJggg=="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAADklEQVQYV2NkQAKMZHAAAQQABocu+/gAAAAASUVORK5CYII="], [5, 5, "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKElEQVQYV2NkgIL/////Z2RkZARxwQRIACYJkmCEqUChcWqHGQEzEwDOvRwCnLh94AAAAABJRU5ErkJggg=="], [5, 5, "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAJklEQVQYV2NkgIL/////Z2RkZARxwQQIoAjCOCg0TBVMB8gIrNoBzr0cAnhPiwMAAAAASUVORK5CYII="], [5, 5, "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKUlEQVQYV2NkgIL/////Z2RkZARxwQRMAEYzIquAK0BXBeaDCJi5MBoALlMj+g+iseoAAAAASUVORK5CYII="], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHklEQVQYV2NkgIL/////ZwSxQQwQzQhjgDkoMsh6AHioE/JYt3NFAAAAAElFTkSuQmCC"], [3, 5, "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAIUlEQVQYV2P8////f0ZGRkYGBgYGRhAHzAABGAe7DEwPANowFAI0d6fpAAAAAElFTkSuQmCC"]];
   var animations = {idle: [[0, 0]]};
-  var letters_default = {name: name2, imageData, animations};
+  var letters_default = {name: name3, imageData, animations};
 
   // images/ui.json
-  var name3 = "ui";
+  var name4 = "ui";
   var imageData2 = [[11, 11, "iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAYAAACprHcmAAAAR0lEQVQoU2NkwAL+////n5GRkRFdCkMApBCkiKBimEKCipEVYnMa2AAQQYxCsGJiFZJuMsx9xNiAEnREhwa6DQTDGVkDNsUAFNcr+F2BbxsAAAAASUVORK5CYII="]];
   var animations2 = {idle: [[0, 0]]};
-  var ui_default = {name: name3, imageData: imageData2, animations: animations2};
+  var ui_default = {name: name4, imageData: imageData2, animations: animations2};
 
   // code/sheet.js
   class Sheet extends yy_rendersheet.default {
@@ -30987,22 +31063,29 @@ void main() {
   const PIXI6 = __toModule(require_pixi());
   const COLOR = 16777215;
   const BACKGROUND = 0;
-  const BUTTON = 4;
   class Words extends PIXI6.Container {
-    constructor(words, color, background, backgroundAlpha) {
+    constructor(words, options = {}) {
       super();
-      this.color = color === null || typeof color === "undefined" ? COLOR : color;
-      if (background) {
-        this.background = this.addChild(sheet.get("dot-0"));
-        this.background.anchor.set(0);
-        this.background.alpha = backgroundAlpha || 0.25;
-        this.background.position.set(-BUTTON, -BUTTON);
-        this.background.tint = background === true ? BACKGROUND : background;
+      this.color = typeof options.color === "undefined" ? COLOR : options.color;
+      this.background = this.addChild(new PIXI6.Sprite(PIXI6.Sprite.WHITE));
+      this.background.anchor.set(0);
+      if (options.background) {
+        this.background.alpha = options.backgroundAlpha || 0.25;
+        this.background.tint = options.background === true ? BACKGROUND : options.background;
+      } else {
+        this.background.alpha = 0;
+      }
+      if (options.shadow) {
+        this.shadow = this.addChild(new PIXI6.Container());
+        this.shadow.position.set(shadow);
       }
       this.words = this.addChild(new PIXI6.Container());
       if (words) {
         this.change(words);
       }
+    }
+    containsPoint(point) {
+      return this.background.containsPoint(point);
     }
     wrap(max) {
       let x = 0, y = 0, actual = 0;
@@ -31049,6 +31132,9 @@ void main() {
     }
     write(words) {
       this.words.removeChildren();
+      if (this.shadow) {
+        this.shadow.removeChildren();
+      }
       words = words + "";
       this.text = words;
       let x = 0, y = 0;
@@ -31067,6 +31153,11 @@ void main() {
             adjustY = 0.5;
           }
           sprite.position.set(x, y + adjustY);
+          if (this.shadow) {
+            const shadow2 = this.shadow.addChild(this.getLetter(letter));
+            shadow2.tint = shadowTint;
+            shadow2.position.set(x, y + adjustY);
+          }
           x += (sprite.n === -1 ? sheet.textures["asteroid-1"].width : sheet.textures["letters-" + sprite.n].width) + 1;
         }
       }
@@ -31075,8 +31166,8 @@ void main() {
       if (this.text !== text) {
         this.write(text);
         if (this.background) {
-          this.background.width = this.words.width + BUTTON * 2;
-          this.background.height = this.words.height + BUTTON * 2;
+          this.background.width = this.words.width;
+          this.background.height = this.words.height;
         }
       }
     }
@@ -31122,6 +31213,10 @@ void main() {
         n = -1;
       } else if (letter === "|") {
         n = 48;
+      } else if (letter === "<") {
+        n = 49;
+      } else if (letter === ">") {
+        n = 50;
       } else {
         console.warn("Unknown letter in words.js: " + letter);
         n = 35;
@@ -31144,6 +31239,19 @@ void main() {
         this.color = value;
       }
     }
+    getContainsPointIndex(point) {
+      for (let i = 0; i < this.words.children.length; i++) {
+        if (this.words.children[i].containsPoint(point)) {
+          return i;
+        }
+      }
+    }
+    getFirstLetter() {
+      return this.words.children[0];
+    }
+    getLastLetter() {
+      return this.words.children[this.words.children.length - 1];
+    }
   }
 
   // code/shoot/back.js
@@ -31165,6 +31273,7 @@ void main() {
     }
     down(local) {
       if (local.x <= this.width + 1 && local.y < this.height + 1) {
+        state3.change("menu");
         return true;
       }
     }
@@ -31193,6 +31302,7 @@ void main() {
       const level = shoot_default[file.shoot.level];
       stars.draw(level.seed);
       moon2.draw(level);
+      laser2.reset();
       back.change();
       meter.init(level.minimum);
       this.top.y = -4;
@@ -31213,18 +31323,22 @@ void main() {
       stars.warpOut();
     }
     down(point) {
+      this.isDown = true;
       const local = this.toLocal(point);
-      if (back.down(local)) {
-      } else if (meter.down(local)) {
-      } else {
+      if (!back.down(local) && !meter.down(local)) {
         laser2.down(point);
       }
     }
     move(point) {
-      laser2.move(point);
+      if (this.isDown) {
+        laser2.move(point);
+      }
     }
     up(point) {
-      laser2.up(point);
+      if (this.isDown) {
+        laser2.up(point);
+        this.isDown = false;
+      }
     }
     update() {
       ease2.update(frameTime);
@@ -31232,6 +31346,9 @@ void main() {
       moon2.update();
       laser2.update();
       meter.update();
+    }
+    reset() {
+      laser2.reset();
     }
     resize() {
       stars.resize();
@@ -31241,7 +31358,7 @@ void main() {
   const shoot2 = new Shoot();
 
   // code/menu/menu.js
-  const PIXI10 = __toModule(require_pixi());
+  const PIXI11 = __toModule(require_pixi());
 
   // code/menu/stars.js
   const PIXI9 = __toModule(require_pixi());
@@ -31262,7 +31379,6 @@ void main() {
       }
     }
     draw() {
-      console.log(view.width);
       yy_random5.default.reset();
       for (let i = 0; i < count2; i++) {
         const star = this.stars.addChild(new PIXI9.Sprite(PIXI9.Texture.WHITE));
@@ -31302,66 +31418,133 @@ void main() {
   }
   const stars4 = new Stars2();
 
+  // code/menu/title.js
+  const PIXI10 = __toModule(require_pixi());
+  const yy_random6 = __toModule(require_yy_random());
+  const padding = 0.75;
+  const colorCount = 3;
+  const radius = 6;
+  class Title extends PIXI10.Container {
+    init() {
+      this.halfMoon();
+      this.title = this.addChild(new Words("shoot the moon", {shadow: true}));
+      this.title.width = view.width / 2;
+      this.title.scale.y = this.title.scale.x;
+      this.subtitle = this.addChild(new Words("(like literally)", {shadow: true, color: 14540253}));
+      this.subtitle.width = this.title.width;
+      this.subtitle.scale.y = this.subtitle.scale.x;
+      this.subtitle.y = this.title.height + padding;
+      this.moon.height = this.title.height + this.subtitle.height + padding;
+      this.moon.scale.x = this.moon.scale.y;
+      this.title.x = this.subtitle.x = this.moon.width + 0.5;
+      this.position.set(view.width / 2 - this.width / 2, 1);
+    }
+    halfMoon() {
+      const colors = [];
+      for (let i = 0; i < colorCount; i++) {
+        colors.push(yy_random6.default.get(16777215));
+      }
+      this.moon = this.addChild(new PIXI10.Graphics());
+      const radiusSquared = radius * radius;
+      for (let y = 0; y <= radius * 2; y++) {
+        for (let x = 0; x <= radius * 2; x++) {
+          const dx = x - radius;
+          const dy = y - radius;
+          const distanceSquared = dx * dx + dy * dy;
+          if (distanceSquared <= radiusSquared) {
+            this.moon.beginFill(yy_random6.default.pick(colors), x < radius ? 1 : 0.5).drawRect(x, y, 1, 1).endFill();
+          }
+        }
+      }
+    }
+  }
+  const title = new Title();
+
   // code/menu/menu.js
-  const padding = 8;
-  const shadow = 0.25;
-  const shadowTint = 8947848;
-  const items = [
-    "play",
-    "reset"
-  ];
-  class Menu extends PIXI10.Container {
+  const padding2 = 8;
+  const disabled = 5592405;
+  class Menu extends PIXI11.Container {
     constructor() {
       super();
       this.addChild(stars4);
-      this.title = this.addChild(new PIXI10.Container());
-      this.menuShadow = this.addChild(new PIXI10.Container());
-      this.menu = this.addChild(new PIXI10.Container());
-    }
-    drawTitle() {
-      this.titleShadow = this.title.addChild(new Words("shoot the moon (like literally)"));
-      this.titleShadow.tint = shadowTint;
-      this.title = this.title.addChild(new Words("shoot the moon (like literally)"));
-      this.title.width = view.width - 2;
-      this.title.scale.y = this.title.scale.x;
-      this.titleShadow.scale.set(this.title.scale.x);
-      this.title.position.set(view.width / 2 - this.title.width / 2, 1);
-      this.titleShadow.position.set(this.title.x + shadow, this.title.y + shadow);
+      this.title = this.addChild(title);
+      this.menu = this.addChild(new PIXI11.Container());
     }
     init() {
       stars4.draw();
-      this.drawTitle();
+      title.init();
+      this.draw();
+      this.menu.scale.set(0.5);
+      this.menu.position.set(view.width / 2 - this.menu.width / 2, view.height / 2 - this.menu.height / 2);
+    }
+    draw() {
       let y = 0, longest = 0;
-      for (const name4 of items) {
-        const itemShadow = this.menuShadow.addChild(new Words(name4));
-        itemShadow.tint = shadowTint;
-        const item = this.menu.addChild(new Words(name4));
-        item.y = y;
-        itemShadow.y = y;
-        y += item.height + padding;
+      this.menu.removeChildren();
+      this.shoot();
+      for (const item of this.menu.children) {
         longest = Math.max(longest, item.width);
       }
-      for (let i = 0; i < this.menu.children.length; i++) {
-        const menu3 = this.menu.children[i];
-        menu3.x = longest / 2 - menu3.width / 2;
-        const menuShadow = this.menuShadow.children[i];
-        menuShadow.x = menu3.x;
+      for (const item of this.menu.children) {
+        item.x = longest / 2 - item.width / 2;
+        item.y = y;
+        y += item.height + padding2;
       }
-      this.menu.scale.set(0.5);
-      this.menuShadow.scale.set(0.5);
-      this.menu.position.set(view.width / 2 - this.menu.width / 2, view.height / 2 - this.menu.height / 2);
-      this.menuShadow.position.set(this.menu.x + shadow, this.menu.y + shadow);
     }
-    down() {
+    shoot() {
+      if (!file.shootMax) {
+        this.play = this.menu.addChild(new Words("play"));
+        this.level = null;
+      } else {
+        const max = 34;
+        this.level = this.menu.addChild(new PIXI11.Container());
+        this.back = this.level.addChild(new Words("<"));
+        this.number = this.level.addChild(new Words(`level ${file.shootLevel + 1}`));
+        this.number.x = 6 + max / 2 - this.number.width / 2;
+        this.next = this.level.addChild(new Words(">"));
+        this.next.x = max + 7;
+        this.play = null;
+        if (file.shootLevel === 0) {
+          this.back.tint = disabled;
+        }
+        if (file.shootMax === file.shootLevel) {
+          this.next.tint = disabled;
+        }
+      }
+    }
+    reset() {
     }
     move() {
     }
-    up() {
+    down(point) {
+    }
+    up(point) {
+      if (this.play) {
+        if (this.play.containsPoint(point)) {
+          state3.change("shoot");
+        }
+      } else if (this.back.containsPoint(point)) {
+        if (this.back.tint === disabled) {
+          console.log("left disabled");
+        } else {
+          file.shootLevel--;
+          this.draw();
+        }
+      } else if (this.next.containsPoint(point)) {
+        if (this.next.tint === disabled) {
+          console.log("right disabled");
+        } else {
+          file.shootLevel++;
+          this.draw();
+        }
+      } else if (this.level.containsPoint(point)) {
+        state3.change("shoot");
+      }
     }
     resize() {
       stars4.resize();
     }
     change() {
+      this.draw();
     }
     update() {
       stars4.update();
@@ -31379,14 +31562,15 @@ void main() {
       for (const key in this.states) {
         this.states[key].init();
       }
-      this.state = "shoot";
+      this.state = state || "menu";
     }
-    set state(state6) {
-      if (state6 !== this._state) {
+    set state(state9) {
+      if (state9 !== this._state) {
         if (this._state) {
           view.stage.removeChild(this.states[this.state]);
+          this.states[this.state].reset();
         }
-        this._state = state6;
+        this._state = state9;
         view.stage.addChild(this.states[this.state]);
         this.states[this.state].change();
       }
@@ -31396,7 +31580,7 @@ void main() {
     }
     next() {
       if (this.state === "shoot") {
-        file.shoot.level++;
+        file.shootLevel++;
         this.states[this.state].change(true);
       }
     }
@@ -31405,8 +31589,8 @@ void main() {
         this.states[key].resize();
       }
     }
-    change(state6) {
-      this.state = state6;
+    change(state9) {
+      this.state = state9;
     }
     down(point) {
       this.states[this.state].down(point);
@@ -31421,18 +31605,18 @@ void main() {
       this.states[this.state].update();
     }
   }
-  const state2 = new State();
+  const state3 = new State();
 
   // code/input.js
   class Input {
     init() {
-      const view10 = document.querySelector(".view");
-      view10.addEventListener("mousedown", (e) => this.down(e));
-      view10.addEventListener("mousemove", (e) => this.move(e));
-      view10.addEventListener("mouseup", (e) => this.up(e));
-      view10.addEventListener("touchstart", (e) => this.down(e));
-      view10.addEventListener("touchmove", (e) => this.move(e));
-      view10.addEventListener("touchend", (e) => this.up(e));
+      const view11 = document.querySelector(".view");
+      view11.addEventListener("mousedown", (e) => this.down(e));
+      view11.addEventListener("mousemove", (e) => this.move(e));
+      view11.addEventListener("mouseup", (e) => this.up(e));
+      view11.addEventListener("touchstart", (e) => this.down(e));
+      view11.addEventListener("touchmove", (e) => this.move(e));
+      view11.addEventListener("touchend", (e) => this.up(e));
       window.addEventListener("keydown", (e) => this.keyDown(e));
       window.addEventListener("keydown", (e) => this.keyUp(e));
     }
@@ -31454,16 +31638,16 @@ void main() {
     }
     down(e) {
       const point = this.translateEvent(e);
-      state2.down(point);
+      state3.down(point);
       e.preventDefault();
     }
     move(e) {
       const point = this.translateEvent(e);
-      state2.move(point);
+      state3.move(point);
     }
     up(e) {
       const point = this.translateEvent(e);
-      state2.up(point);
+      state3.up(point);
     }
     keyDown(e) {
       switch (e.code) {
@@ -31483,7 +31667,7 @@ void main() {
       this.fps = new yy_fps.default();
       await sheet.init();
       view.init();
-      state2.init();
+      state3.init();
       this.update();
       input.init();
       window.addEventListener("resize", () => this.resize());
@@ -31503,14 +31687,14 @@ void main() {
     }
     resize() {
       view.resize();
-      state2.resize();
+      state3.resize();
       if (this.paused) {
         view.update();
       }
     }
     update() {
       if (!this.paused) {
-        state2.update();
+        state3.update();
         view.update();
         this.fps.frame();
         this.raf = requestAnimationFrame(() => this.update());
@@ -31526,3 +31710,4 @@ void main() {
     window.addEventListener("focus", () => game.resume());
   });
 })();
+//# sourceMappingURL=index.js.map

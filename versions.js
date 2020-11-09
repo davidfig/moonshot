@@ -1,0 +1,1 @@
+module.exports={css:'1',js:'1'}

@@ -1,5 +1,8 @@
 import * as PIXI from 'pixi.js'
 
+import * as settings from './settings'
+import packageJson from '../package.json'
+
 const size = 50
 
 class View {
@@ -13,6 +16,12 @@ class View {
         this.stage = new PIXI.Container()
         this.resize()
         window.addEventListener('contextmenu', e => e.preventDefault())
+        if (settings.debug) {
+            const div = document.createElement('div')
+            div.innerHTML = `v${packageJson.version}`
+            div.className = 'version'
+            document.body.appendChild(div)
+        }
     }
 
     get width() {

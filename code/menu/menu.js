@@ -3,73 +3,103 @@ import * as PIXI from 'pixi.js'
 import { view } from '../view'
 import { Words } from '../Words'
 import { stars } from './stars'
+import { title } from './title'
+import { file } from '../file'
+import { state } from '../state'
 
 const padding = 8
-const shadow = 0.25
-const shadowTint = 0x888888
-
-const items = [
-    'play',
-    'reset',
-]
+const disabled = 0x555555
 
 class Menu extends PIXI.Container {
     constructor() {
         super()
         this.addChild(stars)
-        this.title = this.addChild(new PIXI.Container())
-        this.menuShadow = this.addChild(new PIXI.Container())
+        this.title = this.addChild(title)
         this.menu = this.addChild(new PIXI.Container())
-    }
-
-    drawTitle() {
-        this.titleShadow = this.title.addChild(new Words('shoot the moon (like literally)'))
-        this.titleShadow.tint = shadowTint
-        this.title = this.title.addChild(new Words('shoot the moon (like literally)'))
-        this.title.width = view.width - 2
-        this.title.scale.y = this.title.scale.x
-        this.titleShadow.scale.set(this.title.scale.x)
-        this.title.position.set(view.width / 2 - this.title.width / 2, 1)
-        this.titleShadow.position.set(this.title.x + shadow, this.title.y + shadow)
     }
 
     init() {
         stars.draw()
-        this.drawTitle()
-        let y = 0, longest = 0
-        for (const name of items) {
-            const itemShadow = this.menuShadow.addChild(new Words(name))
-            itemShadow.tint = shadowTint
-            const item = this.menu.addChild(new Words(name))
-            item.y = y
-            itemShadow.y = y
-            y += item.height + padding
-            longest = Math.max(longest, item.width)
-        }
-        for (let i = 0; i < this.menu.children.length; i++) {
-            const menu = this.menu.children[i]
-            menu.x = longest / 2 - menu.width / 2
-            const menuShadow = this.menuShadow.children[i]
-            menuShadow.x = menu.x
-
-        }
+        title.init()
+        this.draw()
         this.menu.scale.set(0.5)
-        this.menuShadow.scale.set(0.5)
         this.menu.position.set(view.width / 2 - this.menu.width / 2, view.height / 2 - this.menu.height / 2)
-        this.menuShadow.position.set(this.menu.x + shadow, this.menu.y + shadow)
     }
 
-    down() {}
+    draw() {
+        let y = 0, longest = 0
+        this.menu.removeChildren()
+        this.shoot()
+        for (const item of this.menu.children) {
+            longest = Math.max(longest, item.width)
+        }
+        for (const item of this.menu.children) {
+            item.x = longest / 2 - item.width / 2
+            item.y = y
+            y += item.height + padding
+        }
+    }
 
+    shoot() {
+        if (!file.shootMax) {
+            this.play = this.menu.addChild(new Words('play'))
+            this.level = null
+        } else {
+            const max = 34
+            this.level = this.menu.addChild(new PIXI.Container())
+            this.back = this.level.addChild(new Words('<'))
+            this.number = this.level.addChild(new Words(`level ${file.shootLevel + 1}`))
+            this.number.x = 6 + max / 2 - this.number.width / 2
+            this.next = this.level.addChild(new Words('>'))
+            this.next.x = max + 7
+            this.play = null
+            if (file.shootLevel === 0) {
+                this.back.tint = disabled
+            }
+            if (file.shootMax === file.shootLevel) {
+                this.next.tint = disabled
+            }
+        }
+    }
+
+    reset() {}
     move() {}
 
-    up() {}
+    down(point) {
+        // if ()
+    }
+
+    up(point) {
+        if (this.play) {
+            if (this.play.containsPoint(point)) {
+                state.change('shoot')
+            }
+        } else if (this.back.containsPoint(point)) {
+            if (this.back.tint === disabled) {
+                console.log('left disabled')
+            } else {
+                file.shootLevel--
+                this.draw()
+            }
+        } else if (this.next.containsPoint(point)) {
+            if (this.next.tint === disabled) {
+                console.log('right disabled')
+            } else {
+                file.shootLevel++
+                this.draw()
+            }
+        } else if (this.level.containsPoint(point)) {
+            state.change('shoot')
+        }
+    }
 
     resize() {
         stars.resize()
     }
 
-    change() {}
+    change() {
+        this.draw()
+    }
 
     update() {
         stars.update()

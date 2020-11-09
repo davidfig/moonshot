@@ -31,6 +31,7 @@ class Shoot extends PIXI.Container {
         const level = levels[file.shoot.level]
         stars.draw(level.seed)
         moon.draw(level)
+        laser.reset()
         back.change()
         meter.init(level.minimum)
         this.top.y = -4
@@ -53,21 +54,24 @@ class Shoot extends PIXI.Container {
     }
 
     down(point) {
+        this.isDown = true
         const local = this.toLocal(point)
-        if (back.down(local)) {
-            // state.back()
-        } else if (meter.down(local)) {
-        } else {
+        if (!back.down(local) && !meter.down(local)) {
             laser.down(point)
         }
     }
 
     move(point) {
-        laser.move(point)
+        if (this.isDown) {
+            laser.move(point)
+        }
     }
 
     up(point) {
-        laser.up(point)
+        if (this.isDown) {
+            laser.up(point)
+            this.isDown = false
+        }
     }
 
     update() {
@@ -76,6 +80,10 @@ class Shoot extends PIXI.Container {
         moon.update()
         laser.update()
         meter.update()
+    }
+
+    reset() {
+        laser.reset()
     }
 
     resize() {

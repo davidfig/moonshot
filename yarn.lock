@@ -1492,6 +1492,13 @@
   "resolved" "https://registry.npmjs.org/jsesc/-/jsesc-1.3.0.tgz"
   "version" "1.3.0"
 
+"json-bump@^1.0.2":
+  "integrity" "sha512-9N4u62TdVMF81/JPRki7tE/2GvUyQsaKpjWRoa9xtxsq0SHS9TSX2TurVVvjEbN/qBvp+XtDVlMRAnnEngnZrQ=="
+  "resolved" "https://registry.npmjs.org/json-bump/-/json-bump-1.0.2.tgz"
+  "version" "1.0.2"
+  dependencies:
+    "fs-extra" "^9.0.1"
+
 "json5@^0.5.1":
   "integrity" "sha1-Hq3nrMASA0rYTiOWdn6tn6VJWCE="
   "resolved" "https://registry.npmjs.org/json5/-/json5-0.5.1.tgz"
