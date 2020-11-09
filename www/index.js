@@ -4087,7 +4087,7 @@
     function canUploadSameBuffer() {
       return !isMobile.apple.device;
     }
-    var settings6 = {
+    var settings8 = {
       MIPMAP_TEXTURES: 1,
       ANISOTROPIC_LEVEL: 0,
       RESOLUTION: 1,
@@ -4118,7 +4118,7 @@
       ROUND_PIXELS: false
     };
     exports.isMobile = isMobile;
-    exports.settings = settings6;
+    exports.settings = settings8;
   });
 
   // node_modules/eventemitter3/index.js
@@ -5750,14 +5750,14 @@
     function _interopDefault(ex) {
       return ex && typeof ex === "object" && "default" in ex ? ex["default"] : ex;
     }
-    var settings6 = require_settings();
+    var settings8 = require_settings();
     var eventemitter32 = _interopDefault(require_eventemitter3());
     var earcut = _interopDefault(require_earcut());
     var _url = require_url();
     var _url__default = _interopDefault(_url);
     var constants = require_constants();
-    settings6.settings.RETINA_PREFIX = /@([0-9\.]+)x/;
-    settings6.settings.FAIL_IF_MAJOR_PERFORMANCE_CAVEAT = true;
+    settings8.settings.RETINA_PREFIX = /@([0-9\.]+)x/;
+    settings8.settings.FAIL_IF_MAJOR_PERFORMANCE_CAVEAT = true;
     var saidHello = false;
     var VERSION = "5.3.3";
     function skipHello() {
@@ -5793,7 +5793,7 @@
         supported = function supported2() {
           var contextOptions = {
             stencil: true,
-            failIfMajorPerformanceCaveat: settings6.settings.FAIL_IF_MAJOR_PERFORMANCE_CAVEAT
+            failIfMajorPerformanceCaveat: settings8.settings.FAIL_IF_MAJOR_PERFORMANCE_CAVEAT
           };
           try {
             if (!window.WebGLRenderingContext) {
@@ -6070,7 +6070,7 @@
       function CanvasRenderTarget2(width, height, resolution) {
         this.canvas = document.createElement("canvas");
         this.context = this.canvas.getContext("2d");
-        this.resolution = resolution || settings6.settings.RESOLUTION;
+        this.resolution = resolution || settings8.settings.RESOLUTION;
         this.resize(width, height);
       }
       CanvasRenderTarget2.prototype.clear = function() {
@@ -6194,7 +6194,7 @@
       return "";
     }
     function getResolutionOfUrl(url, defaultValue) {
-      var resolution = settings6.settings.RETINA_PREFIX.exec(url);
+      var resolution = settings8.settings.RETINA_PREFIX.exec(url);
       if (resolution) {
         return parseFloat(resolution[1]);
       }
@@ -6203,7 +6203,7 @@
     Object.defineProperty(exports, "isMobile", {
       enumerable: true,
       get: function() {
-        return settings6.isMobile;
+        return settings8.isMobile;
       }
     });
     exports.EventEmitter = eventemitter32;
@@ -7156,10 +7156,10 @@
      */
     "use strict";
     Object.defineProperty(exports, "__esModule", {value: true});
-    var settings6 = require_settings();
+    var settings8 = require_settings();
     var math = require_math();
     var utils2 = require_utils();
-    settings6.settings.SORTABLE_CHILDREN = false;
+    settings8.settings.SORTABLE_CHILDREN = false;
     var Bounds = function() {
       function Bounds2() {
         this.minX = Infinity;
@@ -7799,7 +7799,7 @@
       function Container13() {
         var _this = _super.call(this) || this;
         _this.children = [];
-        _this.sortableChildren = settings6.settings.SORTABLE_CHILDREN;
+        _this.sortableChildren = settings8.settings.SORTABLE_CHILDREN;
         _this.sortDirty = false;
         return _this;
       }
@@ -8440,8 +8440,8 @@
      */
     "use strict";
     Object.defineProperty(exports, "__esModule", {value: true});
-    var settings6 = require_settings();
-    settings6.settings.TARGET_FPMS = 0.06;
+    var settings8 = require_settings();
+    settings8.settings.TARGET_FPMS = 0.06;
     (function(UPDATE_PRIORITY) {
       UPDATE_PRIORITY[UPDATE_PRIORITY["INTERACTION"] = 50] = "INTERACTION";
       UPDATE_PRIORITY[UPDATE_PRIORITY["HIGH"] = 25] = "HIGH";
@@ -8528,8 +8528,8 @@
         this._minElapsedMS = 0;
         this.autoStart = false;
         this.deltaTime = 1;
-        this.deltaMS = 1 / settings6.settings.TARGET_FPMS;
-        this.elapsedMS = 1 / settings6.settings.TARGET_FPMS;
+        this.deltaMS = 1 / settings8.settings.TARGET_FPMS;
+        this.elapsedMS = 1 / settings8.settings.TARGET_FPMS;
         this.lastTime = -1;
         this.speed = 1;
         this.started = false;
@@ -8669,7 +8669,7 @@
             this._lastFrame = currentTime - delta % this._minElapsedMS;
           }
           this.deltaMS = elapsedMS;
-          this.deltaTime = this.deltaMS * settings6.settings.TARGET_FPMS;
+          this.deltaTime = this.deltaMS * settings8.settings.TARGET_FPMS;
           var head = this._head;
           var listener = head.next;
           while (listener) {
@@ -8696,7 +8696,7 @@
         },
         set: function(fps) {
           var minFPS = Math.min(this.maxFPS, fps);
-          var minFPMS = Math.min(Math.max(0, minFPS) / 1e3, settings6.settings.TARGET_FPMS);
+          var minFPMS = Math.min(Math.max(0, minFPS) / 1e3, settings8.settings.TARGET_FPMS);
           this._maxElapsedMS = 1 / minFPMS;
         },
         enumerable: false,
@@ -9873,14 +9873,14 @@
      */
     "use strict";
     Object.defineProperty(exports, "__esModule", {value: true});
-    var settings6 = require_settings();
+    var settings8 = require_settings();
     var constants = require_constants();
     var utils2 = require_utils();
     var runner = require_runner();
     var ticker2 = require_ticker();
     var math = require_math();
-    settings6.settings.PREFER_ENV = utils2.isMobile.any ? constants.ENV.WEBGL : constants.ENV.WEBGL2;
-    settings6.settings.STRICT_TEXTURE_CACHE = false;
+    settings8.settings.PREFER_ENV = utils2.isMobile.any ? constants.ENV.WEBGL : constants.ENV.WEBGL2;
+    settings8.settings.STRICT_TEXTURE_CACHE = false;
     var INSTALLED = [];
     function autoDetectResource(source, options) {
       if (!source) {
@@ -10076,11 +10076,11 @@
         }
         _this.width = width || 0;
         _this.height = height || 0;
-        _this.resolution = resolution || settings6.settings.RESOLUTION;
-        _this.mipmap = mipmap !== void 0 ? mipmap : settings6.settings.MIPMAP_TEXTURES;
-        _this.anisotropicLevel = anisotropicLevel !== void 0 ? anisotropicLevel : settings6.settings.ANISOTROPIC_LEVEL;
-        _this.wrapMode = wrapMode || settings6.settings.WRAP_MODE;
-        _this.scaleMode = scaleMode !== void 0 ? scaleMode : settings6.settings.SCALE_MODE;
+        _this.resolution = resolution || settings8.settings.RESOLUTION;
+        _this.mipmap = mipmap !== void 0 ? mipmap : settings8.settings.MIPMAP_TEXTURES;
+        _this.anisotropicLevel = anisotropicLevel !== void 0 ? anisotropicLevel : settings8.settings.ANISOTROPIC_LEVEL;
+        _this.wrapMode = wrapMode || settings8.settings.WRAP_MODE;
+        _this.scaleMode = scaleMode !== void 0 ? scaleMode : settings8.settings.SCALE_MODE;
         _this.format = format || constants.FORMATS.RGBA;
         _this.type = type || constants.TYPES.UNSIGNED_BYTE;
         _this.target = target || constants.TARGETS.TEXTURE_2D;
@@ -10221,7 +10221,7 @@
       };
       BaseTexture2.from = function(source, options, strict) {
         if (strict === void 0) {
-          strict = settings6.settings.STRICT_TEXTURE_CACHE;
+          strict = settings8.settings.STRICT_TEXTURE_CACHE;
         }
         var isFrame = typeof source === "string";
         var cacheId = null;
@@ -10576,7 +10576,7 @@
         _this.url = source.src;
         _this._process = null;
         _this.preserveBitmap = false;
-        _this.createBitmap = (options.createBitmap !== void 0 ? options.createBitmap : settings6.settings.CREATE_IMAGE_BITMAP) && !!window.createImageBitmap;
+        _this.createBitmap = (options.createBitmap !== void 0 ? options.createBitmap : settings8.settings.CREATE_IMAGE_BITMAP) && !!window.createImageBitmap;
         _this.alphaMode = typeof options.alphaMode === "number" ? options.alphaMode : null;
         if (options.premultiplyAlpha !== void 0) {
           _this.premultiplyAlpha = options.premultiplyAlpha;
@@ -11317,7 +11317,7 @@
           options = {};
         }
         if (strict === void 0) {
-          strict = settings6.settings.STRICT_TEXTURE_CACHE;
+          strict = settings8.settings.STRICT_TEXTURE_CACHE;
         }
         var isFrame = typeof source === "string";
         var cacheId = null;
@@ -11362,7 +11362,7 @@
         var resource = new ImageResource(source);
         resource.url = imageUrl;
         var baseTexture = new BaseTexture(resource, {
-          scaleMode: settings6.settings.SCALE_MODE,
+          scaleMode: settings8.settings.SCALE_MODE,
           resolution: utils2.getResolutionOfUrl(imageUrl)
         });
         var texture = new Texture7(baseTexture);
@@ -12407,7 +12407,7 @@
       };
       ContextSystem2.prototype.createContext = function(canvas, options) {
         var gl;
-        if (settings6.settings.PREFER_ENV >= constants.ENV.WEBGL2) {
+        if (settings8.settings.PREFER_ENV >= constants.ENV.WEBGL2) {
           gl = canvas.getContext("webgl2", options);
         }
         if (gl) {
@@ -12513,7 +12513,7 @@
         if (this.renderer.context.webGLVersion === 1) {
           var nativeDrawBuffersExtension_1 = this.renderer.context.extensions.drawBuffers;
           var nativeDepthTextureExtension = this.renderer.context.extensions.depthTexture;
-          if (settings6.settings.PREFER_ENV === constants.ENV.WEBGL_LEGACY) {
+          if (settings8.settings.PREFER_ENV === constants.ENV.WEBGL_LEGACY) {
             nativeDrawBuffersExtension_1 = null;
             nativeDepthTextureExtension = null;
           }
@@ -12807,7 +12807,7 @@
         this.CONTEXT_UID = this.renderer.CONTEXT_UID;
         if (!gl.createVertexArray) {
           var nativeVaoExtension_1 = this.renderer.context.extensions.vertexArrayObject;
-          if (settings6.settings.PREFER_ENV === constants.ENV.WEBGL_LEGACY) {
+          if (settings8.settings.PREFER_ENV === constants.ENV.WEBGL_LEGACY) {
             nativeVaoExtension_1 = null;
           }
           if (nativeVaoExtension_1) {
@@ -13251,7 +13251,7 @@
       if (context === unknownContext || context && context.isContextLost()) {
         var canvas = document.createElement("canvas");
         var gl = void 0;
-        if (settings6.settings.PREFER_ENV >= constants.ENV.WEBGL2) {
+        if (settings8.settings.PREFER_ENV >= constants.ENV.WEBGL2) {
           gl = canvas.getContext("webgl2", {});
         }
         if (!gl) {
@@ -13550,8 +13550,8 @@
           }
           this.vertexSrc = "#define SHADER_NAME " + name5 + "\n" + this.vertexSrc;
           this.fragmentSrc = "#define SHADER_NAME " + name5 + "\n" + this.fragmentSrc;
-          this.vertexSrc = setPrecision(this.vertexSrc, settings6.settings.PRECISION_VERTEX, constants.PRECISION.HIGH);
-          this.fragmentSrc = setPrecision(this.fragmentSrc, settings6.settings.PRECISION_FRAGMENT, getMaxFragmentPrecision());
+          this.vertexSrc = setPrecision(this.vertexSrc, settings8.settings.PRECISION_VERTEX, constants.PRECISION.HIGH);
+          this.fragmentSrc = setPrecision(this.fragmentSrc, settings8.settings.PRECISION_FRAGMENT, getMaxFragmentPrecision());
         }
         this.extractData(this.vertexSrc, this.fragmentSrc);
         this.glPrograms = {};
@@ -13793,7 +13793,7 @@
         var program = Program.from(vertexSrc || Filter2.defaultVertexSrc, fragmentSrc || Filter2.defaultFragmentSrc);
         _this = _super.call(this, program, uniforms) || this;
         _this.padding = 0;
-        _this.resolution = settings6.settings.FILTER_RESOLUTION;
+        _this.resolution = settings8.settings.FILTER_RESOLUTION;
         _this.enabled = true;
         _this.autoFit = true;
         _this.legacy = !!_this.program.attributeData.aTextureCoord;
@@ -14603,9 +14603,9 @@
         var _this = _super.call(this, renderer) || this;
         _this.count = 0;
         _this.checkCount = 0;
-        _this.maxIdle = settings6.settings.GC_MAX_IDLE;
-        _this.checkCountMax = settings6.settings.GC_MAX_CHECK_COUNT;
-        _this.mode = settings6.settings.GC_MODE;
+        _this.maxIdle = settings8.settings.GC_MAX_IDLE;
+        _this.checkCountMax = settings8.settings.GC_MAX_CHECK_COUNT;
+        _this.mode = settings8.settings.GC_MODE;
         return _this;
       }
       TextureGCSystem2.prototype.postrender = function() {
@@ -14904,16 +14904,16 @@
           type = constants.RENDERER_TYPE.UNKNOWN;
         }
         var _this = _super.call(this) || this;
-        options = Object.assign({}, settings6.settings.RENDER_OPTIONS, options);
+        options = Object.assign({}, settings8.settings.RENDER_OPTIONS, options);
         if (options.roundPixels) {
-          settings6.settings.ROUND_PIXELS = options.roundPixels;
+          settings8.settings.ROUND_PIXELS = options.roundPixels;
           utils2.deprecation("5.0.0", "Renderer roundPixels option is deprecated, please use PIXI.settings.ROUND_PIXELS", 2);
         }
         _this.options = options;
         _this.type = type;
         _this.screen = new math.Rectangle(0, 0, options.width, options.height);
         _this.view = options.view || document.createElement("canvas");
-        _this.resolution = options.resolution || settings6.settings.RESOLUTION;
+        _this.resolution = options.resolution || settings8.settings.RESOLUTION;
         _this.transparent = options.transparent;
         _this.autoDensity = options.autoDensity || options.autoResize || false;
         _this.preserveDrawingBuffer = options.preserveDrawingBuffer;
@@ -15247,7 +15247,7 @@
         _this.geometryClass = null;
         _this.vertexSize = null;
         _this.state = State2.for2d();
-        _this.size = settings6.settings.SPRITE_BATCH_SIZE * 4;
+        _this.size = settings8.settings.SPRITE_BATCH_SIZE * 4;
         _this._vertexCount = 0;
         _this._indexCount = 0;
         _this._bufferedElements = [];
@@ -15272,10 +15272,10 @@
       }
       AbstractBatchRenderer2.prototype.contextChange = function() {
         var gl = this.renderer.gl;
-        if (settings6.settings.PREFER_ENV === constants.ENV.WEBGL_LEGACY) {
+        if (settings8.settings.PREFER_ENV === constants.ENV.WEBGL_LEGACY) {
           this.MAX_TEXTURES = 1;
         } else {
-          this.MAX_TEXTURES = Math.min(gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS), settings6.settings.SPRITE_MAX_TEXTURES);
+          this.MAX_TEXTURES = Math.min(gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS), settings8.settings.SPRITE_MAX_TEXTURES);
           this.MAX_TEXTURES = checkMaxIfStatementsInShader(this.MAX_TEXTURES, gl);
         }
         this._shader = this.shaderGenerator.generateShader(this.MAX_TEXTURES);
@@ -15396,7 +15396,7 @@
       };
       AbstractBatchRenderer2.prototype.updateGeometry = function() {
         var _a = this, packedGeometries = _a._packedGeometries, attributeBuffer = _a._attributeBuffer, indexBuffer = _a._indexBuffer;
-        if (!settings6.settings.CAN_UPLOAD_SAME_BUFFER) {
+        if (!settings8.settings.CAN_UPLOAD_SAME_BUFFER) {
           if (this._packedGeometryPoolSize <= this._flushId) {
             this._packedGeometryPoolSize++;
             packedGeometries[this._flushId] = new this.geometryClass();
@@ -15447,7 +15447,7 @@
       AbstractBatchRenderer2.prototype.start = function() {
         this.renderer.state.set(this.state);
         this.renderer.shader.bind(this._shader);
-        if (settings6.settings.CAN_UPLOAD_SAME_BUFFER) {
+        if (settings8.settings.CAN_UPLOAD_SAME_BUFFER) {
           this.renderer.geometry.bind(this._packedGeometries[this._flushId]);
         }
       };
@@ -19651,7 +19651,7 @@
     var core2 = require_core();
     var display = require_display();
     var math = require_math();
-    var settings6 = require_settings();
+    var settings8 = require_settings();
     var utils2 = require_utils();
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -19712,7 +19712,7 @@
         _this.indices = indices;
         _this.pluginName = "batch";
         _this.isSprite = true;
-        _this._roundPixels = settings6.settings.ROUND_PIXELS;
+        _this._roundPixels = settings8.settings.ROUND_PIXELS;
         return _this;
       }
       Sprite7.prototype._onTextureUpdate = function() {
@@ -19775,7 +19775,7 @@
         vertexData[6] = a2 * w1 + c2 * h0 + tx;
         vertexData[7] = d2 * h0 + b2 * w1 + ty;
         if (this._roundPixels) {
-          var resolution = settings6.settings.RESOLUTION;
+          var resolution = settings8.settings.RESOLUTION;
           for (var i2 = 0; i2 < vertexData.length; ++i2) {
             vertexData[i2] = Math.round((vertexData[i2] * resolution | 0) / resolution);
           }
@@ -19976,7 +19976,7 @@
     Object.defineProperty(exports, "__esModule", {value: true});
     var sprite = require_sprite();
     var core2 = require_core();
-    var settings6 = require_settings();
+    var settings8 = require_settings();
     var math = require_math();
     var utils2 = require_utils();
     /*! *****************************************************************************
@@ -20868,7 +20868,7 @@
         _this._ownCanvas = ownCanvas;
         _this.canvas = canvas2;
         _this.context = _this.canvas.getContext("2d");
-        _this._resolution = settings6.settings.RESOLUTION;
+        _this._resolution = settings8.settings.RESOLUTION;
         _this._autoResolution = true;
         _this._text = null;
         _this._style = null;
@@ -21189,13 +21189,13 @@
      */
     "use strict";
     Object.defineProperty(exports, "__esModule", {value: true});
-    var settings6 = require_settings();
+    var settings8 = require_settings();
     var core2 = require_core();
     var graphics = require_graphics();
     var ticker2 = require_ticker();
     var display = require_display();
     var text = require_text();
-    settings6.settings.UPLOADS_PER_FRAME = 4;
+    settings8.settings.UPLOADS_PER_FRAME = 4;
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
     Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -21320,7 +21320,7 @@
     var BasePrepare = function() {
       function BasePrepare2(renderer) {
         var _this = this;
-        this.limiter = new CountLimiter(settings6.settings.UPLOADS_PER_FRAME);
+        this.limiter = new CountLimiter(settings8.settings.UPLOADS_PER_FRAME);
         this.renderer = renderer;
         this.uploadHookHelper = null;
         this.queue = [];
@@ -21950,7 +21950,7 @@
     var math = require_math();
     var constants = require_constants();
     var display = require_display();
-    var settings6 = require_settings();
+    var settings8 = require_settings();
     var utils2 = require_utils();
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -22032,7 +22032,7 @@
         _this._transformID = -1;
         _this.tint = 16777215;
         _this.blendMode = constants.BLEND_MODES.NORMAL;
-        _this._roundPixels = settings6.settings.ROUND_PIXELS;
+        _this._roundPixels = settings8.settings.ROUND_PIXELS;
         _this.batchUvs = null;
         return _this;
       }
@@ -22165,7 +22165,7 @@
           vertexData[i2 * 2 + 1] = b2 * x2 + d2 * y2 + ty;
         }
         if (this._roundPixels) {
-          var resolution = settings6.settings.RESOLUTION;
+          var resolution = settings8.settings.RESOLUTION;
           for (var i2 = 0; i2 < vertexData.length; ++i2) {
             vertexData[i2] = Math.round((vertexData[i2] * resolution | 0) / resolution);
           }
@@ -22351,7 +22351,7 @@
     "use strict";
     Object.defineProperty(exports, "__esModule", {value: true});
     var math = require_math();
-    var settings6 = require_settings();
+    var settings8 = require_settings();
     var mesh = require_mesh();
     var utils2 = require_utils();
     var core2 = require_core();
@@ -22888,7 +22888,7 @@
         _this._anchor = new math.ObservablePoint(function() {
           _this.dirty = true;
         }, _this, 0, 0);
-        _this.roundPixels = settings6.settings.ROUND_PIXELS;
+        _this.roundPixels = settings8.settings.ROUND_PIXELS;
         _this.dirty = true;
         return _this;
       }
@@ -23460,7 +23460,7 @@
     "use strict";
     Object.defineProperty(exports, "__esModule", {value: true});
     var core2 = require_core();
-    var settings6 = require_settings();
+    var settings8 = require_settings();
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
     Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -23718,7 +23718,7 @@
           quality = 4;
         }
         if (resolution === void 0) {
-          resolution = settings6.settings.RESOLUTION;
+          resolution = settings8.settings.RESOLUTION;
         }
         if (kernelSize === void 0) {
           kernelSize = 5;
@@ -23807,7 +23807,7 @@
           quality = 4;
         }
         if (resolution === void 0) {
-          resolution = settings6.settings.RESOLUTION;
+          resolution = settings8.settings.RESOLUTION;
         }
         if (kernelSize === void 0) {
           kernelSize = 5;
@@ -24950,7 +24950,7 @@ void main() {
     var display = require_display();
     var math = require_math();
     var utils2 = require_utils();
-    var settings6 = require_settings();
+    var settings8 = require_settings();
     var _tempMatrix = new math.Matrix();
     display.DisplayObject.prototype._cacheAsBitmap = false;
     display.DisplayObject.prototype._cacheData = null;
@@ -25037,7 +25037,7 @@ void main() {
         var padding3 = this.filters[0].padding;
         bounds.pad(padding3);
       }
-      bounds.ceil(settings6.settings.RESOLUTION);
+      bounds.ceil(settings8.settings.RESOLUTION);
       var cachedRenderTexture = renderer.renderTexture.current;
       var cachedSourceFrame = renderer.renderTexture.sourceFrame.clone();
       var cachedProjectionTransform = renderer.projection.transform;
@@ -25091,7 +25091,7 @@ void main() {
       this.alpha = 1;
       var cachedRenderTarget = renderer.context;
       var cachedProjectionTransform = renderer._projTransform;
-      bounds.ceil(settings6.settings.RESOLUTION);
+      bounds.ceil(settings8.settings.RESOLUTION);
       var renderTexture = core2.RenderTexture.create({width: bounds.width, height: bounds.height});
       var textureCacheId = "cacheAsBitmap_" + utils2.uid();
       this._cacheData.textureCacheId = textureCacheId;
@@ -26006,7 +26006,7 @@ void main() {
     var sprite = require_sprite();
     var spriteAnimated = require_sprite_animated();
     var text = require_text();
-    var settings6 = require_settings();
+    var settings8 = require_settings();
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
     Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -26864,11 +26864,11 @@ void main() {
         }
       });
     });
-    Object.keys(settings6).forEach(function(key) {
+    Object.keys(settings8).forEach(function(key) {
       Object.defineProperty(exports, key, {
         enumerable: true,
         get: function() {
-          return settings6[key];
+          return settings8[key];
         }
       });
     });
@@ -29424,9 +29424,10 @@ void main() {
   const storageVersion = 2;
   const shadow = 0.5;
   const shadowTint = 8947848;
+  const uiDropTime = 1e3;
   const release = false;
   const clearStorage = release ? false : false;
-  const state = release ? false : false;
+  const state = release ? false : "shoot";
 
   // code/file.js
   class File {
@@ -29507,6 +29508,11 @@ void main() {
 
   // code/shoot/shoot.js
   const PIXI8 = __toModule(require_pixi());
+
+  // code/shoot/moon.js
+  const PIXI3 = __toModule(require_pixi());
+  const intersects3 = __toModule(require_intersects());
+  const yy_random2 = __toModule(require_yy_random());
 
   // node_modules/pixi-ease/dist/ease.es.js
   var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
@@ -29934,7 +29940,7 @@ void main() {
           start = element[name5].x;
           to = param;
           delta = param - start;
-          update = (ease5) => this.updateCoord(ease5, name5, "x");
+          update = (ease6) => this.updateCoord(ease6, name5, "x");
           break;
         case "scaleY":
         case "skewY":
@@ -29942,7 +29948,7 @@ void main() {
           start = element[name5].y;
           to = param;
           delta = param - start;
-          update = (ease5) => this.updateCoord(ease5, name5, "y");
+          update = (ease6) => this.updateCoord(ease6, name5, "y");
           break;
         case "tint":
         case "blend":
@@ -29950,37 +29956,37 @@ void main() {
           start = 0;
           to = colors.length;
           delta = to;
-          update = entry === "tint" ? (ease5) => this.updateTint(ease5, colors) : (ease5) => this.updateBlend(ease5, colors);
+          update = entry === "tint" ? (ease6) => this.updateTint(ease6, colors) : (ease6) => this.updateBlend(ease6, colors);
           break;
         case "shake":
           start = {x: element.x, y: element.y};
           to = param;
-          update = (ease5) => this.updateShake(ease5);
+          update = (ease6) => this.updateShake(ease6);
           break;
         case "position":
           start = {x: element.x, y: element.y};
           to = {x: param.x, y: param.y};
           delta = {x: to.x - start.x, y: to.y - start.y};
-          update = (ease5) => this.updatePosition(ease5);
+          update = (ease6) => this.updatePosition(ease6);
           break;
         case "skew":
         case "scale":
           start = element[entry].x;
           to = param;
           delta = param - start;
-          update = (ease5) => this.updatePoint(ease5, entry);
+          update = (ease6) => this.updatePoint(ease6, entry);
           break;
         case "face":
           start = element.rotation;
           to = Easing.shortestAngle(start, Math.atan2(param.y - element.y, param.x - element.x));
           delta = to - start;
-          update = (ease5) => this.updateOne(ease5, "rotation");
+          update = (ease6) => this.updateOne(ease6, "rotation");
           break;
         default:
           start = element[entry];
           to = param;
           delta = param - start;
-          update = (ease5) => this.updateOne(ease5, entry);
+          update = (ease6) => this.updateOne(ease6, entry);
       }
       this.eases.push({element, entry, update, start, to, delta});
     }
@@ -30003,8 +30009,8 @@ void main() {
           params = [params];
         }
         for (let i2 = 0; i2 < this.eases.length; i2++) {
-          const ease5 = this.eases[i2];
-          if ((!element || ease5.element === element) && (!params || params.indexOf(ease5.entry) !== -1)) {
+          const ease6 = this.eases[i2];
+          if ((!element || ease6.element === element) && (!params || params.indexOf(ease6.entry) !== -1)) {
             this.eases.splice(i2, 1);
             i2--;
           }
@@ -30014,28 +30020,28 @@ void main() {
         return true;
       }
     }
-    updateOne(ease5, entry) {
-      ease5.element[entry] = this.options.ease(this.time, ease5.start, ease5.delta, this.options.duration);
+    updateOne(ease6, entry) {
+      ease6.element[entry] = this.options.ease(this.time, ease6.start, ease6.delta, this.options.duration);
     }
-    updatePoint(ease5, entry) {
-      ease5.element[entry].x = ease5.element[entry].y = this.options.ease(this.time, ease5.start, ease5.delta, this.options.duration);
+    updatePoint(ease6, entry) {
+      ease6.element[entry].x = ease6.element[entry].y = this.options.ease(this.time, ease6.start, ease6.delta, this.options.duration);
     }
-    updatePosition(ease5) {
-      ease5.element.x = this.options.ease(this.time, ease5.start.x, ease5.delta.x, this.options.duration);
-      ease5.element.y = this.options.ease(this.time, ease5.start.y, ease5.delta.y, this.options.duration);
+    updatePosition(ease6) {
+      ease6.element.x = this.options.ease(this.time, ease6.start.x, ease6.delta.x, this.options.duration);
+      ease6.element.y = this.options.ease(this.time, ease6.start.y, ease6.delta.y, this.options.duration);
     }
-    updateCoord(ease5, name5, coord) {
-      ease5.element[name5][coord] = this.options.ease(this.time, ease5.start, ease5.delta, this.options.duration);
+    updateCoord(ease6, name5, coord) {
+      ease6.element[name5][coord] = this.options.ease(this.time, ease6.start, ease6.delta, this.options.duration);
     }
-    updateTint(ease5, colors) {
-      let index = Math.floor(this.options.ease(this.time, ease5.start, ease5.delta, this.options.duration));
+    updateTint(ease6, colors) {
+      let index = Math.floor(this.options.ease(this.time, ease6.start, ease6.delta, this.options.duration));
       if (index === colors.length) {
         index = colors.length - 1;
       }
-      ease5.element.tint = colors[index];
+      ease6.element.tint = colors[index];
     }
-    updateBlend(ease5, colors) {
-      const calc = this.options.ease(this.time, ease5.start, ease5.delta, this.options.duration);
+    updateBlend(ease6, colors) {
+      const calc = this.options.ease(this.time, ease6.start, ease6.delta, this.options.duration);
       let index = Math.floor(calc);
       if (index === colors.length) {
         index = colors.length - 1;
@@ -30057,66 +30063,66 @@ void main() {
       const r3 = percent1 * r1 + percent * r2;
       const g3 = percent1 * g1 + percent * g2;
       const b3 = percent1 * b1 + percent * b2;
-      ease5.element.tint = r3 << 16 | g3 << 8 | b3;
+      ease6.element.tint = r3 << 16 | g3 << 8 | b3;
     }
-    updateShake(ease5) {
+    updateShake(ease6) {
       function random7(n2) {
         return Math.floor(Math.random() * n2) - Math.floor(n2 / 2);
       }
-      ease5.element.x = ease5.start.x + random7(ease5.to);
-      ease5.element.y = ease5.start.y + random7(ease5.to);
+      ease6.element.x = ease6.start.x + random7(ease6.to);
+      ease6.element.y = ease6.start.y + random7(ease6.to);
     }
-    complete(ease5) {
-      if (ease5.entry === "shake") {
-        ease5.element.x = ease5.start.x;
-        ease5.element.y = ease5.start.y;
+    complete(ease6) {
+      if (ease6.entry === "shake") {
+        ease6.element.x = ease6.start.x;
+        ease6.element.y = ease6.start.y;
       }
     }
-    reverse(ease5) {
-      if (ease5.entry === "position") {
-        const swapX = ease5.to.x;
-        const swapY = ease5.to.y;
-        ease5.to.x = ease5.start.x;
-        ease5.to.y = ease5.start.y;
-        ease5.start.x = swapX;
-        ease5.start.y = swapY;
-        ease5.delta.x = -ease5.delta.x;
-        ease5.delta.y = -ease5.delta.y;
+    reverse(ease6) {
+      if (ease6.entry === "position") {
+        const swapX = ease6.to.x;
+        const swapY = ease6.to.y;
+        ease6.to.x = ease6.start.x;
+        ease6.to.y = ease6.start.y;
+        ease6.start.x = swapX;
+        ease6.start.y = swapY;
+        ease6.delta.x = -ease6.delta.x;
+        ease6.delta.y = -ease6.delta.y;
       } else {
-        const swap = ease5.to;
-        ease5.to = ease5.start;
-        ease5.start = swap;
-        ease5.delta = -ease5.delta;
+        const swap = ease6.to;
+        ease6.to = ease6.start;
+        ease6.start = swap;
+        ease6.delta = -ease6.delta;
       }
     }
-    repeat(ease5) {
-      switch (ease5.entry) {
+    repeat(ease6) {
+      switch (ease6.entry) {
         case "skewX":
-          ease5.element.skew.x = ease5.start;
+          ease6.element.skew.x = ease6.start;
           break;
         case "skewY":
-          ease5.element.skew.y = ease5.start;
+          ease6.element.skew.y = ease6.start;
           break;
         case "skew":
-          ease5.element.skew.x = ease5.start;
-          ease5.element.skew.y = ease5.start;
+          ease6.element.skew.x = ease6.start;
+          ease6.element.skew.y = ease6.start;
           break;
         case "scaleX":
-          ease5.element.scale.x = ease5.start;
+          ease6.element.scale.x = ease6.start;
           break;
         case "scaleY":
-          ease5.element.scale.y = ease5.start;
+          ease6.element.scale.y = ease6.start;
           break;
         case "scale":
-          ease5.element.scale.x = ease5.start;
-          ease5.element.scale.y = ease5.start;
+          ease6.element.scale.x = ease6.start;
+          ease6.element.scale.y = ease6.start;
           break;
         case "position":
-          ease5.element.x = ease5.start.x;
-          ease5.element.y = ease5.start.y;
+          ease6.element.x = ease6.start.x;
+          ease6.element.y = ease6.start.y;
           break;
         default:
-          ease5.element[ease5.entry] = ease5.start;
+          ease6.element[ease6.entry] = ease6.start;
       }
     }
     update(elapsed) {
@@ -30141,21 +30147,21 @@ void main() {
         this.time = this.options.duration;
       }
       for (let i2 = 0; i2 < this.eases.length; i2++) {
-        const ease5 = this.eases[i2];
-        if (ease5.element._destroyed) {
+        const ease6 = this.eases[i2];
+        if (ease6.element._destroyed) {
           this.eases.splice(i2, 1);
           i2--;
         } else {
-          ease5.update(ease5);
+          ease6.update(ease6);
         }
       }
       this.emit("each", this);
       if (this.time >= this.options.duration) {
         if (this.options.reverse) {
-          this.eases.forEach((ease5) => this.reverse(ease5));
+          this.eases.forEach((ease6) => this.reverse(ease6));
           this.time = leftover;
           if (leftover) {
-            this.eases.forEach((ease5) => ease5.update(ease5));
+            this.eases.forEach((ease6) => ease6.update(ease6));
           }
           this.emit("reverse", this);
           if (!this.options.repeat) {
@@ -30164,17 +30170,17 @@ void main() {
             this.options.repeat--;
           }
         } else if (this.options.repeat) {
-          this.eases.forEach((ease5) => this.repeat(ease5));
+          this.eases.forEach((ease6) => this.repeat(ease6));
           this.time = leftover;
           if (leftover) {
-            this.eases.forEach((ease5) => ease5.update(ease5));
+            this.eases.forEach((ease6) => ease6.update(ease6));
           }
           if (this.options.repeat !== true) {
             this.options.repeat--;
           }
           this.emit("repeat", this);
         } else {
-          this.eases.forEach((ease5) => this.complete(ease5));
+          this.eases.forEach((ease6) => this.complete(ease6));
           this.emit("complete", this);
           return true;
         }
@@ -30306,8 +30312,8 @@ void main() {
     get duration() {
       return this.options.duration;
     }
-    set ease(ease5) {
-      this.options.ease = ease5;
+    set ease(ease6) {
+      this.options.ease = ease6;
     }
     get ease() {
       return this.options.ease;
@@ -30320,11 +30326,6 @@ void main() {
   // code/shoot/ease.js
   const ease2 = new Ease({noTicker: true});
 
-  // code/shoot/moon.js
-  const PIXI3 = __toModule(require_pixi());
-  const intersects3 = __toModule(require_intersects());
-  const yy_random2 = __toModule(require_yy_random());
-
   // code/shoot/stars.js
   const PIXI2 = __toModule(require_pixi());
   const yy_random = __toModule(require_yy_random());
@@ -30335,7 +30336,7 @@ void main() {
 
   // package.json
   var name2 = "moonshot";
-  var version = "0.1.7";
+  var version = "0.1.9";
   var description = "Game Off 2020 - Shoot the Moon (like literally)";
   var scripts = {
     serve: "node generate",
@@ -32073,7 +32074,20 @@ void main() {
       this.arrow.tint = 8947848;
       this.arrow.width = this.arrow.height = 1 / 11 * 2;
       this.level = this.addChild(new Words());
-      this.position.set(1, 1);
+      this.x = 1;
+    }
+    show() {
+      this.y = -4;
+      ease2.removeEase(this);
+      ease2.add(this, {y: 1}, {wait: moon2.approachTime / 2, duration: uiDropTime, ease: "easeOutBounce"});
+    }
+    hide() {
+      this.y = 1;
+      ease2.removeEase(this);
+      ease2.add(this, {y: -4}, {duration: uiDropTime / 2, ease: "easeInSine"});
+    }
+    get size() {
+      return this.x + this.width;
     }
     getScale() {
       return this.level.scale.x;
@@ -32109,6 +32123,23 @@ void main() {
       this.helpCount = 0;
       this.draw();
     }
+    show() {
+      ease.removeEase(this);
+      if (this.top) {
+        this.y = -4;
+        ease.add(this, {y: 1}, {wait: moon2.approachTime / 2, duration: uiDropTime, ease: "easeOutBounce"});
+      } else {
+        this.y = 4;
+        ease.add(this, {y: -1}, {wait: moon2.approachTime / 2, duration: uiDropTime, ease: "easeOutBounce"});
+      }
+    }
+    hide() {
+      ease.removeEase(this);
+      if (this.top) {
+        this.y = 1;
+        ease.add(this, {y: -4}, {duration: uiDropTime / 2, ease: "easeInBounce"});
+      }
+    }
     reset() {
       this.current = 0;
       this.helpCount = 0;
@@ -32120,16 +32151,26 @@ void main() {
     }
     draw() {
       const width = this.total * 2 + 1;
-      this.meter.clear().beginFill(11184810).drawRect(view.width - width - 1, 1, width, 3).endFill();
-      let x2 = view.width - width;
+      let y2;
+      if (width + back.size + 1 > view.width) {
+        y2 = view.height - 3;
+        this.y = -1;
+        this.top = false;
+      } else {
+        this.y = 1;
+        y2 = 0;
+        this.top = true;
+      }
+      this.meter.clear().beginFill(11184810).drawRect(view.width - width, y2, width, 3).endFill();
+      let x2 = view.width - width + 1;
       for (let i2 = 0; i2 < this.total; i2++) {
-        this.meter.beginFill(i2 < this.current ? 16711680 : 8947848).drawRect(x2, 2, 1, 1).endFill();
+        this.meter.beginFill(i2 < this.current ? 16711680 : 8947848).drawRect(x2, y2 + 1, 1, 1).endFill();
         x2 += 2;
       }
       this.left = view.width - width - 1;
     }
     down(local) {
-      if (local.x > this.left && local.y <= 4) {
+      if (local.x > this.left && (this.top && local.y <= 4 || !this.top && local.y > view.height - 4)) {
         moon2.reset();
         meter.reset();
         this.update(0);
@@ -32315,17 +32356,13 @@ void main() {
   // code/shoot/shoot.js
   const starsFadeTime = 500;
   const frameTime = 1e3 / 60;
-  const topDownTime = 1e3;
-  const topUpTime = 500;
   class Shoot extends PIXI8.Container {
     init() {
       this.addChild(stars);
       this.addChild(moon2);
       this.addChild(laser);
-      this.top = this.addChild(new PIXI8.Container());
-      this.top.addChild(meter);
-      this.top.addChild(back);
-      this.top.y = -4;
+      this.addChild(meter);
+      this.addChild(back);
     }
     change(fromMoon) {
       const level = shoot_default[file.shoot.level];
@@ -32334,9 +32371,8 @@ void main() {
       laser.reset();
       back.change();
       meter.init(level.minimum);
-      this.top.y = -4;
-      ease2.removeEase(this.top);
-      ease2.add(this.top, {y: 0}, {wait: moon2.approachTime / 2, duration: topDownTime, ease: "easeOutBounce"});
+      back.show();
+      meter.show();
       if (fromMoon) {
         stars.warpIn();
       } else {
@@ -32346,9 +32382,8 @@ void main() {
       }
     }
     complete() {
-      this.top.y = 0;
-      ease2.removeEase(this.top);
-      ease2.add(this.top, {y: -4}, {duration: topUpTime, ease: "easeInSine"});
+      back.hide();
+      meter.hide();
       stars.warpOut();
       sounds.play("warp");
     }
@@ -32383,6 +32418,7 @@ void main() {
     resize() {
       stars.resize();
       moon2.resize();
+      meter.draw();
     }
   }
   const shoot2 = new Shoot();
@@ -32732,12 +32768,12 @@ void main() {
     async start() {
       sounds.load();
       await file.init();
-      if (!release) {
-        this.fps = new yy_fps.default();
-      }
       await sheet.init();
       view.init();
       state3.init();
+      if (!release) {
+        this.fps = new yy_fps.default();
+      }
       this.update();
       input.init();
       window.addEventListener("resize", () => this.resize());

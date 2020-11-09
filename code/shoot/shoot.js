@@ -1,11 +1,11 @@
 import * as PIXI from 'pixi.js'
 
-import { ease } from './ease'
 import { moon } from './moon'
 import { laser } from './laser'
 import { meter } from './meter'
 import { stars } from './stars'
 import { back } from './back'
+import { ease } from './ease'
 import { file } from '../file'
 import { sounds } from '../sounds'
 
@@ -13,18 +13,14 @@ import levels from './shoot.json'
 
 const starsFadeTime = 500
 const frameTime = 1000 / 60
-const topDownTime = 1000
-const topUpTime = 500
 
 class Shoot extends PIXI.Container {
     init() {
         this.addChild(stars)
         this.addChild(moon)
         this.addChild(laser)
-        this.top = this.addChild(new PIXI.Container())
-        this.top.addChild(meter)
-        this.top.addChild(back)
-        this.top.y = -4
+        this.addChild(meter)
+        this.addChild(back)
     }
 
     change(fromMoon) {
@@ -34,9 +30,8 @@ class Shoot extends PIXI.Container {
         laser.reset()
         back.change()
         meter.init(level.minimum)
-        this.top.y = -4
-        ease.removeEase(this.top)
-        ease.add(this.top, { y: 0 }, { wait: moon.approachTime / 2, duration: topDownTime, ease: 'easeOutBounce'})
+        back.show()
+        meter.show()
         if (fromMoon) {
             stars.warpIn()
         } else {
@@ -47,9 +42,8 @@ class Shoot extends PIXI.Container {
     }
 
     complete() {
-        this.top.y = 0
-        ease.removeEase(this.top)
-        ease.add(this.top, { y: -4 }, { duration: topUpTime, ease: 'easeInSine' })
+        back.hide()
+        meter.hide()
         stars.warpOut()
         sounds.play('warp')
     }
@@ -90,6 +84,7 @@ class Shoot extends PIXI.Container {
     resize() {
         stars.resize()
         moon.resize()
+        meter.draw()
     }
 }
 

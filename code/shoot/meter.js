@@ -5,6 +5,7 @@ import random from 'yy-random'
 import { view } from '../view'
 import { Words } from '../Words'
 import { sounds } from '../sounds'
+import * as settings from '../settings'
 import { moon } from './moon'
 import { back } from './back'
 
@@ -25,6 +26,26 @@ class Meter extends PIXI.Container {
         this.draw()
     }
 
+    show() {
+        ease.removeEase(this)
+        if (this.top) {
+            this.y = -4
+            ease.add(this, { y: 1 }, { wait: moon.approachTime / 2, duration: settings.uiDropTime, ease: 'easeOutBounce'})
+        } else {
+            this.y = 4
+            ease.add(this, { y: -1 }, { wait: moon.approachTime / 2, duration: settings.uiDropTime, ease: 'easeOutBounce'})
+        }
+    }
+
+    hide() {
+        ease.removeEase(this)
+        if (this.top) {
+            this.y = 1
+            ease.add(this, { y: -4 }, { duration: settings.uiDropTime / 2, ease: 'easeInBounce'})
+        }
+
+    }
+
     reset() {
         this.current = 0
         this.helpCount = 0
@@ -38,16 +59,26 @@ class Meter extends PIXI.Container {
 
     draw() {
         const width = this.total * 2 + 1
+        let y
+        if (width + back.size + 1 > view.width) {
+            y = view.height - 3
+            this.y = -1
+            this.top = false
+        } else {
+            this.y = 1
+            y = 0
+            this.top = true
+        }
         this.meter
             .clear()
             .beginFill(0xaaaaaa)
-            .drawRect(view.width - width - 1, 1, width, 3)
+            .drawRect(view.width - width, y, width, 3)
             .endFill()
-        let x = view.width - width
+        let x = view.width - width + 1
         for (let i = 0; i < this.total; i++) {
             this.meter
                 .beginFill(i < this.current ? 0xff0000 : 0x888888)
-                .drawRect(x, 2, 1, 1)
+                .drawRect(x, y + 1, 1, 1)
                 .endFill()
             x += 2
         }
@@ -55,7 +86,7 @@ class Meter extends PIXI.Container {
     }
 
     down(local) {
-        if (local.x > this.left && local.y <= 4) {
+        if (local.x > this.left && ((this.top && local.y <= 4) || (!this.top && local.y > view.height - 4))) {
             moon.reset()
             meter.reset()
             this.update(0)
