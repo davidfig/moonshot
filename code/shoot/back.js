@@ -5,9 +5,6 @@ import { file } from '../file'
 import { Words } from '../Words'
 import { state } from '../state'
 import { sounds } from '../sounds'
-import * as settings from '../settings'
-import { ease } from './ease'
-import { moon } from './moon'
 
 class Back extends PIXI.Container {
     constructor() {
@@ -18,18 +15,6 @@ class Back extends PIXI.Container {
         this.arrow.width = this.arrow.height = 1 / 11 * 2
         this.level = this.addChild(new Words())
         this.x = 1
-    }
-
-    show() {
-        this.y = -4
-        ease.removeEase(this)
-        ease.add(this, { y: 1 }, { wait: moon.approachTime / 2, duration: settings.uiDropTime, ease: 'easeOutBounce'})
-    }
-
-    hide() {
-        this.y = 1
-        ease.removeEase(this)
-        ease.add(this, { y: -4 }, { duration: settings.uiDropTime / 2, ease: 'easeInSine' })
     }
 
     get size() {

@@ -44,7 +44,8 @@ class File {
             shoot: {
                 level: 0,
                 max: 0,
-            }
+            },
+            noStory: false,
         }
         await this.save()
     }
@@ -73,6 +74,14 @@ class File {
     }
     set sound(value) {
         this.data.sound = value
+        this.save()
+    }
+
+    get noStory() {
+        return this.data.noStory
+    }
+    set noStory(value) {
+        this.data.noStory = value
         this.save()
     }
 

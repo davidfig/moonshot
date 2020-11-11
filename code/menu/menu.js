@@ -24,23 +24,28 @@ class Menu extends PIXI.Container {
         stars.draw()
         title.init()
         this.draw()
-        this.menu.scale.set(0.5)
-        this.menu.position.set(view.width / 2 - this.menu.width / 2, view.height / 2 - this.menu.height / 2)
     }
 
     draw() {
-        let y = 0, longest = 0
         this.menu.removeChildren()
+        this.menu.scale.set(0.4)
         this.shoot()
+        this.story()
         this.sound()
+        this.about()
+        let longest = 0
         for (const item of this.menu.children) {
             longest = Math.max(longest, item.width)
         }
+        let y = 0
         for (const item of this.menu.children) {
             item.x = longest / 2 - item.width / 2
             item.y = y
             y += item.height + padding
         }
+        const top = title.height
+        const remaining = view.height - top
+        this.menu.position.set(view.width / 2 - this.menu.width / 2 , top + remaining / 2 - this.menu.height / 2)
     }
 
     shoot() {
@@ -65,8 +70,16 @@ class Menu extends PIXI.Container {
         }
     }
 
+    story() {
+        this.storyMenu = this.menu.addChild(new Words(file.noStory ? 'skip story' : 'tell story', { shadow: true }))
+    }
+
     sound() {
         this.soundMenu = this.menu.addChild(new Words(file.sound ? 'sounds on' : 'sounds off', { shadow: true }))
+    }
+
+    about() {
+        this.aboutMenu = this.menu.addChild(new Words('About', { shadow: true }))
     }
 
     reset() {}
@@ -94,6 +107,13 @@ class Menu extends PIXI.Container {
             if (file.sound) {
                 sounds.play('beep')
             }
+            this.draw()
+        } else if (this.aboutMenu.containsPoint(point)) {
+            sounds.play('beep')
+            window.open('https://yopeyopey.com/games/shoot-the-moon/', { target: '_blank' })
+        } else if (this.storyMenu.containsPoint(point)) {
+            file.noStory = !file.noStory
+            sounds.play('beep')
             this.draw()
         }
     }

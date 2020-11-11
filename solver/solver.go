@@ -3,14 +3,17 @@ package main
 import (
 	"fmt"
 	"math"
+	"math/rand"
 	"sort"
 	"strconv"
+	"time"
 )
 
 type board struct {
-	blocks []int
-	moves  int
-	count  int
+	blocks     []int
+	moves      int
+	count      int
+	difficulty int
 }
 
 var seed int
@@ -20,6 +23,9 @@ var size int
 var minimum int = -1
 var tested int = 0
 var colorList []int
+var difficulty int
+var params parameters
+var failed bool
 
 func createBoard() *board {
 	var moon board
@@ -27,34 +33,35 @@ func createBoard() *board {
 	return &moon
 }
 
-func randomFloat() float64 {
-	n := math.Sin(float64(seed)) * 10000
-	seed++
-	return n - math.Floor(n)
-}
+// func randomFloat() float64 {
+// 	n := math.Sin(float64(seed)) * 10000
+// 	seed++
+// 	return n - math.Floor(n)
+// }
 
-func randomInt(n int) int {
-	var negative int
-	if n < 0 {
-		negative = -1
-	} else {
-		negative = 1
+// func randomInt(n int) int {
+// 	var negative int
+// 	if n < 0 {
+// 		negative = -1
+// 	} else {
+// 		negative = 1
+// 	}
+// 	n *= negative
+// 	result := math.Floor(randomFloat() * float64(n))
+// 	return int(result) * negative
+// }
+
+func makeColors(n int) []int {
+	colorList = make([]int, n)
+	for i := 0; i < n; i++ {
+		colorList[i] = rand.Intn(0xffffff)
 	}
-	n *= negative
-	result := math.Floor(randomFloat() * float64(n))
-	return int(result) * negative
-}
-
-func stars() {
-	seed += 5 * 20
+	return colorList
 }
 
 func moonData() *board {
 	moon := createBoard()
-	colorList = make([]int, colors)
-	for i := 0; i < colors; i++ {
-		colorList[i] = randomInt(0xffffff)
-	}
+	makeColors(colors)
 	radiusSquared := radius * radius
 	for y := 0; y < size; y++ {
 		for x := 0; x < size; x++ {
@@ -62,7 +69,7 @@ func moonData() *board {
 			dy := y - radius
 			distanceSquared := dx*dx + dy*dy
 			if distanceSquared <= radiusSquared {
-				color := randomInt(colors)
+				color := rand.Intn(colors)
 				moon.blocks[x+y*size] = color
 				moon.count++
 			} else {
@@ -91,20 +98,52 @@ func draw(data *board) {
 }
 
 type solved struct {
-	minimum int
-	moon    *board
-	colors  []int
+	seed       int
+	minimum    int
+	moon       *board
+	colors     []int
+	difficulty int
 }
 
-func solve(l level) solved {
+func seedExists(s shootJSON) bool {
+	for _, shoot := range s {
+		if shoot.Seed == seed {
+			return true
+		}
+	}
+	return false
+}
+
+func simpleSeed() {
+	nano := time.Now().UnixNano()
+	seedString := fmt.Sprintf("%d", nano)
+	seed, _ = strconv.Atoi(seedString[len(seedString)-6:])
+	rand.Seed(int64(seed))
+}
+
+func solver(p parameters, shoot shootJSON) *solved {
+	params = p
+	for {
+		nano := time.Now().UnixNano()
+		seedString := fmt.Sprintf("%d", nano)
+		seed, _ = strconv.Atoi(seedString[len(seedString)-6:])
+		if !seedExists(shoot) {
+			break
+		}
+	}
+	rand.Seed(int64(seed))
 	minimum = 1000
-	seed = l.seed
-	radius = l.radius
-	size = l.radius*2 + 1
-	colors = l.colors
+	difficulty = 0
+	radius = p.Radius
+	size = radius*2 + 1
+	colors = p.Colors
 	data := moonData()
 	iterate(data)
-	return solved{minimum: minimum, moon: data, colors: colorList}
+	if minimum != 1000 {
+		s := solved{seed: seed, minimum: minimum, moon: data, colors: colorList, difficulty: difficulty}
+		return &s
+	}
+	return nil
 }
 
 func cloneData(data *board) *board {
@@ -114,6 +153,7 @@ func cloneData(data *board) *board {
 	}
 	clone.count = data.count
 	clone.moves = data.moves + 1
+	clone.difficulty = data.difficulty
 	tested++
 	return clone
 }
@@ -267,13 +307,18 @@ func countColors(data *board, moves [][]neighbor) int {
 func iterate(data *board) {
 	moves := gather(data)
 	if countColors(data, moves)+data.moves < minimum {
-		for _, move := range moves {
+		for moveIndex, move := range moves {
+			if failed {
+				break
+			}
 			clone := cloneData(data)
+			clone.difficulty += moveIndex
 			clear(clone, move)
 			compress(clone)
 			if clone.count == 0 {
-				if clone.moves < minimum {
+				if clone.moves <= minimum || (clone.moves == minimum && clone.difficulty > difficulty) {
 					minimum = clone.moves
+					difficulty = clone.difficulty
 					// fmt.Println("New minimum: ", minimum)
 					// fmt.Printf("\rMoves: %d, minimum %d", tested, minimum)
 				}

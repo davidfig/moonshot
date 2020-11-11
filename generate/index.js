@@ -51,7 +51,7 @@ async function build() {
 
 function watch() {
     compile()
-    const watcher = chokidar.watch('code/**/*.js')
+    const watcher = chokidar.watch(['code/**/*', 'script/script.js'])
     watcher.on('change', compile)
 }
 

@@ -5,9 +5,11 @@ import { laser } from './laser'
 import { meter } from './meter'
 import { stars } from './stars'
 import { back } from './back'
+import { text } from './text'
 import { ease } from './ease'
 import { file } from '../file'
 import { sounds } from '../sounds'
+import * as settings from '../settings'
 
 import levels from './shoot.json'
 
@@ -19,19 +21,34 @@ class Shoot extends PIXI.Container {
         this.addChild(stars)
         this.addChild(moon)
         this.addChild(laser)
-        this.addChild(meter)
-        this.addChild(back)
+        this.top = this.addChild(new PIXI.Container())
+        this.top.y = -4
+        this.isComplete = false
+        this.top.addChild(meter)
+        this.top.addChild(back)
+        this.addChild(text)
     }
 
     change(fromMoon) {
+        if (settings.shoot !== false) {
+            file.shoot.level = settings.shoot
+        }
         const level = levels[file.shoot.level]
-        stars.draw(level.seed)
+        console.log(`ID: ${level.Seed}-${level.Radius} Difficulty: ${level.Difficulty}`)
+        stars.draw(level.Seed)
         moon.draw(level)
         laser.reset()
         back.change()
-        meter.init(level.minimum)
-        back.show()
-        meter.show()
+        meter.init(level.Minimum)
+        if (file.shootLevel === 0 && !file.noStory) {
+            text.tutorial(() => this.start(fromMoon), 0)
+        } else {
+            this.start(fromMoon)
+        }
+    }
+
+    start(fromMoon) {
+        this.showTop()
         if (fromMoon) {
             stars.warpIn()
         } else {
@@ -42,17 +59,30 @@ class Shoot extends PIXI.Container {
     }
 
     complete() {
-        back.hide()
-        meter.hide()
-        stars.warpOut()
-        sounds.play('warp')
+        if (!this.isComplete) {
+            this.hideTop()
+            this.isComplete = true
+            if (file.shootLevel === 0 && !file.noStory) {
+                text.tutorial(() => {
+                    stars.warpOut()
+                    sounds.play('warp')
+                }, 1)
+            } else {
+                stars.warpOut()
+                sounds.play('warp')
+            }
+        }
     }
 
     down(point) {
-        this.isDown = true
-        const local = this.toLocal(point)
-        if (!back.down(local) && !meter.down(local)) {
-            laser.down(point)
+        if (text.visible) {
+            text.down(point)
+        } else {
+            this.isDown = true
+            const local = this.toLocal(point)
+            if (!back.down(local) && !meter.down(local)) {
+                laser.down(point)
+            }
         }
     }
 
@@ -85,6 +115,18 @@ class Shoot extends PIXI.Container {
         stars.resize()
         moon.resize()
         meter.draw()
+    }
+
+    showTop() {
+        this.top.y = -4
+        ease.removeEase(this.top)
+        ease.add(this.top, { y: 1 }, { wait: moon.approachTime / 2, duration: settings.uiDropTime, ease: 'easeOutBounce'})
+    }
+
+    hideTop() {
+        this.top.y = 1
+        ease.removeEase(this.top)
+        ease.add(this.top, { y: -4 }, { duration: settings.uiDropTime / 2, ease: 'easeInSine' })
     }
 }
 

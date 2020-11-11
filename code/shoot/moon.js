@@ -6,8 +6,12 @@ import { ease } from './ease'
 import { stars } from './stars'
 import { view } from '../view'
 import { sounds } from '../sounds'
+import { file } from '../file'
+import { Words } from '../Words'
 import { shoot } from './shoot'
+import { meter } from './meter'
 
+const fadeTime = 400
 const approachTime = 2000
 const framesForSpread = 3
 const resetTime = 826
@@ -58,12 +62,26 @@ class Moon extends PIXI.Container {
             block.data.y = block.original.y
             block.tint = this.colors[block.data.color]
         }
+        if (file.shootLevel === 0 && !file.noStory) {
+            this.help.change('<- press here')
+            this.help.position.set(this.blockFirstHelp.original.x, this.blockFirstHelp.original.y - this.help.height / 2)
+            this.help.alpha = 0
+            ease.add(this.help, { alpha: 1 }, { duration: fadeTime, ease: 'easeInOutSine'} )
+        }
     }
 
     approach() {
         this.scale.set(0)
         this.approaching = ease.add(this, { scale: this.getScale() }, { duration: approachTime, ease: 'easeOutSine' })
-        this.approaching.on('complete', () => this.approaching = null)
+        this.approaching.on('complete', () => {
+            if (file.shootLevel === 0 && !file.noStory && !this.oneColor()) {
+                this.help = this.addChild(new Words('<- press here'))
+                this.help.scale.set(0.25 / this.scale.x)
+                this.help.position.set(this.blockFirstHelp.x, this.blockFirstHelp.y - this.help.height / 2)
+                this.help.alpha = 0
+                ease.add(this.help, { alpha: 1 }, { duration: fadeTime, ease: 'easeInOutSine'} )
+            }
+        })
         sounds.play('approach')
     }
 
@@ -71,24 +89,26 @@ class Moon extends PIXI.Container {
         this.complete = false
         this.moon.removeChildren()
         this.leaving.removeChildren()
-        this.colors = level.colors
-        this.radius = level.radius
+        this.colors = level.Colors
+        this.radius = level.Radius
         const size = this.radius * 2 + 1
         this.total = 0
         for (let y = 0; y <= this.radius * 2; y++) {
             for (let x = 0; x <= this.radius * 2; x++) {
-                const color = level.blocks[x + y * size]
-                if (color !== 0) {
-                    const box = this.box(x, y, this.colors[color - 1])
-                    box.data = { x, y, color: color - 1 }
+                const color = level.Blocks[x + y * size]
+                if (color !== -1) {
+                    const box = this.box(x, y, this.colors[color])
+                    box.data = { x, y, color }
                     this.total++
                 }
             }
         }
-
-        this.pivot.set(level.radius)
+        this.pivot.set(this.radius)
         this.position.set(view.width / 2, view.height / 2)
         this.scale.set(0)
+        if (file.shootLevel === 0 && !file.noStory) {
+            this.blockFirstHelp = this.moon.children[12]
+        }
     }
 
     resize() {
@@ -146,6 +166,14 @@ class Moon extends PIXI.Container {
         this.level = 0
         this.spreadFrames = 0
         this.spreading = true
+        if (file.shootLevel === 0 && !file.noStory && this.moon.children.length === 23) {
+            ease.removeEase(this.help)
+            const easing = ease.add(this.help, { alpha: 0 }, { duration: fadeTime, ease: 'easeInOutSine' })
+            easing.on('complete', () => {
+                this.removeChild(this.help)
+                this.help = 0
+            })
+        }
     }
 
     hasBlock(x, y) {
@@ -207,8 +235,33 @@ class Moon extends PIXI.Container {
                 this.shaking = Date.now()
                 this.compress(1)
                 sounds.play('separate')
+                if (file.shootLevel === 0 && !file.noStory) {
+                    if (this.moon.children.length) {
+                        if (this.oneColor()) {
+                            if (!this.help) {
+                                this.help = this.addChild(new Words('<- press here'))
+                                this.help.scale.set(0.25 / this.scale.x)
+                            }
+                            this.help.change('<- and here')
+                            const block = this.moon.children[6]
+                            this.help.position.set(block.x, block.y - this.help.height / 2)
+                        } else {
+                            meter.showHelp(true)
+                            ease.removeEase(this.help)
+                            ease.add(this.help, { alpha: 0 }, { duration: fadeTime, ease: 'easeInOutSine' })
+                        }
+                    }
+                }
             }
         }
+    }
+
+    oneColor() {
+        const colors = {}
+        for (const moon of this.moon.children) {
+            colors[moon.tint] = true
+        }
+        return Object.keys(colors).length === 1
     }
 
     updateShake() {

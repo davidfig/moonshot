@@ -5,7 +5,6 @@ import random from 'yy-random'
 import { view } from '../view'
 import { Words } from '../Words'
 import { sounds } from '../sounds'
-import * as settings from '../settings'
 import { moon } from './moon'
 import { back } from './back'
 
@@ -26,26 +25,6 @@ class Meter extends PIXI.Container {
         this.draw()
     }
 
-    show() {
-        ease.removeEase(this)
-        if (this.top) {
-            this.y = -4
-            ease.add(this, { y: 1 }, { wait: moon.approachTime / 2, duration: settings.uiDropTime, ease: 'easeOutBounce'})
-        } else {
-            this.y = 4
-            ease.add(this, { y: -1 }, { wait: moon.approachTime / 2, duration: settings.uiDropTime, ease: 'easeOutBounce'})
-        }
-    }
-
-    hide() {
-        ease.removeEase(this)
-        if (this.top) {
-            this.y = 1
-            ease.add(this, { y: -4 }, { duration: settings.uiDropTime / 2, ease: 'easeInBounce'})
-        }
-
-    }
-
     reset() {
         this.current = 0
         this.helpCount = 0
@@ -58,43 +37,41 @@ class Meter extends PIXI.Container {
     }
 
     draw() {
+        this.meter.scale.set(1)
         const width = this.total * 2 + 1
-        let y
-        if (width + back.size + 1 > view.width) {
-            y = view.height - 3
-            this.y = -1
-            this.top = false
-        } else {
-            this.y = 1
-            y = 0
-            this.top = true
-        }
         this.meter
             .clear()
             .beginFill(0xaaaaaa)
-            .drawRect(view.width - width, y, width, 3)
+            .drawRect(0, 0, width, 3)
             .endFill()
-        let x = view.width - width + 1
+        let x = 1
         for (let i = 0; i < this.total; i++) {
             this.meter
                 .beginFill(i < this.current ? 0xff0000 : 0x888888)
-                .drawRect(x, y + 1, 1, 1)
+                .drawRect(x, 1, 1, 1)
                 .endFill()
             x += 2
         }
-        this.left = view.width - width - 1
+        if (width + 2 > view.width - back.width) {
+            this.meter.width = view.width - back.width - 2
+            this.meter.scale.y = this.meter.scale.x
+        }
+        this.x = view.width - this.meter.width - 1
+        this.left = view.width - this.meter.width - 1
     }
 
     down(local) {
-        if (local.x > this.left && ((this.top && local.y <= 4) || (!this.top && local.y > view.height - 4))) {
-            moon.reset()
-            meter.reset()
-            this.update(0)
-            sounds.play('whoosh')
-            if (this.help) {
-                ease.removeEase(this.help)
-                this.removeChild(this.help)
-                this.help = null
+        if (local.x > this.left && local.y <= this.height + 1) {
+            if (this.current !== 0 && moon.canFire()) {
+                moon.reset()
+                meter.reset()
+                this.update(0)
+                sounds.play('whoosh')
+                if (this.help) {
+                    ease.removeEase(this.help)
+                    this.removeChild(this.help)
+                    this.help = null
+                }
             }
             return true
         }
@@ -111,18 +88,20 @@ class Meter extends PIXI.Container {
         return true
     }
 
-    showHelp() {
+    showHelp(force) {
         if (!this.help) {
             this.helpCount++
-            if (this.helpCount > 1) {
+            if (force || this.helpCount > 1) {
                 this.help = this.addChild(new Words('reset ^'))
-                this.help.scale.y = this.help.scale.x = back.getScale()
-                this.help.position.set(view.width - this.meter.width / 2 - this.help.width, 4.5)
-                const easing = ease.add(this.help, { alpha: 0 }, { duration: helpFadeTime, ease: 'easeInOutSine' })
-                easing.on('complete', () => {
-                    this.removeChild(this.help)
-                    this.help = null
-                })
+                this.help.scale.y = this.help.scale.x = 0.25
+                this.help.position.set(-this.help.width + this.meter.width / 2 + 0.5, 3.5)
+                if (!force) {
+                    const easing = ease.add(this.help, { alpha: 0 }, { duration: helpFadeTime, ease: 'easeInOutSine' })
+                    easing.on('complete', () => {
+                        this.removeChild(this.help)
+                        this.help = null
+                    })
+                }
             }
         }
     }

@@ -12,9 +12,8 @@
             "program": "${workspaceFolder}/solver",
             "env": {},
             "args": [
-                "0",
-                "6",
-                "3"
+                "-- radius 3",
+                "--colors 2"
             ]
         }
     ]

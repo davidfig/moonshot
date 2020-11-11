@@ -4,7 +4,6 @@ import { sheet } from './sheet'
 import { shadow, shadowTint } from './settings'
 
 const COLOR = 0xffffff
-const BACKGROUND = 0
 
 export class Words extends PIXI.Container {
     /**
@@ -12,20 +11,11 @@ export class Words extends PIXI.Container {
      * @param {object} [options]
      * @param {number} [options.color]
      * @param {bool} [options.shadow]
-     * @param {(bool|number)} [options.background]
-     * @param {number} [options.backgroundAlpha]
-     */
+      */
     constructor(words, options={}) {
         super()
         this.color = (typeof options.color === 'undefined') ? COLOR : options.color
-        this.background = this.addChild(new PIXI.Sprite(PIXI.Texture.WHITE))
-        if (options.background) {
-            this.background.alpha = options.backgroundAlpha || 0.25
-            this.background.tint = options.background === true ? BACKGROUND : options.background
-        } else {
-            this.background.alpha = 0
-        }
-        this.padding = options.padding || 0
+        this.background = this.addChild(new PIXI.Sprite())
         if (options.shadow) {
             this.shadow = this.addChild(new PIXI.Container())
             this.shadow.position.set(shadow)
@@ -33,6 +23,9 @@ export class Words extends PIXI.Container {
         this.words = this.addChild(new PIXI.Container())
         if (words) {
             this.change(words)
+        }
+        if (options.wrap) {
+            this.wrap(options.wrap)
         }
     }
 
@@ -82,6 +75,7 @@ export class Words extends PIXI.Container {
                 }
             }
         }
+        this.updateBackground()
     }
 
     write(words) {
@@ -120,12 +114,14 @@ export class Words extends PIXI.Container {
     change(text) {
         if (this.text !== text) {
             this.write(text)
-            if (this.background) {
-                this.background.width = this.words.width + this.padding * 2
-                this.background.height = this.words.height + this.padding * 2
-                this.background.position.set(-this.padding)
-            }
+            this.updateBackground()
         }
+    }
+
+    updateBackground() {
+        this.background.width = this.words.width
+        this.background.height = this.words.height
+        this.background.position.set(0, 0)
     }
 
     getLetter(letter) {
@@ -150,7 +146,7 @@ export class Words extends PIXI.Container {
             n = 37
         } else if (letter === '$') {
             n = 38
-        } else if (letter === '\'') {
+        } else if (letter === '\'' || letter === '’') {
             n = 39
         } else if (letter === '(') {
             n = 40

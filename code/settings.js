@@ -10,5 +10,5 @@ export const release = false
 
 // debug flags
 export const clearStorage = release ? false :   false
-export const state = release ? false :          'shoot' //false
+export const state = release ? false :          false
 export const shoot = release ? false :          false
