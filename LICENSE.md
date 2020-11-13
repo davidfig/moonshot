@@ -1,6 +1,22 @@
+All assets except source code, including game script and graphical assets, are licensed under the Attribution-NonCommercial-NoDerivatives 4.0 International:
+
+Copyright (c) 2020 YOPEY YOPEY LLC by David Figatner
+
+The full text of the license is available at https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode
+
+Non-legal summary:
+
+1. Attribution is required
+2. Noncommercial use only
+3. No distributed derivatives
+
+===
+
+All source code is licensed under MIT:
+
 The MIT License (MIT)
 
-Copyright (c) 2020 David Figatner
+Copyright (c) 2020 YOPEY YOPEY LLC by David Figatner
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -16,6 +16,8 @@ https://yopeyopey.com/prototypes/moonshot/
 4. `npm run serve`
 5. open browser to http://localhost:8888/
 
-## License
-MIT License
+## Licenses
+Source code: MIT License
+Game script and game assets: Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)
+
 (c) 2020 [YOPEY YOPEY LLC](https://yopeyopey.com/) by [David Figatner](https://twitter.com/yopey_yopey/)
