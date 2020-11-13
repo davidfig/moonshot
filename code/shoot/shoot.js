@@ -40,6 +40,7 @@ class Shoot extends PIXI.Container {
         laser.reset()
         back.change()
         meter.init(level.Minimum)
+        this.isComplete = false
         if (file.shootLevel === 0 && !file.noStory) {
             text.tutorial(() => this.start(fromMoon), 0)
         } else {

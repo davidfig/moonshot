@@ -39,10 +39,20 @@ class Title extends PIXI.Container {
 			    const dy = y - radius
 			    const distanceSquared = dx*dx + dy*dy
 			    if (distanceSquared <= radiusSquared) {
-                    this.moon
-                        .beginFill(random.pick(colors), x < radius ? 1 : 0.5)
-                        .drawRect(x, y, 1, 1)
-                        .endFill()
+                    if (x < radius) {
+                        this.moon
+                            .beginFill(random.pick(colors))
+                            .drawRect(x, y, 1, 1)
+                            .endFill()
+                    } else {
+                        this.moon
+                            .beginFill(0)
+                            .drawRect(x, y, 1, 1)
+                            .endFill()
+                            .beginFill(random.pick(colors), 0.5)
+                            .drawRect(x, y, 1, 1)
+                            .endFill()
+                    }
                 }
             }
         }

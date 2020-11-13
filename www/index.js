@@ -30345,7 +30345,7 @@ void main() {
 
   // package.json
   var name2 = "moonshot";
-  var version = "0.1.10";
+  var version = "0.1.12";
   var description = "Game Off 2020 - Shoot the Moon (like literally)";
   var scripts = {
     serve: "node generate",
@@ -32382,8 +32382,8 @@ void main() {
 
   // script/script.js
   const tutorial = [
-    "Ah, the new employee. Glad to have you aboard! We just reached a new galaxy full of shiny moons.##Moons that must be destroyed!",
-    "Wow! That wasn't too bad for your first moon.##The colors represent geological networks. You will need to experiment to find the fastest sequence for the Moonerator Mark 2.9.##Get ready to warp to the next system."
+    "Ah, the new employee. Glad to have you aboard!##We just reached a new galaxy full of shiny moons. Moons that must be destroyed!",
+    "Wow! That wasn't too bad for your first moon.##The colors indicate geological networks in the moon's interior. Experiment to find the fastest sequence for the Moonerator Mark v2.9.##Prepare to warp to the next system."
   ];
 
   // code/shoot/text.js
@@ -32476,6 +32476,7 @@ void main() {
       laser.reset();
       back.change();
       meter.init(level.Minimum);
+      this.isComplete = false;
       if (file.shootLevel === 0 && !file.noStory) {
         text.tutorial(() => this.start(fromMoon), 0);
       } else {
@@ -32569,10 +32570,9 @@ void main() {
   class Stars2 extends PIXI10.Container {
     constructor() {
       super();
-      this.stars = this.addChild(new PIXI10.Container());
     }
     overlap(star) {
-      for (const check of this.stars.children) {
+      for (const check of this.children) {
         if (check !== star && intersects5.default.boxBox(check.x - 0.5, check.y - 0.5, 1, 1, star.x - 0.5, star.y - 0.5, 1, 1)) {
           return true;
         }
@@ -32581,7 +32581,7 @@ void main() {
     draw() {
       yy_random5.default.reset();
       for (let i2 = 0; i2 < count2; i2++) {
-        const star = this.stars.addChild(new PIXI10.Sprite(PIXI10.Texture.WHITE));
+        const star = this.addChild(new PIXI10.Sprite(PIXI10.Texture.WHITE));
         star.anchor.set(0.5);
         do {
           star.location = [yy_random5.default.get(1, true), yy_random5.default.get(1, true)];
@@ -32594,12 +32594,12 @@ void main() {
       }
     }
     resize() {
-      for (const star of this.stars.children) {
+      for (const star of this.children) {
         star.position.set(0.5 + star.location[0] * (view.width - 1), 0.5 + star.location[1] * (view.height - 1));
       }
     }
     update() {
-      for (const star of this.stars.children) {
+      for (const star of this.children) {
         if (star.direction === 1) {
           star.alpha += star.twinkle;
           if (star.alpha >= star.alphaSave + maxTwinkle2) {
@@ -32652,7 +32652,11 @@ void main() {
           const dy = y2 - radius;
           const distanceSquared = dx * dx + dy * dy;
           if (distanceSquared <= radiusSquared) {
-            this.moon.beginFill(yy_random6.default.pick(colors), x2 < radius ? 1 : 0.5).drawRect(x2, y2, 1, 1).endFill();
+            if (x2 < radius) {
+              this.moon.beginFill(yy_random6.default.pick(colors)).drawRect(x2, y2, 1, 1).endFill();
+            } else {
+              this.moon.beginFill(0).drawRect(x2, y2, 1, 1).endFill().beginFill(yy_random6.default.pick(colors), 0.5).drawRect(x2, y2, 1, 1).endFill();
+            }
           }
         }
       }
@@ -32719,7 +32723,7 @@ void main() {
       }
     }
     story() {
-      this.storyMenu = this.menu.addChild(new Words(file.noStory ? "skip story" : "tell story", {shadow: true}));
+      this.storyMenu = this.menu.addChild(new Words(file.noStory ? "story off" : "story on", {shadow: true}));
     }
     sound() {
       this.soundMenu = this.menu.addChild(new Words(file.sound ? "sounds on" : "sounds off", {shadow: true}));

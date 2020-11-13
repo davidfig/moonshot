@@ -71,7 +71,7 @@ class Menu extends PIXI.Container {
     }
 
     story() {
-        this.storyMenu = this.menu.addChild(new Words(file.noStory ? 'skip story' : 'tell story', { shadow: true }))
+        this.storyMenu = this.menu.addChild(new Words(file.noStory ? 'story off' : 'story on', { shadow: true }))
     }
 
     sound() {
