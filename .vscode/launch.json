@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch",
+            "name": "Run Solver",
             "type": "go",
             "request": "launch",
             "mode": "auto",
@@ -15,6 +15,14 @@
                 "-- radius 3",
                 "--colors 2"
             ]
+        },
+        {
+            "name": "Colorblind",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/generate/colorblind.js",
+            "env": {},
+            "args": []
         }
     ]
 }
