@@ -16633,12 +16633,12 @@
       };
       _proto._xhrOnLoad = function _xhrOnLoad() {
         var xhr = this.xhr;
-        var text3 = "";
+        var text4 = "";
         var status = typeof xhr.status === "undefined" ? STATUS_OK : xhr.status;
         if (xhr.responseType === "" || xhr.responseType === "text" || typeof xhr.responseType === "undefined") {
-          text3 = xhr.responseText;
+          text4 = xhr.responseText;
         }
-        if (status === STATUS_NONE && (text3.length > 0 || xhr.responseType === Resource2.XHR_RESPONSE_TYPE.BUFFER)) {
+        if (status === STATUS_NONE && (text4.length > 0 || xhr.responseType === Resource2.XHR_RESPONSE_TYPE.BUFFER)) {
           status = STATUS_OK;
         } else if (status === STATUS_IE_BUG_EMPTY) {
           status = STATUS_EMPTY;
@@ -16646,11 +16646,11 @@
         var statusType = status / 100 | 0;
         if (statusType === STATUS_TYPE_OK) {
           if (this.xhrType === Resource2.XHR_RESPONSE_TYPE.TEXT) {
-            this.data = text3;
+            this.data = text4;
             this.type = Resource2.TYPE.TEXT;
           } else if (this.xhrType === Resource2.XHR_RESPONSE_TYPE.JSON) {
             try {
-              this.data = JSON.parse(text3);
+              this.data = JSON.parse(text4);
               this.type = Resource2.TYPE.JSON;
             } catch (e2) {
               this.abort("Error trying to parse loaded json: " + e2);
@@ -16660,10 +16660,10 @@
             try {
               if (window.DOMParser) {
                 var domparser = new DOMParser();
-                this.data = domparser.parseFromString(text3, "text/xml");
+                this.data = domparser.parseFromString(text4, "text/xml");
               } else {
                 var div = document.createElement("div");
-                div.innerHTML = text3;
+                div.innerHTML = text4;
                 this.data = div;
               }
               this.type = Resource2.TYPE.XML;
@@ -16672,7 +16672,7 @@
               return;
             }
           } else {
-            this.data = xhr.response || text3;
+            this.data = xhr.response || text4;
           }
         } else {
           this.abort("[" + xhr.status + "] " + xhr.statusText + ": " + xhr.responseURL);
@@ -20510,8 +20510,8 @@
       }
     }
     var TextMetrics = function() {
-      function TextMetrics2(text3, style, width, height, lines, lineWidths, lineHeight, maxLineWidth, fontProperties) {
-        this.text = text3;
+      function TextMetrics2(text4, style, width, height, lines, lineWidths, lineHeight, maxLineWidth, fontProperties) {
+        this.text = text4;
         this.style = style;
         this.width = width;
         this.height = height;
@@ -20521,7 +20521,7 @@
         this.maxLineWidth = maxLineWidth;
         this.fontProperties = fontProperties;
       }
-      TextMetrics2.measureText = function(text3, style, wordWrap, canvas2) {
+      TextMetrics2.measureText = function(text4, style, wordWrap, canvas2) {
         if (canvas2 === void 0) {
           canvas2 = TextMetrics2._canvas;
         }
@@ -20534,7 +20534,7 @@
         }
         var context = canvas2.getContext("2d");
         context.font = font;
-        var outputText = wordWrap ? TextMetrics2.wordWrap(text3, style, canvas2) : text3;
+        var outputText = wordWrap ? TextMetrics2.wordWrap(text4, style, canvas2) : text4;
         var lines = outputText.split(/(?:\r\n|\r|\n)/);
         var lineWidths = new Array(lines.length);
         var maxLineWidth = 0;
@@ -20552,9 +20552,9 @@
         if (style.dropShadow) {
           height += style.dropShadowDistance;
         }
-        return new TextMetrics2(text3, style, width, height, lines, lineWidths, lineHeight + style.leading, maxLineWidth, fontProperties);
+        return new TextMetrics2(text4, style, width, height, lines, lineWidths, lineHeight + style.leading, maxLineWidth, fontProperties);
       };
-      TextMetrics2.wordWrap = function(text3, style, canvas2) {
+      TextMetrics2.wordWrap = function(text4, style, canvas2) {
         if (canvas2 === void 0) {
           canvas2 = TextMetrics2._canvas;
         }
@@ -20568,7 +20568,7 @@
         var collapseNewlines = TextMetrics2.collapseNewlines(whiteSpace);
         var canPrependSpaces = !collapseSpaces;
         var wordWrapWidth = style.wordWrapWidth + letterSpacing;
-        var tokens = TextMetrics2.tokenize(text3);
+        var tokens = TextMetrics2.tokenize(text4);
         for (var i2 = 0; i2 < tokens.length; i2++) {
           var token = tokens[i2];
           if (TextMetrics2.isNewline(token)) {
@@ -20672,18 +20672,18 @@
       TextMetrics2.collapseNewlines = function(whiteSpace) {
         return whiteSpace === "normal";
       };
-      TextMetrics2.trimRight = function(text3) {
-        if (typeof text3 !== "string") {
+      TextMetrics2.trimRight = function(text4) {
+        if (typeof text4 !== "string") {
           return "";
         }
-        for (var i2 = text3.length - 1; i2 >= 0; i2--) {
-          var char = text3[i2];
+        for (var i2 = text4.length - 1; i2 >= 0; i2--) {
+          var char = text4[i2];
           if (!TextMetrics2.isBreakingSpace(char)) {
             break;
           }
-          text3 = text3.slice(0, -1);
+          text4 = text4.slice(0, -1);
         }
-        return text3;
+        return text4;
       };
       TextMetrics2.isNewline = function(char) {
         if (typeof char !== "string") {
@@ -20697,14 +20697,14 @@
         }
         return TextMetrics2._breakingSpaces.indexOf(char.charCodeAt(0)) >= 0;
       };
-      TextMetrics2.tokenize = function(text3) {
+      TextMetrics2.tokenize = function(text4) {
         var tokens = [];
         var token = "";
-        if (typeof text3 !== "string") {
+        if (typeof text4 !== "string") {
           return tokens;
         }
-        for (var i2 = 0; i2 < text3.length; i2++) {
-          var char = text3[i2];
+        for (var i2 = 0; i2 < text4.length; i2++) {
+          var char = text4[i2];
           if (TextMetrics2.isBreakingSpace(char) || TextMetrics2.isNewline(char)) {
             if (token !== "") {
               tokens.push(token);
@@ -20852,7 +20852,7 @@
     };
     var Text2 = function(_super) {
       __extends(Text3, _super);
-      function Text3(text3, style, canvas2) {
+      function Text3(text4, style, canvas2) {
         var _this = this;
         var ownCanvas = false;
         if (!canvas2) {
@@ -20874,7 +20874,7 @@
         _this._style = null;
         _this._styleListener = null;
         _this._font = "";
-        _this.text = text3;
+        _this.text = text4;
         _this.style = style;
         _this.localStyleID = -1;
         return _this;
@@ -20949,7 +20949,7 @@
         }
         this.updateTexture();
       };
-      Text3.prototype.drawLetterSpacing = function(text3, x2, y2, isStroke) {
+      Text3.prototype.drawLetterSpacing = function(text4, x2, y2, isStroke) {
         if (isStroke === void 0) {
           isStroke = false;
         }
@@ -20957,15 +20957,15 @@
         var letterSpacing = style.letterSpacing;
         if (letterSpacing === 0) {
           if (isStroke) {
-            this.context.strokeText(text3, x2, y2);
+            this.context.strokeText(text4, x2, y2);
           } else {
-            this.context.fillText(text3, x2, y2);
+            this.context.fillText(text4, x2, y2);
           }
           return;
         }
         var currentPosition = x2;
-        var stringArray = Array.from ? Array.from(text3) : text3.split("");
-        var previousWidth = this.context.measureText(text3).width;
+        var stringArray = Array.from ? Array.from(text4) : text4.split("");
+        var previousWidth = this.context.measureText(text4).width;
         var currentWidth = 0;
         for (var i2 = 0; i2 < stringArray.length; ++i2) {
           var currentChar = stringArray[i2];
@@ -20974,7 +20974,7 @@
           } else {
             this.context.fillText(currentChar, currentPosition, y2);
           }
-          currentWidth = this.context.measureText(text3.substring(i2 + 1)).width;
+          currentWidth = this.context.measureText(text4.substring(i2 + 1)).width;
           currentPosition += previousWidth - currentWidth + letterSpacing;
           previousWidth = currentWidth;
         }
@@ -21145,12 +21145,12 @@
         get: function() {
           return this._text;
         },
-        set: function(text3) {
-          text3 = String(text3 === null || text3 === void 0 ? "" : text3);
-          if (this._text === text3) {
+        set: function(text4) {
+          text4 = String(text4 === null || text4 === void 0 ? "" : text4);
+          if (this._text === text4) {
             return;
           }
-          this._text = text3;
+          this._text = text4;
           this.dirty = true;
         },
         enumerable: false,
@@ -21194,7 +21194,7 @@
     var graphics = require_graphics();
     var ticker2 = require_ticker();
     var display = require_display();
-    var text3 = require_text();
+    var text4 = require_text();
     settings7.settings.UPLOADS_PER_FRAME = 4;
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -21278,22 +21278,22 @@
       return false;
     }
     function drawText(_helper, item) {
-      if (item instanceof text3.Text) {
+      if (item instanceof text4.Text) {
         item.updateText(true);
         return true;
       }
       return false;
     }
     function calculateTextStyle(_helper, item) {
-      if (item instanceof text3.TextStyle) {
+      if (item instanceof text4.TextStyle) {
         var font = item.toFontString();
-        text3.TextMetrics.measureFont(font);
+        text4.TextMetrics.measureFont(font);
         return true;
       }
       return false;
     }
     function findText(item, queue) {
-      if (item instanceof text3.Text) {
+      if (item instanceof text4.Text) {
         if (queue.indexOf(item.style) === -1) {
           queue.push(item.style);
         }
@@ -21309,7 +21309,7 @@
       return false;
     }
     function findTextStyle(item, queue) {
-      if (item instanceof text3.TextStyle) {
+      if (item instanceof text4.TextStyle) {
         if (queue.indexOf(item) === -1) {
           queue.push(item);
         }
@@ -22355,7 +22355,7 @@
     var mesh = require_mesh();
     var utils2 = require_utils();
     var core2 = require_core();
-    var text3 = require_text();
+    var text4 = require_text();
     var display = require_display();
     var loaders2 = require_loaders();
     /*! *****************************************************************************
@@ -22564,7 +22564,7 @@
       fillGradientStops.unshift(0);
       fill.push(fillStyle[fillStyle.length - 1]);
       fillGradientStops.push(1);
-      if (style.fillGradientType === text3.TEXT_GRADIENT.LINEAR_VERTICAL) {
+      if (style.fillGradientType === text4.TEXT_GRADIENT.LINEAR_VERTICAL) {
         gradient = context.createLinearGradient(width / 2, padding4, width / 2, height + padding4);
         var lastIterationStop = 0;
         var textHeight = metrics.fontProperties.fontSize + style.strokeThickness;
@@ -22763,7 +22763,7 @@
         }
         var _a = Object.assign({}, BitmapFont2.defaultOptions, options), chars = _a.chars, padding4 = _a.padding, resolution = _a.resolution, textureWidth = _a.textureWidth, textureHeight = _a.textureHeight;
         var charsList = resolveCharacters(chars);
-        var style = textStyle instanceof text3.TextStyle ? textStyle : new text3.TextStyle(textStyle);
+        var style = textStyle instanceof text4.TextStyle ? textStyle : new text4.TextStyle(textStyle);
         var lineWidth = textureWidth;
         var fontData = new BitmapFontData();
         fontData.info[0] = {
@@ -22793,7 +22793,7 @@
               file: ""
             });
           }
-          var metrics = text3.TextMetrics.measureText(charsList[i2], style, false, canvas);
+          var metrics = text4.TextMetrics.measureText(charsList[i2], style, false, canvas);
           var width = metrics.width;
           var height = Math.ceil(metrics.height);
           var textureGlyphWidth = Math.ceil((style.fontStyle === "italic" ? 2 : 1) * width);
@@ -22860,7 +22860,7 @@
     var charRenderDataPool = [];
     var BitmapText = function(_super) {
       __extends(BitmapText2, _super);
-      function BitmapText2(text4, style) {
+      function BitmapText2(text5, style) {
         if (style === void 0) {
           style = {};
         }
@@ -22881,7 +22881,7 @@
         _this._tint = tint;
         _this._fontName = fontName;
         _this._fontSize = fontSize || BitmapFont.available[fontName].size;
-        _this._text = text4;
+        _this._text = text5;
         _this._maxWidth = maxWidth;
         _this._maxLineHeight = 0;
         _this._letterSpacing = letterSpacing;
@@ -22899,8 +22899,8 @@
         var pos = new math.Point();
         var chars = [];
         var lineWidths = [];
-        var text4 = this._text.replace(/(?:\r\n|\r)/g, "\n") || " ";
-        var textLength = text4.length;
+        var text5 = this._text.replace(/(?:\r\n|\r)/g, "\n") || " ";
+        var textLength = text5.length;
         var maxWidth = this._maxWidth * data.size / this._fontSize;
         var prevCharCode = null;
         var lastLineWidth = 0;
@@ -22911,8 +22911,8 @@
         var spacesRemoved = 0;
         var maxLineHeight = 0;
         for (var i2 = 0; i2 < textLength; i2++) {
-          var charCode = text4.charCodeAt(i2);
-          var char = text4.charAt(i2);
+          var charCode = text5.charCodeAt(i2);
+          var char = text5.charAt(i2);
           if (/(?:\s)/.test(char)) {
             lastBreakPos = i2;
             lastBreakWidth = lastLineWidth;
@@ -22963,7 +22963,7 @@
             prevCharCode = null;
           }
         }
-        var lastChar = text4.charAt(text4.length - 1);
+        var lastChar = text5.charAt(text5.length - 1);
         if (lastChar !== "\r" && lastChar !== "\n") {
           if (/(?:\s)/.test(lastChar)) {
             lastLineWidth = lastBreakWidth;
@@ -23198,12 +23198,12 @@
         get: function() {
           return this._text;
         },
-        set: function(text4) {
-          text4 = String(text4 === null || text4 === void 0 ? "" : text4);
-          if (this._text === text4) {
+        set: function(text5) {
+          text5 = String(text5 === null || text5 === void 0 ? "" : text5);
+          if (this._text === text5) {
             return;
           }
-          this._text = text4;
+          this._text = text5;
           this.dirty = true;
         },
         enumerable: false,
@@ -26005,7 +26005,7 @@ void main() {
     var runner = require_runner();
     var sprite = require_sprite();
     var spriteAnimated = require_sprite_animated();
-    var text3 = require_text();
+    var text4 = require_text();
     var settings7 = require_settings();
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -26856,11 +26856,11 @@ void main() {
         }
       });
     });
-    Object.keys(text3).forEach(function(key) {
+    Object.keys(text4).forEach(function(key) {
       Object.defineProperty(exports, key, {
         enumerable: true,
         get: function() {
-          return text3[key];
+          return text4[key];
         }
       });
     });
@@ -29519,7 +29519,7 @@ void main() {
   const PIXI9 = __toModule(require_pixi());
 
   // code/shoot/moon.js
-  const PIXI6 = __toModule(require_pixi());
+  const PIXI7 = __toModule(require_pixi());
   const intersects3 = __toModule(require_intersects());
   const yy_random3 = __toModule(require_yy_random());
 
@@ -31714,9 +31714,9 @@ void main() {
         }
       }
     }
-    change(text3) {
-      if (this.text !== text3) {
-        this.write(text3);
+    change(text4) {
+      if (this.text !== text4) {
+        this.write(text4);
         this.updateBackground();
       }
     }
@@ -31831,7 +31831,7 @@ void main() {
       return this.level.scale.x;
     }
     change() {
-      this.level.change(`level ${file.shoot.level + 1}`);
+      this.level.change(`level ${file.shootLevel + 1}`);
       this.level.height = this.arrow.height;
       this.level.scale.x = this.level.scale.y;
       this.level.x = this.arrow.width + this.arrow.x + 1;
@@ -31942,8 +31942,87 @@ void main() {
   }
   const meter = new Meter();
 
+  // code/shoot/text.js
+  const PIXI6 = __toModule(require_pixi());
+
+  // script/script.js
+  const tutorial = [
+    "Ah, the new employee. Glad to have you aboard!##We just reached a galaxy full of shiny moons. Moons that must be destroyed!",
+    "We\u2019ll start you on a simple one. We don\u2019t want you scared away on your first day, eh?##The Moonerator has limited shots so choose your shots wisely."
+  ];
+  const story = [
+    "Ah, the smell of your first moon destruction. Congrats. Don\u2019t worry, there more where that came from. We\u2019ll warp you to the next moon when you\u2019re ready.",
+    "If you grow tired of my talking, you can disable this channel in the control menu. I\u2019m good with that.##Although it is nice to talk to someone again. It grows lonely out here amongst the stars."
+  ];
+
+  // code/shoot/text.js
+  const fadeTime = 250;
+  const scale = 0.25;
+  const background = 170;
+  const buttonColor = 43520;
+  const padding = 5;
+  class Text extends PIXI6.Container {
+    constructor() {
+      super();
+      this.dialog = this.addChild(new PIXI6.Container());
+      this.box = this.dialog.addChild(new PIXI6.Graphics());
+      this.text = this.dialog.addChild(new Words());
+      this.button = this.dialog.addChild(new PIXI6.Container());
+      this.button.background = this.button.addChild(new PIXI6.Sprite(PIXI6.Texture.WHITE));
+      this.button.background.tint = buttonColor;
+      this.button.words = this.button.addChild(new Words("", {shadow: true}));
+      this.dialog.scale.set(scale);
+      this.visible = false;
+      this.alpha = 0;
+    }
+    change(text4, button) {
+      this.text.change(text4);
+      this.text.wrap(view.width * 0.75 / scale);
+      this.box.clear();
+      this.button.words.change(button);
+      const b2 = this.button;
+      b2.background.width = b2.words.width + padding * 2;
+      b2.background.height = b2.words.height + padding;
+      b2.words.position.set(b2.background.width / 2 - b2.words.width / 2, b2.background.height / 2 - b2.words.height / 2);
+      b2.position.set(this.text.width - b2.width, this.text.height + padding);
+      this.box.lineStyle(1, 16777215, 1, 1).beginFill(background).drawRect(-padding, -padding, this.text.width + padding * 2, this.text.height + padding * 3 + b2.height).endFill();
+      this.position.set(view.width / 2 - this.dialog.width / 2, view.height / 2 - this.dialog.height / 2);
+    }
+    down(point) {
+      if (this.box.containsPoint(point)) {
+        this.hide();
+        this.callback();
+      }
+    }
+    tutorial(callback, i2) {
+      this.visible = true;
+      this.change(tutorial[i2], "ok");
+      this.tutorialIndex = i2;
+      this.callback = callback;
+      this.show();
+    }
+    story(callback, i2) {
+      this.visible = true;
+      this.change(story[i2], "ok");
+      this.callback = callback;
+      this.show();
+    }
+    show() {
+      ease.removeEase(this);
+      this.visible = true;
+      this.alpha = 0;
+      ease.add(this, {alpha: 1}, {duration: fadeTime, ease: "easeInOutSine"});
+    }
+    hide() {
+      ease.removeEase(this);
+      const easing = ease.add(this, {alpha: 0}, {duration: fadeTime, ease: "easeInOutSine"});
+      easing.on("complete", () => this.visible = false);
+    }
+  }
+  const text = new Text();
+
   // code/shoot/moon.js
-  const fadeTime = 400;
+  const fadeTime2 = 400;
   const approachTime = 2e3;
   const framesForSpread = 3;
   const resetTime = 826;
@@ -31951,17 +32030,19 @@ void main() {
   const shakeTime2 = 250;
   const shakeDistance2 = 1;
   const explosionSpeed = [0.1, 0.3];
-  class Moon extends PIXI6.Container {
+  class Moon extends PIXI7.Container {
     constructor() {
       super();
-      this.moon = this.addChild(new PIXI6.Container());
-      this.leaving = this.addChild(new PIXI6.Container());
+      this.moon = this.addChild(new PIXI7.Container());
+      this.leaving = this.addChild(new PIXI7.Container());
+      this.help = this.addChild(new Words());
+      this.help.visible = false;
     }
     get approachTime() {
       return approachTime;
     }
     box(x2, y2, tint, alpha = 1) {
-      const point = this.moon.addChild(new PIXI6.Sprite(PIXI6.Texture.WHITE));
+      const point = this.moon.addChild(new PIXI7.Sprite(PIXI7.Texture.WHITE));
       point.tint = tint;
       point.alpha = alpha;
       point.anchor.set(0.5);
@@ -31990,10 +32071,11 @@ void main() {
         block.tint = this.colors[block.data.color];
       }
       if (file.shootLevel === 0 && !file.noStory) {
+        this.help.visible = true;
         this.help.change("<- press here");
         this.help.position.set(this.blockFirstHelp.original.x, this.blockFirstHelp.original.y - this.help.height / 2);
         this.help.alpha = 0;
-        ease2.add(this.help, {alpha: 1}, {duration: fadeTime, ease: "easeInOutSine"});
+        ease2.add(this.help, {alpha: 1}, {duration: fadeTime2, ease: "easeInOutSine"});
       }
     }
     approach() {
@@ -32001,11 +32083,13 @@ void main() {
       this.approaching = ease2.add(this, {scale: this.getScale()}, {duration: approachTime, ease: "easeOutSine"});
       this.approaching.on("complete", () => {
         if (file.shootLevel === 0 && !file.noStory && !this.oneColor()) {
-          this.help = this.addChild(new Words("<- press here"));
-          this.help.scale.set(0.25 / this.scale.x);
-          this.help.position.set(this.blockFirstHelp.x, this.blockFirstHelp.y - this.help.height / 2);
-          this.help.alpha = 0;
-          ease2.add(this.help, {alpha: 1}, {duration: fadeTime, ease: "easeInOutSine"});
+          text.tutorial(() => {
+            this.help.visible = true;
+            this.help.change("<- press here");
+            this.help.position.set(this.blockFirstHelp.x, this.blockFirstHelp.y - this.help.height / 2);
+            this.help.alpha = 0;
+            ease2.add(this.help, {alpha: 1}, {duration: fadeTime2, ease: "easeInOutSine"});
+          }, 1);
         }
       });
       sounds.play("approach");
@@ -32034,6 +32118,7 @@ void main() {
       if (file.shootLevel === 0 && !file.noStory) {
         this.blockFirstHelp = this.moon.children[12];
       }
+      this.help.scale.set(0.25 / this.getScale());
     }
     resize() {
       if (this.approaching) {
@@ -32045,6 +32130,7 @@ void main() {
         child.position.set(child.data.x, child.data.y);
       }
       this.position.set(view.width / 2, view.height / 2);
+      this.help.scale.set(0.25 / this.getScale());
     }
     detach(block) {
       this.leaving.addChild(block);
@@ -32088,11 +32174,8 @@ void main() {
       this.spreading = true;
       if (file.shootLevel === 0 && !file.noStory && this.moon.children.length === 23) {
         ease2.removeEase(this.help);
-        const easing = ease2.add(this.help, {alpha: 0}, {duration: fadeTime, ease: "easeInOutSine"});
-        easing.on("complete", () => {
-          this.removeChild(this.help);
-          this.help = 0;
-        });
+        const easing = ease2.add(this.help, {alpha: 0}, {duration: fadeTime2, ease: "easeInOutSine"});
+        easing.on("complete", () => this.help.visible = false);
       }
     }
     hasBlock(x2, y2) {
@@ -32154,9 +32237,9 @@ void main() {
           if (file.shootLevel === 0 && !file.noStory) {
             if (this.moon.children.length) {
               if (this.oneColor()) {
-                if (!this.help) {
-                  this.help = this.addChild(new Words("<- press here"));
-                  this.help.scale.set(0.25 / this.scale.x);
+                if (!this.help.visible) {
+                  this.help.visible = true;
+                  this.help.change("<- press here");
                 }
                 this.help.change("<- and here");
                 const block = this.moon.children[6];
@@ -32164,7 +32247,8 @@ void main() {
               } else {
                 meter.showHelp(true);
                 ease2.removeEase(this.help);
-                ease2.add(this.help, {alpha: 0}, {duration: fadeTime, ease: "easeInOutSine"});
+                const easing = ease2.add(this.help, {alpha: 0}, {duration: fadeTime2, ease: "easeInOutSine"});
+                easing.on("complete", () => this.help.visible = false);
               }
             }
           }
@@ -32251,11 +32335,11 @@ void main() {
   const moon2 = new Moon();
 
   // code/shoot/laser.js
-  const PIXI7 = __toModule(require_pixi());
+  const PIXI8 = __toModule(require_pixi());
   const yy_random4 = __toModule(require_yy_random());
   const fireTime = 200;
-  const fadeTime2 = 200;
-  class Laser extends PIXI7.Container {
+  const fadeTime3 = 200;
+  class Laser extends PIXI8.Container {
     constructor() {
       super();
       this.state = "";
@@ -32267,7 +32351,7 @@ void main() {
       this.isDown = false;
     }
     box(x2, y2, tint, alpha = 1) {
-      const point = this.addChild(new PIXI7.Sprite(PIXI7.Texture.WHITE));
+      const point = this.addChild(new PIXI8.Sprite(PIXI8.Texture.WHITE));
       point.tint = tint;
       point.alpha = alpha;
       point.anchor.set(0.5);
@@ -32314,7 +32398,7 @@ void main() {
           this.time = Date.now();
         }
       } else if (this.state === "fade") {
-        if (Date.now() >= this.time + fadeTime2) {
+        if (Date.now() >= this.time + fadeTime3) {
           this.state = "";
           this.removeChildren();
         }
@@ -32341,7 +32425,7 @@ void main() {
           alpha = yy_random4.default.range(0.75, 1, true);
         } else if (this.state === "fade") {
           tint = 16711680;
-          alpha = 1 - (Date.now() - this.time) / fadeTime2;
+          alpha = 1 - (Date.now() - this.time) / fadeTime3;
         } else {
           return;
         }
@@ -32381,78 +32465,8 @@ void main() {
   }
   const laser = new Laser();
 
-  // code/shoot/text.js
-  const PIXI8 = __toModule(require_pixi());
-
-  // script/script.js
-  const tutorial = [
-    "Ah, the new employee. Glad to have you aboard!##We just reached a new galaxy full of shiny moons. Moons that must be destroyed!",
-    "Wow! That wasn't too bad for your first moon.##The colors indicate geological networks in the moon's interior. Experiment to find the fastest sequence for the Moonerator Mark v2.9.##Prepare to warp to the next system."
-  ];
-
-  // code/shoot/text.js
-  const fadeTime3 = 250;
-  const scale = 0.25;
-  const background = 170;
-  const buttonColor = 43520;
-  const padding = 5;
-  class Text extends PIXI8.Container {
-    constructor() {
-      super();
-      this.dialog = this.addChild(new PIXI8.Container());
-      this.box = this.dialog.addChild(new PIXI8.Graphics());
-      this.text = this.dialog.addChild(new Words());
-      this.button = this.dialog.addChild(new PIXI8.Container());
-      this.button.background = this.button.addChild(new PIXI8.Sprite(PIXI8.Texture.WHITE));
-      this.button.background.tint = buttonColor;
-      this.button.words = this.button.addChild(new Words("", {shadow: true}));
-      this.dialog.scale.set(scale);
-      this.visible = false;
-      this.alpha = 0;
-    }
-    change(text3, button) {
-      this.text.change(text3);
-      this.text.wrap(view.width * 0.75 / scale);
-      this.box.clear();
-      this.button.words.change(button);
-      const b2 = this.button;
-      b2.background.width = b2.words.width + padding * 2;
-      b2.background.height = b2.words.height + padding;
-      b2.words.position.set(b2.background.width / 2 - b2.words.width / 2, b2.background.height / 2 - b2.words.height / 2);
-      b2.position.set(this.text.width - b2.width, this.text.height + padding);
-      this.box.lineStyle(1, 16777215, 1, 1).beginFill(background).drawRect(-padding, -padding, this.text.width + padding * 2, this.text.height + padding * 3 + b2.height).endFill();
-      this.position.set(view.width / 2 - this.dialog.width / 2, view.height / 2 - this.dialog.height / 2);
-    }
-    down(point) {
-      if (this.box.containsPoint(point)) {
-        this.hide();
-        this.callback();
-      }
-    }
-    tutorial(callback, i2) {
-      this.visible = true;
-      this.change(tutorial[i2], "ok");
-      this.state = "tutorial";
-      this.tutorialIndex = i2;
-      this.callback = callback;
-      this.show();
-    }
-    show() {
-      ease.removeEase(this);
-      this.visible = true;
-      this.alpha = 0;
-      ease.add(this, {alpha: 1}, {duration: fadeTime3, ease: "easeInOutSine"});
-    }
-    hide() {
-      ease.removeEase(this);
-      const easing = ease.add(this, {alpha: 0}, {duration: fadeTime3, ease: "easeInOutSine"});
-      easing.on("complete", () => this.visible = false);
-    }
-  }
-  const text = new Text();
-
   // code/shoot/shoot.json
-  var shoot_default = [{Radius: 4, Seed: 579900, Colors: [15483506, 3389186], Difficulty: 0, Minimum: 2, Blocks: [-1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 0, -1, -1, -1, 0, 0, 1, 1, 0, 1, 1, -1, -1, 0, 0, 0, 0, 1, 1, 1, -1, 1, 1, 0, 0, 1, 1, 0, 0, 0, -1, 1, 1, 0, 1, 1, 1, 1, -1, -1, 0, 1, 1, 1, 1, 1, 0, -1, -1, -1, 0, 0, 0, 1, 1, -1, -1, -1, -1, -1, -1, 0, -1, -1, -1, -1]}, {Radius: 4, Seed: 8900, Colors: [15149680, 11593758], Difficulty: 1, Minimum: 3, Blocks: [-1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, 1, 0, 1, 0, 0, -1, -1, -1, 1, 1, 0, 0, 1, 1, 0, -1, -1, 0, 0, 0, 0, 1, 1, 1, -1, 1, 1, 0, 0, 0, 0, 0, 0, 1, -1, 0, 1, 0, 1, 0, 1, 0, -1, -1, 1, 1, 1, 1, 1, 1, 0, -1, -1, -1, 1, 0, 0, 0, 1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1]}, {Radius: 4, Seed: 332200, Colors: [16670365, 13229568], Difficulty: 1, Minimum: 3, Blocks: [-1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 1, -1, -1, -1, 1, 1, 1, 0, 1, 0, 1, -1, -1, 0, 0, 1, 0, 1, 0, 0, -1, 1, 1, 0, 1, 0, 0, 0, 1, 1, -1, 1, 1, 1, 1, 1, 0, 1, -1, -1, 0, 0, 0, 1, 0, 0, 0, -1, -1, -1, 0, 0, 1, 1, 1, -1, -1, -1, -1, -1, -1, 0, -1, -1, -1, -1]}, {Radius: 5, Seed: 79700, Colors: [9953843, 13451658], Difficulty: 2, Minimum: 3, Blocks: [-1, -1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, -1, 1, 1, 0, 0, 0, 1, 1, -1, -1, -1, 0, 1, 0, 1, 0, 1, 1, 0, 1, -1, -1, 0, 0, 1, 1, 1, 0, 0, 0, 0, -1, -1, 0, 0, 0, 0, 1, 0, 1, 0, 1, -1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, -1, 1, 1, 1, 0, 0, 1, 0, 1, 1, -1, -1, 0, 0, 1, 0, 1, 1, 1, 0, 0, -1, -1, 1, 0, 1, 0, 0, 0, 1, 1, 0, -1, -1, -1, 1, 1, 1, 0, 0, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1]}, {Radius: 5, Seed: 317400, Colors: [6318319, 11271760], Difficulty: 2, Minimum: 3, Blocks: [-1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, 0, 1, 0, 1, 0, 1, 0, -1, -1, -1, 1, 1, 1, 0, 0, 0, 0, 0, 1, -1, -1, 1, 1, 0, 0, 1, 0, 0, 1, 0, -1, -1, 1, 1, 0, 1, 1, 1, 0, 0, 1, -1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, -1, 1, 0, 1, 1, 1, 1, 1, 1, 0, -1, -1, 0, 1, 1, 1, 1, 1, 0, 0, 0, -1, -1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, -1, -1, 0, 0, 0, 1, 0, 1, 1, -1, -1, -1, -1, -1, -1, -1, 0, -1, -1, -1, -1, -1]}, {Radius: 5, Seed: 164700, Colors: [16624161, 363768, 11856617], Difficulty: 2, Minimum: 4, Blocks: [-1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, 0, 2, 2, 2, 2, 0, 0, -1, -1, -1, 0, 2, 2, 2, 0, 1, 2, 1, 2, -1, -1, 0, 2, 2, 1, 1, 0, 2, 1, 1, -1, -1, 1, 2, 1, 0, 1, 0, 1, 2, 2, -1, 2, 1, 1, 0, 1, 0, 0, 0, 1, 1, 2, -1, 2, 0, 0, 1, 1, 2, 0, 1, 1, -1, -1, 1, 2, 1, 2, 2, 0, 1, 1, 1, -1, -1, 0, 1, 2, 1, 0, 2, 1, 2, 2, -1, -1, -1, 2, 0, 1, 1, 0, 1, 2, -1, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1, -1]}, {Radius: 5, Seed: 455700, Colors: [12864953, 5278566, 15393506], Difficulty: 2, Minimum: 5, Blocks: [-1, -1, -1, -1, -1, 2, -1, -1, -1, -1, -1, -1, -1, 2, 0, 2, 2, 0, 2, 2, -1, -1, -1, 2, 2, 2, 0, 0, 0, 1, 1, 0, -1, -1, 2, 0, 2, 0, 2, 0, 1, 2, 1, -1, -1, 1, 0, 0, 0, 0, 1, 0, 2, 2, -1, 1, 1, 2, 0, 2, 0, 0, 0, 0, 1, 0, -1, 1, 0, 0, 2, 2, 1, 1, 0, 1, -1, -1, 0, 1, 2, 2, 1, 1, 1, 2, 0, -1, -1, 1, 0, 1, 0, 1, 0, 0, 2, 2, -1, -1, -1, 0, 1, 1, 0, 0, 1, 2, -1, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1, -1]}, {Radius: 5, Seed: 112e3, Colors: [11245140, 16448650, 9659646], Difficulty: 3, Minimum: 5, Blocks: [-1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 2, 0, 0, 0, 2, 2, -1, -1, -1, 0, 2, 0, 2, 2, 0, 1, 1, 0, -1, -1, 1, 1, 0, 0, 0, 1, 1, 1, 2, -1, -1, 2, 2, 2, 2, 2, 0, 2, 1, 1, -1, 1, 2, 2, 0, 2, 0, 2, 0, 0, 2, 0, -1, 2, 2, 0, 0, 1, 0, 0, 2, 0, -1, -1, 2, 0, 2, 2, 2, 1, 0, 0, 0, -1, -1, 0, 2, 1, 2, 0, 2, 1, 1, 1, -1, -1, -1, 1, 2, 0, 2, 0, 0, 1, -1, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1, -1]}, {Radius: 5, Seed: 505100, Colors: [13621412, 5016323, 4846847], Difficulty: 5, Minimum: 5, Blocks: [-1, -1, -1, -1, -1, 2, -1, -1, -1, -1, -1, -1, -1, 0, 1, 0, 0, 1, 0, 2, -1, -1, -1, 2, 1, 1, 0, 2, 1, 0, 0, 0, -1, -1, 2, 1, 1, 2, 0, 1, 0, 2, 1, -1, -1, 0, 0, 1, 0, 1, 1, 1, 2, 1, -1, 0, 2, 1, 0, 1, 2, 2, 1, 2, 1, 2, -1, 1, 1, 0, 0, 2, 2, 1, 0, 1, -1, -1, 0, 2, 1, 0, 1, 0, 1, 1, 2, -1, -1, 0, 2, 1, 0, 2, 0, 2, 2, 0, -1, -1, -1, 1, 0, 2, 1, 1, 0, 2, -1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1]}, {Radius: 5, Seed: 109100, Colors: [16130761, 11001594, 16699658], Difficulty: 5, Minimum: 5, Blocks: [-1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 2, 1, 2, 2, -1, -1, -1, 1, 0, 2, 0, 2, 2, 1, 2, 1, -1, -1, 1, 0, 0, 1, 2, 1, 1, 1, 0, -1, -1, 0, 1, 2, 0, 1, 0, 0, 2, 2, -1, 1, 1, 1, 2, 2, 1, 1, 2, 2, 2, 0, -1, 0, 0, 0, 0, 1, 2, 0, 1, 0, -1, -1, 0, 1, 1, 1, 2, 2, 1, 0, 1, -1, -1, 2, 2, 2, 2, 0, 1, 0, 0, 2, -1, -1, -1, 0, 2, 1, 2, 0, 0, 2, -1, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1, -1]}];
+  var shoot_default = [{Radius: 4, Seed: 579900, Colors: [15483506, 3389186], Difficulty: 0, Minimum: 2, Blocks: [-1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 0, -1, -1, -1, 0, 0, 1, 1, 0, 1, 1, -1, -1, 0, 0, 0, 0, 1, 1, 1, -1, 1, 1, 0, 0, 1, 1, 0, 0, 0, -1, 1, 1, 0, 1, 1, 1, 1, -1, -1, 0, 1, 1, 1, 1, 1, 0, -1, -1, -1, 0, 0, 0, 1, 1, -1, -1, -1, -1, -1, -1, 0, -1, -1, -1, -1]}, {Radius: 4, Seed: 8900, Colors: [15149680, 11593758], Difficulty: 1, Minimum: 3, Blocks: [-1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, 1, 0, 1, 0, 0, -1, -1, -1, 1, 1, 0, 0, 1, 1, 0, -1, -1, 0, 0, 0, 0, 1, 1, 1, -1, 1, 1, 0, 0, 0, 0, 0, 0, 1, -1, 0, 1, 0, 1, 0, 1, 0, -1, -1, 1, 1, 1, 1, 1, 1, 0, -1, -1, -1, 1, 0, 0, 0, 1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1]}, {Radius: 4, Seed: 332200, Colors: [16670365, 13229568], Difficulty: 1, Minimum: 3, Blocks: [-1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 1, -1, -1, -1, 1, 1, 1, 0, 1, 0, 1, -1, -1, 0, 0, 1, 0, 1, 0, 0, -1, 1, 1, 0, 1, 0, 0, 0, 1, 1, -1, 1, 1, 1, 1, 1, 0, 1, -1, -1, 0, 0, 0, 1, 0, 0, 0, -1, -1, -1, 0, 0, 1, 1, 1, -1, -1, -1, -1, -1, -1, 0, -1, -1, -1, -1]}, {Radius: 4, Seed: 941900, Colors: [13520417, 13760894, 771004], Difficulty: 1, Minimum: 4, Blocks: [-1, -1, -1, -1, 2, -1, -1, -1, -1, -1, -1, 0, 2, 0, 0, 0, -1, -1, -1, 0, 1, 2, 1, 0, 0, 0, -1, -1, 2, 1, 2, 2, 2, 0, 0, -1, 0, 0, 1, 1, 0, 2, 2, 1, 1, -1, 0, 1, 0, 2, 1, 0, 2, -1, -1, 2, 1, 2, 2, 0, 1, 2, -1, -1, -1, 2, 1, 0, 1, 2, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1]}, {Radius: 4, Seed: 942400, Colors: [5103838, 16636767, 3182098], Difficulty: 1, Minimum: 5, Blocks: [-1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, 2, 0, 2, 2, 0, -1, -1, -1, 2, 0, 0, 1, 2, 1, 2, -1, -1, 1, 0, 2, 1, 0, 1, 0, -1, 1, 1, 2, 0, 1, 0, 2, 1, 0, -1, 2, 1, 0, 2, 1, 2, 1, -1, -1, 2, 1, 0, 0, 2, 1, 2, -1, -1, -1, 1, 2, 1, 1, 1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1]}, {Radius: 4, Seed: 940700, Colors: [13297796, 2005600, 15563939], Difficulty: 1, Minimum: 5, Blocks: [-1, -1, -1, -1, 2, -1, -1, -1, -1, -1, -1, 0, 1, 1, 1, 0, -1, -1, -1, 2, 1, 1, 2, 1, 0, 1, -1, -1, 2, 0, 1, 1, 2, 1, 2, -1, 1, 0, 1, 0, 1, 0, 1, 0, 1, -1, 0, 1, 1, 1, 2, 1, 0, -1, -1, 0, 0, 2, 1, 1, 1, 2, -1, -1, -1, 0, 1, 1, 1, 2, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1]}, {Radius: 4, Seed: 232200, Colors: [8160955, 4061168, 15341830], Difficulty: 1, Minimum: 5, Blocks: [-1, -1, -1, -1, 2, -1, -1, -1, -1, -1, -1, 1, 0, 1, 2, 1, -1, -1, -1, 0, 2, 0, 2, 1, 2, 2, -1, -1, 0, 2, 2, 1, 1, 0, 0, -1, 1, 0, 0, 0, 2, 2, 1, 1, 1, -1, 0, 2, 1, 2, 2, 1, 0, -1, -1, 0, 0, 1, 1, 1, 1, 0, -1, -1, -1, 2, 2, 2, 2, 2, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1]}, {Radius: 4, Seed: 942200, Colors: [9151014, 16122327, 4897990], Difficulty: 1, Minimum: 5, Blocks: [-1, -1, -1, -1, 2, -1, -1, -1, -1, -1, -1, 1, 1, 0, 0, 2, -1, -1, -1, 2, 1, 1, 1, 0, 1, 0, -1, -1, 2, 0, 2, 0, 0, 2, 2, -1, 0, 2, 2, 2, 0, 1, 2, 2, 0, -1, 1, 2, 0, 1, 0, 0, 0, -1, -1, 2, 2, 2, 1, 1, 2, 2, -1, -1, -1, 2, 0, 1, 1, 0, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1]}, {Radius: 5, Seed: 317400, Colors: [6318319, 11271760], Difficulty: 2, Minimum: 3, Blocks: [-1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, 0, 1, 0, 1, 0, 1, 0, -1, -1, -1, 1, 1, 1, 0, 0, 0, 0, 0, 1, -1, -1, 1, 1, 0, 0, 1, 0, 0, 1, 0, -1, -1, 1, 1, 0, 1, 1, 1, 0, 0, 1, -1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, -1, 1, 0, 1, 1, 1, 1, 1, 1, 0, -1, -1, 0, 1, 1, 1, 1, 1, 0, 0, 0, -1, -1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, -1, -1, 0, 0, 0, 1, 0, 1, 1, -1, -1, -1, -1, -1, -1, -1, 0, -1, -1, -1, -1, -1]}, {Radius: 5, Seed: 79700, Colors: [9953843, 13451658], Difficulty: 2, Minimum: 3, Blocks: [-1, -1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, -1, 1, 1, 0, 0, 0, 1, 1, -1, -1, -1, 0, 1, 0, 1, 0, 1, 1, 0, 1, -1, -1, 0, 0, 1, 1, 1, 0, 0, 0, 0, -1, -1, 0, 0, 0, 0, 1, 0, 1, 0, 1, -1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, -1, 1, 1, 1, 0, 0, 1, 0, 1, 1, -1, -1, 0, 0, 1, 0, 1, 1, 1, 0, 0, -1, -1, 1, 0, 1, 0, 0, 0, 1, 1, 0, -1, -1, -1, 1, 1, 1, 0, 0, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1]}, {Radius: 5, Seed: 164700, Colors: [16624161, 363768, 11856617], Difficulty: 2, Minimum: 4, Blocks: [-1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, 0, 2, 2, 2, 2, 0, 0, -1, -1, -1, 0, 2, 2, 2, 0, 1, 2, 1, 2, -1, -1, 0, 2, 2, 1, 1, 0, 2, 1, 1, -1, -1, 1, 2, 1, 0, 1, 0, 1, 2, 2, -1, 2, 1, 1, 0, 1, 0, 0, 0, 1, 1, 2, -1, 2, 0, 0, 1, 1, 2, 0, 1, 1, -1, -1, 1, 2, 1, 2, 2, 0, 1, 1, 1, -1, -1, 0, 1, 2, 1, 0, 2, 1, 2, 2, -1, -1, -1, 2, 0, 1, 1, 0, 1, 2, -1, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1, -1]}, {Radius: 5, Seed: 455700, Colors: [12864953, 5278566, 15393506], Difficulty: 2, Minimum: 5, Blocks: [-1, -1, -1, -1, -1, 2, -1, -1, -1, -1, -1, -1, -1, 2, 0, 2, 2, 0, 2, 2, -1, -1, -1, 2, 2, 2, 0, 0, 0, 1, 1, 0, -1, -1, 2, 0, 2, 0, 2, 0, 1, 2, 1, -1, -1, 1, 0, 0, 0, 0, 1, 0, 2, 2, -1, 1, 1, 2, 0, 2, 0, 0, 0, 0, 1, 0, -1, 1, 0, 0, 2, 2, 1, 1, 0, 1, -1, -1, 0, 1, 2, 2, 1, 1, 1, 2, 0, -1, -1, 1, 0, 1, 0, 1, 0, 0, 2, 2, -1, -1, -1, 0, 1, 1, 0, 0, 1, 2, -1, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1, -1]}, {Radius: 5, Seed: 112e3, Colors: [11245140, 16448650, 9659646], Difficulty: 3, Minimum: 5, Blocks: [-1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 2, 0, 0, 0, 2, 2, -1, -1, -1, 0, 2, 0, 2, 2, 0, 1, 1, 0, -1, -1, 1, 1, 0, 0, 0, 1, 1, 1, 2, -1, -1, 2, 2, 2, 2, 2, 0, 2, 1, 1, -1, 1, 2, 2, 0, 2, 0, 2, 0, 0, 2, 0, -1, 2, 2, 0, 0, 1, 0, 0, 2, 0, -1, -1, 2, 0, 2, 2, 2, 1, 0, 0, 0, -1, -1, 0, 2, 1, 2, 0, 2, 1, 1, 1, -1, -1, -1, 1, 2, 0, 2, 0, 0, 1, -1, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1, -1]}, {Radius: 5, Seed: 109100, Colors: [16130761, 11001594, 16699658], Difficulty: 5, Minimum: 5, Blocks: [-1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 2, 1, 2, 2, -1, -1, -1, 1, 0, 2, 0, 2, 2, 1, 2, 1, -1, -1, 1, 0, 0, 1, 2, 1, 1, 1, 0, -1, -1, 0, 1, 2, 0, 1, 0, 0, 2, 2, -1, 1, 1, 1, 2, 2, 1, 1, 2, 2, 2, 0, -1, 0, 0, 0, 0, 1, 2, 0, 1, 0, -1, -1, 0, 1, 1, 1, 2, 2, 1, 0, 1, -1, -1, 2, 2, 2, 2, 0, 1, 0, 0, 2, -1, -1, -1, 0, 2, 1, 2, 0, 0, 2, -1, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1, -1]}, {Radius: 5, Seed: 505100, Colors: [13621412, 5016323, 4846847], Difficulty: 5, Minimum: 5, Blocks: [-1, -1, -1, -1, -1, 2, -1, -1, -1, -1, -1, -1, -1, 0, 1, 0, 0, 1, 0, 2, -1, -1, -1, 2, 1, 1, 0, 2, 1, 0, 0, 0, -1, -1, 2, 1, 1, 2, 0, 1, 0, 2, 1, -1, -1, 0, 0, 1, 0, 1, 1, 1, 2, 1, -1, 0, 2, 1, 0, 1, 2, 2, 1, 2, 1, 2, -1, 1, 1, 0, 0, 2, 2, 1, 0, 1, -1, -1, 0, 2, 1, 0, 1, 0, 1, 1, 2, -1, -1, 0, 2, 1, 0, 2, 0, 2, 2, 0, -1, -1, -1, 1, 0, 2, 1, 1, 0, 2, -1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1]}];
 
   // code/shoot/shoot.js
   const starsFadeTime = 500;
@@ -32471,9 +32485,9 @@ void main() {
     }
     change(fromMoon) {
       if (shoot !== false) {
-        file.shoot.level = shoot;
+        file.shootLevel = shoot;
       }
-      const level = shoot_default[file.shoot.level];
+      const level = shoot_default[file.shootLevel];
       console.log(`ID: ${level.Seed}-${level.Radius} Difficulty: ${level.Difficulty}`);
       stars.draw(level.Seed);
       moon2.draw(level);
@@ -32501,11 +32515,11 @@ void main() {
       if (!this.isComplete) {
         this.hideTop();
         this.isComplete = true;
-        if (file.shootLevel === 0 && !file.noStory) {
-          text.tutorial(() => {
+        if (!file.noStory) {
+          text.story(() => {
             stars.warpOut();
             sounds.play("warp");
-          }, 1);
+          }, file.shootLevel);
         } else {
           stars.warpOut();
           sounds.play("warp");

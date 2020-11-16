@@ -1,8 +1,9 @@
 export const tutorial = [
-    'Ah, the new employee. Glad to have you aboard!##We just reached a new galaxy full of shiny moons. Moons that must be destroyed!',
-    'Wow! That wasn\'t too bad for your first moon.##The colors indicate geological networks in the moon\'s interior. Experiment to find the fastest sequence for the Moonerator Mark v2.9.##Prepare to warp to the next system.',
+    'Ah, the new employee. Glad to have you aboard!##We just reached a galaxy full of shiny moons. Moons that must be destroyed!',
+    'We’ll start you on a simple one. We don’t want you scared away on your first day, eh?##The Moonerator has limited shots so choose your shots wisely.',
 ]
 
-export const levels = [
-    'I used to be in your chair. Well, not that exact chair, of course. But I was tasked with destruction sequence finding. There’s something satisfying about the click of a perfect sequence. You’ll get there.',
+export const story = [
+    'Ah, the smell of your first moon destruction. Congrats. Don’t worry, there more where that came from. We’ll warp you to the next moon when you’re ready.',
+    'If you grow tired of my talking, you can disable this channel in the control menu. I’m good with that.##Although it is nice to talk to someone again. It grows lonely out here amongst the stars.',
 ]

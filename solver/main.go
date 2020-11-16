@@ -17,24 +17,16 @@ type level struct {
 	seed   int
 }
 
-// var levels = [...]level{
-// 	level{count: 5, radius: 4, colors: 2},
-// 	level{count: 10, radius: 4, colors: 3},
-// 	level{count: 10, radius: 5, colors: 3},
-// 	level{count: 10, radius: 6, colors: 3},
-// 	level{count: 10, radius: 7, colors: 3},
-// }
-
 type parameters struct {
-	Radius       int    `arg:"required"`
-	Colors       int    `arg:"required"`
-	Count        int    `arg:"--count" default:1`
-	MinMoves     int    `arg:"--minMoves" help:"Minimum Moves" default:-1`
-	MaxMoves     int    `arg:"--maxMoves" help:"Maximum Moves" default:10000`
-	MinDiff      int    `arg:"--minDiff" help:"Minimum Difficulty" default:-1`
-	MaxDiff      int    `arg:"--maxDiff" help:"Maximum Difficulty" default:10000`
-	Delete       string `arg:"--delete" help:"--delete <seed>-<radius>"`
-	ChangeColors string `arg:"--delete" help:"--changecolors <seed>-<radius>"`
+	Radius       int
+	Colors       int
+	Count        int
+	MinMoves     int
+	MaxMoves     int
+	MinDiff      int
+	MaxDiff      int
+	Delete       string
+	ChangeColors string
 }
 
 type shoot struct {
@@ -75,13 +67,13 @@ var maxTries = 1000
 
 func main() {
 	args := parameters{
-		Radius:       5,
+		Radius:       4,
 		Colors:       3,
 		Count:        5,
 		MinMoves:     3,
 		MaxMoves:     5,
-		MinDiff:      2,
-		MaxDiff:      5,
+		MinDiff:      1,
+		MaxDiff:      1,
 		Delete:       "",
 		ChangeColors: "",
 	}

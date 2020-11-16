@@ -31,9 +31,9 @@ class Shoot extends PIXI.Container {
 
     change(fromMoon) {
         if (settings.shoot !== false) {
-            file.shoot.level = settings.shoot
+            file.shootLevel = settings.shoot
         }
-        const level = levels[file.shoot.level]
+        const level = levels[file.shootLevel]
         console.log(`ID: ${level.Seed}-${level.Radius} Difficulty: ${level.Difficulty}`)
         stars.draw(level.Seed)
         moon.draw(level)
@@ -63,11 +63,11 @@ class Shoot extends PIXI.Container {
         if (!this.isComplete) {
             this.hideTop()
             this.isComplete = true
-            if (file.shootLevel === 0 && !file.noStory) {
-                text.tutorial(() => {
+            if (!file.noStory) {
+                text.story(() => {
                     stars.warpOut()
                     sounds.play('warp')
-                }, 1)
+                }, file.shootLevel)
             } else {
                 stars.warpOut()
                 sounds.play('warp')

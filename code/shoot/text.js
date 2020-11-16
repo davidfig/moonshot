@@ -55,8 +55,14 @@ class Text extends PIXI.Container {
     tutorial(callback, i) {
         this.visible = true
         this.change(script.tutorial[i], 'ok')
-        this.state = 'tutorial'
         this.tutorialIndex = i
+        this.callback = callback
+        this.show()
+    }
+
+    story(callback, i) {
+        this.visible = true
+        this.change(script.story[i], 'ok')
         this.callback = callback
         this.show()
     }

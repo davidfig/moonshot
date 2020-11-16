@@ -10,6 +10,7 @@ import { file } from '../file'
 import { Words } from '../Words'
 import { shoot } from './shoot'
 import { meter } from './meter'
+import { text } from './text'
 
 const fadeTime = 400
 const approachTime = 2000
@@ -25,6 +26,8 @@ class Moon extends PIXI.Container {
         super()
         this.moon = this.addChild(new PIXI.Container())
         this.leaving = this.addChild(new PIXI.Container())
+        this.help = this.addChild(new Words())
+        this.help.visible = false
     }
 
     get approachTime() {
@@ -63,6 +66,7 @@ class Moon extends PIXI.Container {
             block.tint = this.colors[block.data.color]
         }
         if (file.shootLevel === 0 && !file.noStory) {
+            this.help.visible = true
             this.help.change('<- press here')
             this.help.position.set(this.blockFirstHelp.original.x, this.blockFirstHelp.original.y - this.help.height / 2)
             this.help.alpha = 0
@@ -75,11 +79,13 @@ class Moon extends PIXI.Container {
         this.approaching = ease.add(this, { scale: this.getScale() }, { duration: approachTime, ease: 'easeOutSine' })
         this.approaching.on('complete', () => {
             if (file.shootLevel === 0 && !file.noStory && !this.oneColor()) {
-                this.help = this.addChild(new Words('<- press here'))
-                this.help.scale.set(0.25 / this.scale.x)
-                this.help.position.set(this.blockFirstHelp.x, this.blockFirstHelp.y - this.help.height / 2)
-                this.help.alpha = 0
-                ease.add(this.help, { alpha: 1 }, { duration: fadeTime, ease: 'easeInOutSine'} )
+                text.tutorial(() => {
+                    this.help.visible = true
+                    this.help.change('<- press here')
+                    this.help.position.set(this.blockFirstHelp.x, this.blockFirstHelp.y - this.help.height / 2)
+                    this.help.alpha = 0
+                    ease.add(this.help, { alpha: 1 }, { duration: fadeTime, ease: 'easeInOutSine'} )
+                }, 1)
             }
         })
         sounds.play('approach')
@@ -109,6 +115,7 @@ class Moon extends PIXI.Container {
         if (file.shootLevel === 0 && !file.noStory) {
             this.blockFirstHelp = this.moon.children[12]
         }
+        this.help.scale.set(0.25 / this.getScale())
     }
 
     resize() {
@@ -121,6 +128,7 @@ class Moon extends PIXI.Container {
             child.position.set(child.data.x, child.data.y)
         }
         this.position.set(view.width / 2, view.height / 2)
+        this.help.scale.set(0.25 / this.getScale())
     }
 
     detach(block) {
@@ -169,10 +177,7 @@ class Moon extends PIXI.Container {
         if (file.shootLevel === 0 && !file.noStory && this.moon.children.length === 23) {
             ease.removeEase(this.help)
             const easing = ease.add(this.help, { alpha: 0 }, { duration: fadeTime, ease: 'easeInOutSine' })
-            easing.on('complete', () => {
-                this.removeChild(this.help)
-                this.help = 0
-            })
+            easing.on('complete', () => this.help.visible = false)
         }
     }
 
@@ -238,9 +243,9 @@ class Moon extends PIXI.Container {
                 if (file.shootLevel === 0 && !file.noStory) {
                     if (this.moon.children.length) {
                         if (this.oneColor()) {
-                            if (!this.help) {
-                                this.help = this.addChild(new Words('<- press here'))
-                                this.help.scale.set(0.25 / this.scale.x)
+                            if (!this.help.visible) {
+                                this.help.visible = true
+                                this.help.change('<- press here')
                             }
                             this.help.change('<- and here')
                             const block = this.moon.children[6]
@@ -248,7 +253,8 @@ class Moon extends PIXI.Container {
                         } else {
                             meter.showHelp(true)
                             ease.removeEase(this.help)
-                            ease.add(this.help, { alpha: 0 }, { duration: fadeTime, ease: 'easeInOutSine' })
+                            const easing = ease.add(this.help, { alpha: 0 }, { duration: fadeTime, ease: 'easeInOutSine' })
+                            easing.on('complete', () => this.help.visible = false)
                         }
                     }
                 }

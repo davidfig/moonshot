@@ -26,7 +26,7 @@ class Back extends PIXI.Container {
     }
 
     change() {
-        this.level.change(`level ${file.shoot.level + 1}`)
+        this.level.change(`level ${file.shootLevel + 1}`)
         this.level.height = this.arrow.height
         this.level.scale.x = this.level.scale.y
         this.level.x = this.arrow.width + this.arrow.x + 1
