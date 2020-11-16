@@ -22686,8 +22686,8 @@
         this.chars = {};
         this.pageTextures = pageTextures;
         for (var i2 = 0; i2 < data.page.length; i2++) {
-          var _a = data.page[i2], id = _a.id, file9 = _a.file;
-          pageTextures[id] = textures instanceof Array ? textures[i2] : textures[file9];
+          var _a = data.page[i2], id = _a.id, file10 = _a.file;
+          pageTextures[id] = textures instanceof Array ? textures[i2] : textures[file10];
         }
         for (var i2 = 0; i2 < data.char.length; i2++) {
           var _b = data.char[i2], id = _b.id, page_1 = _b.page;
@@ -31948,11 +31948,65 @@ void main() {
   // script/script.js
   const tutorial = [
     "Ah, the new employee. Glad to have you aboard!##We just reached a galaxy full of shiny moons. Moons that must be destroyed!",
-    "We\u2019ll start you on a simple one. We don\u2019t want you scared away on your first day, eh?##The Moonerator has limited shots so choose your shots wisely."
+    "We\u2019ll start you on a simple moon. We don\u2019t want you scared away on your first day, eh?##The Moonerator has limited shots so choose your shots wisely."
   ];
   const story = [
-    "Ah, the smell of your first moon destruction. Congrats. Don\u2019t worry, there more where that came from. We\u2019ll warp you to the next moon when you\u2019re ready.",
-    "If you grow tired of my talking, you can disable this channel in the control menu. I\u2019m good with that.##Although it is nice to talk to someone again. It grows lonely out here amongst the stars."
+    "Ah, the smell of your first moon destruction. Congrats!##Don\u2019t worry, there\u2019s more where that came from. We\u2019ll warp you to the next moon when you\u2019re ready.",
+    "I used to be in your chair. Well, not that exact chair, of course. But I was tasked with destruction sequence finding.##There\u2019s something satisfying about the click of a perfect sequence.",
+    "If you grow tired of my talking, you can disable it here or in the menu. I\u2019m good with that.##Although it is nice to talk to someone again. It grows lonely out here amongst the stars.",
+    "You\u2019re probably wondering about the destruction sequence.##The colors indicate geological networks in the moon\u2019s interior. The Moonerator Mark v.2.9 works best with limited shots.",
+    "My story? Are we friends now? Weird.##Well, I was the one who last upgraded the Moonerator Mark. She\u2019s smooth now, isn\u2019t she. Wasn\u2019t always that way.",
+    "No, I wasn\u2019t hired like you. That\u2019s just silly. Professor Destruction, they called me, the destroyer of orbs!##Okay, nobody actually called me that. But they could have.",
+    "It\u2019s not like I hate rocks. And I do ensure that there\u2019s nothing living on these moons.##I\u2019m not a monster. At least not anymore.",
+    "We have always been in the business of destruction. The Moonerator is the culmination of that journey.##It\u2019s my greatest legacy.",
+    "Who funds us? You\u2019re a curious one, aren\u2019t you?##Once we discovered warp engines, you would think that money would stop being a thing.",
+    "We had abundant resources and energy that could be used for any purpose.##It\u2019s shocking, I know, but even with free energy and uncountable resources, money was still a thing.",
+    "It turns out that it wasn\u2019t the money that people craved, but power. And if everyone had infinite money, then nobody would have power.##Certain dreams turn out to be just that: dreams.",
+    "People still use money and therefore they need jobs.##I don\u2019t need to tell you this since you\u2019re here clicking away, earning those credits, right?",
+    "My purpose here? Well it\u2019s our purpose really. It\u2019s the destruction of moons.##It\u2019s simple, pure, and it\u2019s a goal you can get behind.",
+    "There\u2019s not always an answer to the why question, so you can stop pestering me.##Just know that you\u2019re a small cog in a large machine with a pure purpose. That\u2019s got to provide job satisfaction, right?",
+    "I didn\u2019t always destroy moons, of course. In the beginning, well, we started with a different aim. We were making things better.##Isn\u2019t that how it always starts?",
+    "This was before you were born during the planet wars.##Warp had just been invented and while there were unlimited planets and systems to explore, some were more important than others.",
+    "It was the crossroad systems that mattered.##When you control where warps exit then you profit from any trade that passes through.",
+    "I was drafted into the war efforts to control those points.##I had a certain knack for destruction. I have other abilities, of course. But those in power were not interested in those abilities.",
+    "The wars were brutal. Destruction was constant.##The destruction sequence to destroy planets is the same as for moons. People and their cities have no impact on the sequences.",
+    "As quickly as humans expanded across galaxies, wars were only a step behind.##In those years, I spent all my time warping between systems and promoting the cause of . . . peace.",
+    "Peace is a funny word. The powerful seek it once they have power, but the weak avoid it until they have taken that power. And afterwards they too seek . . . peace.",
+    "You\u2019re really getting a hang of these sequences. I had my doubts when you first started.##I\u2019ll talk to my boss to see what we can do about your holiday bonus.",
+    "There were pockets of peace, of course. When powerful empires rose and controlled vast stretches of galaxies.##But they never lasted. Space is too big to govern effectively, and people are too greedy.",
+    "Don\u2019t they teach you anything in those space schools?##Warping is what made these wonders possible. It was the bridge to the stars for humanity.",
+    "Warping is like a series of well-planned highways.##They\u2019re fast but you still need to pass between adjacent exits to reach distant parts.",
+    "And it\u2019s those adjacent exits where there can be trouble.##When there\u2019s trouble in one exit then the following exits become unreachable. And there\u2019s power in trouble.",
+    "Troubles created wars and wars created trouble. It\u2019s a cycle.##I think it\u2019s something innate in humans. They start the troubles so that they have something to fix.",
+    "Yeah, you would think that weapons would grow more destructive during the wars.##But like most things, there\u2019s a limit.",
+    "I mean, sure, I could destroy entire stars but what\u2019s the point?##And black holes would be fun to destroy but physics just won\u2019t let us.",
+    "Now, black holes, those are energy generators. Harvesting energy from them was key to the early empires.",
+    "You haven\u2019t heard about the black-hole empires? How quickly history is forgotten.##I can\u2019t blame them. Human history is long and sad.",
+    "That not repeating history thing? Yeah, that\u2019s only in storybooks.##History has a shape and it\u2019s a repetitive shape. Given a long enough sequence, it will repeat in terrible ways.",
+    "Pessimist? Me? I brought you onboard, so that must show I have hope, right?##I can\u2019t change the shape of history, but I can make parts of it more tolerable.",
+    "Wow, that was a particularly challenging sequence. Bravo!##Destroying moons sends a message to the system inhabitants. It\u2019s known in the military arts as the projection of power.",
+    "There are vast swaths of humanity that are cut off from the rest of us. I think it\u2019s for the best.##But we occasionally run into them when building new warp ways.",
+    "They\u2019re not always friendly, of course. And we sometimes run across entire civilizations that didn\u2019t make it.##If we arrive early enough then we can find their remains.",
+    "There was a time I thought things would be different. It was early in my planet-busting career.##Her name was General Xin and I ran across her in Sector 781A2.",
+    "General Xin made me think that there could be something there, you know?##A multigalaxy-wide coalition trying to make things better for everyone.",
+    "It was her charm that threw me off. She shone brighter than entire systems, and when she brought that to bear on you . . . even I was susceptible to it.",
+    "At first peace and prosperity seemed inevitable. We stampeded through systems, conquering, and establishing fair governments.",
+    "Our campaign was met with little effective resistance, and the people seemed happy to have a strong, charismatic leader.",
+    "But the more systems she conquered, the more power she craved, and the more ruthless she became.##She squeezed her systems to fund the conquering of new systems.",
+    "Eventually she paid the ultimate price for the squeezing. Oranges only have so much liquid before they\u2019re only pulp.",
+    "After she lost control, I wandered the galaxies for a while. I was lost in the fall of her empire and nobody was looking for me.",
+    "The chaos closed most traffic on the warp ways. Except for me, of course.##I had an early version of the Moonerator, and you see what it does if there\u2019s trouble.",
+    "I would project power but did not use it to conquer. Only to explore.##And it was through that exploration that I came up with my plan.",
+    "You\u2019re a part of that plan, you know. You may think your job is only a way to put bread on your family\u2019s table, but to me it\u2019s much more.",
+    "You\u2019re the face of the next generation of peace. Peace always has a cost. I tried to mitigate the cost and the cheapest price I could find was the moons.",
+    "You and the other destruction sequence technicians project our power and keep the systems in line.##There is no person or government in charge anymore.",
+    "There are only the seemingly random movements of the fleet of Moonerators.##Cause trouble and moons explode in your system.",
+    "Don\u2019t cause trouble, and the moons still occasionally explode.##Power must be exercised, or it loses its, well, its power.",
+    "What results is not the utopia that General Xin dreamed about.##Instead, it\u2019s a steady governance where power and fear are meted out in proportions.",
+    "There are well-governed systems, and disastrous ones. Our fleet does not interfere as much as I would like it to.##Our role is to maintain the peace between systems.",
+    "I have been around for hundreds of millennia. And this was the most perfect system I can come up with.##It\u2019s a terrible system and people still suffer.",
+    "But like democracy, as terrible as this is, the alternative is much worse.##Now, enough jabbering. Keep pounding out those destruction sequences.",
+    "We will talk soon.##-Your talkative friend and employer, A.I. 34C1-98A."
   ];
 
   // code/shoot/text.js
@@ -31960,6 +32014,7 @@ void main() {
   const scale = 0.25;
   const background = 170;
   const buttonColor = 43520;
+  const storyColor = 11141120;
   const padding = 5;
   class Text extends PIXI6.Container {
     constructor() {
@@ -31971,39 +32026,58 @@ void main() {
       this.button.background = this.button.addChild(new PIXI6.Sprite(PIXI6.Texture.WHITE));
       this.button.background.tint = buttonColor;
       this.button.words = this.button.addChild(new Words("", {shadow: true}));
+      this.storyMode = this.dialog.addChild(new PIXI6.Container());
+      this.storyMode.background = this.storyMode.addChild(new PIXI6.Sprite(PIXI6.Texture.WHITE));
+      this.storyMode.background.tint = storyColor;
+      this.storyMode.words = this.storyMode.addChild(new Words("", {shadow: true}));
+      this.storyMode.visible = false;
       this.dialog.scale.set(scale);
       this.visible = false;
       this.alpha = 0;
     }
-    change(text4, button) {
-      this.text.change(text4);
-      this.text.wrap(view.width * 0.75 / scale);
-      this.box.clear();
-      this.button.words.change(button);
-      const b2 = this.button;
+    init() {
+      let b2 = this.button;
+      b2.words.change("ok");
       b2.background.width = b2.words.width + padding * 2;
       b2.background.height = b2.words.height + padding;
       b2.words.position.set(b2.background.width / 2 - b2.words.width / 2, b2.background.height / 2 - b2.words.height / 2);
-      b2.position.set(this.text.width - b2.width, this.text.height + padding);
-      this.box.lineStyle(1, 16777215, 1, 1).beginFill(background).drawRect(-padding, -padding, this.text.width + padding * 2, this.text.height + padding * 3 + b2.height).endFill();
+      b2 = this.storyMode;
+      b2.words.change("story off");
+      b2.background.width = b2.words.width + padding * 2;
+      b2.background.height = b2.words.height + padding;
+      b2.words.position.set(b2.background.width / 2 - b2.words.width / 2, b2.background.height / 2 - b2.words.height / 2);
+    }
+    change(text4) {
+      this.text.change(text4);
+      this.text.wrap(view.width * 0.75 / scale);
+      this.button.position.set(this.text.width - this.button.width, this.text.height + padding);
+      this.storyMode.position.set(0, this.text.height + padding);
+      this.box.clear();
+      this.box.lineStyle(1, 16777215, 1, 1).beginFill(background).drawRect(-padding, -padding, this.text.width + padding * 2, this.text.height + padding * 3 + this.button.height).endFill();
       this.position.set(view.width / 2 - this.dialog.width / 2, view.height / 2 - this.dialog.height / 2);
     }
     down(point) {
+      if (this.storyMode.visible && this.storyMode.background.containsPoint(point)) {
+        file.noStory = true;
+      }
       if (this.box.containsPoint(point)) {
+        sounds.play("beep");
         this.hide();
         this.callback();
       }
     }
     tutorial(callback, i2) {
       this.visible = true;
-      this.change(tutorial[i2], "ok");
+      this.storyMode.visible = false;
+      this.change(tutorial[i2]);
       this.tutorialIndex = i2;
       this.callback = callback;
       this.show();
     }
-    story(callback, i2) {
+    story(callback) {
       this.visible = true;
-      this.change(story[i2], "ok");
+      this.change(story[file.shootLevel]);
+      this.storyMode.visible = file.shootLevel === 2;
       this.callback = callback;
       this.show();
     }
@@ -32091,6 +32165,7 @@ void main() {
             ease2.add(this.help, {alpha: 1}, {duration: fadeTime2, ease: "easeInOutSine"});
           }, 1);
         }
+        this.approaching = null;
       });
       sounds.play("approach");
     }
@@ -32466,7 +32541,7 @@ void main() {
   const laser = new Laser();
 
   // code/shoot/shoot.json
-  var shoot_default = [{Radius: 4, Seed: 579900, Colors: [15483506, 3389186], Difficulty: 0, Minimum: 2, Blocks: [-1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 0, -1, -1, -1, 0, 0, 1, 1, 0, 1, 1, -1, -1, 0, 0, 0, 0, 1, 1, 1, -1, 1, 1, 0, 0, 1, 1, 0, 0, 0, -1, 1, 1, 0, 1, 1, 1, 1, -1, -1, 0, 1, 1, 1, 1, 1, 0, -1, -1, -1, 0, 0, 0, 1, 1, -1, -1, -1, -1, -1, -1, 0, -1, -1, -1, -1]}, {Radius: 4, Seed: 8900, Colors: [15149680, 11593758], Difficulty: 1, Minimum: 3, Blocks: [-1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, 1, 0, 1, 0, 0, -1, -1, -1, 1, 1, 0, 0, 1, 1, 0, -1, -1, 0, 0, 0, 0, 1, 1, 1, -1, 1, 1, 0, 0, 0, 0, 0, 0, 1, -1, 0, 1, 0, 1, 0, 1, 0, -1, -1, 1, 1, 1, 1, 1, 1, 0, -1, -1, -1, 1, 0, 0, 0, 1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1]}, {Radius: 4, Seed: 332200, Colors: [16670365, 13229568], Difficulty: 1, Minimum: 3, Blocks: [-1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 1, -1, -1, -1, 1, 1, 1, 0, 1, 0, 1, -1, -1, 0, 0, 1, 0, 1, 0, 0, -1, 1, 1, 0, 1, 0, 0, 0, 1, 1, -1, 1, 1, 1, 1, 1, 0, 1, -1, -1, 0, 0, 0, 1, 0, 0, 0, -1, -1, -1, 0, 0, 1, 1, 1, -1, -1, -1, -1, -1, -1, 0, -1, -1, -1, -1]}, {Radius: 4, Seed: 941900, Colors: [13520417, 13760894, 771004], Difficulty: 1, Minimum: 4, Blocks: [-1, -1, -1, -1, 2, -1, -1, -1, -1, -1, -1, 0, 2, 0, 0, 0, -1, -1, -1, 0, 1, 2, 1, 0, 0, 0, -1, -1, 2, 1, 2, 2, 2, 0, 0, -1, 0, 0, 1, 1, 0, 2, 2, 1, 1, -1, 0, 1, 0, 2, 1, 0, 2, -1, -1, 2, 1, 2, 2, 0, 1, 2, -1, -1, -1, 2, 1, 0, 1, 2, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1]}, {Radius: 4, Seed: 942400, Colors: [5103838, 16636767, 3182098], Difficulty: 1, Minimum: 5, Blocks: [-1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, 2, 0, 2, 2, 0, -1, -1, -1, 2, 0, 0, 1, 2, 1, 2, -1, -1, 1, 0, 2, 1, 0, 1, 0, -1, 1, 1, 2, 0, 1, 0, 2, 1, 0, -1, 2, 1, 0, 2, 1, 2, 1, -1, -1, 2, 1, 0, 0, 2, 1, 2, -1, -1, -1, 1, 2, 1, 1, 1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1]}, {Radius: 4, Seed: 940700, Colors: [13297796, 2005600, 15563939], Difficulty: 1, Minimum: 5, Blocks: [-1, -1, -1, -1, 2, -1, -1, -1, -1, -1, -1, 0, 1, 1, 1, 0, -1, -1, -1, 2, 1, 1, 2, 1, 0, 1, -1, -1, 2, 0, 1, 1, 2, 1, 2, -1, 1, 0, 1, 0, 1, 0, 1, 0, 1, -1, 0, 1, 1, 1, 2, 1, 0, -1, -1, 0, 0, 2, 1, 1, 1, 2, -1, -1, -1, 0, 1, 1, 1, 2, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1]}, {Radius: 4, Seed: 232200, Colors: [8160955, 4061168, 15341830], Difficulty: 1, Minimum: 5, Blocks: [-1, -1, -1, -1, 2, -1, -1, -1, -1, -1, -1, 1, 0, 1, 2, 1, -1, -1, -1, 0, 2, 0, 2, 1, 2, 2, -1, -1, 0, 2, 2, 1, 1, 0, 0, -1, 1, 0, 0, 0, 2, 2, 1, 1, 1, -1, 0, 2, 1, 2, 2, 1, 0, -1, -1, 0, 0, 1, 1, 1, 1, 0, -1, -1, -1, 2, 2, 2, 2, 2, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1]}, {Radius: 4, Seed: 942200, Colors: [9151014, 16122327, 4897990], Difficulty: 1, Minimum: 5, Blocks: [-1, -1, -1, -1, 2, -1, -1, -1, -1, -1, -1, 1, 1, 0, 0, 2, -1, -1, -1, 2, 1, 1, 1, 0, 1, 0, -1, -1, 2, 0, 2, 0, 0, 2, 2, -1, 0, 2, 2, 2, 0, 1, 2, 2, 0, -1, 1, 2, 0, 1, 0, 0, 0, -1, -1, 2, 2, 2, 1, 1, 2, 2, -1, -1, -1, 2, 0, 1, 1, 0, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1]}, {Radius: 5, Seed: 317400, Colors: [6318319, 11271760], Difficulty: 2, Minimum: 3, Blocks: [-1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, 0, 1, 0, 1, 0, 1, 0, -1, -1, -1, 1, 1, 1, 0, 0, 0, 0, 0, 1, -1, -1, 1, 1, 0, 0, 1, 0, 0, 1, 0, -1, -1, 1, 1, 0, 1, 1, 1, 0, 0, 1, -1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, -1, 1, 0, 1, 1, 1, 1, 1, 1, 0, -1, -1, 0, 1, 1, 1, 1, 1, 0, 0, 0, -1, -1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, -1, -1, 0, 0, 0, 1, 0, 1, 1, -1, -1, -1, -1, -1, -1, -1, 0, -1, -1, -1, -1, -1]}, {Radius: 5, Seed: 79700, Colors: [9953843, 13451658], Difficulty: 2, Minimum: 3, Blocks: [-1, -1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, -1, 1, 1, 0, 0, 0, 1, 1, -1, -1, -1, 0, 1, 0, 1, 0, 1, 1, 0, 1, -1, -1, 0, 0, 1, 1, 1, 0, 0, 0, 0, -1, -1, 0, 0, 0, 0, 1, 0, 1, 0, 1, -1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, -1, 1, 1, 1, 0, 0, 1, 0, 1, 1, -1, -1, 0, 0, 1, 0, 1, 1, 1, 0, 0, -1, -1, 1, 0, 1, 0, 0, 0, 1, 1, 0, -1, -1, -1, 1, 1, 1, 0, 0, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1]}, {Radius: 5, Seed: 164700, Colors: [16624161, 363768, 11856617], Difficulty: 2, Minimum: 4, Blocks: [-1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, 0, 2, 2, 2, 2, 0, 0, -1, -1, -1, 0, 2, 2, 2, 0, 1, 2, 1, 2, -1, -1, 0, 2, 2, 1, 1, 0, 2, 1, 1, -1, -1, 1, 2, 1, 0, 1, 0, 1, 2, 2, -1, 2, 1, 1, 0, 1, 0, 0, 0, 1, 1, 2, -1, 2, 0, 0, 1, 1, 2, 0, 1, 1, -1, -1, 1, 2, 1, 2, 2, 0, 1, 1, 1, -1, -1, 0, 1, 2, 1, 0, 2, 1, 2, 2, -1, -1, -1, 2, 0, 1, 1, 0, 1, 2, -1, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1, -1]}, {Radius: 5, Seed: 455700, Colors: [12864953, 5278566, 15393506], Difficulty: 2, Minimum: 5, Blocks: [-1, -1, -1, -1, -1, 2, -1, -1, -1, -1, -1, -1, -1, 2, 0, 2, 2, 0, 2, 2, -1, -1, -1, 2, 2, 2, 0, 0, 0, 1, 1, 0, -1, -1, 2, 0, 2, 0, 2, 0, 1, 2, 1, -1, -1, 1, 0, 0, 0, 0, 1, 0, 2, 2, -1, 1, 1, 2, 0, 2, 0, 0, 0, 0, 1, 0, -1, 1, 0, 0, 2, 2, 1, 1, 0, 1, -1, -1, 0, 1, 2, 2, 1, 1, 1, 2, 0, -1, -1, 1, 0, 1, 0, 1, 0, 0, 2, 2, -1, -1, -1, 0, 1, 1, 0, 0, 1, 2, -1, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1, -1]}, {Radius: 5, Seed: 112e3, Colors: [11245140, 16448650, 9659646], Difficulty: 3, Minimum: 5, Blocks: [-1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 2, 0, 0, 0, 2, 2, -1, -1, -1, 0, 2, 0, 2, 2, 0, 1, 1, 0, -1, -1, 1, 1, 0, 0, 0, 1, 1, 1, 2, -1, -1, 2, 2, 2, 2, 2, 0, 2, 1, 1, -1, 1, 2, 2, 0, 2, 0, 2, 0, 0, 2, 0, -1, 2, 2, 0, 0, 1, 0, 0, 2, 0, -1, -1, 2, 0, 2, 2, 2, 1, 0, 0, 0, -1, -1, 0, 2, 1, 2, 0, 2, 1, 1, 1, -1, -1, -1, 1, 2, 0, 2, 0, 0, 1, -1, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1, -1]}, {Radius: 5, Seed: 109100, Colors: [16130761, 11001594, 16699658], Difficulty: 5, Minimum: 5, Blocks: [-1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 2, 1, 2, 2, -1, -1, -1, 1, 0, 2, 0, 2, 2, 1, 2, 1, -1, -1, 1, 0, 0, 1, 2, 1, 1, 1, 0, -1, -1, 0, 1, 2, 0, 1, 0, 0, 2, 2, -1, 1, 1, 1, 2, 2, 1, 1, 2, 2, 2, 0, -1, 0, 0, 0, 0, 1, 2, 0, 1, 0, -1, -1, 0, 1, 1, 1, 2, 2, 1, 0, 1, -1, -1, 2, 2, 2, 2, 0, 1, 0, 0, 2, -1, -1, -1, 0, 2, 1, 2, 0, 0, 2, -1, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1, -1]}, {Radius: 5, Seed: 505100, Colors: [13621412, 5016323, 4846847], Difficulty: 5, Minimum: 5, Blocks: [-1, -1, -1, -1, -1, 2, -1, -1, -1, -1, -1, -1, -1, 0, 1, 0, 0, 1, 0, 2, -1, -1, -1, 2, 1, 1, 0, 2, 1, 0, 0, 0, -1, -1, 2, 1, 1, 2, 0, 1, 0, 2, 1, -1, -1, 0, 0, 1, 0, 1, 1, 1, 2, 1, -1, 0, 2, 1, 0, 1, 2, 2, 1, 2, 1, 2, -1, 1, 1, 0, 0, 2, 2, 1, 0, 1, -1, -1, 0, 2, 1, 0, 1, 0, 1, 1, 2, -1, -1, 0, 2, 1, 0, 2, 0, 2, 2, 0, -1, -1, -1, 1, 0, 2, 1, 1, 0, 2, -1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1]}];
+  var shoot_default = [{Radius: 4, Seed: 579900, Colors: [15483506, 3389186], Difficulty: 0, Minimum: 2, Blocks: [-1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 0, -1, -1, -1, 0, 0, 1, 1, 0, 1, 1, -1, -1, 0, 0, 0, 0, 1, 1, 1, -1, 1, 1, 0, 0, 1, 1, 0, 0, 0, -1, 1, 1, 0, 1, 1, 1, 1, -1, -1, 0, 1, 1, 1, 1, 1, 0, -1, -1, -1, 0, 0, 0, 1, 1, -1, -1, -1, -1, -1, -1, 0, -1, -1, -1, -1]}, {Radius: 4, Seed: 8900, Colors: [15149680, 11593758], Difficulty: 1, Minimum: 3, Blocks: [-1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, 1, 0, 1, 0, 0, -1, -1, -1, 1, 1, 0, 0, 1, 1, 0, -1, -1, 0, 0, 0, 0, 1, 1, 1, -1, 1, 1, 0, 0, 0, 0, 0, 0, 1, -1, 0, 1, 0, 1, 0, 1, 0, -1, -1, 1, 1, 1, 1, 1, 1, 0, -1, -1, -1, 1, 0, 0, 0, 1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1]}, {Radius: 4, Seed: 332200, Colors: [16670365, 13229568], Difficulty: 1, Minimum: 3, Blocks: [-1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 1, -1, -1, -1, 1, 1, 1, 0, 1, 0, 1, -1, -1, 0, 0, 1, 0, 1, 0, 0, -1, 1, 1, 0, 1, 0, 0, 0, 1, 1, -1, 1, 1, 1, 1, 1, 0, 1, -1, -1, 0, 0, 0, 1, 0, 0, 0, -1, -1, -1, 0, 0, 1, 1, 1, -1, -1, -1, -1, -1, -1, 0, -1, -1, -1, -1]}, {Radius: 4, Seed: 522100, Colors: [15030124, 8908900], Difficulty: 1, Minimum: 3, Blocks: [-1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, 1, 0, 0, 0, 1, -1, -1, -1, 1, 0, 1, 0, 0, 1, 0, -1, -1, 1, 1, 1, 0, 0, 1, 1, -1, 1, 0, 1, 1, 0, 0, 1, 1, 0, -1, 0, 1, 1, 0, 0, 0, 0, -1, -1, 0, 1, 1, 1, 1, 0, 0, -1, -1, -1, 1, 1, 1, 1, 1, -1, -1, -1, -1, -1, -1, 0, -1, -1, -1, -1]}, {Radius: 4, Seed: 767500, Colors: [16016259, 1375797], Difficulty: 1, Minimum: 3, Blocks: [-1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1, -1, -1, -1, 0, 1, 1, 1, 1, 1, 1, -1, -1, 0, 1, 0, 1, 1, 0, 0, -1, 1, 0, 1, 0, 0, 0, 0, 1, 0, -1, 1, 1, 0, 1, 0, 1, 1, -1, -1, 0, 1, 1, 1, 0, 0, 0, -1, -1, -1, 1, 0, 1, 0, 0, -1, -1, -1, -1, -1, -1, 0, -1, -1, -1, -1]}, {Radius: 4, Seed: 574900, Colors: [14625676, 11116171], Difficulty: 1, Minimum: 3, Blocks: [-1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, 1, 1, 1, 0, 1, -1, -1, -1, 1, 1, 1, 0, 0, 0, 1, -1, -1, 1, 1, 0, 1, 1, 0, 1, -1, 1, 1, 1, 0, 0, 0, 0, 1, 0, -1, 1, 1, 0, 1, 0, 0, 1, -1, -1, 0, 1, 1, 1, 1, 0, 1, -1, -1, -1, 1, 1, 1, 1, 0, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1]}, {Radius: 4, Seed: 998900, Colors: [9081062, 14511672], Difficulty: 1, Minimum: 3, Blocks: [-1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, 0, 1, 0, 0, 1, -1, -1, -1, 1, 0, 1, 0, 0, 1, 0, -1, -1, 1, 0, 0, 0, 1, 1, 1, -1, 1, 0, 1, 1, 1, 0, 0, 1, 1, -1, 0, 1, 1, 0, 0, 1, 0, -1, -1, 1, 1, 1, 0, 1, 1, 1, -1, -1, -1, 1, 0, 0, 1, 1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1]}, {Radius: 4, Seed: 55800, Colors: [10320541, 4977057], Difficulty: 2, Minimum: 3, Blocks: [-1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, 0, 1, 0, 0, 1, -1, -1, -1, 0, 1, 1, 0, 0, 1, 0, -1, -1, 1, 0, 1, 0, 0, 1, 0, -1, 0, 0, 1, 1, 1, 1, 0, 0, 1, -1, 0, 0, 0, 0, 1, 1, 0, -1, -1, 1, 0, 0, 0, 0, 1, 0, -1, -1, -1, 1, 1, 1, 0, 1, -1, -1, -1, -1, -1, -1, 0, -1, -1, -1, -1]}, {Radius: 5, Seed: 317400, Colors: [6318319, 11271760], Difficulty: 2, Minimum: 3, Blocks: [-1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, 0, 1, 0, 1, 0, 1, 0, -1, -1, -1, 1, 1, 1, 0, 0, 0, 0, 0, 1, -1, -1, 1, 1, 0, 0, 1, 0, 0, 1, 0, -1, -1, 1, 1, 0, 1, 1, 1, 0, 0, 1, -1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, -1, 1, 0, 1, 1, 1, 1, 1, 1, 0, -1, -1, 0, 1, 1, 1, 1, 1, 0, 0, 0, -1, -1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, -1, -1, 0, 0, 0, 1, 0, 1, 1, -1, -1, -1, -1, -1, -1, -1, 0, -1, -1, -1, -1, -1]}, {Radius: 5, Seed: 79700, Colors: [9953843, 13451658], Difficulty: 2, Minimum: 3, Blocks: [-1, -1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, -1, 1, 1, 0, 0, 0, 1, 1, -1, -1, -1, 0, 1, 0, 1, 0, 1, 1, 0, 1, -1, -1, 0, 0, 1, 1, 1, 0, 0, 0, 0, -1, -1, 0, 0, 0, 0, 1, 0, 1, 0, 1, -1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, -1, 1, 1, 1, 0, 0, 1, 0, 1, 1, -1, -1, 0, 0, 1, 0, 1, 1, 1, 0, 0, -1, -1, 1, 0, 1, 0, 0, 0, 1, 1, 0, -1, -1, -1, 1, 1, 1, 0, 0, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1]}, {Radius: 4, Seed: 345900, Colors: [14416048, 12604050, 1544764], Difficulty: 1, Minimum: 4, Blocks: [-1, -1, -1, -1, 2, -1, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1, -1, -1, -1, 2, 0, 0, 1, 0, 0, 2, -1, -1, 1, 1, 1, 0, 1, 2, 2, -1, 1, 0, 2, 2, 0, 2, 0, 0, 2, -1, 1, 2, 0, 0, 1, 0, 1, -1, -1, 1, 2, 0, 2, 0, 0, 2, -1, -1, -1, 1, 1, 0, 0, 2, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1]}, {Radius: 4, Seed: 941900, Colors: [13520417, 13760894, 771004], Difficulty: 1, Minimum: 4, Blocks: [-1, -1, -1, -1, 2, -1, -1, -1, -1, -1, -1, 0, 2, 0, 0, 0, -1, -1, -1, 0, 1, 2, 1, 0, 0, 0, -1, -1, 2, 1, 2, 2, 2, 0, 0, -1, 0, 0, 1, 1, 0, 2, 2, 1, 1, -1, 0, 1, 0, 2, 1, 0, 2, -1, -1, 2, 1, 2, 2, 0, 1, 2, -1, -1, -1, 2, 1, 0, 1, 2, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1]}, {Radius: 4, Seed: 289800, Colors: [13101077, 7573313, 3456480], Difficulty: 1, Minimum: 4, Blocks: [-1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 0, 0, -1, -1, -1, 2, 2, 1, 2, 0, 1, 1, -1, -1, 2, 1, 1, 2, 1, 1, 0, -1, 2, 1, 0, 1, 1, 1, 1, 0, 1, -1, 0, 2, 1, 0, 0, 0, 2, -1, -1, 1, 1, 2, 0, 0, 1, 0, -1, -1, -1, 1, 0, 2, 1, 2, -1, -1, -1, -1, -1, -1, 0, -1, -1, -1, -1]}, {Radius: 4, Seed: 942400, Colors: [5103838, 16636767, 3182098], Difficulty: 1, Minimum: 5, Blocks: [-1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, 2, 0, 2, 2, 0, -1, -1, -1, 2, 0, 0, 1, 2, 1, 2, -1, -1, 1, 0, 2, 1, 0, 1, 0, -1, 1, 1, 2, 0, 1, 0, 2, 1, 0, -1, 2, 1, 0, 2, 1, 2, 1, -1, -1, 2, 1, 0, 0, 2, 1, 2, -1, -1, -1, 1, 2, 1, 1, 1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1]}, {Radius: 4, Seed: 940700, Colors: [13297796, 2005600, 15563939], Difficulty: 1, Minimum: 5, Blocks: [-1, -1, -1, -1, 2, -1, -1, -1, -1, -1, -1, 0, 1, 1, 1, 0, -1, -1, -1, 2, 1, 1, 2, 1, 0, 1, -1, -1, 2, 0, 1, 1, 2, 1, 2, -1, 1, 0, 1, 0, 1, 0, 1, 0, 1, -1, 0, 1, 1, 1, 2, 1, 0, -1, -1, 0, 0, 2, 1, 1, 1, 2, -1, -1, -1, 0, 1, 1, 1, 2, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1]}, {Radius: 4, Seed: 942200, Colors: [9151014, 16122327, 4897990], Difficulty: 1, Minimum: 5, Blocks: [-1, -1, -1, -1, 2, -1, -1, -1, -1, -1, -1, 1, 1, 0, 0, 2, -1, -1, -1, 2, 1, 1, 1, 0, 1, 0, -1, -1, 2, 0, 2, 0, 0, 2, 2, -1, 0, 2, 2, 2, 0, 1, 2, 2, 0, -1, 1, 2, 0, 1, 0, 0, 0, -1, -1, 2, 2, 2, 1, 1, 2, 2, -1, -1, -1, 2, 0, 1, 1, 0, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1]}, {Radius: 4, Seed: 232200, Colors: [8160955, 4061168, 15341830], Difficulty: 1, Minimum: 5, Blocks: [-1, -1, -1, -1, 2, -1, -1, -1, -1, -1, -1, 1, 0, 1, 2, 1, -1, -1, -1, 0, 2, 0, 2, 1, 2, 2, -1, -1, 0, 2, 2, 1, 1, 0, 0, -1, 1, 0, 0, 0, 2, 2, 1, 1, 1, -1, 0, 2, 1, 2, 2, 1, 0, -1, -1, 0, 0, 1, 1, 1, 1, 0, -1, -1, -1, 2, 2, 2, 2, 2, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1]}, {Radius: 5, Seed: 164700, Colors: [16624161, 363768, 11856617], Difficulty: 2, Minimum: 4, Blocks: [-1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, 0, 2, 2, 2, 2, 0, 0, -1, -1, -1, 0, 2, 2, 2, 0, 1, 2, 1, 2, -1, -1, 0, 2, 2, 1, 1, 0, 2, 1, 1, -1, -1, 1, 2, 1, 0, 1, 0, 1, 2, 2, -1, 2, 1, 1, 0, 1, 0, 0, 0, 1, 1, 2, -1, 2, 0, 0, 1, 1, 2, 0, 1, 1, -1, -1, 1, 2, 1, 2, 2, 0, 1, 1, 1, -1, -1, 0, 1, 2, 1, 0, 2, 1, 2, 2, -1, -1, -1, 2, 0, 1, 1, 0, 1, 2, -1, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1, -1]}, {Radius: 5, Seed: 455700, Colors: [12864953, 5278566, 15393506], Difficulty: 2, Minimum: 5, Blocks: [-1, -1, -1, -1, -1, 2, -1, -1, -1, -1, -1, -1, -1, 2, 0, 2, 2, 0, 2, 2, -1, -1, -1, 2, 2, 2, 0, 0, 0, 1, 1, 0, -1, -1, 2, 0, 2, 0, 2, 0, 1, 2, 1, -1, -1, 1, 0, 0, 0, 0, 1, 0, 2, 2, -1, 1, 1, 2, 0, 2, 0, 0, 0, 0, 1, 0, -1, 1, 0, 0, 2, 2, 1, 1, 0, 1, -1, -1, 0, 1, 2, 2, 1, 1, 1, 2, 0, -1, -1, 1, 0, 1, 0, 1, 0, 0, 2, 2, -1, -1, -1, 0, 1, 1, 0, 0, 1, 2, -1, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1, -1]}, {Radius: 5, Seed: 112e3, Colors: [11245140, 16448650, 9659646], Difficulty: 3, Minimum: 5, Blocks: [-1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 2, 0, 0, 0, 2, 2, -1, -1, -1, 0, 2, 0, 2, 2, 0, 1, 1, 0, -1, -1, 1, 1, 0, 0, 0, 1, 1, 1, 2, -1, -1, 2, 2, 2, 2, 2, 0, 2, 1, 1, -1, 1, 2, 2, 0, 2, 0, 2, 0, 0, 2, 0, -1, 2, 2, 0, 0, 1, 0, 0, 2, 0, -1, -1, 2, 0, 2, 2, 2, 1, 0, 0, 0, -1, -1, 0, 2, 1, 2, 0, 2, 1, 1, 1, -1, -1, -1, 1, 2, 0, 2, 0, 0, 1, -1, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1, -1]}, {Radius: 5, Seed: 505100, Colors: [13621412, 5016323, 4846847], Difficulty: 5, Minimum: 5, Blocks: [-1, -1, -1, -1, -1, 2, -1, -1, -1, -1, -1, -1, -1, 0, 1, 0, 0, 1, 0, 2, -1, -1, -1, 2, 1, 1, 0, 2, 1, 0, 0, 0, -1, -1, 2, 1, 1, 2, 0, 1, 0, 2, 1, -1, -1, 0, 0, 1, 0, 1, 1, 1, 2, 1, -1, 0, 2, 1, 0, 1, 2, 2, 1, 2, 1, 2, -1, 1, 1, 0, 0, 2, 2, 1, 0, 1, -1, -1, 0, 2, 1, 0, 1, 0, 1, 1, 2, -1, -1, 0, 2, 1, 0, 2, 0, 2, 2, 0, -1, -1, -1, 1, 0, 2, 1, 1, 0, 2, -1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1]}, {Radius: 5, Seed: 109100, Colors: [16130761, 11001594, 16699658], Difficulty: 5, Minimum: 5, Blocks: [-1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 2, 1, 2, 2, -1, -1, -1, 1, 0, 2, 0, 2, 2, 1, 2, 1, -1, -1, 1, 0, 0, 1, 2, 1, 1, 1, 0, -1, -1, 0, 1, 2, 0, 1, 0, 0, 2, 2, -1, 1, 1, 1, 2, 2, 1, 1, 2, 2, 2, 0, -1, 0, 0, 0, 0, 1, 2, 0, 1, 0, -1, -1, 0, 1, 1, 1, 2, 2, 1, 0, 1, -1, -1, 2, 2, 2, 2, 0, 1, 0, 0, 2, -1, -1, -1, 0, 2, 1, 2, 0, 0, 2, -1, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1, -1]}];
 
   // code/shoot/shoot.js
   const starsFadeTime = 500;
@@ -32481,6 +32556,7 @@ void main() {
       this.isComplete = false;
       this.top.addChild(meter);
       this.top.addChild(back);
+      text.init();
       this.addChild(text);
     }
     change(fromMoon) {
@@ -32519,7 +32595,7 @@ void main() {
           text.story(() => {
             stars.warpOut();
             sounds.play("warp");
-          }, file.shootLevel);
+          });
         } else {
           stars.warpOut();
           sounds.play("warp");
@@ -32529,7 +32605,7 @@ void main() {
     down(point) {
       if (text.visible) {
         text.down(point);
-      } else {
+      } else if (file.shootLevel !== 0 || !moon2.approaching) {
         this.isDown = true;
         const local = this.toLocal(point);
         if (!back.down(local) && !meter.down(local)) {

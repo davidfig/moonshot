@@ -87,6 +87,7 @@ class Moon extends PIXI.Container {
                     ease.add(this.help, { alpha: 1 }, { duration: fadeTime, ease: 'easeInOutSine'} )
                 }, 1)
             }
+            this.approaching = null
         })
         sounds.play('approach')
     }

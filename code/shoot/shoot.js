@@ -26,6 +26,7 @@ class Shoot extends PIXI.Container {
         this.isComplete = false
         this.top.addChild(meter)
         this.top.addChild(back)
+        text.init()
         this.addChild(text)
     }
 
@@ -67,7 +68,7 @@ class Shoot extends PIXI.Container {
                 text.story(() => {
                     stars.warpOut()
                     sounds.play('warp')
-                }, file.shootLevel)
+                })
             } else {
                 stars.warpOut()
                 sounds.play('warp')
@@ -78,7 +79,7 @@ class Shoot extends PIXI.Container {
     down(point) {
         if (text.visible) {
             text.down(point)
-        } else {
+        } else if (file.shootLevel !== 0 || !moon.approaching) {
             this.isDown = true
             const local = this.toLocal(point)
             if (!back.down(local) && !meter.down(local)) {

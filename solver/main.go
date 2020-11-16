@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
-	"sort"
 	"strconv"
 	"strings"
 )
@@ -40,25 +39,23 @@ type shoot struct {
 
 type shootJSON []shoot
 
-func (s shootJSON) Len() int {
-	return len(s)
-}
-
-func (s shootJSON) Swap(i, j int) {
-	s[i], s[j] = s[j], s[i]
-}
-
 func (s shootJSON) Less(i, j int) bool {
+	if len(s[i].Colors) < len(s[j].Colors) {
+		return true
+	}
+	if len(s[i].Colors) > len(s[j].Colors) {
+		return false
+	}
 	if s[i].Radius < s[j].Radius {
 		return true
-	} else if s[i].Radius > s[j].Radius {
+	}
+	if s[i].Radius > s[j].Radius {
 		return false
-	} else {
-		if s[i].Difficulty < s[j].Difficulty {
-			return true
-		} else if s[i].Minimum < s[j].Minimum {
-			return true
-		}
+	}
+	if s[i].Difficulty < s[j].Difficulty {
+		return true
+	} else if s[i].Minimum < s[j].Minimum {
+		return true
 	}
 	return false
 }
@@ -68,12 +65,12 @@ var maxTries = 1000
 func main() {
 	args := parameters{
 		Radius:       4,
-		Colors:       3,
-		Count:        5,
+		Colors:       2,
+		Count:        4,
 		MinMoves:     3,
-		MaxMoves:     5,
+		MaxMoves:     6,
 		MinDiff:      1,
-		MaxDiff:      1,
+		MaxDiff:      3,
 		Delete:       "",
 		ChangeColors: "",
 	}
@@ -145,7 +142,6 @@ func main() {
 			}
 		}
 	}
-	sort.Sort(levels)
 	bytes, _ := json.Marshal(&levels)
 	ioutil.WriteFile("../code/shoot/shoot.json", bytes, 0644)
 }

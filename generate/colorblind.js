@@ -55,6 +55,27 @@ async function start() {
             first = false
         } while (fail)
     }
+    shoot.sort((a, b) => {
+        if (a.Colors.length < b.Colors.length) {
+            return -1
+        }
+        if (a.Colors.length > b.Colors.length) {
+            return 1
+        }
+        if (a.Radius < b.Radius) {
+            return -1
+        }
+        if (a.Radius > b.Radius) {
+            return 1
+        }
+        if (a.Difficulty < b.Difficulty) {
+            return -1
+        }
+        if (a.Difficulty > b.Difficulty) {
+            return 1
+        }
+        return 0
+    })
     await fs.outputJSON(file, shoot)
     console.log(`Fixed ${count} color issues with shoot.json.`)
     process.exit(0)
