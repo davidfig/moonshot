@@ -6,9 +6,9 @@ export const tutorial = [
 export const story = [
     'Ah, the smell of your first moon destruction. Congrats!##Don’t worry, there’s more where that came from. We’ll warp you to the next moon when you’re ready.',
     'I used to be in your chair. Well, not that exact chair, of course. But I was tasked with destruction sequence finding.##There’s something satisfying about the click of a perfect sequence.',
-    'If you grow tired of my talking, you can disable it here or in the menu. I’m good with that.##Although it is nice to talk to someone again. It grows lonely out here amongst the stars.',
+    'If you grow tired of my babbling, you can disable it.##Although it is nice to talk to someone again. It grows lonely out here amongst the stars.',
     'You’re probably wondering about the destruction sequence.##The colors indicate geological networks in the moon’s interior. The Moonerator Mark v.2.9 works best with limited shots.',
-    'My story? Are we friends now? Weird.##Well, I was the one who last upgraded the Moonerator Mark. She’s smooth now, isn’t she. Wasn’t always that way.',
+    'My story? Are we friends now? Weird.##Well, I am the designer of the Moonerator. She runS smoothly, doesn’t she? Wasn’t always that way.',
     'No, I wasn’t hired like you. That’s just silly. Professor Destruction, they called me, the destroyer of orbs!##Okay, nobody actually called me that. But they could have.',
     'It’s not like I hate rocks. And I do ensure that there’s nothing living on these moons.##I’m not a monster. At least not anymore.',
     'We have always been in the business of destruction. The Moonerator is the culmination of that journey.##It’s my greatest legacy.',

@@ -64,13 +64,13 @@ var maxTries = 1000
 
 func main() {
 	args := parameters{
-		Radius:       4,
-		Colors:       2,
-		Count:        4,
-		MinMoves:     3,
-		MaxMoves:     6,
-		MinDiff:      1,
-		MaxDiff:      3,
+		Radius:       6,
+		Colors:       3,
+		Count:        3,
+		MinMoves:     4,
+		MaxMoves:     10,
+		MinDiff:      6,
+		MaxDiff:      10,
 		Delete:       "",
 		ChangeColors: "",
 	}

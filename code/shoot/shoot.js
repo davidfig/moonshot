@@ -35,7 +35,6 @@ class Shoot extends PIXI.Container {
             file.shootLevel = settings.shoot
         }
         const level = levels[file.shootLevel]
-        console.log(`ID: ${level.Seed}-${level.Radius} Difficulty: ${level.Difficulty}`)
         stars.draw(level.Seed)
         moon.draw(level)
         laser.reset()

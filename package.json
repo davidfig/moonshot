@@ -1,12 +1,15 @@
 {
     "name": "moonshot",
-    "version": "0.1.12",
+    "version": "0.1.17",
     "description": "Game Off 2020 - Shoot the Moon (like literally)",
     "scripts": {
         "serve": "node generate",
+        "solve": "cd solver && go build && solver",
         "build": "node generate --production",
-        "deploy": "node generate/version && npm run build && wsl.exe rsync -rvW --delete -e ssh public/* yopey@206.189.75.22:/home/yopey/prototypes/moonshot",
-        "colorblind": "node generate/colorblind"
+        "deploy": "node generate/version && npm run build && wsl.exe rsync -rvW --delete -e ssh public/* sewcrates@67.207.92.70:/home/sewcrates/prototypes/moonshot",
+        "play": "node generate/version && npm run build && wsl.exe rsync -rvW --delete -e ssh public/* sewcrates@67.207.92.70:/home/sewcrates/play/shoot-the-moon",
+        "colorblind": "node generate/colorblind",
+        "summary": "node generate/colorblind && node generate/summary"
     },
     "author": "David Figatner",
     "license": "MIT",

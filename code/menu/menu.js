@@ -50,7 +50,7 @@ class Menu extends PIXI.Container {
 
     shoot() {
         if (!file.shootMax) {
-            this.play = this.menu.addChild(new Words('play'))
+            this.play = this.menu.addChild(new Words('play', { shadow: true }))
             this.level = null
         } else {
             const max = 34
@@ -86,7 +86,7 @@ class Menu extends PIXI.Container {
     move() {}
 
     down(point) {
-        if (this.back.containsPoint(point)) {
+        if (this.back && this.back.containsPoint(point)) {
             if (this.back.tint === disabled) {
                 sounds.play('buzzer')
             } else {
@@ -94,7 +94,7 @@ class Menu extends PIXI.Container {
                 this.holding = 'back'
                 this.holdingFrames = -framesToAdvance * 2
             }
-        } else if (this.next.containsPoint(point)) {
+        } else if (this.next && this.next.containsPoint(point)) {
             if (this.next.tint === disabled) {
                 sounds.play('buzzer')
             } else {

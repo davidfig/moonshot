@@ -282,13 +282,12 @@ class Moon extends PIXI.Container {
 
     updateLeaving() {
         let leaving = false
-        const scale = this.scale.x
         for (const child of this.leaving.children) {
             if (child.visible) {
                 child.position.set(child.x + child.velocity[0], child.y + child.velocity[1])
-                const global = child.getGlobalPosition()
-                if (global.x - scale / 2 > window.innerWidth || global.x + scale / 2 < 0 ||
-                    global.y - scale / 2 > window.innerHeight || global.y + scale / 2 < 0) {
+                const bounds = child.getBounds()
+                if (bounds.right < 0 || bounds.left > window.innerWidth ||
+                    bounds.bottom < 0 || bounds.top > window.innerHeight) {
                     child.visible = false
                 }
                 leaving = true

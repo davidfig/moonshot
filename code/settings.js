@@ -1,6 +1,6 @@
 export const name = 'shoot_the_moon'
 export const encrypt = 'tjttQZKdeu'
-export const storageVersion = 2
+export const storageVersion = 3
 
 export const shadow = 0.5
 export const shadowTint = 0x888888
