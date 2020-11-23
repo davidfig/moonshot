@@ -1,6 +1,6 @@
 {
     "name": "moonshot",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Game Off 2020 - Shoot the Moon (like literally)",
     "scripts": {
         "serve": "node generate",
