@@ -2,11 +2,20 @@ import * as PIXI from 'pixi.js'
 import random from 'yy-random'
 
 import { view } from './view'
+import { Words } from './Words'
 
 class Icon extends PIXI.Graphics {
     init() {
-        this.halfMoon()
+        // this.halfMoon()
+        this.by()
         view.stage.addChild(this)
+        view.update()
+    }
+
+    by() {
+        const words = this.addChild(new Words('a game by David Figatner', { shadow: true }))
+        words.scale.set(0.5)
+        words.position.set(1, 1)
         view.update()
     }
 

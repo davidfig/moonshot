@@ -6,7 +6,7 @@ import { view } from './view'
 import { sheet } from './sheet'
 import { input } from './input'
 import { sounds } from './sounds'
-// import { icon } from './icon'
+import { icon } from './icon'
 import * as settings from './settings'
 
 class Game {
@@ -15,7 +15,7 @@ class Game {
         await file.init()
         await sheet.init()
         view.init()
-        // icon.init()
+        icon.init()
         state.init()
         if (!settings.release) {
             this.fps = new FPS()

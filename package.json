@@ -8,12 +8,14 @@
         "build": "node generate --production",
         "deploy": "node generate/version && npm run build && wsl.exe rsync -rvW --delete -e ssh public/* sewcrates@67.207.92.70:/home/sewcrates/prototypes/moonshot",
         "play": "node generate/version && npm run build && wsl.exe rsync -rvW --delete -e ssh public/* sewcrates@67.207.92.70:/home/sewcrates/play/shoot-the-moon",
+        "zip": "node generate/zip",
         "colorblind": "node generate/colorblind",
         "summary": "node generate/colorblind && node generate/summary"
     },
     "author": "David Figatner",
     "license": "MIT",
     "dependencies": {
+        "archiver": "^5.1.0",
         "cuid": "^2.1.8",
         "fs-extra": "^9.0.1",
         "localforage": "^1.9.0",

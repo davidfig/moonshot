@@ -3495,12 +3495,12 @@
       return c2 - 1;
     }
     function cuid3() {
-      var letter = "c", timestamp = new Date().getTime().toString(base), counter = pad(safeCounter().toString(base), blockSize), print = fingerprint(), random7 = randomBlock() + randomBlock();
-      return letter + timestamp + counter + print + random7;
+      var letter = "c", timestamp = new Date().getTime().toString(base), counter = pad(safeCounter().toString(base), blockSize), print = fingerprint(), random8 = randomBlock() + randomBlock();
+      return letter + timestamp + counter + print + random8;
     }
     cuid3.slug = function slug() {
-      var date = new Date().getTime().toString(36), counter = safeCounter().toString(36).slice(-4), print = fingerprint().slice(0, 1) + fingerprint().slice(-1), random7 = randomBlock().slice(-2);
-      return date.slice(-2) + counter + print + random7;
+      var date = new Date().getTime().toString(36), counter = safeCounter().toString(36).slice(-4), print = fingerprint().slice(0, 1) + fingerprint().slice(-1), random8 = randomBlock().slice(-2);
+      return date.slice(-2) + counter + print + random8;
     };
     cuid3.isCuid = function isCuid(stringToCheck) {
       if (typeof stringToCheck !== "string")
@@ -12453,9 +12453,9 @@
         this.renderer.runners.contextChange.emit(this.gl);
       };
       ContextSystem2.prototype.destroy = function() {
-        var view12 = this.renderer.view;
-        view12.removeEventListener("webglcontextlost", this.handleContextLost);
-        view12.removeEventListener("webglcontextrestored", this.handleContextRestored);
+        var view13 = this.renderer.view;
+        view13.removeEventListener("webglcontextlost", this.handleContextLost);
+        view13.removeEventListener("webglcontextrestored", this.handleContextRestored);
         this.gl.useProgram(null);
         if (this.extensions.loseContext) {
           this.extensions.loseContext.loseContext();
@@ -19082,9 +19082,9 @@
     }(FillStyle);
     var temp = new Float32Array(3);
     var DEFAULT_SHADERS = {};
-    var Graphics5 = function(_super) {
-      __extends(Graphics6, _super);
-      function Graphics6(geometry) {
+    var Graphics6 = function(_super) {
+      __extends(Graphics7, _super);
+      function Graphics7(geometry) {
         if (geometry === void 0) {
           geometry = null;
         }
@@ -19108,18 +19108,18 @@
         _this.blendMode = constants.BLEND_MODES.NORMAL;
         return _this;
       }
-      Object.defineProperty(Graphics6.prototype, "geometry", {
+      Object.defineProperty(Graphics7.prototype, "geometry", {
         get: function() {
           return this._geometry;
         },
         enumerable: false,
         configurable: true
       });
-      Graphics6.prototype.clone = function() {
+      Graphics7.prototype.clone = function() {
         this.finishPoly();
-        return new Graphics6(this._geometry);
+        return new Graphics7(this._geometry);
       };
-      Object.defineProperty(Graphics6.prototype, "blendMode", {
+      Object.defineProperty(Graphics7.prototype, "blendMode", {
         get: function() {
           return this.state.blendMode;
         },
@@ -19129,7 +19129,7 @@
         enumerable: false,
         configurable: true
       });
-      Object.defineProperty(Graphics6.prototype, "tint", {
+      Object.defineProperty(Graphics7.prototype, "tint", {
         get: function() {
           return this._tint;
         },
@@ -19139,21 +19139,21 @@
         enumerable: false,
         configurable: true
       });
-      Object.defineProperty(Graphics6.prototype, "fill", {
+      Object.defineProperty(Graphics7.prototype, "fill", {
         get: function() {
           return this._fillStyle;
         },
         enumerable: false,
         configurable: true
       });
-      Object.defineProperty(Graphics6.prototype, "line", {
+      Object.defineProperty(Graphics7.prototype, "line", {
         get: function() {
           return this._lineStyle;
         },
         enumerable: false,
         configurable: true
       });
-      Graphics6.prototype.lineStyle = function(options) {
+      Graphics7.prototype.lineStyle = function(options) {
         if (options === void 0) {
           options = null;
         }
@@ -19169,7 +19169,7 @@
         }
         return this.lineTextureStyle(options);
       };
-      Graphics6.prototype.lineTextureStyle = function(options) {
+      Graphics7.prototype.lineTextureStyle = function(options) {
         if (typeof options === "number") {
           utils2.deprecation("v5.2.0", "Please use object-based options for Graphics#lineTextureStyle");
           var _a2 = arguments, width = _a2[0], texture = _a2[1], color = _a2[2], alpha = _a2[3], matrix = _a2[4], alignment = _a2[5], native = _a2[6];
@@ -19205,7 +19205,7 @@
         }
         return this;
       };
-      Graphics6.prototype.startPoly = function() {
+      Graphics7.prototype.startPoly = function() {
         if (this.currentPath) {
           var points = this.currentPath.points;
           var len = this.currentPath.points.length;
@@ -19220,7 +19220,7 @@
           this.currentPath.closeStroke = false;
         }
       };
-      Graphics6.prototype.finishPoly = function() {
+      Graphics7.prototype.finishPoly = function() {
         if (this.currentPath) {
           if (this.currentPath.points.length > 2) {
             this.drawShape(this.currentPath);
@@ -19230,13 +19230,13 @@
           }
         }
       };
-      Graphics6.prototype.moveTo = function(x2, y2) {
+      Graphics7.prototype.moveTo = function(x2, y2) {
         this.startPoly();
         this.currentPath.points[0] = x2;
         this.currentPath.points[1] = y2;
         return this;
       };
-      Graphics6.prototype.lineTo = function(x2, y2) {
+      Graphics7.prototype.lineTo = function(x2, y2) {
         if (!this.currentPath) {
           this.moveTo(0, 0);
         }
@@ -19248,7 +19248,7 @@
         }
         return this;
       };
-      Graphics6.prototype._initCurve = function(x2, y2) {
+      Graphics7.prototype._initCurve = function(x2, y2) {
         if (x2 === void 0) {
           x2 = 0;
         }
@@ -19263,7 +19263,7 @@
           this.moveTo(x2, y2);
         }
       };
-      Graphics6.prototype.quadraticCurveTo = function(cpX, cpY, toX, toY) {
+      Graphics7.prototype.quadraticCurveTo = function(cpX, cpY, toX, toY) {
         this._initCurve();
         var points = this.currentPath.points;
         if (points.length === 0) {
@@ -19272,12 +19272,12 @@
         QuadraticUtils.curveTo(cpX, cpY, toX, toY, points);
         return this;
       };
-      Graphics6.prototype.bezierCurveTo = function(cpX, cpY, cpX2, cpY2, toX, toY) {
+      Graphics7.prototype.bezierCurveTo = function(cpX, cpY, cpX2, cpY2, toX, toY) {
         this._initCurve();
         BezierUtils.curveTo(cpX, cpY, cpX2, cpY2, toX, toY, this.currentPath.points);
         return this;
       };
-      Graphics6.prototype.arcTo = function(x1, y1, x2, y2, radius2) {
+      Graphics7.prototype.arcTo = function(x1, y1, x2, y2, radius2) {
         this._initCurve(x1, y1);
         var points = this.currentPath.points;
         var result = ArcUtils.curveTo(x1, y1, x2, y2, radius2, points);
@@ -19287,7 +19287,7 @@
         }
         return this;
       };
-      Graphics6.prototype.arc = function(cx, cy, radius2, startAngle, endAngle, anticlockwise) {
+      Graphics7.prototype.arc = function(cx, cy, radius2, startAngle, endAngle, anticlockwise) {
         if (anticlockwise === void 0) {
           anticlockwise = false;
         }
@@ -19322,7 +19322,7 @@
         ArcUtils.arc(startX, startY, cx, cy, radius2, startAngle, endAngle, anticlockwise, points);
         return this;
       };
-      Graphics6.prototype.beginFill = function(color, alpha) {
+      Graphics7.prototype.beginFill = function(color, alpha) {
         if (color === void 0) {
           color = 0;
         }
@@ -19331,7 +19331,7 @@
         }
         return this.beginTextureFill({texture: core2.Texture.WHITE, color, alpha});
       };
-      Graphics6.prototype.beginTextureFill = function(options) {
+      Graphics7.prototype.beginTextureFill = function(options) {
         if (options instanceof core2.Texture) {
           utils2.deprecation("v5.2.0", "Please use object-based options for Graphics#beginTextureFill");
           var _a2 = arguments, texture = _a2[0], color = _a2[1], alpha = _a2[2], matrix = _a2[3];
@@ -19361,24 +19361,24 @@
         }
         return this;
       };
-      Graphics6.prototype.endFill = function() {
+      Graphics7.prototype.endFill = function() {
         this.finishPoly();
         this._fillStyle.reset();
         return this;
       };
-      Graphics6.prototype.drawRect = function(x2, y2, width, height) {
+      Graphics7.prototype.drawRect = function(x2, y2, width, height) {
         return this.drawShape(new math.Rectangle(x2, y2, width, height));
       };
-      Graphics6.prototype.drawRoundedRect = function(x2, y2, width, height, radius2) {
+      Graphics7.prototype.drawRoundedRect = function(x2, y2, width, height, radius2) {
         return this.drawShape(new math.RoundedRectangle(x2, y2, width, height, radius2));
       };
-      Graphics6.prototype.drawCircle = function(x2, y2, radius2) {
+      Graphics7.prototype.drawCircle = function(x2, y2, radius2) {
         return this.drawShape(new math.Circle(x2, y2, radius2));
       };
-      Graphics6.prototype.drawEllipse = function(x2, y2, width, height) {
+      Graphics7.prototype.drawEllipse = function(x2, y2, width, height) {
         return this.drawShape(new math.Ellipse(x2, y2, width, height));
       };
-      Graphics6.prototype.drawPolygon = function() {
+      Graphics7.prototype.drawPolygon = function() {
         var arguments$1 = arguments;
         var path = [];
         for (var _i = 0; _i < arguments.length; _i++) {
@@ -19400,7 +19400,7 @@
         this.drawShape(shape);
         return this;
       };
-      Graphics6.prototype.drawShape = function(shape) {
+      Graphics7.prototype.drawShape = function(shape) {
         if (!this._holeMode) {
           this._geometry.drawShape(shape, this._fillStyle.clone(), this._lineStyle.clone(), this._matrix);
         } else {
@@ -19408,13 +19408,13 @@
         }
         return this;
       };
-      Graphics6.prototype.drawStar = function(x2, y2, points, radius2, innerRadius, rotation) {
+      Graphics7.prototype.drawStar = function(x2, y2, points, radius2, innerRadius, rotation) {
         if (rotation === void 0) {
           rotation = 0;
         }
         return this.drawPolygon(new Star(x2, y2, points, radius2, innerRadius, rotation));
       };
-      Graphics6.prototype.clear = function() {
+      Graphics7.prototype.clear = function() {
         this._geometry.clear();
         this._lineStyle.reset();
         this._fillStyle.reset();
@@ -19424,11 +19424,11 @@
         this.currentPath = null;
         return this;
       };
-      Graphics6.prototype.isFastRect = function() {
+      Graphics7.prototype.isFastRect = function() {
         var data = this._geometry.graphicsData;
         return data.length === 1 && data[0].shape.type === math.SHAPES.RECT && !(data[0].lineStyle.visible && data[0].lineStyle.width);
       };
-      Graphics6.prototype._render = function(renderer) {
+      Graphics7.prototype._render = function(renderer) {
         this.finishPoly();
         var geometry = this._geometry;
         var hasuit32 = renderer.context.supports.uint32Indices;
@@ -19443,7 +19443,7 @@
           this._renderDirect(renderer);
         }
       };
-      Graphics6.prototype._populateBatches = function() {
+      Graphics7.prototype._populateBatches = function() {
         var geometry = this._geometry;
         var blendMode = this.blendMode;
         var len = geometry.batches.length;
@@ -19472,7 +19472,7 @@
           this.batches[i2] = batch;
         }
       };
-      Graphics6.prototype._renderBatched = function(renderer) {
+      Graphics7.prototype._renderBatched = function(renderer) {
         if (!this.batches.length) {
           return;
         }
@@ -19485,7 +19485,7 @@
           renderer.plugins[this.pluginName].render(batch);
         }
       };
-      Graphics6.prototype._renderDirect = function(renderer) {
+      Graphics7.prototype._renderDirect = function(renderer) {
         var shader = this._resolveDirectShader(renderer);
         var geometry = this._geometry;
         var tint = this.tint;
@@ -19504,7 +19504,7 @@
           this._renderDrawCallDirect(renderer, geometry.drawCalls[i2]);
         }
       };
-      Graphics6.prototype._renderDrawCallDirect = function(renderer, drawCall) {
+      Graphics7.prototype._renderDrawCallDirect = function(renderer, drawCall) {
         var texArray = drawCall.texArray, type = drawCall.type, size2 = drawCall.size, start = drawCall.start;
         var groupTextureCount = texArray.count;
         for (var j2 = 0; j2 < groupTextureCount; j2++) {
@@ -19512,7 +19512,7 @@
         }
         renderer.geometry.draw(type, size2, start);
       };
-      Graphics6.prototype._resolveDirectShader = function(renderer) {
+      Graphics7.prototype._resolveDirectShader = function(renderer) {
         var shader = this.shader;
         var pluginName = this.pluginName;
         if (!shader) {
@@ -19533,7 +19533,7 @@
         }
         return shader;
       };
-      Graphics6.prototype._calculateBounds = function() {
+      Graphics7.prototype._calculateBounds = function() {
         this.finishPoly();
         var geometry = this._geometry;
         if (!geometry.graphicsData.length) {
@@ -19542,11 +19542,11 @@
         var _a2 = geometry.bounds, minX = _a2.minX, minY = _a2.minY, maxX = _a2.maxX, maxY = _a2.maxY;
         this._bounds.addFrame(this.transform, minX, minY, maxX, maxY);
       };
-      Graphics6.prototype.containsPoint = function(point) {
-        this.worldTransform.applyInverse(point, Graphics6._TEMP_POINT);
-        return this._geometry.containsPoint(Graphics6._TEMP_POINT);
+      Graphics7.prototype.containsPoint = function(point) {
+        this.worldTransform.applyInverse(point, Graphics7._TEMP_POINT);
+        return this._geometry.containsPoint(Graphics7._TEMP_POINT);
       };
-      Graphics6.prototype.calculateTints = function() {
+      Graphics7.prototype.calculateTints = function() {
         if (this.batchTint !== this.tint) {
           this.batchTint = this.tint;
           var tintRGB = utils2.hex2rgb(this.tint, temp);
@@ -19561,7 +19561,7 @@
           }
         }
       };
-      Graphics6.prototype.calculateVertices = function() {
+      Graphics7.prototype.calculateVertices = function() {
         var wtID = this.transform._worldID;
         if (this._transformID === wtID) {
           return;
@@ -19584,28 +19584,28 @@
           vertexData[count3++] = d2 * y2 + b2 * x2 + ty;
         }
       };
-      Graphics6.prototype.closePath = function() {
+      Graphics7.prototype.closePath = function() {
         var currentPath = this.currentPath;
         if (currentPath) {
           currentPath.closeStroke = true;
         }
         return this;
       };
-      Graphics6.prototype.setMatrix = function(matrix) {
+      Graphics7.prototype.setMatrix = function(matrix) {
         this._matrix = matrix;
         return this;
       };
-      Graphics6.prototype.beginHole = function() {
+      Graphics7.prototype.beginHole = function() {
         this.finishPoly();
         this._holeMode = true;
         return this;
       };
-      Graphics6.prototype.endHole = function() {
+      Graphics7.prototype.endHole = function() {
         this.finishPoly();
         this._holeMode = false;
         return this;
       };
-      Graphics6.prototype.destroy = function(options) {
+      Graphics7.prototype.destroy = function(options) {
         _super.prototype.destroy.call(this, options);
         this._geometry.refCount--;
         if (this._geometry.refCount === 0) {
@@ -19624,12 +19624,12 @@
         this.batches = null;
         _super.prototype.destroy.call(this, options);
       };
-      Graphics6._TEMP_POINT = new math.Point();
-      return Graphics6;
+      Graphics7._TEMP_POINT = new math.Point();
+      return Graphics7;
     }(display.Container);
     exports.FillStyle = FillStyle;
     exports.GRAPHICS_CURVES = GRAPHICS_CURVES;
-    exports.Graphics = Graphics5;
+    exports.Graphics = Graphics6;
     exports.GraphicsData = GraphicsData;
     exports.GraphicsGeometry = GraphicsGeometry;
     exports.LineStyle = LineStyle;
@@ -26042,24 +26042,24 @@ void main() {
     }
     var v5 = "5.0.0";
     function useDeprecated() {
-      var PIXI13 = this;
-      Object.defineProperties(PIXI13, {
+      var PIXI14 = this;
+      Object.defineProperties(PIXI14, {
         SVG_SIZE: {
           get: function() {
             utils2.deprecation(v5, "PIXI.utils.SVG_SIZE property has moved to PIXI.resources.SVGResource.SVG_SIZE");
-            return PIXI13.SVGResource.SVG_SIZE;
+            return PIXI14.SVGResource.SVG_SIZE;
           }
         },
         TransformStatic: {
           get: function() {
             utils2.deprecation(v5, "PIXI.TransformStatic class has been removed, use PIXI.Transform");
-            return PIXI13.Transform;
+            return PIXI14.Transform;
           }
         },
         TransformBase: {
           get: function() {
             utils2.deprecation(v5, "PIXI.TransformBase class has been removed, use PIXI.Transform");
-            return PIXI13.Transform;
+            return PIXI14.Transform;
           }
         },
         TRANSFORM_MODE: {
@@ -26071,138 +26071,138 @@ void main() {
         WebGLRenderer: {
           get: function() {
             utils2.deprecation(v5, "PIXI.WebGLRenderer class has moved to PIXI.Renderer");
-            return PIXI13.Renderer;
+            return PIXI14.Renderer;
           }
         },
         CanvasRenderTarget: {
           get: function() {
             utils2.deprecation(v5, "PIXI.CanvasRenderTarget class has moved to PIXI.utils.CanvasRenderTarget");
-            return PIXI13.utils.CanvasRenderTarget;
+            return PIXI14.utils.CanvasRenderTarget;
           }
         },
         loader: {
           get: function() {
             utils2.deprecation(v5, "PIXI.loader instance has moved to PIXI.Loader.shared");
-            return PIXI13.Loader.shared;
+            return PIXI14.Loader.shared;
           }
         },
         FilterManager: {
           get: function() {
             utils2.deprecation(v5, "PIXI.FilterManager class has moved to PIXI.systems.FilterSystem");
-            return PIXI13.systems.FilterSystem;
+            return PIXI14.systems.FilterSystem;
           }
         },
         CanvasTinter: {
           get: function() {
             utils2.deprecation("5.2.0", "PIXI.CanvasTinter namespace has moved to PIXI.canvasUtils");
-            return PIXI13.canvasUtils;
+            return PIXI14.canvasUtils;
           }
         },
         GroupD8: {
           get: function() {
             utils2.deprecation("5.2.0", "PIXI.GroupD8 namespace has moved to PIXI.groupD8");
-            return PIXI13.groupD8;
+            return PIXI14.groupD8;
           }
         }
       });
-      PIXI13.accessibility = {};
-      Object.defineProperties(PIXI13.accessibility, {
+      PIXI14.accessibility = {};
+      Object.defineProperties(PIXI14.accessibility, {
         AccessibilityManager: {
           get: function() {
             utils2.deprecation("5.3.0", "PIXI.accessibility.AccessibilityManager moved to PIXI.AccessibilityManager");
-            return PIXI13.AccessibilityManager;
+            return PIXI14.AccessibilityManager;
           }
         }
       });
-      PIXI13.interaction = {};
-      Object.defineProperties(PIXI13.interaction, {
+      PIXI14.interaction = {};
+      Object.defineProperties(PIXI14.interaction, {
         InteractionManager: {
           get: function() {
             utils2.deprecation("5.3.0", "PIXI.interaction.InteractionManager moved to PIXI.InteractionManager");
-            return PIXI13.InteractionManager;
+            return PIXI14.InteractionManager;
           }
         },
         InteractionData: {
           get: function() {
             utils2.deprecation("5.3.0", "PIXI.interaction.InteractionData moved to PIXI.InteractionData");
-            return PIXI13.InteractionData;
+            return PIXI14.InteractionData;
           }
         },
         InteractionEvent: {
           get: function() {
             utils2.deprecation("5.3.0", "PIXI.interaction.InteractionEvent moved to PIXI.InteractionEvent");
-            return PIXI13.InteractionEvent;
+            return PIXI14.InteractionEvent;
           }
         }
       });
-      PIXI13.prepare = {};
-      Object.defineProperties(PIXI13.prepare, {
+      PIXI14.prepare = {};
+      Object.defineProperties(PIXI14.prepare, {
         BasePrepare: {
           get: function() {
             utils2.deprecation("5.2.1", "PIXI.prepare.BasePrepare moved to PIXI.BasePrepare");
-            return PIXI13.BasePrepare;
+            return PIXI14.BasePrepare;
           }
         },
         Prepare: {
           get: function() {
             utils2.deprecation("5.2.1", "PIXI.prepare.Prepare moved to PIXI.Prepare");
-            return PIXI13.Prepare;
+            return PIXI14.Prepare;
           }
         },
         CanvasPrepare: {
           get: function() {
             utils2.deprecation("5.2.1", "PIXI.prepare.CanvasPrepare moved to PIXI.CanvasPrepare");
-            return PIXI13.CanvasPrepare;
+            return PIXI14.CanvasPrepare;
           }
         }
       });
-      PIXI13.extract = {};
-      Object.defineProperties(PIXI13.extract, {
+      PIXI14.extract = {};
+      Object.defineProperties(PIXI14.extract, {
         Extract: {
           get: function() {
             utils2.deprecation("5.2.1", "PIXI.extract.Extract moved to PIXI.Extract");
-            return PIXI13.Extract;
+            return PIXI14.Extract;
           }
         },
         CanvasExtract: {
           get: function() {
             utils2.deprecation("5.2.1", "PIXI.extract.CanvasExtract moved to PIXI.CanvasExtract");
-            return PIXI13.CanvasExtract;
+            return PIXI14.CanvasExtract;
           }
         }
       });
-      PIXI13.extras = {};
-      Object.defineProperties(PIXI13.extras, {
+      PIXI14.extras = {};
+      Object.defineProperties(PIXI14.extras, {
         TilingSprite: {
           get: function() {
             utils2.deprecation(v5, "PIXI.extras.TilingSprite class has moved to PIXI.TilingSprite");
-            return PIXI13.TilingSprite;
+            return PIXI14.TilingSprite;
           }
         },
         TilingSpriteRenderer: {
           get: function() {
             utils2.deprecation(v5, "PIXI.extras.TilingSpriteRenderer class has moved to PIXI.TilingSpriteRenderer");
-            return PIXI13.TilingSpriteRenderer;
+            return PIXI14.TilingSpriteRenderer;
           }
         },
         AnimatedSprite: {
           get: function() {
             utils2.deprecation(v5, "PIXI.extras.AnimatedSprite class has moved to PIXI.AnimatedSprite");
-            return PIXI13.AnimatedSprite;
+            return PIXI14.AnimatedSprite;
           }
         },
         BitmapText: {
           get: function() {
             utils2.deprecation(v5, "PIXI.extras.BitmapText class has moved to PIXI.BitmapText");
-            return PIXI13.BitmapText;
+            return PIXI14.BitmapText;
           }
         }
       });
-      PIXI13.TilingSprite.fromFrame = function fromFrame(frameId, width, height) {
+      PIXI14.TilingSprite.fromFrame = function fromFrame(frameId, width, height) {
         utils2.deprecation("5.3.0", "TilingSprite.fromFrame is deprecated, use TilingSprite.from");
-        return PIXI13.TilingSprite.from(frameId, {width, height});
+        return PIXI14.TilingSprite.from(frameId, {width, height});
       };
-      PIXI13.TilingSprite.fromImage = function fromImage(imageId, width, height, options) {
+      PIXI14.TilingSprite.fromImage = function fromImage(imageId, width, height, options) {
         if (options === void 0) {
           options = {};
         }
@@ -26217,109 +26217,109 @@ void main() {
         }
         options.width = width;
         options.height = height;
-        return PIXI13.TilingSprite.from(imageId, options);
+        return PIXI14.TilingSprite.from(imageId, options);
       };
-      Object.defineProperties(PIXI13.utils, {
+      Object.defineProperties(PIXI14.utils, {
         getSvgSize: {
           get: function() {
             utils2.deprecation(v5, "PIXI.utils.getSvgSize function has moved to PIXI.resources.SVGResource.getSize");
-            return PIXI13.resources.SVGResource.getSize;
+            return PIXI14.resources.SVGResource.getSize;
           }
         }
       });
-      PIXI13.mesh = {};
-      Object.defineProperties(PIXI13.mesh, {
+      PIXI14.mesh = {};
+      Object.defineProperties(PIXI14.mesh, {
         Mesh: {
           get: function() {
             utils2.deprecation(v5, "PIXI.mesh.Mesh class has moved to PIXI.SimpleMesh");
-            return PIXI13.SimpleMesh;
+            return PIXI14.SimpleMesh;
           }
         },
         NineSlicePlane: {
           get: function() {
             utils2.deprecation(v5, "PIXI.mesh.NineSlicePlane class has moved to PIXI.NineSlicePlane");
-            return PIXI13.NineSlicePlane;
+            return PIXI14.NineSlicePlane;
           }
         },
         Plane: {
           get: function() {
             utils2.deprecation(v5, "PIXI.mesh.Plane class has moved to PIXI.SimplePlane");
-            return PIXI13.SimplePlane;
+            return PIXI14.SimplePlane;
           }
         },
         Rope: {
           get: function() {
             utils2.deprecation(v5, "PIXI.mesh.Rope class has moved to PIXI.SimpleRope");
-            return PIXI13.SimpleRope;
+            return PIXI14.SimpleRope;
           }
         },
         RawMesh: {
           get: function() {
             utils2.deprecation(v5, "PIXI.mesh.RawMesh class has moved to PIXI.Mesh");
-            return PIXI13.Mesh;
+            return PIXI14.Mesh;
           }
         },
         CanvasMeshRenderer: {
           get: function() {
             utils2.deprecation(v5, "PIXI.mesh.CanvasMeshRenderer class has moved to PIXI.CanvasMeshRenderer");
-            return PIXI13.CanvasMeshRenderer;
+            return PIXI14.CanvasMeshRenderer;
           }
         },
         MeshRenderer: {
           get: function() {
             utils2.deprecation(v5, "PIXI.mesh.MeshRenderer class has moved to PIXI.MeshRenderer");
-            return PIXI13.MeshRenderer;
+            return PIXI14.MeshRenderer;
           }
         }
       });
-      PIXI13.particles = {};
-      Object.defineProperties(PIXI13.particles, {
+      PIXI14.particles = {};
+      Object.defineProperties(PIXI14.particles, {
         ParticleContainer: {
           get: function() {
             utils2.deprecation(v5, "PIXI.particles.ParticleContainer class has moved to PIXI.ParticleContainer");
-            return PIXI13.ParticleContainer;
+            return PIXI14.ParticleContainer;
           }
         },
         ParticleRenderer: {
           get: function() {
             utils2.deprecation(v5, "PIXI.particles.ParticleRenderer class has moved to PIXI.ParticleRenderer");
-            return PIXI13.ParticleRenderer;
+            return PIXI14.ParticleRenderer;
           }
         }
       });
-      PIXI13.ticker = {};
-      Object.defineProperties(PIXI13.ticker, {
+      PIXI14.ticker = {};
+      Object.defineProperties(PIXI14.ticker, {
         Ticker: {
           get: function() {
             utils2.deprecation(v5, "PIXI.ticker.Ticker class has moved to PIXI.Ticker");
-            return PIXI13.Ticker;
+            return PIXI14.Ticker;
           }
         },
         shared: {
           get: function() {
             utils2.deprecation(v5, "PIXI.ticker.shared instance has moved to PIXI.Ticker.shared");
-            return PIXI13.Ticker.shared;
+            return PIXI14.Ticker.shared;
           }
         }
       });
-      PIXI13.loaders = {};
-      Object.defineProperties(PIXI13.loaders, {
+      PIXI14.loaders = {};
+      Object.defineProperties(PIXI14.loaders, {
         Loader: {
           get: function() {
             utils2.deprecation(v5, "PIXI.loaders.Loader class has moved to PIXI.Loader");
-            return PIXI13.Loader;
+            return PIXI14.Loader;
           }
         },
         Resource: {
           get: function() {
             utils2.deprecation(v5, "PIXI.loaders.Resource class has moved to PIXI.LoaderResource");
-            return PIXI13.LoaderResource;
+            return PIXI14.LoaderResource;
           }
         },
         bitmapFontParser: {
           get: function() {
             utils2.deprecation(v5, "PIXI.loaders.bitmapFontParser function has moved to PIXI.BitmapFontLoader.use");
-            return PIXI13.BitmapFontLoader.use;
+            return PIXI14.BitmapFontLoader.use;
           }
         },
         parseBitmapFontData: {
@@ -26330,24 +26330,24 @@ void main() {
         spritesheetParser: {
           get: function() {
             utils2.deprecation(v5, "PIXI.loaders.spritesheetParser function has moved to PIXI.SpritesheetLoader.use");
-            return PIXI13.SpritesheetLoader.use;
+            return PIXI14.SpritesheetLoader.use;
           }
         },
         getResourcePath: {
           get: function() {
             utils2.deprecation(v5, "PIXI.loaders.getResourcePath property has moved to PIXI.SpritesheetLoader.getResourcePath");
-            return PIXI13.SpritesheetLoader.getResourcePath;
+            return PIXI14.SpritesheetLoader.getResourcePath;
           }
         }
       });
-      PIXI13.Loader.addPixiMiddleware = function addPixiMiddleware(middleware) {
+      PIXI14.Loader.addPixiMiddleware = function addPixiMiddleware(middleware) {
         utils2.deprecation(v5, "PIXI.loaders.Loader.addPixiMiddleware function is deprecated, use PIXI.loaders.Loader.registerPlugin");
-        return PIXI13.loaders.Loader.registerPlugin({use: middleware()});
+        return PIXI14.loaders.Loader.registerPlugin({use: middleware()});
       };
       var eventToSignal = function(event) {
         return "on" + event.charAt(0).toUpperCase() + event.slice(1);
       };
-      Object.assign(PIXI13.Loader.prototype, {
+      Object.assign(PIXI14.Loader.prototype, {
         on: function(event) {
           var signal = eventToSignal(event);
           utils2.deprecation(v5, "PIXI.Loader#on is completely deprecated, use PIXI.Loader#" + signal + ".add");
@@ -26361,35 +26361,35 @@ void main() {
           utils2.deprecation(v5, "PIXI.Loader#off is completely deprecated, use PIXI.Loader#" + signal + ".detach");
         }
       });
-      Object.defineProperty(PIXI13.extract, "WebGLExtract", {
+      Object.defineProperty(PIXI14.extract, "WebGLExtract", {
         get: function() {
           utils2.deprecation(v5, "PIXI.extract.WebGLExtract method has moved to PIXI.Extract");
-          return PIXI13.Extract;
+          return PIXI14.Extract;
         }
       });
-      Object.defineProperty(PIXI13.prepare, "WebGLPrepare", {
+      Object.defineProperty(PIXI14.prepare, "WebGLPrepare", {
         get: function() {
           utils2.deprecation(v5, "PIXI.prepare.WebGLPrepare class has moved to PIXI.Prepare");
-          return PIXI13.Prepare;
+          return PIXI14.Prepare;
         }
       });
-      PIXI13.Container.prototype._renderWebGL = function _renderWebGL(renderer) {
+      PIXI14.Container.prototype._renderWebGL = function _renderWebGL(renderer) {
         utils2.deprecation(v5, "PIXI.Container._renderWebGL method has moved to PIXI.Container._render");
         this._render(renderer);
       };
-      PIXI13.Container.prototype.renderWebGL = function renderWebGL(renderer) {
+      PIXI14.Container.prototype.renderWebGL = function renderWebGL(renderer) {
         utils2.deprecation(v5, "PIXI.Container.renderWebGL method has moved to PIXI.Container.render");
         this.render(renderer);
       };
-      PIXI13.DisplayObject.prototype.renderWebGL = function renderWebGL(renderer) {
+      PIXI14.DisplayObject.prototype.renderWebGL = function renderWebGL(renderer) {
         utils2.deprecation(v5, "PIXI.DisplayObject.renderWebGL method has moved to PIXI.DisplayObject.render");
         this.render(renderer);
       };
-      PIXI13.Container.prototype.renderAdvancedWebGL = function renderAdvancedWebGL(renderer) {
+      PIXI14.Container.prototype.renderAdvancedWebGL = function renderAdvancedWebGL(renderer) {
         utils2.deprecation(v5, "PIXI.Container.renderAdvancedWebGL method has moved to PIXI.Container.renderAdvanced");
         this.renderAdvanced(renderer);
       };
-      Object.defineProperties(PIXI13.settings, {
+      Object.defineProperties(PIXI14.settings, {
         TRANSFORM_MODE: {
           get: function() {
             utils2.deprecation(v5, "PIXI.settings.TRANSFORM_MODE property has been removed");
@@ -26400,10 +26400,10 @@ void main() {
           }
         }
       });
-      var BaseTextureAny = PIXI13.BaseTexture;
+      var BaseTextureAny = PIXI14.BaseTexture;
       BaseTextureAny.prototype.loadSource = function loadSource(image) {
         utils2.deprecation(v5, "PIXI.BaseTexture.loadSource method has been deprecated");
-        var resource = PIXI13.resources.autoDetectResource(image);
+        var resource = PIXI14.resources.autoDetectResource(image);
         resource.internal = true;
         this.setResource(resource);
         this.update();
@@ -26478,7 +26478,7 @@ void main() {
         var resourceOptions = {scale: scale2, crossorigin};
         return BaseTextureAny.from(canvas, {scaleMode, resourceOptions});
       };
-      Object.defineProperties(PIXI13.resources.ImageResource.prototype, {
+      Object.defineProperties(PIXI14.resources.ImageResource.prototype, {
         premultiplyAlpha: {
           get: function() {
             utils2.deprecation("5.2.0", "PIXI.resources.ImageResource.premultiplyAlpha property has been changed to `alphaMode`, see `PIXI.ALPHA_MODES`");
@@ -26490,27 +26490,27 @@ void main() {
           }
         }
       });
-      PIXI13.Point.prototype.copy = function copy(p2) {
+      PIXI14.Point.prototype.copy = function copy(p2) {
         utils2.deprecation(v5, "PIXI.Point.copy method has been replaced with PIXI.Point.copyFrom");
         return this.copyFrom(p2);
       };
-      PIXI13.ObservablePoint.prototype.copy = function copy(p2) {
+      PIXI14.ObservablePoint.prototype.copy = function copy(p2) {
         utils2.deprecation(v5, "PIXI.ObservablePoint.copy method has been replaced with PIXI.ObservablePoint.copyFrom");
         return this.copyFrom(p2);
       };
-      PIXI13.Rectangle.prototype.copy = function copy(p2) {
+      PIXI14.Rectangle.prototype.copy = function copy(p2) {
         utils2.deprecation(v5, "PIXI.Rectangle.copy method has been replaced with PIXI.Rectangle.copyFrom");
         return this.copyFrom(p2);
       };
-      PIXI13.Matrix.prototype.copy = function copy(p2) {
+      PIXI14.Matrix.prototype.copy = function copy(p2) {
         utils2.deprecation(v5, "PIXI.Matrix.copy method has been replaced with PIXI.Matrix.copyTo");
         return this.copyTo(p2);
       };
-      PIXI13.systems.StateSystem.prototype.setState = function setState(s2) {
+      PIXI14.systems.StateSystem.prototype.setState = function setState(s2) {
         utils2.deprecation("v5.1.0", "StateSystem.setState has been renamed to StateSystem.set");
         return this.set(s2);
       };
-      Object.assign(PIXI13.systems.FilterSystem.prototype, {
+      Object.assign(PIXI14.systems.FilterSystem.prototype, {
         getRenderTarget: function(_clear, resolution) {
           utils2.deprecation(v5, "PIXI.FilterManager.getRenderTarget method has been replaced with PIXI.systems.FilterSystem#getFilterTexture");
           return this.getFilterTexture(null, resolution);
@@ -26538,7 +26538,7 @@ void main() {
           return mappedMatrix;
         }
       });
-      Object.defineProperties(PIXI13.RenderTexture.prototype, {
+      Object.defineProperties(PIXI14.RenderTexture.prototype, {
         sourceFrame: {
           get: function() {
             utils2.deprecation(v5, "PIXI.RenderTexture.sourceFrame property has been removed");
@@ -26561,7 +26561,7 @@ void main() {
           return _this;
         }
         return BlurXFilter2;
-      }(PIXI13.filters.BlurFilterPass);
+      }(PIXI14.filters.BlurFilterPass);
       var BlurYFilter = function(_super) {
         __extends(BlurYFilter2, _super);
         function BlurYFilter2(strength, quality, resolution, kernelSize) {
@@ -26571,12 +26571,12 @@ void main() {
           return _this;
         }
         return BlurYFilter2;
-      }(PIXI13.filters.BlurFilterPass);
-      Object.assign(PIXI13.filters, {
+      }(PIXI14.filters.BlurFilterPass);
+      Object.assign(PIXI14.filters, {
         BlurXFilter,
         BlurYFilter
       });
-      var SpriteAny = PIXI13.Sprite, TextureAny = PIXI13.Texture, GraphicsAny = PIXI13.Graphics;
+      var SpriteAny = PIXI14.Sprite, TextureAny = PIXI14.Texture, GraphicsAny = PIXI14.Graphics;
       if (!GraphicsAny.prototype.generateCanvasTexture) {
         GraphicsAny.prototype.generateCanvasTexture = function generateCanvasTexture() {
           utils2.deprecation(v5, 'PIXI.Graphics.generateCanvasTexture method is only available in "pixi.js-legacy"');
@@ -26616,7 +26616,7 @@ void main() {
       TextureAny.fromCanvas = textureFrom.bind(null, "fromCanvas");
       TextureAny.fromVideo = textureFrom.bind(null, "fromVideo");
       TextureAny.fromFrame = textureFrom.bind(null, "fromFrame");
-      Object.defineProperty(PIXI13.AbstractRenderer.prototype, "autoResize", {
+      Object.defineProperty(PIXI14.AbstractRenderer.prototype, "autoResize", {
         get: function() {
           utils2.deprecation(v5, "PIXI.AbstractRenderer.autoResize property is deprecated, use PIXI.AbstractRenderer.autoDensity");
           return this.autoDensity;
@@ -26626,13 +26626,13 @@ void main() {
           this.autoDensity = value;
         }
       });
-      Object.defineProperty(PIXI13.Renderer.prototype, "textureManager", {
+      Object.defineProperty(PIXI14.Renderer.prototype, "textureManager", {
         get: function() {
           utils2.deprecation(v5, "PIXI.Renderer.textureManager property is deprecated, use PIXI.Renderer.texture");
           return this.texture;
         }
       });
-      PIXI13.utils.mixins = {
+      PIXI14.utils.mixins = {
         mixin: function() {
           utils2.deprecation(v5, "PIXI.utils.mixins.mixin function is no longer available");
         },
@@ -26643,7 +26643,7 @@ void main() {
           utils2.deprecation(v5, "PIXI.utils.mixins.performMixins function is no longer available");
         }
       };
-      Object.defineProperty(PIXI13.BitmapText.prototype, "font", {
+      Object.defineProperty(PIXI14.BitmapText.prototype, "font", {
         get: function() {
           utils2.deprecation("5.3.0", "PIXI.BitmapText.font property is deprecated, use fontName, fontSize, tint or align properties");
           return {
@@ -26660,7 +26660,7 @@ void main() {
           }
           var style = {font: value};
           this._upgradeStyle(style);
-          style.fontSize = style.fontSize || PIXI13.BitmapFont.available[style.fontName].size;
+          style.fontSize = style.fontSize || PIXI14.BitmapFont.available[style.fontName].size;
           this._fontName = style.fontName;
           this._fontSize = style.fontSize;
           this.dirty = true;
@@ -28295,9 +28295,9 @@ void main() {
       }, {
         key: "separateSeed",
         value: function separateSeed(seed) {
-          var random7 = new Random2();
-          random7.seed(seed);
-          return random7;
+          var random8 = new Random2();
+          random8.seed(seed);
+          return random8;
         }
       }, {
         key: "reset",
@@ -28993,7 +28993,7 @@ void main() {
       if (superClass)
         Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
     }
-    var PIXI13 = require_pixi();
+    var PIXI14 = require_pixi();
     var Events = require_eventemitter32();
     var GrowingPacker = require_growingpacker();
     var SimplePacker = require_simplepacker();
@@ -29012,7 +29012,7 @@ void main() {
         _this.maxSize = options.maxSize || 2048;
         _this.buffer = options.buffer || 5;
         _this.scale = options.scale || 1;
-        _this.scaleMode = options.scaleMode === true ? PIXI13.SCALE_MODES.NEAREST : options.scaleMode;
+        _this.scaleMode = options.scaleMode === true ? PIXI14.SCALE_MODES.NEAREST : options.scaleMode;
         _this.resolution = options.resolution || 1;
         _this.show = options.show;
         _this.extrude = options.extrude;
@@ -29033,13 +29033,13 @@ void main() {
       }, {
         key: "add",
         value: function add(name5, draw, measure, param) {
-          var object = this.textures[name5] = {name: name5, draw, measure, param, type: CANVAS, texture: new PIXI13.Texture(PIXI13.Texture.EMPTY)};
+          var object = this.textures[name5] = {name: name5, draw, measure, param, type: CANVAS, texture: new PIXI14.Texture(PIXI14.Texture.EMPTY)};
           return object;
         }
       }, {
         key: "addImage",
         value: function addImage(name5, src) {
-          var object = this.textures[name5] = {name: name5, file: src, type: IMAGE, texture: new PIXI13.Texture(PIXI13.Texture.EMPTY)};
+          var object = this.textures[name5] = {name: name5, file: src, type: IMAGE, texture: new PIXI14.Texture(PIXI14.Texture.EMPTY)};
           object.image = new Image();
           object.image.onload = function() {
             return object.loaded = true;
@@ -29051,7 +29051,7 @@ void main() {
         key: "addData",
         value: function addData(name5, data, header) {
           header = typeof header !== "undefined" ? header : "data:image/png;base64,";
-          var object = this.textures[name5] = {name: name5, type: DATA, texture: new PIXI13.Texture(PIXI13.Texture.EMPTY)};
+          var object = this.textures[name5] = {name: name5, type: DATA, texture: new PIXI14.Texture(PIXI14.Texture.EMPTY)};
           object.image = new Image();
           object.image.src = header + data;
           if (object.image.complete) {
@@ -29084,7 +29084,7 @@ void main() {
             style.width = "auto";
             style.height = Math.round(percent * 100) + "%";
             style.zIndex = 1e3;
-            if (this.scaleMode === PIXI13.SCALE_MODES.NEAREST) {
+            if (this.scaleMode === PIXI14.SCALE_MODES.NEAREST) {
               style.imageRendering = "pixelated";
             }
             style.background = this.randomColor();
@@ -29117,7 +29117,7 @@ void main() {
         value: function getSprite(name5) {
           var texture = this.getTexture(name5);
           if (texture) {
-            var sprite = new PIXI13.Sprite(texture);
+            var sprite = new PIXI14.Sprite(texture);
             sprite.anchor.set(0.5);
             return sprite;
           } else {
@@ -29201,7 +29201,7 @@ void main() {
             for (var key in this.textures) {
               var current = this.textures[key];
               current.texture.baseTexture = this.baseTextures[current.canvas];
-              current.texture.frame = new PIXI13.Rectangle(current.x, current.y, current.width, current.height);
+              current.texture.frame = new PIXI14.Rectangle(current.x, current.y, current.width, current.height);
               current.texture.update();
             }
           }
@@ -29351,7 +29351,7 @@ void main() {
             this.baseTextures.pop().destroy();
           }
           for (var i2 = 0; i2 < this.canvases.length; i2++) {
-            var from = PIXI13.BaseTexture.fromCanvas || PIXI13.BaseTexture.from;
+            var from = PIXI14.BaseTexture.fromCanvas || PIXI14.BaseTexture.from;
             var base = from(this.canvases[i2]);
             base.scaleMode = this.scaleMode;
             this.baseTextures.push(base);
@@ -30076,11 +30076,11 @@ void main() {
       ease5.element.tint = r3 << 16 | g3 << 8 | b3;
     }
     updateShake(ease5) {
-      function random7(n2) {
+      function random8(n2) {
         return Math.floor(Math.random() * n2) - Math.floor(n2 / 2);
       }
-      ease5.element.x = ease5.start.x + random7(ease5.to);
-      ease5.element.y = ease5.start.y + random7(ease5.to);
+      ease5.element.x = ease5.start.x + random8(ease5.to);
+      ease5.element.y = ease5.start.y + random8(ease5.to);
     }
     complete(ease5) {
       if (ease5.entry === "shake") {
@@ -30346,7 +30346,7 @@ void main() {
 
   // package.json
   var name2 = "moonshot";
-  var version = "1.0.0";
+  var version = "1.0.1";
   var description = "Game Off 2020 - Shoot the Moon (like literally)";
   var scripts = {
     serve: "node generate",
@@ -30354,12 +30354,14 @@ void main() {
     build: "node generate --production",
     deploy: "node generate/version && npm run build && wsl.exe rsync -rvW --delete -e ssh public/* sewcrates@67.207.92.70:/home/sewcrates/prototypes/moonshot",
     play: "node generate/version && npm run build && wsl.exe rsync -rvW --delete -e ssh public/* sewcrates@67.207.92.70:/home/sewcrates/play/shoot-the-moon",
+    zip: "node generate/zip",
     colorblind: "node generate/colorblind",
     summary: "node generate/colorblind && node generate/summary"
   };
   var author = "David Figatner";
   var license = "MIT";
   var dependencies = {
+    archiver: "^5.1.0",
     cuid: "^2.1.8",
     "fs-extra": "^9.0.1",
     localforage: "^1.9.0",
@@ -33017,13 +33019,13 @@ void main() {
   // code/input.js
   class Input {
     init() {
-      const view12 = document.querySelector(".view");
-      view12.addEventListener("mousedown", (e2) => this.down(e2));
-      view12.addEventListener("mousemove", (e2) => this.move(e2));
-      view12.addEventListener("mouseup", (e2) => this.up(e2));
-      view12.addEventListener("touchstart", (e2) => this.down(e2));
-      view12.addEventListener("touchmove", (e2) => this.move(e2));
-      view12.addEventListener("touchend", (e2) => this.up(e2));
+      const view13 = document.querySelector(".view");
+      view13.addEventListener("mousedown", (e2) => this.down(e2));
+      view13.addEventListener("mousemove", (e2) => this.move(e2));
+      view13.addEventListener("mouseup", (e2) => this.up(e2));
+      view13.addEventListener("touchstart", (e2) => this.down(e2));
+      view13.addEventListener("touchmove", (e2) => this.move(e2));
+      view13.addEventListener("touchend", (e2) => this.up(e2));
       window.addEventListener("keydown", (e2) => this.keyDown(e2));
       window.addEventListener("keydown", (e2) => this.keyUp(e2));
     }
@@ -33067,6 +33069,39 @@ void main() {
   }
   const input = new Input();
 
+  // code/icon.js
+  const PIXI13 = __toModule(require_pixi());
+  const yy_random7 = __toModule(require_yy_random());
+  class Icon extends PIXI13.Graphics {
+    init() {
+      this.by();
+      view.stage.addChild(this);
+      view.update();
+    }
+    by() {
+      const words = this.addChild(new Words("a game by David Figatner", {shadow: true}));
+      words.scale.set(0.5);
+      words.position.set(1, 1);
+      view.update();
+    }
+    halfMoon() {
+      const radius2 = 8;
+      const colors = [12864485, 13840492, 1586783];
+      const radiusSquared = radius2 * radius2;
+      for (let y2 = 0; y2 <= radius2 * 2; y2++) {
+        for (let x2 = 0; x2 <= radius2 * 2; x2++) {
+          const dx = x2 - radius2;
+          const dy = y2 - radius2;
+          const distanceSquared = dx * dx + dy * dy;
+          if (distanceSquared <= radiusSquared) {
+            this.beginFill(yy_random7.default.pick(colors), x2 < radius2 ? 1 : 0.5).drawRect(x2, y2, 1, 1).endFill();
+          }
+        }
+      }
+    }
+  }
+  const icon = new Icon();
+
   // code/game.js
   class Game {
     async start() {
@@ -33074,6 +33109,7 @@ void main() {
       await file.init();
       await sheet.init();
       view.init();
+      icon.init();
       state3.init();
       if (!release) {
         this.fps = new yy_fps.default();
