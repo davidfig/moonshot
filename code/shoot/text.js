@@ -7,6 +7,7 @@ import { file } from '../file'
 import * as script from '../../script/script'
 import { ease } from 'pixi-ease'
 import { sounds } from '../sounds'
+import { state } from '../state'
 
 const fadeTime = 250
 const scale = 0.25
@@ -30,6 +31,11 @@ class Text extends PIXI.Container {
         this.storyMode.background.tint = storyColor
         this.storyMode.words = this.storyMode.addChild(new Words('', { shadow: true }))
         this.storyMode.visible = false
+        this.website = this.dialog.addChild(new PIXI.Container())
+        this.website.background = this.website.addChild(new PIXI.Sprite(PIXI.Texture.WHITE))
+        this.website.background.tint = storyColor
+        this.website.words = this.website.addChild(new Words('', { shadow: true }))
+        this.website.visible = false
         this.dialog.scale.set(scale)
         this.visible = false
         this.alpha = 0
@@ -46,6 +52,11 @@ class Text extends PIXI.Container {
         b.background.width = b.words.width + padding * 2
         b.background.height = b.words.height + padding
         b.words.position.set(b.background.width / 2 - b.words.width / 2, b.background.height / 2 -b.words.height / 2)
+        b = this.website
+        b.words.change('visit website')
+        b.background.width = b.words.width + padding * 2
+        b.background.height = b.words.height + padding
+        b.words.position.set(b.background.width / 2 - b.words.width / 2, b.background.height / 2 -b.words.height / 2)
     }
 
     change(text) {
@@ -53,6 +64,7 @@ class Text extends PIXI.Container {
         this.text.wrap(view.width * 0.75 / scale)
         this.button.position.set(this.text.width - this.button.width, this.text.height + padding)
         this.storyMode.position.set(0, this.text.height + padding)
+        this.website.position.set(0, this.text.height + padding)
         this.box.clear()
         this.box
             .lineStyle(1, 0xffffff, 1, 1)
@@ -63,19 +75,33 @@ class Text extends PIXI.Container {
     }
 
     down(point) {
+        if (this.website.visible && this.website.background.containsPoint(point)) {
+            sounds.play('beep')
+            window.open('https://yopeyopey.com/games/shoot-the-moon/', {target: '_blank'})
+            return
+        }
         if (this.storyMode.visible && this.storyMode.background.containsPoint(point)) {
             file.noStory = true
         }
         if (this.box.containsPoint(point)) {
-            sounds.play('beep')
-            this.hide()
-            this.callback()
+            if (this.website.visible) {
+                sounds.play('beep')
+                this.hide(() => {
+                    this.website.visible = false
+                    state.change('menu')
+                })
+                return true
+            } else {
+                sounds.play('beep')
+                this.hide(() => this.callback())
+            }
         }
     }
 
     tutorial(callback, i) {
         this.visible = true
         this.storyMode.visible = false
+        this.website.visible = false
         this.change(script.tutorial[i])
         this.tutorialIndex = i
         this.callback = callback
@@ -84,6 +110,7 @@ class Text extends PIXI.Container {
 
     story(callback) {
         this.visible = true
+        this.website.visible = false
         this.change(script.story[file.shootLevel])
         this.storyMode.visible = file.shootLevel === 2
         this.callback = callback
@@ -97,10 +124,21 @@ class Text extends PIXI.Container {
         ease.add(this, { alpha: 1 }, { duration: fadeTime, ease: 'easeInOutSine' })
     }
 
-    hide() {
+    hide(callback) {
         ease.removeEase(this)
         const easing = ease.add(this, { alpha: 0 }, { duration: fadeTime, ease: 'easeInOutSine' })
-        easing.on('complete', () => this.visible = false)
+        easing.on('complete', () => {
+            this.visible = false
+            callback()
+        })
+    }
+
+    endScreen() {
+        this.visible = true
+        this.change(script.endScreen)
+        this.website.visible = true
+        this.storyMode.visible = false
+        this.show()
     }
 }
 

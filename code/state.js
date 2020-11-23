@@ -2,6 +2,7 @@ import { file } from './file'
 import { shoot }  from './shoot/shoot'
 import { menu } from './menu/menu'
 import { view } from './view'
+import { story } from '../script/script'
 import * as settings from './settings'
 
 class State {
@@ -33,8 +34,12 @@ class State {
 
     next() {
         if (this.state === 'shoot') {
-            file.shootLevel++
-            this.states[this.state].change(true)
+            if (file.shootLevel === story.length - 1) {
+                this.states[this.state].endScreen()
+            } else {
+                file.shootLevel++
+                this.states[this.state].change(true)
+            }
         }
     }
 

@@ -8,10 +8,10 @@ import { view } from '../view'
 import { sounds } from '../sounds'
 import { file } from '../file'
 import { Words } from '../Words'
+import * as settings from '../settings'
 import { shoot } from './shoot'
 import { meter } from './meter'
 import { text } from './text'
-
 const fadeTime = 400
 const approachTime = 2000
 const framesForSpread = 3
@@ -75,6 +75,9 @@ class Moon extends PIXI.Container {
     }
 
     approach() {
+        if (text.website.visible) {
+            return
+        }
         this.scale.set(0)
         this.approaching = ease.add(this, { scale: this.getScale() }, { duration: approachTime, ease: 'easeOutSine' })
         this.approaching.on('complete', () => {
@@ -154,7 +157,7 @@ class Moon extends PIXI.Container {
             const list = []
             found = false
             for (const block of this.moon.children) {
-                if (!this.inList(block) && block.data.color === color) {
+                if (!this.inList(block) && (block.data.color === color || settings.cheat)) {
                     for (const detach of this.list) {
                         if (Math.abs(block.data.x - detach.block.data.x) <= 1 && Math.abs(block.data.y - detach.block.data.y) <= 1) {
                             list.push({ block, level })

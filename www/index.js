@@ -4087,7 +4087,7 @@
     function canUploadSameBuffer() {
       return !isMobile.apple.device;
     }
-    var settings7 = {
+    var settings8 = {
       MIPMAP_TEXTURES: 1,
       ANISOTROPIC_LEVEL: 0,
       RESOLUTION: 1,
@@ -4118,7 +4118,7 @@
       ROUND_PIXELS: false
     };
     exports.isMobile = isMobile;
-    exports.settings = settings7;
+    exports.settings = settings8;
   });
 
   // node_modules/eventemitter3/index.js
@@ -5750,14 +5750,14 @@
     function _interopDefault(ex) {
       return ex && typeof ex === "object" && "default" in ex ? ex["default"] : ex;
     }
-    var settings7 = require_settings();
+    var settings8 = require_settings();
     var eventemitter32 = _interopDefault(require_eventemitter3());
     var earcut = _interopDefault(require_earcut());
     var _url = require_url();
     var _url__default = _interopDefault(_url);
     var constants = require_constants();
-    settings7.settings.RETINA_PREFIX = /@([0-9\.]+)x/;
-    settings7.settings.FAIL_IF_MAJOR_PERFORMANCE_CAVEAT = true;
+    settings8.settings.RETINA_PREFIX = /@([0-9\.]+)x/;
+    settings8.settings.FAIL_IF_MAJOR_PERFORMANCE_CAVEAT = true;
     var saidHello = false;
     var VERSION = "5.3.3";
     function skipHello() {
@@ -5793,7 +5793,7 @@
         supported = function supported2() {
           var contextOptions = {
             stencil: true,
-            failIfMajorPerformanceCaveat: settings7.settings.FAIL_IF_MAJOR_PERFORMANCE_CAVEAT
+            failIfMajorPerformanceCaveat: settings8.settings.FAIL_IF_MAJOR_PERFORMANCE_CAVEAT
           };
           try {
             if (!window.WebGLRenderingContext) {
@@ -6070,7 +6070,7 @@
       function CanvasRenderTarget2(width, height, resolution) {
         this.canvas = document.createElement("canvas");
         this.context = this.canvas.getContext("2d");
-        this.resolution = resolution || settings7.settings.RESOLUTION;
+        this.resolution = resolution || settings8.settings.RESOLUTION;
         this.resize(width, height);
       }
       CanvasRenderTarget2.prototype.clear = function() {
@@ -6194,7 +6194,7 @@
       return "";
     }
     function getResolutionOfUrl(url, defaultValue) {
-      var resolution = settings7.settings.RETINA_PREFIX.exec(url);
+      var resolution = settings8.settings.RETINA_PREFIX.exec(url);
       if (resolution) {
         return parseFloat(resolution[1]);
       }
@@ -6203,7 +6203,7 @@
     Object.defineProperty(exports, "isMobile", {
       enumerable: true,
       get: function() {
-        return settings7.isMobile;
+        return settings8.isMobile;
       }
     });
     exports.EventEmitter = eventemitter32;
@@ -7156,10 +7156,10 @@
      */
     "use strict";
     Object.defineProperty(exports, "__esModule", {value: true});
-    var settings7 = require_settings();
+    var settings8 = require_settings();
     var math = require_math();
     var utils2 = require_utils();
-    settings7.settings.SORTABLE_CHILDREN = false;
+    settings8.settings.SORTABLE_CHILDREN = false;
     var Bounds = function() {
       function Bounds2() {
         this.minX = Infinity;
@@ -7799,7 +7799,7 @@
       function Container14() {
         var _this = _super.call(this) || this;
         _this.children = [];
-        _this.sortableChildren = settings7.settings.SORTABLE_CHILDREN;
+        _this.sortableChildren = settings8.settings.SORTABLE_CHILDREN;
         _this.sortDirty = false;
         return _this;
       }
@@ -8440,8 +8440,8 @@
      */
     "use strict";
     Object.defineProperty(exports, "__esModule", {value: true});
-    var settings7 = require_settings();
-    settings7.settings.TARGET_FPMS = 0.06;
+    var settings8 = require_settings();
+    settings8.settings.TARGET_FPMS = 0.06;
     (function(UPDATE_PRIORITY) {
       UPDATE_PRIORITY[UPDATE_PRIORITY["INTERACTION"] = 50] = "INTERACTION";
       UPDATE_PRIORITY[UPDATE_PRIORITY["HIGH"] = 25] = "HIGH";
@@ -8528,8 +8528,8 @@
         this._minElapsedMS = 0;
         this.autoStart = false;
         this.deltaTime = 1;
-        this.deltaMS = 1 / settings7.settings.TARGET_FPMS;
-        this.elapsedMS = 1 / settings7.settings.TARGET_FPMS;
+        this.deltaMS = 1 / settings8.settings.TARGET_FPMS;
+        this.elapsedMS = 1 / settings8.settings.TARGET_FPMS;
         this.lastTime = -1;
         this.speed = 1;
         this.started = false;
@@ -8669,7 +8669,7 @@
             this._lastFrame = currentTime - delta % this._minElapsedMS;
           }
           this.deltaMS = elapsedMS;
-          this.deltaTime = this.deltaMS * settings7.settings.TARGET_FPMS;
+          this.deltaTime = this.deltaMS * settings8.settings.TARGET_FPMS;
           var head = this._head;
           var listener = head.next;
           while (listener) {
@@ -8696,7 +8696,7 @@
         },
         set: function(fps) {
           var minFPS = Math.min(this.maxFPS, fps);
-          var minFPMS = Math.min(Math.max(0, minFPS) / 1e3, settings7.settings.TARGET_FPMS);
+          var minFPMS = Math.min(Math.max(0, minFPS) / 1e3, settings8.settings.TARGET_FPMS);
           this._maxElapsedMS = 1 / minFPMS;
         },
         enumerable: false,
@@ -9873,14 +9873,14 @@
      */
     "use strict";
     Object.defineProperty(exports, "__esModule", {value: true});
-    var settings7 = require_settings();
+    var settings8 = require_settings();
     var constants = require_constants();
     var utils2 = require_utils();
     var runner = require_runner();
     var ticker2 = require_ticker();
     var math = require_math();
-    settings7.settings.PREFER_ENV = utils2.isMobile.any ? constants.ENV.WEBGL : constants.ENV.WEBGL2;
-    settings7.settings.STRICT_TEXTURE_CACHE = false;
+    settings8.settings.PREFER_ENV = utils2.isMobile.any ? constants.ENV.WEBGL : constants.ENV.WEBGL2;
+    settings8.settings.STRICT_TEXTURE_CACHE = false;
     var INSTALLED = [];
     function autoDetectResource(source, options) {
       if (!source) {
@@ -10076,11 +10076,11 @@
         }
         _this.width = width || 0;
         _this.height = height || 0;
-        _this.resolution = resolution || settings7.settings.RESOLUTION;
-        _this.mipmap = mipmap !== void 0 ? mipmap : settings7.settings.MIPMAP_TEXTURES;
-        _this.anisotropicLevel = anisotropicLevel !== void 0 ? anisotropicLevel : settings7.settings.ANISOTROPIC_LEVEL;
-        _this.wrapMode = wrapMode || settings7.settings.WRAP_MODE;
-        _this.scaleMode = scaleMode !== void 0 ? scaleMode : settings7.settings.SCALE_MODE;
+        _this.resolution = resolution || settings8.settings.RESOLUTION;
+        _this.mipmap = mipmap !== void 0 ? mipmap : settings8.settings.MIPMAP_TEXTURES;
+        _this.anisotropicLevel = anisotropicLevel !== void 0 ? anisotropicLevel : settings8.settings.ANISOTROPIC_LEVEL;
+        _this.wrapMode = wrapMode || settings8.settings.WRAP_MODE;
+        _this.scaleMode = scaleMode !== void 0 ? scaleMode : settings8.settings.SCALE_MODE;
         _this.format = format || constants.FORMATS.RGBA;
         _this.type = type || constants.TYPES.UNSIGNED_BYTE;
         _this.target = target || constants.TARGETS.TEXTURE_2D;
@@ -10221,7 +10221,7 @@
       };
       BaseTexture2.from = function(source, options, strict) {
         if (strict === void 0) {
-          strict = settings7.settings.STRICT_TEXTURE_CACHE;
+          strict = settings8.settings.STRICT_TEXTURE_CACHE;
         }
         var isFrame = typeof source === "string";
         var cacheId = null;
@@ -10576,7 +10576,7 @@
         _this.url = source.src;
         _this._process = null;
         _this.preserveBitmap = false;
-        _this.createBitmap = (options.createBitmap !== void 0 ? options.createBitmap : settings7.settings.CREATE_IMAGE_BITMAP) && !!window.createImageBitmap;
+        _this.createBitmap = (options.createBitmap !== void 0 ? options.createBitmap : settings8.settings.CREATE_IMAGE_BITMAP) && !!window.createImageBitmap;
         _this.alphaMode = typeof options.alphaMode === "number" ? options.alphaMode : null;
         if (options.premultiplyAlpha !== void 0) {
           _this.premultiplyAlpha = options.premultiplyAlpha;
@@ -11317,7 +11317,7 @@
           options = {};
         }
         if (strict === void 0) {
-          strict = settings7.settings.STRICT_TEXTURE_CACHE;
+          strict = settings8.settings.STRICT_TEXTURE_CACHE;
         }
         var isFrame = typeof source === "string";
         var cacheId = null;
@@ -11362,7 +11362,7 @@
         var resource = new ImageResource(source);
         resource.url = imageUrl;
         var baseTexture = new BaseTexture(resource, {
-          scaleMode: settings7.settings.SCALE_MODE,
+          scaleMode: settings8.settings.SCALE_MODE,
           resolution: utils2.getResolutionOfUrl(imageUrl)
         });
         var texture = new Texture7(baseTexture);
@@ -12118,7 +12118,7 @@
       FilterSystem2.prototype.push = function(target, filters) {
         var renderer = this.renderer;
         var filterStack = this.defaultFilterStack;
-        var state8 = this.statePool.pop() || new FilterState();
+        var state9 = this.statePool.pop() || new FilterState();
         var resolution = filters[0].resolution;
         var padding4 = filters[0].padding;
         var autoFit = filters[0].autoFit;
@@ -12133,83 +12133,83 @@
         if (filterStack.length === 1) {
           this.defaultFilterStack[0].renderTexture = renderer.renderTexture.current;
         }
-        filterStack.push(state8);
-        state8.resolution = resolution;
-        state8.legacy = legacy;
-        state8.target = target;
-        state8.sourceFrame.copyFrom(target.filterArea || target.getBounds(true));
-        state8.sourceFrame.pad(padding4);
+        filterStack.push(state9);
+        state9.resolution = resolution;
+        state9.legacy = legacy;
+        state9.target = target;
+        state9.sourceFrame.copyFrom(target.filterArea || target.getBounds(true));
+        state9.sourceFrame.pad(padding4);
         if (autoFit) {
-          state8.sourceFrame.fit(this.renderer.renderTexture.sourceFrame);
+          state9.sourceFrame.fit(this.renderer.renderTexture.sourceFrame);
         }
-        state8.sourceFrame.ceil(resolution);
-        state8.renderTexture = this.getOptimalFilterTexture(state8.sourceFrame.width, state8.sourceFrame.height, resolution);
-        state8.filters = filters;
-        state8.destinationFrame.width = state8.renderTexture.width;
-        state8.destinationFrame.height = state8.renderTexture.height;
+        state9.sourceFrame.ceil(resolution);
+        state9.renderTexture = this.getOptimalFilterTexture(state9.sourceFrame.width, state9.sourceFrame.height, resolution);
+        state9.filters = filters;
+        state9.destinationFrame.width = state9.renderTexture.width;
+        state9.destinationFrame.height = state9.renderTexture.height;
         var destinationFrame = this.tempRect;
-        destinationFrame.width = state8.sourceFrame.width;
-        destinationFrame.height = state8.sourceFrame.height;
-        state8.renderTexture.filterFrame = state8.sourceFrame;
-        renderer.renderTexture.bind(state8.renderTexture, state8.sourceFrame, destinationFrame);
+        destinationFrame.width = state9.sourceFrame.width;
+        destinationFrame.height = state9.sourceFrame.height;
+        state9.renderTexture.filterFrame = state9.sourceFrame;
+        renderer.renderTexture.bind(state9.renderTexture, state9.sourceFrame, destinationFrame);
         renderer.renderTexture.clear();
       };
       FilterSystem2.prototype.pop = function() {
         var filterStack = this.defaultFilterStack;
-        var state8 = filterStack.pop();
-        var filters = state8.filters;
-        this.activeState = state8;
+        var state9 = filterStack.pop();
+        var filters = state9.filters;
+        this.activeState = state9;
         var globalUniforms = this.globalUniforms.uniforms;
-        globalUniforms.outputFrame = state8.sourceFrame;
-        globalUniforms.resolution = state8.resolution;
+        globalUniforms.outputFrame = state9.sourceFrame;
+        globalUniforms.resolution = state9.resolution;
         var inputSize = globalUniforms.inputSize;
         var inputPixel = globalUniforms.inputPixel;
         var inputClamp = globalUniforms.inputClamp;
-        inputSize[0] = state8.destinationFrame.width;
-        inputSize[1] = state8.destinationFrame.height;
+        inputSize[0] = state9.destinationFrame.width;
+        inputSize[1] = state9.destinationFrame.height;
         inputSize[2] = 1 / inputSize[0];
         inputSize[3] = 1 / inputSize[1];
-        inputPixel[0] = inputSize[0] * state8.resolution;
-        inputPixel[1] = inputSize[1] * state8.resolution;
+        inputPixel[0] = inputSize[0] * state9.resolution;
+        inputPixel[1] = inputSize[1] * state9.resolution;
         inputPixel[2] = 1 / inputPixel[0];
         inputPixel[3] = 1 / inputPixel[1];
         inputClamp[0] = 0.5 * inputPixel[2];
         inputClamp[1] = 0.5 * inputPixel[3];
-        inputClamp[2] = state8.sourceFrame.width * inputSize[2] - 0.5 * inputPixel[2];
-        inputClamp[3] = state8.sourceFrame.height * inputSize[3] - 0.5 * inputPixel[3];
-        if (state8.legacy) {
+        inputClamp[2] = state9.sourceFrame.width * inputSize[2] - 0.5 * inputPixel[2];
+        inputClamp[3] = state9.sourceFrame.height * inputSize[3] - 0.5 * inputPixel[3];
+        if (state9.legacy) {
           var filterArea = globalUniforms.filterArea;
-          filterArea[0] = state8.destinationFrame.width;
-          filterArea[1] = state8.destinationFrame.height;
-          filterArea[2] = state8.sourceFrame.x;
-          filterArea[3] = state8.sourceFrame.y;
+          filterArea[0] = state9.destinationFrame.width;
+          filterArea[1] = state9.destinationFrame.height;
+          filterArea[2] = state9.sourceFrame.x;
+          filterArea[3] = state9.sourceFrame.y;
           globalUniforms.filterClamp = globalUniforms.inputClamp;
         }
         this.globalUniforms.update();
         var lastState = filterStack[filterStack.length - 1];
-        if (state8.renderTexture.framebuffer.multisample > 1) {
+        if (state9.renderTexture.framebuffer.multisample > 1) {
           this.renderer.framebuffer.blit();
         }
         if (filters.length === 1) {
-          filters[0].apply(this, state8.renderTexture, lastState.renderTexture, constants.CLEAR_MODES.BLEND, state8);
-          this.returnFilterTexture(state8.renderTexture);
+          filters[0].apply(this, state9.renderTexture, lastState.renderTexture, constants.CLEAR_MODES.BLEND, state9);
+          this.returnFilterTexture(state9.renderTexture);
         } else {
-          var flip = state8.renderTexture;
-          var flop = this.getOptimalFilterTexture(flip.width, flip.height, state8.resolution);
+          var flip = state9.renderTexture;
+          var flop = this.getOptimalFilterTexture(flip.width, flip.height, state9.resolution);
           flop.filterFrame = flip.filterFrame;
           var i2 = 0;
           for (i2 = 0; i2 < filters.length - 1; ++i2) {
-            filters[i2].apply(this, flip, flop, constants.CLEAR_MODES.CLEAR, state8);
+            filters[i2].apply(this, flip, flop, constants.CLEAR_MODES.CLEAR, state9);
             var t2 = flip;
             flip = flop;
             flop = t2;
           }
-          filters[i2].apply(this, flip, lastState.renderTexture, constants.CLEAR_MODES.BLEND, state8);
+          filters[i2].apply(this, flip, lastState.renderTexture, constants.CLEAR_MODES.BLEND, state9);
           this.returnFilterTexture(flip);
           this.returnFilterTexture(flop);
         }
-        state8.clear();
-        this.statePool.push(state8);
+        state9.clear();
+        this.statePool.push(state9);
       };
       FilterSystem2.prototype.bindAndClear = function(filterTexture, clearMode) {
         if (clearMode === void 0) {
@@ -12407,7 +12407,7 @@
       };
       ContextSystem2.prototype.createContext = function(canvas, options) {
         var gl;
-        if (settings7.settings.PREFER_ENV >= constants.ENV.WEBGL2) {
+        if (settings8.settings.PREFER_ENV >= constants.ENV.WEBGL2) {
           gl = canvas.getContext("webgl2", options);
         }
         if (gl) {
@@ -12513,7 +12513,7 @@
         if (this.renderer.context.webGLVersion === 1) {
           var nativeDrawBuffersExtension_1 = this.renderer.context.extensions.drawBuffers;
           var nativeDepthTextureExtension = this.renderer.context.extensions.depthTexture;
-          if (settings7.settings.PREFER_ENV === constants.ENV.WEBGL_LEGACY) {
+          if (settings8.settings.PREFER_ENV === constants.ENV.WEBGL_LEGACY) {
             nativeDrawBuffersExtension_1 = null;
             nativeDepthTextureExtension = null;
           }
@@ -12807,7 +12807,7 @@
         this.CONTEXT_UID = this.renderer.CONTEXT_UID;
         if (!gl.createVertexArray) {
           var nativeVaoExtension_1 = this.renderer.context.extensions.vertexArrayObject;
-          if (settings7.settings.PREFER_ENV === constants.ENV.WEBGL_LEGACY) {
+          if (settings8.settings.PREFER_ENV === constants.ENV.WEBGL_LEGACY) {
             nativeVaoExtension_1 = null;
           }
           if (nativeVaoExtension_1) {
@@ -13251,7 +13251,7 @@
       if (context === unknownContext || context && context.isContextLost()) {
         var canvas = document.createElement("canvas");
         var gl = void 0;
-        if (settings7.settings.PREFER_ENV >= constants.ENV.WEBGL2) {
+        if (settings8.settings.PREFER_ENV >= constants.ENV.WEBGL2) {
           gl = canvas.getContext("webgl2", {});
         }
         if (!gl) {
@@ -13550,8 +13550,8 @@
           }
           this.vertexSrc = "#define SHADER_NAME " + name5 + "\n" + this.vertexSrc;
           this.fragmentSrc = "#define SHADER_NAME " + name5 + "\n" + this.fragmentSrc;
-          this.vertexSrc = setPrecision(this.vertexSrc, settings7.settings.PRECISION_VERTEX, constants.PRECISION.HIGH);
-          this.fragmentSrc = setPrecision(this.fragmentSrc, settings7.settings.PRECISION_FRAGMENT, getMaxFragmentPrecision());
+          this.vertexSrc = setPrecision(this.vertexSrc, settings8.settings.PRECISION_VERTEX, constants.PRECISION.HIGH);
+          this.fragmentSrc = setPrecision(this.fragmentSrc, settings8.settings.PRECISION_FRAGMENT, getMaxFragmentPrecision());
         }
         this.extractData(this.vertexSrc, this.fragmentSrc);
         this.glPrograms = {};
@@ -13777,10 +13777,10 @@
         configurable: true
       });
       State3.for2d = function() {
-        var state8 = new State3();
-        state8.depthTest = false;
-        state8.blend = true;
-        return state8;
+        var state9 = new State3();
+        state9.depthTest = false;
+        state9.blend = true;
+        return state9;
       };
       return State3;
     }();
@@ -13793,7 +13793,7 @@
         var program = Program.from(vertexSrc || Filter2.defaultVertexSrc, fragmentSrc || Filter2.defaultFragmentSrc);
         _this = _super.call(this, program, uniforms) || this;
         _this.padding = 0;
-        _this.resolution = settings7.settings.FILTER_RESOLUTION;
+        _this.resolution = settings8.settings.FILTER_RESOLUTION;
         _this.enabled = true;
         _this.autoFit = true;
         _this.legacy = !!_this.program.attributeData.aTextureCoord;
@@ -14506,33 +14506,33 @@
         this.set(this.defaultState);
         this.reset();
       };
-      StateSystem2.prototype.set = function(state8) {
-        state8 = state8 || this.defaultState;
-        if (this.stateId !== state8.data) {
-          var diff = this.stateId ^ state8.data;
+      StateSystem2.prototype.set = function(state9) {
+        state9 = state9 || this.defaultState;
+        if (this.stateId !== state9.data) {
+          var diff = this.stateId ^ state9.data;
           var i2 = 0;
           while (diff) {
             if (diff & 1) {
-              this.map[i2].call(this, !!(state8.data & 1 << i2));
+              this.map[i2].call(this, !!(state9.data & 1 << i2));
             }
             diff = diff >> 1;
             i2++;
           }
-          this.stateId = state8.data;
+          this.stateId = state9.data;
         }
         for (var i2 = 0; i2 < this.checks.length; i2++) {
-          this.checks[i2](this, state8);
+          this.checks[i2](this, state9);
         }
       };
-      StateSystem2.prototype.forceState = function(state8) {
-        state8 = state8 || this.defaultState;
+      StateSystem2.prototype.forceState = function(state9) {
+        state9 = state9 || this.defaultState;
         for (var i2 = 0; i2 < this.map.length; i2++) {
-          this.map[i2].call(this, !!(state8.data & 1 << i2));
+          this.map[i2].call(this, !!(state9.data & 1 << i2));
         }
         for (var i2 = 0; i2 < this.checks.length; i2++) {
-          this.checks[i2](this, state8);
+          this.checks[i2](this, state9);
         }
-        this.stateId = state8.data;
+        this.stateId = state9.data;
       };
       StateSystem2.prototype.setBlend = function(value) {
         this.updateCheck(StateSystem2.checkBlendMode, value);
@@ -14589,11 +14589,11 @@
           this.checks.splice(index2, 1);
         }
       };
-      StateSystem2.checkBlendMode = function(system, state8) {
-        system.setBlendMode(state8.blendMode);
+      StateSystem2.checkBlendMode = function(system, state9) {
+        system.setBlendMode(state9.blendMode);
       };
-      StateSystem2.checkPolygonOffset = function(system, state8) {
-        system.setPolygonOffset(1, state8.polygonOffset);
+      StateSystem2.checkPolygonOffset = function(system, state9) {
+        system.setPolygonOffset(1, state9.polygonOffset);
       };
       return StateSystem2;
     }(System);
@@ -14603,9 +14603,9 @@
         var _this = _super.call(this, renderer) || this;
         _this.count = 0;
         _this.checkCount = 0;
-        _this.maxIdle = settings7.settings.GC_MAX_IDLE;
-        _this.checkCountMax = settings7.settings.GC_MAX_CHECK_COUNT;
-        _this.mode = settings7.settings.GC_MODE;
+        _this.maxIdle = settings8.settings.GC_MAX_IDLE;
+        _this.checkCountMax = settings8.settings.GC_MAX_CHECK_COUNT;
+        _this.mode = settings8.settings.GC_MODE;
         return _this;
       }
       TextureGCSystem2.prototype.postrender = function() {
@@ -14904,16 +14904,16 @@
           type = constants.RENDERER_TYPE.UNKNOWN;
         }
         var _this = _super.call(this) || this;
-        options = Object.assign({}, settings7.settings.RENDER_OPTIONS, options);
+        options = Object.assign({}, settings8.settings.RENDER_OPTIONS, options);
         if (options.roundPixels) {
-          settings7.settings.ROUND_PIXELS = options.roundPixels;
+          settings8.settings.ROUND_PIXELS = options.roundPixels;
           utils2.deprecation("5.0.0", "Renderer roundPixels option is deprecated, please use PIXI.settings.ROUND_PIXELS", 2);
         }
         _this.options = options;
         _this.type = type;
         _this.screen = new math.Rectangle(0, 0, options.width, options.height);
         _this.view = options.view || document.createElement("canvas");
-        _this.resolution = options.resolution || settings7.settings.RESOLUTION;
+        _this.resolution = options.resolution || settings8.settings.RESOLUTION;
         _this.transparent = options.transparent;
         _this.autoDensity = options.autoDensity || options.autoResize || false;
         _this.preserveDrawingBuffer = options.preserveDrawingBuffer;
@@ -15247,7 +15247,7 @@
         _this.geometryClass = null;
         _this.vertexSize = null;
         _this.state = State2.for2d();
-        _this.size = settings7.settings.SPRITE_BATCH_SIZE * 4;
+        _this.size = settings8.settings.SPRITE_BATCH_SIZE * 4;
         _this._vertexCount = 0;
         _this._indexCount = 0;
         _this._bufferedElements = [];
@@ -15272,10 +15272,10 @@
       }
       AbstractBatchRenderer2.prototype.contextChange = function() {
         var gl = this.renderer.gl;
-        if (settings7.settings.PREFER_ENV === constants.ENV.WEBGL_LEGACY) {
+        if (settings8.settings.PREFER_ENV === constants.ENV.WEBGL_LEGACY) {
           this.MAX_TEXTURES = 1;
         } else {
-          this.MAX_TEXTURES = Math.min(gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS), settings7.settings.SPRITE_MAX_TEXTURES);
+          this.MAX_TEXTURES = Math.min(gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS), settings8.settings.SPRITE_MAX_TEXTURES);
           this.MAX_TEXTURES = checkMaxIfStatementsInShader(this.MAX_TEXTURES, gl);
         }
         this._shader = this.shaderGenerator.generateShader(this.MAX_TEXTURES);
@@ -15396,7 +15396,7 @@
       };
       AbstractBatchRenderer2.prototype.updateGeometry = function() {
         var _a = this, packedGeometries = _a._packedGeometries, attributeBuffer = _a._attributeBuffer, indexBuffer = _a._indexBuffer;
-        if (!settings7.settings.CAN_UPLOAD_SAME_BUFFER) {
+        if (!settings8.settings.CAN_UPLOAD_SAME_BUFFER) {
           if (this._packedGeometryPoolSize <= this._flushId) {
             this._packedGeometryPoolSize++;
             packedGeometries[this._flushId] = new this.geometryClass();
@@ -15447,7 +15447,7 @@
       AbstractBatchRenderer2.prototype.start = function() {
         this.renderer.state.set(this.state);
         this.renderer.shader.bind(this._shader);
-        if (settings7.settings.CAN_UPLOAD_SAME_BUFFER) {
+        if (settings8.settings.CAN_UPLOAD_SAME_BUFFER) {
           this.renderer.geometry.bind(this._packedGeometries[this._flushId]);
         }
       };
@@ -19651,7 +19651,7 @@
     var core2 = require_core();
     var display = require_display();
     var math = require_math();
-    var settings7 = require_settings();
+    var settings8 = require_settings();
     var utils2 = require_utils();
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -19712,7 +19712,7 @@
         _this.indices = indices;
         _this.pluginName = "batch";
         _this.isSprite = true;
-        _this._roundPixels = settings7.settings.ROUND_PIXELS;
+        _this._roundPixels = settings8.settings.ROUND_PIXELS;
         return _this;
       }
       Sprite8.prototype._onTextureUpdate = function() {
@@ -19775,7 +19775,7 @@
         vertexData[6] = a2 * w1 + c2 * h0 + tx;
         vertexData[7] = d2 * h0 + b2 * w1 + ty;
         if (this._roundPixels) {
-          var resolution = settings7.settings.RESOLUTION;
+          var resolution = settings8.settings.RESOLUTION;
           for (var i2 = 0; i2 < vertexData.length; ++i2) {
             vertexData[i2] = Math.round((vertexData[i2] * resolution | 0) / resolution);
           }
@@ -19976,7 +19976,7 @@
     Object.defineProperty(exports, "__esModule", {value: true});
     var sprite = require_sprite();
     var core2 = require_core();
-    var settings7 = require_settings();
+    var settings8 = require_settings();
     var math = require_math();
     var utils2 = require_utils();
     /*! *****************************************************************************
@@ -20868,7 +20868,7 @@
         _this._ownCanvas = ownCanvas;
         _this.canvas = canvas2;
         _this.context = _this.canvas.getContext("2d");
-        _this._resolution = settings7.settings.RESOLUTION;
+        _this._resolution = settings8.settings.RESOLUTION;
         _this._autoResolution = true;
         _this._text = null;
         _this._style = null;
@@ -21189,13 +21189,13 @@
      */
     "use strict";
     Object.defineProperty(exports, "__esModule", {value: true});
-    var settings7 = require_settings();
+    var settings8 = require_settings();
     var core2 = require_core();
     var graphics = require_graphics();
     var ticker2 = require_ticker();
     var display = require_display();
     var text4 = require_text();
-    settings7.settings.UPLOADS_PER_FRAME = 4;
+    settings8.settings.UPLOADS_PER_FRAME = 4;
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
     Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -21320,7 +21320,7 @@
     var BasePrepare = function() {
       function BasePrepare2(renderer) {
         var _this = this;
-        this.limiter = new CountLimiter(settings7.settings.UPLOADS_PER_FRAME);
+        this.limiter = new CountLimiter(settings8.settings.UPLOADS_PER_FRAME);
         this.renderer = renderer;
         this.uploadHookHelper = null;
         this.queue = [];
@@ -21950,7 +21950,7 @@
     var math = require_math();
     var constants = require_constants();
     var display = require_display();
-    var settings7 = require_settings();
+    var settings8 = require_settings();
     var utils2 = require_utils();
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -22013,7 +22013,7 @@
     var tempPolygon = new math.Polygon();
     var Mesh = function(_super) {
       __extends(Mesh2, _super);
-      function Mesh2(geometry, shader, state8, drawMode) {
+      function Mesh2(geometry, shader, state9, drawMode) {
         if (drawMode === void 0) {
           drawMode = constants.DRAW_MODES.TRIANGLES;
         }
@@ -22021,7 +22021,7 @@
         _this.geometry = geometry;
         geometry.refCount++;
         _this.shader = shader;
-        _this.state = state8 || core2.State.for2d();
+        _this.state = state9 || core2.State.for2d();
         _this.drawMode = drawMode;
         _this.start = 0;
         _this.size = 0;
@@ -22032,7 +22032,7 @@
         _this._transformID = -1;
         _this.tint = 16777215;
         _this.blendMode = constants.BLEND_MODES.NORMAL;
-        _this._roundPixels = settings7.settings.ROUND_PIXELS;
+        _this._roundPixels = settings8.settings.ROUND_PIXELS;
         _this.batchUvs = null;
         return _this;
       }
@@ -22165,7 +22165,7 @@
           vertexData[i2 * 2 + 1] = b2 * x2 + d2 * y2 + ty;
         }
         if (this._roundPixels) {
-          var resolution = settings7.settings.RESOLUTION;
+          var resolution = settings8.settings.RESOLUTION;
           for (var i2 = 0; i2 < vertexData.length; ++i2) {
             vertexData[i2] = Math.round((vertexData[i2] * resolution | 0) / resolution);
           }
@@ -22351,7 +22351,7 @@
     "use strict";
     Object.defineProperty(exports, "__esModule", {value: true});
     var math = require_math();
-    var settings7 = require_settings();
+    var settings8 = require_settings();
     var mesh = require_mesh();
     var utils2 = require_utils();
     var core2 = require_core();
@@ -22888,7 +22888,7 @@
         _this._anchor = new math.ObservablePoint(function() {
           _this.dirty = true;
         }, _this, 0, 0);
-        _this.roundPixels = settings7.settings.ROUND_PIXELS;
+        _this.roundPixels = settings8.settings.ROUND_PIXELS;
         _this.dirty = true;
         return _this;
       }
@@ -23460,7 +23460,7 @@
     "use strict";
     Object.defineProperty(exports, "__esModule", {value: true});
     var core2 = require_core();
-    var settings7 = require_settings();
+    var settings8 = require_settings();
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
     Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -23718,7 +23718,7 @@
           quality = 4;
         }
         if (resolution === void 0) {
-          resolution = settings7.settings.RESOLUTION;
+          resolution = settings8.settings.RESOLUTION;
         }
         if (kernelSize === void 0) {
           kernelSize = 5;
@@ -23807,7 +23807,7 @@
           quality = 4;
         }
         if (resolution === void 0) {
-          resolution = settings7.settings.RESOLUTION;
+          resolution = settings8.settings.RESOLUTION;
         }
         if (kernelSize === void 0) {
           kernelSize = 5;
@@ -24950,7 +24950,7 @@ void main() {
     var display = require_display();
     var math = require_math();
     var utils2 = require_utils();
-    var settings7 = require_settings();
+    var settings8 = require_settings();
     var _tempMatrix = new math.Matrix();
     display.DisplayObject.prototype._cacheAsBitmap = false;
     display.DisplayObject.prototype._cacheData = null;
@@ -25037,7 +25037,7 @@ void main() {
         var padding4 = this.filters[0].padding;
         bounds.pad(padding4);
       }
-      bounds.ceil(settings7.settings.RESOLUTION);
+      bounds.ceil(settings8.settings.RESOLUTION);
       var cachedRenderTexture = renderer.renderTexture.current;
       var cachedSourceFrame = renderer.renderTexture.sourceFrame.clone();
       var cachedProjectionTransform = renderer.projection.transform;
@@ -25091,7 +25091,7 @@ void main() {
       this.alpha = 1;
       var cachedRenderTarget = renderer.context;
       var cachedProjectionTransform = renderer._projTransform;
-      bounds.ceil(settings7.settings.RESOLUTION);
+      bounds.ceil(settings8.settings.RESOLUTION);
       var renderTexture = core2.RenderTexture.create({width: bounds.width, height: bounds.height});
       var textureCacheId = "cacheAsBitmap_" + utils2.uid();
       this._cacheData.textureCacheId = textureCacheId;
@@ -26006,7 +26006,7 @@ void main() {
     var sprite = require_sprite();
     var spriteAnimated = require_sprite_animated();
     var text4 = require_text();
-    var settings7 = require_settings();
+    var settings8 = require_settings();
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
     Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -26864,11 +26864,11 @@ void main() {
         }
       });
     });
-    Object.keys(settings7).forEach(function(key) {
+    Object.keys(settings8).forEach(function(key) {
       Object.defineProperty(exports, key, {
         enumerable: true,
         get: function() {
-          return settings7[key];
+          return settings8[key];
         }
       });
     });
@@ -27628,7 +27628,7 @@ void main() {
         return t2;
       }
       function impl(seed, opts) {
-        var xg = new Alea(seed), state8 = opts && opts.state, prng = xg.next;
+        var xg = new Alea(seed), state9 = opts && opts.state, prng = xg.next;
         prng.int32 = function() {
           return xg.next() * 4294967296 | 0;
         };
@@ -27636,9 +27636,9 @@ void main() {
           return prng() + (prng() * 2097152 | 0) * 11102230246251565e-32;
         };
         prng.quick = prng;
-        if (state8) {
-          if (typeof state8 == "object")
-            copy(state8, xg);
+        if (state9) {
+          if (typeof state9 == "object")
+            copy(state9, xg);
           prng.state = function() {
             return copy(xg, {});
           };
@@ -27709,7 +27709,7 @@ void main() {
         return t2;
       }
       function impl(seed, opts) {
-        var xg = new XorGen(seed), state8 = opts && opts.state, prng = function() {
+        var xg = new XorGen(seed), state9 = opts && opts.state, prng = function() {
           return (xg.next() >>> 0) / 4294967296;
         };
         prng.double = function() {
@@ -27720,9 +27720,9 @@ void main() {
         };
         prng.int32 = xg.next;
         prng.quick = prng;
-        if (state8) {
-          if (typeof state8 == "object")
-            copy(state8, xg);
+        if (state9) {
+          if (typeof state9 == "object")
+            copy(state9, xg);
           prng.state = function() {
             return copy(xg, {});
           };
@@ -27782,7 +27782,7 @@ void main() {
         return t2;
       }
       function impl(seed, opts) {
-        var xg = new XorGen(seed), state8 = opts && opts.state, prng = function() {
+        var xg = new XorGen(seed), state9 = opts && opts.state, prng = function() {
           return (xg.next() >>> 0) / 4294967296;
         };
         prng.double = function() {
@@ -27793,9 +27793,9 @@ void main() {
         };
         prng.int32 = xg.next;
         prng.quick = prng;
-        if (state8) {
-          if (typeof state8 == "object")
-            copy(state8, xg);
+        if (state9) {
+          if (typeof state9 == "object")
+            copy(state9, xg);
           prng.state = function() {
             return copy(xg, {});
           };
@@ -27871,7 +27871,7 @@ void main() {
       function impl(seed, opts) {
         if (seed == null)
           seed = +new Date();
-        var xg = new XorGen(seed), state8 = opts && opts.state, prng = function() {
+        var xg = new XorGen(seed), state9 = opts && opts.state, prng = function() {
           return (xg.next() >>> 0) / 4294967296;
         };
         prng.double = function() {
@@ -27882,9 +27882,9 @@ void main() {
         };
         prng.int32 = xg.next;
         prng.quick = prng;
-        if (state8) {
-          if (state8.x)
-            copy(state8, xg);
+        if (state9) {
+          if (state9.x)
+            copy(state9, xg);
           prng.state = function() {
             return copy(xg, {});
           };
@@ -27975,7 +27975,7 @@ void main() {
       function impl(seed, opts) {
         if (seed == null)
           seed = +new Date();
-        var xg = new XorGen(seed), state8 = opts && opts.state, prng = function() {
+        var xg = new XorGen(seed), state9 = opts && opts.state, prng = function() {
           return (xg.next() >>> 0) / 4294967296;
         };
         prng.double = function() {
@@ -27986,9 +27986,9 @@ void main() {
         };
         prng.int32 = xg.next;
         prng.quick = prng;
-        if (state8) {
-          if (state8.X)
-            copy(state8, xg);
+        if (state9) {
+          if (state9.X)
+            copy(state9, xg);
           prng.state = function() {
             return copy(xg, {});
           };
@@ -28047,7 +28047,7 @@ void main() {
       }
       ;
       function impl(seed, opts) {
-        var xg = new XorGen(seed), state8 = opts && opts.state, prng = function() {
+        var xg = new XorGen(seed), state9 = opts && opts.state, prng = function() {
           return (xg.next() >>> 0) / 4294967296;
         };
         prng.double = function() {
@@ -28058,9 +28058,9 @@ void main() {
         };
         prng.int32 = xg.next;
         prng.quick = prng;
-        if (state8) {
-          if (typeof state8 == "object")
-            copy(state8, xg);
+        if (state9) {
+          if (typeof state9 == "object")
+            copy(state9, xg);
           prng.state = function() {
             return copy(xg, {});
           };
@@ -28114,10 +28114,10 @@ void main() {
         };
         prng.double = prng;
         mixkey(tostring(arc4.S), pool);
-        return (options.pass || callback || function(prng2, seed2, is_math_call, state8) {
-          if (state8) {
-            if (state8.S) {
-              copy(state8, arc4);
+        return (options.pass || callback || function(prng2, seed2, is_math_call, state9) {
+          if (state9) {
+            if (state9.S) {
+              copy(state9, arc4);
             }
             prng2.state = function() {
               return copy(arc4, {});
@@ -28281,8 +28281,8 @@ void main() {
         }
       }, {
         key: "restore",
-        value: function restore(state8) {
-          this.generator = seedrandom[this.options.PRNG || "alea"]("", {state: state8});
+        value: function restore(state9) {
+          this.generator = seedrandom[this.options.PRNG || "alea"]("", {state: state9});
         }
       }, {
         key: "seedOld",
@@ -29429,6 +29429,7 @@ void main() {
   const clearStorage = release ? false : false;
   const state = release ? false : false;
   const shoot = release ? false : false;
+  const cheat = release ? false : false;
 
   // code/file.js
   class File {
@@ -30345,14 +30346,14 @@ void main() {
 
   // package.json
   var name2 = "moonshot";
-  var version = "0.1.16";
+  var version = "1.0.0";
   var description = "Game Off 2020 - Shoot the Moon (like literally)";
   var scripts = {
     serve: "node generate",
     solve: "cd solver && go build && solver",
     build: "node generate --production",
-    deploy: "node generate/version && npm run build && wsl.exe rsync -rvW --delete -e ssh public/* yopey@206.189.75.22:/home/yopey/prototypes/moonshot",
-    play: "node generate/version && npm run build && wsl.exe rsync -rvW --delete -e ssh public/* yopey@206.189.75.22:/home/yopey/play/moonshot",
+    deploy: "node generate/version && npm run build && wsl.exe rsync -rvW --delete -e ssh public/* sewcrates@67.207.92.70:/home/sewcrates/prototypes/moonshot",
+    play: "node generate/version && npm run build && wsl.exe rsync -rvW --delete -e ssh public/* sewcrates@67.207.92.70:/home/sewcrates/play/shoot-the-moon",
     colorblind: "node generate/colorblind",
     summary: "node generate/colorblind && node generate/summary"
   };
@@ -31980,7 +31981,7 @@ void main() {
     "Don\u2019t they teach you anything in those space schools?##Warping is what made these wonders possible. It was the bridge to the stars for humanity.",
     "Warping is like a series of well-planned highways.##They\u2019re fast but you still need to pass between adjacent exits to reach distant parts.",
     "And it\u2019s those adjacent exits where there can be trouble.##When there\u2019s trouble in one exit then the following exits become unreachable. And there\u2019s power in trouble.",
-    "Troubles created wars and wars created trouble. It\u2019s a cycle.##I think it\u2019s something innate in humans. They start the troubles so that they have something to fix.",
+    "Troubles created wars and wars created troubles. It\u2019s a cycle.##I think it\u2019s something innate in humans. They start the troubles so that they have something to fix.",
     "Yeah, you would think that weapons would grow more destructive during the wars.##But like most things, there\u2019s a limit.",
     "I mean, sure, I could destroy entire stars but what\u2019s the point?##And black holes would be fun to destroy but physics just won\u2019t let us.",
     "Now, black holes, those are energy generators. Harvesting energy from them was key to the early empires.",
@@ -32008,8 +32009,10 @@ void main() {
     "What results is not the utopia that General Xin dreamed about.##Instead, it\u2019s a steady governance where power and fear are meted out in proportions.",
     "There are well-governed systems, and disastrous ones. Our fleet does not interfere as much as I would like it to.##Our role is to maintain the peace between systems.",
     "I have been around for hundreds of millennia. And this was the most perfect system I can come up with.##It\u2019s a terrible system and people still suffer.",
-    "But like democracy, as terrible as this is, the alternative is much worse.##Now, enough jabbering. Keep pounding out those destruction sequences.",
-    "We will talk soon.##-Your talkative friend and employer, A.I. 34C1-98A."
+    "But like democracy, as terrible as this is, the alternative is much worse.##Now, enough jabbering. Keep pounding out those destruction sequences.##Your talkative friend and employer,# A.I. 34C1-98A."
+  ];
+  const endScreen = [
+    "Thank you for playing Shoot the Moon (like literally) developed for Github Game Off 2020!##To see the source code and check out my other games, please visit my website at: https://yopeyopey.com/##-David Figatner"
   ];
 
   // code/shoot/text.js
@@ -32034,6 +32037,11 @@ void main() {
       this.storyMode.background.tint = storyColor;
       this.storyMode.words = this.storyMode.addChild(new Words("", {shadow: true}));
       this.storyMode.visible = false;
+      this.website = this.dialog.addChild(new PIXI6.Container());
+      this.website.background = this.website.addChild(new PIXI6.Sprite(PIXI6.Texture.WHITE));
+      this.website.background.tint = storyColor;
+      this.website.words = this.website.addChild(new Words("", {shadow: true}));
+      this.website.visible = false;
       this.dialog.scale.set(scale);
       this.visible = false;
       this.alpha = 0;
@@ -32049,29 +32057,49 @@ void main() {
       b2.background.width = b2.words.width + padding * 2;
       b2.background.height = b2.words.height + padding;
       b2.words.position.set(b2.background.width / 2 - b2.words.width / 2, b2.background.height / 2 - b2.words.height / 2);
+      b2 = this.website;
+      b2.words.change("visit website");
+      b2.background.width = b2.words.width + padding * 2;
+      b2.background.height = b2.words.height + padding;
+      b2.words.position.set(b2.background.width / 2 - b2.words.width / 2, b2.background.height / 2 - b2.words.height / 2);
     }
     change(text4) {
       this.text.change(text4);
       this.text.wrap(view.width * 0.75 / scale);
       this.button.position.set(this.text.width - this.button.width, this.text.height + padding);
       this.storyMode.position.set(0, this.text.height + padding);
+      this.website.position.set(0, this.text.height + padding);
       this.box.clear();
       this.box.lineStyle(1, 16777215, 1, 1).beginFill(background).drawRect(-padding, -padding, this.text.width + padding * 2, this.text.height + padding * 3 + this.button.height).endFill();
       this.position.set(view.width / 2 - this.dialog.width / 2, view.height / 2 - this.dialog.height / 2);
     }
     down(point) {
+      if (this.website.visible && this.website.background.containsPoint(point)) {
+        sounds.play("beep");
+        window.open("https://yopeyopey.com/games/shoot-the-moon/", {target: "_blank"});
+        return;
+      }
       if (this.storyMode.visible && this.storyMode.background.containsPoint(point)) {
         file.noStory = true;
       }
       if (this.box.containsPoint(point)) {
-        sounds.play("beep");
-        this.hide();
-        this.callback();
+        if (this.website.visible) {
+          sounds.play("beep");
+          this.hide(() => {
+            this.website.visible = false;
+            state3.change("menu");
+          });
+          return true;
+        } else {
+          sounds.play("beep");
+          this.hide(() => this.callback());
+        }
       }
     }
     tutorial(callback, i2) {
       this.visible = true;
       this.storyMode.visible = false;
+      this.website.visible = false;
       this.change(tutorial[i2]);
       this.tutorialIndex = i2;
       this.callback = callback;
@@ -32079,6 +32107,7 @@ void main() {
     }
     story(callback) {
       this.visible = true;
+      this.website.visible = false;
       this.change(story[file.shootLevel]);
       this.storyMode.visible = file.shootLevel === 2;
       this.callback = callback;
@@ -32090,10 +32119,20 @@ void main() {
       this.alpha = 0;
       ease.add(this, {alpha: 1}, {duration: fadeTime, ease: "easeInOutSine"});
     }
-    hide() {
+    hide(callback) {
       ease.removeEase(this);
       const easing = ease.add(this, {alpha: 0}, {duration: fadeTime, ease: "easeInOutSine"});
-      easing.on("complete", () => this.visible = false);
+      easing.on("complete", () => {
+        this.visible = false;
+        callback();
+      });
+    }
+    endScreen() {
+      this.visible = true;
+      this.change(endScreen);
+      this.website.visible = true;
+      this.storyMode.visible = false;
+      this.show();
     }
   }
   const text = new Text();
@@ -32156,6 +32195,9 @@ void main() {
       }
     }
     approach() {
+      if (text.website.visible) {
+        return;
+      }
       this.scale.set(0);
       this.approaching = ease2.add(this, {scale: this.getScale()}, {duration: approachTime, ease: "easeOutSine"});
       this.approaching.on("complete", () => {
@@ -32230,7 +32272,7 @@ void main() {
         const list = [];
         found = false;
         for (const block of this.moon.children) {
-          if (!this.inList(block) && block.data.color === color) {
+          if (!this.inList(block) && (block.data.color === color || cheat)) {
             for (const detach of this.list) {
               if (Math.abs(block.data.x - detach.block.data.x) <= 1 && Math.abs(block.data.y - detach.block.data.y) <= 1) {
                 list.push({block, level});
@@ -32650,6 +32692,13 @@ void main() {
       ease2.removeEase(this.top);
       ease2.add(this.top, {y: -4}, {duration: uiDropTime / 2, ease: "easeInSine"});
     }
+    endScreen() {
+      stars.draw(0);
+      laser.reset();
+      back.change();
+      stars.warpIn(true);
+      text.endScreen();
+    }
   }
   const shoot3 = new Shoot();
 
@@ -32918,13 +32967,13 @@ void main() {
       }
       this.state = state || "menu";
     }
-    set state(state8) {
-      if (state8 !== this._state) {
+    set state(state9) {
+      if (state9 !== this._state) {
         if (this._state) {
           view.stage.removeChild(this.states[this.state]);
           this.states[this.state].reset();
         }
-        this._state = state8;
+        this._state = state9;
         view.stage.addChild(this.states[this.state]);
         this.states[this.state].change();
       }
@@ -32934,8 +32983,12 @@ void main() {
     }
     next() {
       if (this.state === "shoot") {
-        file.shootLevel++;
-        this.states[this.state].change(true);
+        if (file.shootLevel === story.length - 1) {
+          this.states[this.state].endScreen();
+        } else {
+          file.shootLevel++;
+          this.states[this.state].change(true);
+        }
       }
     }
     resize() {
@@ -32943,8 +32996,8 @@ void main() {
         this.states[key].resize();
       }
     }
-    change(state8) {
-      this.state = state8;
+    change(state9) {
+      this.state = state9;
     }
     down(point) {
       this.states[this.state].down(point);

@@ -129,6 +129,14 @@ class Shoot extends PIXI.Container {
         ease.removeEase(this.top)
         ease.add(this.top, { y: -4 }, { duration: settings.uiDropTime / 2, ease: 'easeInSine' })
     }
+
+    endScreen() {
+        stars.draw(0)
+        laser.reset()
+        back.change()
+        stars.warpIn(true)
+        text.endScreen()
+    }
 }
 
 export const shoot = new Shoot()

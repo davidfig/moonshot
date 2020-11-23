@@ -30,7 +30,7 @@ export const story = [
     'Don’t they teach you anything in those space schools?##Warping is what made these wonders possible. It was the bridge to the stars for humanity.',
     'Warping is like a series of well-planned highways.##They’re fast but you still need to pass between adjacent exits to reach distant parts.',
     'And it’s those adjacent exits where there can be trouble.##When there’s trouble in one exit then the following exits become unreachable. And there’s power in trouble.',
-    'Troubles created wars and wars created trouble. It’s a cycle.##I think it’s something innate in humans. They start the troubles so that they have something to fix.',
+    'Troubles created wars and wars created troubles. It’s a cycle.##I think it’s something innate in humans. They start the troubles so that they have something to fix.',
     'Yeah, you would think that weapons would grow more destructive during the wars.##But like most things, there’s a limit.',
     'I mean, sure, I could destroy entire stars but what’s the point?##And black holes would be fun to destroy but physics just won’t let us.',
     'Now, black holes, those are energy generators. Harvesting energy from them was key to the early empires.',
@@ -58,6 +58,9 @@ export const story = [
     'What results is not the utopia that General Xin dreamed about.##Instead, it’s a steady governance where power and fear are meted out in proportions.',
     'There are well-governed systems, and disastrous ones. Our fleet does not interfere as much as I would like it to.##Our role is to maintain the peace between systems.',
     'I have been around for hundreds of millennia. And this was the most perfect system I can come up with.##It’s a terrible system and people still suffer.',
-    'But like democracy, as terrible as this is, the alternative is much worse.##Now, enough jabbering. Keep pounding out those destruction sequences.',
-    'We will talk soon.##-Your talkative friend and employer, A.I. 34C1-98A.',
+    'But like democracy, as terrible as this is, the alternative is much worse.##Now, enough jabbering. Keep pounding out those destruction sequences.##Your talkative friend and employer,# A.I. 34C1-98A.',
+]
+
+export const endScreen = [
+    'Thank you for playing Shoot the Moon (like literally) developed for Github Game Off 2020!##To see the source code and check out my other games, please visit my website at: https://yopeyopey.com/##-David Figatner',
 ]
